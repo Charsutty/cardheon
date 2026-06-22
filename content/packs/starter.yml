@@ -1,0 +1,21 @@
+slug: starter
+status: draft
+packType: starter_pack
+rarity: common
+
+localization:
+  fr:
+    title: "Pack de départ"
+    description: "Les premières cartes-outils pour commencer à explorer Cardhéon."
+
+items:
+  - card: antiquity
+    guaranteed: true
+  - card: modern-era
+    guaranteed: true
+  - card: europe
+    guaranteed: true
+  - card: science
+    guaranteed: true
+  - card: power
+    guaranteed: true
