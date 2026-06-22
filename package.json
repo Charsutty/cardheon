@@ -1,0 +1,31 @@
+{
+  "name": "cardheon",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Cardhéon — jeu mobile éducatif de collection de cartes historiques.",
+  "scripts": {
+    "dev": "echo \"TODO: start development workspace\"",
+    "mobile": "pnpm --filter @cardheon/mobile start",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "simulate:discoveries": "tsx scripts/simulate-discoveries.ts",
+    "build:catalog": "tsx scripts/build-local-catalog.ts",
+    "typecheck": "echo \"TODO: run TypeScript typecheck\"",
+    "lint": "echo \"TODO: run lint\"",
+    "test": "echo \"TODO: run tests\""
+  },
+  "devDependencies": {
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "keywords": [
+    "expo",
+    "react-native",
+    "typescript",
+    "history",
+    "education",
+    "cards",
+    "game"
+  ],
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@9.0.0"
+}
