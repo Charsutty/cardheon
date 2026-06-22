@@ -12,6 +12,7 @@ Le projet vise une première version mobile construite avec **Expo + React Nativ
 
 Les documents importants sont dans [`docs/`](docs/README.md).
 
+- [`docs/00-product-reference.md`](docs/00-product-reference.md) — **référence canonique complète** du concept et de ses invariants.
 - [`docs/00-project-context.md`](docs/00-project-context.md) — contexte, vision et objectifs du jeu.
 - [`docs/01-product-design.md`](docs/01-product-design.md) — boucle de jeu, progression, packs, constellations et UI.
 - [`docs/02-technical-architecture.md`](docs/02-technical-architecture.md) — architecture monorepo, Expo, TypeScript, Supabase et offline-first.
@@ -97,13 +98,13 @@ pnpm test
 
 ## Statut
 
-Cardhéon est en phase de conception / préproduction.
+Cardhéon dispose d’une première boucle locale jouable et se trouve en phase de MVP local.
 
 Priorité actuelle :
 
-1. créer le monorepo ;
-2. définir les schémas de contenu ;
-3. construire le moteur de découverte ;
-4. créer 10 personnages test ;
-5. valider le gameplay local ;
-6. étendre vers 100 personnages.
+1. stabiliser l’Atelier, l’interface et l’onboarding ;
+2. élargir le catalogue de démonstration ;
+3. compléter les fiches détaillées et les constellations ;
+4. migrer la persistance vers SQLite ;
+5. renforcer les validations et simulations de contenu ;
+6. préparer ensuite la synchronisation Supabase.

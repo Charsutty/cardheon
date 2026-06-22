@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-    "test": "echo \"TODO: add game-engine tests\""
+    "test": "tsx --test src/*.test.ts"
   },
   "dependencies": {},
   "devDependencies": {}

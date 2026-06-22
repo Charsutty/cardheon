@@ -8,7 +8,21 @@ export type CardheonScreenProps = {
 
 export function CardheonScreen({ children, scroll = true }: CardheonScreenProps) {
   const content = (
-    <YStack minHeight="100%" backgroundColor="$background" padding="$5" paddingBottom={96} gap="$5">
+    <YStack
+      minHeight="100%"
+      width="100%"
+      maxWidth={460}
+      alignSelf="center"
+      backgroundColor="$background"
+      paddingHorizontal="$4"
+      paddingTop="$4"
+      paddingBottom={104}
+      gap="$4"
+      position="relative"
+      overflow="hidden"
+    >
+      <YStack position="absolute" width={260} height={260} borderRadius={130} borderWidth={1} borderColor="$border" opacity={0.28} right={-150} top={-120} />
+      <YStack position="absolute" width={180} height={180} borderRadius={90} borderWidth={1} borderColor="$border" opacity={0.18} left={-120} top={300} />
       {children}
     </YStack>
   )

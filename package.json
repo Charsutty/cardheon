@@ -4,17 +4,17 @@
   "version": "0.0.0",
   "description": "Cardhéon — jeu mobile éducatif de collection de cartes historiques.",
   "scripts": {
-    "dev": "pnpm mobile",
-    "mobile": "pnpm --filter @cardheon/mobile start",
-    "mobile:ios": "pnpm --filter @cardheon/mobile ios",
-    "mobile:android": "pnpm --filter @cardheon/mobile android",
-    "mobile:web": "pnpm --filter @cardheon/mobile web",
+    "dev": "corepack pnpm mobile",
+    "mobile": "corepack pnpm --filter @cardheon/mobile start",
+    "mobile:ios": "corepack pnpm --filter @cardheon/mobile ios",
+    "mobile:android": "corepack pnpm --filter @cardheon/mobile android",
+    "mobile:web": "corepack pnpm --filter @cardheon/mobile web",
     "validate:content": "tsx scripts/validate-content.ts",
     "simulate:discoveries": "tsx scripts/simulate-discoveries.ts",
     "build:catalog": "tsx scripts/build-local-catalog.ts",
-    "typecheck": "pnpm --filter @cardheon/ui typecheck && pnpm --filter @cardheon/mobile typecheck",
+    "typecheck": "corepack pnpm --filter @cardheon/ui typecheck && corepack pnpm --filter @cardheon/mobile typecheck",
     "lint": "echo \"TODO: run lint\"",
-    "test": "echo \"TODO: run tests\""
+    "test": "tsx --test packages/game-engine/src/*.test.ts"
   },
   "devDependencies": {
     "tsx": "latest",

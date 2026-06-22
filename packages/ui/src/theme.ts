@@ -2,21 +2,23 @@ import { createTamagui, createTokens } from 'tamagui'
 import { config as baseConfig } from '@tamagui/config/v3'
 
 export const cardheonColors = {
-  background: '#FBF6EA',
-  surface: '#FFFDF7',
+  background: '#F2EEE6',
+  paper: '#FBF8F1',
+  surface: '#FFFCF6',
   surfaceElevated: '#FFFFFF',
-  surfaceMuted: '#F6EBD7',
-  gold: '#C99A2E',
-  goldSoft: '#E7C66B',
-  goldDark: '#8B6218',
-  ink: '#2B2118',
-  muted: '#7C6A55',
-  border: '#E2C98F',
-  borderStrong: '#B98A29',
-  brown: '#5A3B1B',
-  locked: '#8F806B',
-  success: '#5E7C46',
-  danger: '#A24C3A',
+  surfaceMuted: '#F1E7D4',
+  gold: '#B98118',
+  goldSoft: '#E1BE73',
+  goldPale: '#F5E8C8',
+  goldDark: '#80540D',
+  ink: '#261C15',
+  muted: '#74675A',
+  border: '#DDCFB8',
+  borderStrong: '#C69538',
+  brown: '#563817',
+  locked: '#8B8377',
+  success: '#61764D',
+  danger: '#9B4B3D',
   white: '#FFFFFF',
 } as const
 
@@ -33,10 +35,10 @@ export const cardheonSpace = {
 } as const
 
 export const cardheonRadius = {
-  1: 8,
-  2: 12,
-  3: 16,
-  4: 22,
+  1: 7,
+  2: 11,
+  3: 15,
+  4: 20,
   5: 28,
   true: 16,
 } as const
@@ -69,10 +71,12 @@ export const cardheonThemes = {
   cardheon: {
     background: cardheonColors.background,
     color: cardheonColors.ink,
+    paper: cardheonColors.paper,
     surface: cardheonColors.surface,
     surfaceMuted: cardheonColors.surfaceMuted,
     gold: cardheonColors.gold,
     goldSoft: cardheonColors.goldSoft,
+    goldPale: cardheonColors.goldPale,
     goldDark: cardheonColors.goldDark,
     borderColor: cardheonColors.border,
     muted: cardheonColors.muted,

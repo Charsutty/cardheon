@@ -2,6 +2,17 @@
 
 Ce document résume les choix déjà faits pour que le projet reste compréhensible dans le temps.
 
+## Référence produit canonique
+
+Décision : utiliser [`00-product-reference.md`](00-product-reference.md) comme synthèse canonique du concept, des objectifs et des invariants.
+
+Raison :
+
+- permettre une reprise du projet sans contexte conversationnel ;
+- éviter que la vision soit dispersée entre le code et plusieurs documents ;
+- distinguer l’intention produit de l’état temporaire de l’implémentation ;
+- obliger toute évolution structurante à être documentée explicitement.
+
 ## Nom du projet
 
 Décision : utiliser **Cardhéon**.

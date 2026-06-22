@@ -11,12 +11,12 @@ export function CategoryPill({ label, active, onPress }: CategoryPillProps) {
     <XStack
       onPress={onPress}
       pressStyle={{ scale: 0.97 }}
-      borderRadius={999}
+      borderRadius="$1"
       borderWidth={1}
-      borderColor="$border"
-      backgroundColor={active ? '$surfaceMuted' : '$surface'}
+      borderColor={active ? '$borderStrong' : '$border'}
+      backgroundColor={active ? '$surface' : '$paper'}
       paddingHorizontal="$3"
-      height={30}
+      height={32}
       alignItems="center"
       justifyContent="center"
     >

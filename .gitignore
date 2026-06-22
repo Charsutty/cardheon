@@ -6,6 +6,8 @@ node_modules/
 .expo/
 dist/
 web-build/
+apps/mobile/dist-web/
+apps/mobile/.tamagui/
 expo-env.d.ts
 
 # build outputs
