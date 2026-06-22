@@ -24,15 +24,15 @@ export function BottomNavigation() {
       height={76}
       borderTopWidth={1}
       borderColor="$border"
-      backgroundColor="$surface"
+      backgroundColor="$paper"
       paddingHorizontal="$2"
       paddingTop="$2"
       paddingBottom="$2"
       justifyContent="space-around"
       zIndex={20}
       shadowColor="$ink"
-      shadowOpacity={0.08}
-      shadowRadius={12}
+      shadowOpacity={0.1}
+      shadowRadius={14}
     >
       {destinations.map(({ href, label, icon }) => {
         const active = href === '/' ? pathname === '/' : pathname.startsWith(href)
@@ -40,11 +40,12 @@ export function BottomNavigation() {
         return (
           <Link key={href} href={href} asChild>
             <YStack minWidth={56} alignItems="center" gap={3} paddingTop={2}>
-              <Text color={active ? '$gold' : '$muted'} fontSize={18} fontWeight="800">{icon}</Text>
+              <XStack width={active ? 28 : 24} height={active ? 28 : 24} borderRadius={999} backgroundColor={active ? '$goldPale' : 'transparent'} alignItems="center" justifyContent="center">
+                <Text color={active ? '$goldDark' : '$muted'} fontSize={17} fontWeight="800">{icon}</Text>
+              </XStack>
               <Text color={active ? '$goldDark' : '$muted'} fontSize={8} fontWeight="800" textTransform="uppercase">
                 {label}
               </Text>
-              <YStack width={active ? 18 : 0} height={2} borderRadius={999} backgroundColor="$gold" />
             </YStack>
           </Link>
         )
