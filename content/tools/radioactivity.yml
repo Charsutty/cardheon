@@ -1,0 +1,20 @@
+slug: radioactivity
+kind: concept
+rarity: rare
+status: draft
+
+localization:
+  fr:
+    title: "Radioactivité"
+    subtitle: "Phénomène physique"
+    shortDescription: "Indice majeur pour plusieurs figures scientifiques modernes."
+
+tags:
+  - domain.physics: 40
+  - domain.chemistry: 25
+  - period.modern: 20
+
+relationships:
+  - predicate: associated_with
+    target: marie-curie
+    weight: 55
