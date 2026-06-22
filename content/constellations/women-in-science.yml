@@ -1,0 +1,20 @@
+slug: women-in-science
+status: draft
+kind: domain_collection
+
+localization:
+  fr:
+    title: "Femmes de science"
+    description: "Une constellation dédiée aux femmes qui ont marqué l’histoire des sciences."
+
+nodes:
+  - card: marie-curie
+    required: true
+  - card: hypatia
+    required: true
+  - card: ada-lovelace
+    required: true
+  - card: rosalind-franklin
+    required: true
+  - card: katherine-johnson
+    required: true
