@@ -1,20 +1,18 @@
 import { Text, XStack, YStack } from 'tamagui'
-import type { CardRarity, CardSize, CardState, CardType } from '../types'
+import type { CardRarity, CardSize, CardState, CardType, DiscoveryCardModel } from '../types'
 
-export type DiscoveryCardProps = {
-  title: string
-  subtitle: string
-  type: CardType
-  state?: CardState
-  rarity?: CardRarity
+export type DiscoveryCardProps = Pick<
+  DiscoveryCardModel,
+  'title' | 'subtitle' | 'type' | 'state' | 'rarity' | 'artHint'
+> & {
   size?: CardSize
   onPress?: () => void
 }
 
 const sizeMap = {
-  compact: { width: 96, height: 136, artHeight: 72, title: 9, subtitle: 8 },
-  regular: { width: 112, height: 158, artHeight: 88, title: 10, subtitle: 9 },
-  large: { width: 146, height: 202, artHeight: 120, title: 12, subtitle: 10 },
+  compact: { width: 86, height: 126, artHeight: 78, title: 8, subtitle: 7, badge: 14 },
+  regular: { width: 104, height: 150, artHeight: 96, title: 9, subtitle: 8, badge: 16 },
+  large: { width: 154, height: 224, artHeight: 154, title: 14, subtitle: 11, badge: 22 },
 } as const
 
 const raritySymbol: Record<CardRarity, string> = {
@@ -25,8 +23,8 @@ const raritySymbol: Record<CardRarity, string> = {
 }
 
 const artPalette: Record<CardType, { background: string; accent: string; glyph: string }> = {
-  character: { background: '#D7B777', accent: '#60401C', glyph: '♙' },
-  concept: { background: '#D9C79B', accent: '#72561D', glyph: '✣' },
+  character: { background: '#CBA56C', accent: '#3F2714', glyph: '♙' },
+  concept: { background: '#D7C38F', accent: '#6E5017', glyph: '✣' },
   civilization: { background: '#C9D2C5', accent: '#6C4D1E', glyph: '△' },
   place: { background: '#C9D8D5', accent: '#4C665E', glyph: '⌖' },
   era: { background: '#D9C8B3', accent: '#6B5142', glyph: '◷' },
@@ -52,62 +50,73 @@ export function DiscoveryCard({
   return (
     <YStack
       onPress={onPress}
-      pressStyle={{ scale: 0.97, y: 1 }}
+      pressStyle={{ scale: 0.975, y: 1 }}
       width={s.width}
       height={s.height}
       borderRadius="$2"
       borderWidth={selected ? 2 : 1}
       borderColor={selected ? '$gold' : fresh ? '$borderStrong' : '$border'}
       backgroundColor="$surface"
-      padding={5}
-      gap={5}
+      padding={4}
+      gap={4}
       alignItems="center"
       justifyContent="space-between"
       shadowColor="$ink"
-      shadowOpacity={selected ? 0.16 : 0.09}
-      shadowRadius={selected ? 10 : 5}
-      shadowOffset={{ width: 0, height: 3 }}
+      shadowOpacity={selected ? 0.18 : 0.11}
+      shadowRadius={selected ? 12 : 6}
+      shadowOffset={{ width: 0, height: 4 }}
       overflow="hidden"
     >
+      <YStack position="absolute" left={3} top={3} width={11} height={11} borderLeftWidth={1} borderTopWidth={1} borderColor="$gold" opacity={0.75} />
+      <YStack position="absolute" right={3} top={3} width={11} height={11} borderRightWidth={1} borderTopWidth={1} borderColor="$gold" opacity={0.75} />
+      <YStack position="absolute" left={3} bottom={3} width={11} height={11} borderLeftWidth={1} borderBottomWidth={1} borderColor="$gold" opacity={0.75} />
+      <YStack position="absolute" right={3} bottom={3} width={11} height={11} borderRightWidth={1} borderBottomWidth={1} borderColor="$gold" opacity={0.75} />
+
       <YStack
         width="100%"
         height={s.artHeight}
         borderRadius="$1"
         borderWidth={1}
-        borderColor={locked ? '$locked' : '$border'}
-        backgroundColor={locked ? '#777268' : palette.background}
-        opacity={locked ? 0.7 : 1}
+        borderColor={locked ? '$locked' : '$borderStrong'}
+        backgroundColor={locked ? '#767064' : palette.background}
+        opacity={locked ? 0.72 : 1}
         alignItems="center"
         justifyContent="center"
         overflow="hidden"
       >
-        <YStack position="absolute" width={s.artHeight * 0.9} height={s.artHeight * 0.9} borderRadius={999} borderWidth={1} borderColor={locked ? '#A49D91' : palette.accent} opacity={0.28} />
-        <YStack position="absolute" width={s.artHeight * 0.62} height={s.artHeight * 0.62} borderRadius={999} backgroundColor={locked ? '#5F5B54' : '#F8EDD5'} opacity={0.72} />
+        <YStack position="absolute" left={-18} top={-18} width={s.artHeight * 0.9} height={s.artHeight * 0.9} borderRadius={999} backgroundColor="#FFF4DA" opacity={0.25} />
+        <YStack position="absolute" right={-16} bottom={-16} width={s.artHeight * 0.82} height={s.artHeight * 0.82} borderRadius={999} borderWidth={1} borderColor={locked ? '#A49D91' : palette.accent} opacity={0.25} />
+        <YStack width={s.artHeight * 0.6} height={s.artHeight * 0.6} borderRadius={999} backgroundColor={locked ? '#5F5B54' : '#F8EDD5'} opacity={0.82} alignItems="center" justifyContent="center">
+          <Text color={locked ? '#D6D0C5' : palette.accent} fontSize={size === 'large' ? 48 : 32} fontFamily="$heading" fontWeight="700">
+            {locked ? '?' : type === 'character' ? initial : palette.glyph}
+          </Text>
+        </YStack>
+
+        {!locked && type === 'character' ? (
+          <Text position="absolute" bottom={4} color={palette.accent} opacity={0.72} fontSize={11}>{palette.glyph}</Text>
+        ) : null}
+
         {fresh ? (
           <XStack position="absolute" right={5} top={5} backgroundColor="$gold" borderRadius={999} paddingHorizontal={6} paddingVertical={2} zIndex={2}>
-            <Text color="$white" fontSize={7} fontWeight="800">NOUVEAU</Text>
+            <Text color="$white" fontSize={7} fontWeight="800">NEW</Text>
           </XStack>
         ) : null}
-        <Text color={locked ? '#D6D0C5' : palette.accent} fontSize={size === 'large' ? 47 : 34} fontFamily="$heading" fontWeight="700">
-          {locked ? '?' : type === 'character' ? initial : palette.glyph}
-        </Text>
-        {!locked && type === 'character' ? (
-          <Text position="absolute" bottom={4} color={palette.accent} opacity={0.7} fontSize={11}>{palette.glyph}</Text>
+
+        {rarity !== 'common' && !locked ? (
+          <XStack position="absolute" right={5} bottom={5} width={s.badge} height={s.badge} borderRadius={999} backgroundColor="$goldPale" borderColor="$gold" borderWidth={1} alignItems="center" justifyContent="center">
+            <Text color="$goldDark" fontSize={s.badge * 0.52} fontWeight="900">{raritySymbol[rarity]}</Text>
+          </XStack>
         ) : null}
       </YStack>
 
-      <YStack alignItems="center" gap={1} width="100%" paddingHorizontal={2}>
+      <YStack alignItems="center" gap={1} width="100%" paddingHorizontal={2} paddingBottom={2}>
         <Text color="$ink" fontSize={s.title} fontFamily="$heading" fontWeight="700" textAlign="center" numberOfLines={2}>
-          {locked ? '????' : title.toUpperCase()}
+          {locked ? '??????' : title.toUpperCase()}
         </Text>
         <Text color="$muted" fontSize={s.subtitle} textAlign="center" numberOfLines={1}>
           {locked ? 'À découvrir' : subtitle}
         </Text>
       </YStack>
-
-      <Text color={rarity === 'common' ? '$muted' : '$goldDark'} fontSize={9} fontWeight="900">
-        {raritySymbol[rarity]}
-      </Text>
     </YStack>
   )
 }
