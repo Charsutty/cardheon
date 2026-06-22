@@ -5,6 +5,19 @@
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tamagui/config": "latest",
+    "tamagui": "latest"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "typescript": "latest"
+  }
 }
