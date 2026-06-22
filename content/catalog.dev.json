@@ -1,0 +1,270 @@
+{
+  "version": "0.1.0-dev",
+  "cards": [
+    {
+      "id": "period.ancient-egypt",
+      "slug": "egypte-ancienne",
+      "kind": "period",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "Égypte ancienne", "subtitle": "Antiquité égyptienne" } },
+      "tags": [
+        { "tag": "period.antiquity", "weight": 100 },
+        { "tag": "civilization.ancient-egypt", "weight": 100 }
+      ]
+    },
+    {
+      "id": "period.20th-century",
+      "slug": "xxe-siecle",
+      "kind": "period",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "XXe siècle" } },
+      "tags": [{ "tag": "period.20th-century", "weight": 100 }]
+    },
+    {
+      "id": "place.france",
+      "slug": "france",
+      "kind": "place",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "France" } },
+      "tags": [{ "tag": "place.france", "weight": 100 }]
+    },
+    {
+      "id": "place.alexandria",
+      "slug": "alexandrie",
+      "kind": "place",
+      "rarity": "uncommon",
+      "status": "published",
+      "localization": { "fr": { "title": "Alexandrie" } },
+      "tags": [{ "tag": "place.alexandria", "weight": 100 }]
+    },
+    {
+      "id": "role.queen",
+      "slug": "reine",
+      "kind": "role",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "Reine" } },
+      "tags": [
+        { "tag": "role.ruler", "weight": 100 },
+        { "tag": "concept.power", "weight": 80 }
+      ]
+    },
+    {
+      "id": "domain.physics",
+      "slug": "physique",
+      "kind": "domain",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "Physique" } },
+      "tags": [
+        { "tag": "domain.physics", "weight": 100 },
+        { "tag": "domain.science", "weight": 70 }
+      ]
+    },
+    {
+      "id": "domain.mathematics",
+      "slug": "mathematiques",
+      "kind": "domain",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "Mathématiques" } },
+      "tags": [{ "tag": "domain.mathematics", "weight": 100 }]
+    },
+    {
+      "id": "concept.radioactivity",
+      "slug": "radioactivite",
+      "kind": "concept",
+      "rarity": "rare",
+      "status": "published",
+      "localization": { "fr": { "title": "Radioactivité" } },
+      "tags": [
+        { "tag": "concept.radioactivity", "weight": 100 },
+        { "tag": "domain.physics", "weight": 70 }
+      ]
+    },
+    {
+      "id": "concept.female-figure",
+      "slug": "femme",
+      "kind": "concept",
+      "rarity": "common",
+      "status": "published",
+      "localization": { "fr": { "title": "Femme" } },
+      "tags": [{ "tag": "concept.women-history", "weight": 100 }]
+    },
+    {
+      "id": "figure.marie-curie",
+      "slug": "marie-curie",
+      "kind": "figure",
+      "rarity": "legendary",
+      "status": "reviewed",
+      "localization": {
+        "fr": {
+          "title": "Marie Curie",
+          "subtitle": "Physicienne et chimiste",
+          "shortDescription": "Pionnière de la radioactivité, figure majeure de la science moderne."
+        }
+      },
+      "tags": [
+        { "tag": "domain.physics", "weight": 95 },
+        { "tag": "concept.radioactivity", "weight": 100 },
+        { "tag": "place.france", "weight": 75 },
+        { "tag": "period.20th-century", "weight": 80 },
+        { "tag": "concept.women-history", "weight": 80 }
+      ],
+      "sourceIds": ["source.britannica.marie-curie"],
+      "constellationIds": ["constellation.women-in-science", "constellation.radioactivity"],
+      "discovery": {
+        "figureId": "figure.marie-curie",
+        "minScore": 85,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          { "card": "concept.radioactivity", "weight": 55, "reason": "Radioactivité" },
+          { "tag": "domain.physics", "weight": 25, "reason": "Physique" },
+          { "tag": "place.france", "weight": 18, "reason": "France" },
+          { "tag": "period.20th-century", "weight": 12, "reason": "XXe siècle" },
+          { "tag": "concept.women-history", "weight": 14, "reason": "Femme scientifique" }
+        ],
+        "synergies": [
+          { "id": "radioactivity-france", "whenAll": ["card:concept.radioactivity", "card:place.france"], "weight": 15, "reason": "Radioactivité + France" }
+        ],
+        "contradictions": [
+          { "id": "ancient-egypt-radioactivity", "whenAll": ["card:period.ancient-egypt", "card:concept.radioactivity"], "weight": -30, "reason": "La radioactivité moderne contredit l’Égypte ancienne." }
+        ]
+      }
+    },
+    {
+      "id": "figure.hypatia",
+      "slug": "hypatie",
+      "kind": "figure",
+      "rarity": "epic",
+      "status": "reviewed",
+      "localization": {
+        "fr": {
+          "title": "Hypatie",
+          "subtitle": "Philosophe et mathématicienne d’Alexandrie",
+          "shortDescription": "Figure savante de l’Alexandrie antique."
+        }
+      },
+      "tags": [
+        { "tag": "period.antiquity", "weight": 90 },
+        { "tag": "place.alexandria", "weight": 100 },
+        { "tag": "domain.mathematics", "weight": 90 },
+        { "tag": "concept.women-history", "weight": 70 }
+      ],
+      "sourceIds": ["source.britannica.hypatia"],
+      "constellationIds": ["constellation.women-in-science"],
+      "discovery": {
+        "figureId": "figure.hypatia",
+        "minScore": 82,
+        "ambiguityMargin": 10,
+        "minEvidenceCount": 2,
+        "evidence": [
+          { "card": "place.alexandria", "weight": 40, "reason": "Alexandrie" },
+          { "tag": "domain.mathematics", "weight": 30, "reason": "Mathématiques" },
+          { "tag": "period.antiquity", "weight": 25, "reason": "Antiquité" },
+          { "tag": "concept.women-history", "weight": 16, "reason": "Femme de savoir" }
+        ],
+        "synergies": [
+          { "id": "alexandria-math-antiquity", "whenAll": ["card:place.alexandria", "tag:domain.mathematics", "tag:period.antiquity"], "weight": 18, "reason": "Alexandrie antique + mathématiques" }
+        ],
+        "contradictions": []
+      }
+    },
+    {
+      "id": "figure.cleopatra",
+      "slug": "cleopatre",
+      "kind": "figure",
+      "rarity": "legendary",
+      "status": "reviewed",
+      "localization": {
+        "fr": {
+          "title": "Cléopâtre VII",
+          "subtitle": "Reine d’Égypte",
+          "shortDescription": "Dernière souveraine active du royaume ptolémaïque d’Égypte."
+        }
+      },
+      "tags": [
+        { "tag": "period.antiquity", "weight": 95 },
+        { "tag": "civilization.ancient-egypt", "weight": 100 },
+        { "tag": "role.ruler", "weight": 90 },
+        { "tag": "concept.women-history", "weight": 70 }
+      ],
+      "sourceIds": ["source.britannica.cleopatra"],
+      "constellationIds": ["constellation.rulers"],
+      "discovery": {
+        "figureId": "figure.cleopatra",
+        "minScore": 84,
+        "ambiguityMargin": 10,
+        "minEvidenceCount": 2,
+        "evidence": [
+          { "card": "period.ancient-egypt", "weight": 35, "reason": "Égypte ancienne" },
+          { "tag": "role.ruler", "weight": 30, "reason": "Pouvoir royal" },
+          { "tag": "civilization.ancient-egypt", "weight": 30, "reason": "Civilisation égyptienne" },
+          { "tag": "concept.women-history", "weight": 15, "reason": "Femme historique" }
+        ],
+        "synergies": [
+          { "id": "egypt-queen-woman", "whenAll": ["card:period.ancient-egypt", "card:role.queen", "card:concept.female-figure"], "weight": 18, "reason": "Égypte ancienne + reine + femme" }
+        ],
+        "contradictions": [
+          { "id": "modern-science", "whenAll": ["card:period.20th-century", "card:domain.physics"], "weight": -25, "reason": "La science moderne éloigne de Cléopâtre." }
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    { "source": "figure.marie-curie", "predicate": "associated_with", "target": "concept.radioactivity", "weight": 55, "sourceIds": ["source.britannica.marie-curie"] },
+    { "source": "figure.hypatia", "predicate": "active_in", "target": "place.alexandria", "weight": 40, "sourceIds": ["source.britannica.hypatia"] },
+    { "source": "figure.cleopatra", "predicate": "ruled", "target": "period.ancient-egypt", "weight": 45, "sourceIds": ["source.britannica.cleopatra"] }
+  ],
+  "constellations": [
+    {
+      "id": "constellation.women-in-science",
+      "slug": "femmes-de-science",
+      "localization": { "fr": { "title": "Femmes de science" } },
+      "cardIds": ["figure.marie-curie", "figure.hypatia"],
+      "reward": { "xp": 120 }
+    },
+    {
+      "id": "constellation.radioactivity",
+      "slug": "radioactivite",
+      "localization": { "fr": { "title": "Radioactivité" } },
+      "cardIds": ["figure.marie-curie"],
+      "reward": { "xp": 80 }
+    },
+    {
+      "id": "constellation.rulers",
+      "slug": "souveraines-et-souverains",
+      "localization": { "fr": { "title": "Souveraines et souverains" } },
+      "cardIds": ["figure.cleopatra"],
+      "reward": { "xp": 80 }
+    }
+  ],
+  "packs": [
+    {
+      "id": "pack.starter",
+      "slug": "depart",
+      "localization": { "fr": { "title": "Pack de départ" } },
+      "starterCardIds": [
+        "period.ancient-egypt",
+        "period.20th-century",
+        "place.france",
+        "place.alexandria",
+        "role.queen",
+        "domain.physics",
+        "domain.mathematics",
+        "concept.radioactivity",
+        "concept.female-figure"
+      ],
+      "cardPoolIds": ["figure.marie-curie", "figure.hypatia", "figure.cleopatra"]
+    }
+  ],
+  "sources": [
+    { "id": "source.britannica.marie-curie", "title": "Encyclopaedia Britannica — Marie Curie", "type": "encyclopedia", "url": "https://www.britannica.com/biography/Marie-Curie" },
+    { "id": "source.britannica.hypatia", "title": "Encyclopaedia Britannica — Hypatia", "type": "encyclopedia", "url": "https://www.britannica.com/biography/Hypatia" },
+    { "id": "source.britannica.cleopatra", "title": "Encyclopaedia Britannica — Cleopatra", "type": "encyclopedia", "url": "https://www.britannica.com/biography/Cleopatra-queen-of-Egypt" }
+  ]
+}
