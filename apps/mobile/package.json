@@ -7,8 +7,28 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@cardheon/ui": "workspace:*",
+    "@tamagui/babel-plugin": "latest",
+    "@tamagui/config": "latest",
+    "expo": "latest",
+    "expo-router": "latest",
+    "expo-status-bar": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-native": "latest",
+    "react-native-gesture-handler": "latest",
+    "react-native-reanimated": "latest",
+    "react-native-safe-area-context": "latest",
+    "react-native-screens": "latest",
+    "react-native-web": "latest",
+    "tamagui": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "typescript": "latest"
+  }
 }
