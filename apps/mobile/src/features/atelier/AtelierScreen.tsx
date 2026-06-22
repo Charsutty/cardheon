@@ -1,6 +1,6 @@
 import { CardheonHeader, CardheonScreen, CollectionProgressPanel } from '@cardheon/ui'
 import { useRouter } from 'expo-router'
-import { ScreenHeading } from '../../components/layout/ScreenHeading'
+import { Text, YStack } from 'tamagui'
 import { getCompletion } from '../../game/progress'
 import { useGame } from '../../state/GameProvider'
 import { AtelierActions } from './components/AtelierActions'
@@ -23,11 +23,14 @@ export function AtelierScreen() {
     <CardheonScreen>
       <CardheonHeader coins={xp} />
       <CollectionProgressPanel {...completion} />
-      <ScreenHeading
-        eyebrow="Atelier de découverte"
-        title="Fais parler l’Histoire"
-        description="Assemble de 2 à 5 indices. Une combinaison précise révèle une figure de ta collection."
-      />
+
+      <YStack gap="$1" alignItems="center">
+        <Text color="$ink" fontFamily="$heading" fontSize={17} fontWeight="700" letterSpacing={1}>ATELIER</Text>
+        <Text color="$muted" fontSize={11} textAlign="center">
+          Combine les cartes pour reveler une figure historique.
+        </Text>
+      </YStack>
+
       <ClueGrid cards={atelier.cards} selectedIds={atelier.selectedIds} onToggle={atelier.toggleCard} />
       <AtelierActions
         selectionCount={atelier.selectedIds.length}
@@ -35,6 +38,7 @@ export function AtelierScreen() {
         onAttempt={handleAttempt}
         onClear={atelier.clearSelection}
       />
+
       {atelier.result ? <DiscoveryResultPanel result={atelier.result} /> : null}
     </CardheonScreen>
   )
