@@ -1,0 +1,47 @@
+slug: marie-curie
+kind: figure
+rarity: legendary
+status: draft
+
+localization:
+  fr:
+    title: "Marie Curie"
+    subtitle: "Physicienne et chimiste"
+    shortDescription: "Pionnière de la radioactivité, figure majeure de la science moderne."
+
+profile:
+  birthYear: 1867
+  deathYear: 1934
+  displayLifetime: "1867 – 1934"
+
+tags:
+  - domain.science: 30
+  - domain.physics: 40
+  - domain.chemistry: 35
+  - concept.radioactivity: 55
+  - place.poland: 20
+  - place.france: 20
+  - award.nobel: 25
+
+relationships:
+  - predicate: collaborated_with
+    target: pierre-curie
+    weight: 35
+  - predicate: associated_with
+    target: radioactivity
+    weight: 55
+
+discovery:
+  minScore: 85
+  ambiguityMargin: 10
+  evidence:
+    - tag: concept.radioactivity
+      weight: 50
+    - tag: domain.physics
+      weight: 25
+    - card: pierre-curie
+      weight: 35
+
+constellations:
+  - women-in-science
+  - radioactivity
