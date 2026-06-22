@@ -26,6 +26,7 @@ export function toDiscoveryCard(card: Card): DiscoveryCardModel {
     subtitle: getFrenchSubtitle(card),
     type: toCardType(card),
     rarity: toCardRarity(card.rarity),
+    artHint: toArtHint(card),
   }
 }
 
@@ -49,6 +50,14 @@ function toCardType(card: Card): CardType {
     default:
       return 'concept'
   }
+}
+
+function toArtHint(card: Card): DiscoveryCardModel['artHint'] {
+  if (card.kind === 'figure' || card.kind === 'role') return 'portrait'
+  if (card.kind === 'civilization' || card.kind === 'place' || card.kind === 'region') return 'monument'
+  if (card.kind === 'domain' || card.kind === 'concept') return 'science'
+  if (card.kind === 'period') return 'manuscript'
+  return 'map'
 }
 
 function toCardRarity(rarity: Card['rarity']): CardRarity {
