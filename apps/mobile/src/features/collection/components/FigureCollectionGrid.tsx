@@ -17,10 +17,11 @@ const lockedCards: DiscoveryCardModel[] = [
 ]
 
 export function FigureCollectionGrid({ discoveredCardIds }: FigureCollectionGridProps) {
-  const visibleCards = [
-    ...figureCards.map((card) => ({ ...toDiscoveryCard(card), state: discoveredCardIds.includes(card.id) ? 'default' : 'locked' })),
-    ...lockedCards,
-  ] satisfies DiscoveryCardModel[]
+  const discoveredFigures: DiscoveryCardModel[] = figureCards.map((card) => ({
+    ...toDiscoveryCard(card),
+    state: discoveredCardIds.includes(card.id) ? 'default' : 'locked',
+  }))
+  const visibleCards: DiscoveryCardModel[] = [...discoveredFigures, ...lockedCards]
 
   return (
     <CardGrid>
