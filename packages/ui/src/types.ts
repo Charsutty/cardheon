@@ -14,6 +14,8 @@ export type DiscoveryCardModel = {
   state?: CardState
   rarity?: CardRarity
   progressLabel?: string
+  imageUri?: string
+  artHint?: 'portrait' | 'monument' | 'science' | 'manuscript' | 'map' | 'locked'
 }
 
 export type QuestModel = {
