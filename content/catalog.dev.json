@@ -1,5 +1,15 @@
 {
-  "version": "0.1.0-dev",
+  "version": "0.1.1-dev",
+  "gameplay": {
+    "discovery": {
+      "minInputs": 2,
+      "maxInputs": 5
+    },
+    "progression": {
+      "xpPerLevel": 2000,
+      "initialLevel": 1
+    }
+  },
   "cards": [
     {
       "id": "period.ancient-egypt",

@@ -1,5 +1,3 @@
-import { figureCards } from './catalog'
-
 export type GameProgress = {
   discoveredCardIds: string[]
   xp: number
@@ -13,14 +11,14 @@ export const initialProgress: GameProgress = {
   attempts: 0,
 }
 
-export function getCompletion(discoveredCardIds: string[]) {
+export function getCompletion(discoveredCardIds: string[], totalFigures: number) {
   return {
     discovered: discoveredCardIds.length,
-    total: figureCards.length,
+    total: totalFigures,
   }
 }
 
-export function getCompletionPercentage(discoveredCardIds: string[]) {
-  const { discovered, total } = getCompletion(discoveredCardIds)
+export function getCompletionPercentage(discoveredCardIds: string[], totalFigures: number) {
+  const { discovered, total } = getCompletion(discoveredCardIds, totalFigures)
   return total === 0 ? 0 : Math.round((discovered / total) * 100)
 }

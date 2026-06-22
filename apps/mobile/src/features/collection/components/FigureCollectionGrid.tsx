@@ -1,32 +1,24 @@
 import { DiscoveryCard } from '@cardheon/ui'
 import type { DiscoveryCardModel } from '@cardheon/ui'
 import { CardGrid } from '../../../components/layout/CardGrid'
-import { figureCards, toDiscoveryCard } from '../../../game/catalog'
+import { toDiscoveryCard } from '../../../game/catalog'
+import { useGame } from '../../../state/GameProvider'
 
 type FigureCollectionGridProps = {
   discoveredCardIds: string[]
 }
 
-const lockedCards: DiscoveryCardModel[] = [
-  { id: 'locked-1', title: '??????', subtitle: 'A decouvrir', type: 'character', state: 'locked' },
-  { id: 'locked-2', title: '??????', subtitle: 'A decouvrir', type: 'character', state: 'locked' },
-  { id: 'locked-3', title: '??????', subtitle: 'A decouvrir', type: 'civilization', state: 'locked' },
-  { id: 'locked-4', title: '??????', subtitle: 'A decouvrir', type: 'concept', state: 'locked' },
-  { id: 'locked-5', title: '??????', subtitle: 'A decouvrir', type: 'place', state: 'locked' },
-  { id: 'locked-6', title: '??????', subtitle: 'A decouvrir', type: 'era', state: 'locked' },
-]
-
 export function FigureCollectionGrid({ discoveredCardIds }: FigureCollectionGridProps) {
-  const discoveredFigures: DiscoveryCardModel[] = figureCards.map((card) => ({
+  const { figureCards } = useGame()
+  const visibleCards: DiscoveryCardModel[] = figureCards.map((card) => ({
     ...toDiscoveryCard(card),
     state: discoveredCardIds.includes(card.id) ? 'default' : 'locked',
   }))
-  const visibleCards: DiscoveryCardModel[] = [...discoveredFigures, ...lockedCards]
 
   return (
     <CardGrid>
       {visibleCards.map((card) => (
-        <DiscoveryCard key={card.id} {...card} />
+        <DiscoveryCard key={card.id} {...card} size="compact" />
       ))}
     </CardGrid>
   )

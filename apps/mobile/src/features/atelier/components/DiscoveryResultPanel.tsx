@@ -1,13 +1,14 @@
 import type { DiscoveryResult } from '@cardheon/game-engine'
 import { Text, YStack } from 'tamagui'
-import { getCard } from '../../../game/catalog'
+import { useGame } from '../../../state/GameProvider'
 
 type DiscoveryResultPanelProps = {
   result: DiscoveryResult
 }
 
 export function DiscoveryResultPanel({ result }: DiscoveryResultPanelProps) {
-  const content = getResultContent(result)
+  const { getCard } = useGame()
+  const content = getResultContent(result, getCard)
 
   return (
     <YStack borderRadius="$3" borderWidth={1} borderColor="$border" backgroundColor="$surface" padding="$4" gap="$2">
@@ -17,7 +18,10 @@ export function DiscoveryResultPanel({ result }: DiscoveryResultPanelProps) {
   )
 }
 
-function getResultContent(result: DiscoveryResult) {
+function getResultContent(
+  result: DiscoveryResult,
+  getCard: ReturnType<typeof useGame>['getCard'],
+) {
   switch (result.type) {
     case 'invalid':
       return { title: 'Tentative impossible', message: result.reason }

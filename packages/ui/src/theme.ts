@@ -1,4 +1,4 @@
-import { createTamagui, createTokens } from 'tamagui'
+import { createFont, createTamagui, createTokens } from 'tamagui'
 import { config as baseConfig } from '@tamagui/config/v3'
 
 export const cardheonColors = {
@@ -66,6 +66,55 @@ const tokens = createTokens({
   },
 })
 
+const bodyFont = createFont({
+  family: 'System',
+  size: {
+    1: 10,
+    2: 11,
+    3: 12,
+    4: 13,
+    5: 14,
+    6: 16,
+    7: 18,
+    8: 20,
+    9: 24,
+    10: 28,
+  },
+  lineHeight: {
+    1: 13,
+    2: 14,
+    3: 16,
+    4: 18,
+    5: 20,
+    6: 22,
+    7: 24,
+    8: 27,
+    9: 31,
+    10: 36,
+  },
+  weight: {
+    4: '400',
+    5: '500',
+    6: '600',
+    7: '700',
+    8: '800',
+    9: '900',
+  },
+  letterSpacing: {
+    4: 0,
+    7: -0.1,
+    9: -0.3,
+  },
+})
+
+const headingFont = createFont({
+  family: 'Georgia',
+  size: bodyFont.size,
+  lineHeight: bodyFont.lineHeight,
+  weight: bodyFont.weight,
+  letterSpacing: bodyFont.letterSpacing,
+})
+
 export const cardheonThemes = {
   ...baseConfig.themes,
   cardheon: {
@@ -87,6 +136,11 @@ export const cardheonConfig = createTamagui({
   ...baseConfig,
   tokens,
   themes: cardheonThemes,
+  fonts: {
+    ...baseConfig.fonts,
+    body: bodyFont,
+    heading: headingFont,
+  },
 })
 
 export type CardheonConfig = typeof cardheonConfig

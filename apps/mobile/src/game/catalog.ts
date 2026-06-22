@@ -2,14 +2,7 @@ import type { Card, GameCatalog } from '@cardheon/game-engine'
 import type { CardRarity, CardType, DiscoveryCardModel } from '@cardheon/ui'
 import catalogJson from '../../../../content/catalog.dev.json'
 
-export const catalog = catalogJson as GameCatalog
-
-export const playableCards = catalog.cards.filter((card) => card.kind !== 'figure')
-export const figureCards = catalog.cards.filter((card) => card.kind === 'figure')
-
-export function getCard(cardId: string): Card | undefined {
-  return catalog.cards.find((card) => card.id === cardId)
-}
+export const bundledCatalog = catalogJson as GameCatalog
 
 export function getFrenchTitle(card: Card): string {
   return card.localization.fr?.title ?? card.slug

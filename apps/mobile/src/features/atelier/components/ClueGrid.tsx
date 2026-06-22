@@ -5,12 +5,15 @@ import { ScrollView, Text, XStack, YStack } from 'tamagui'
 type ClueGridProps = {
   cards: DiscoveryCardModel[]
   selectedIds: string[]
+  maxSelection?: number
   onToggle: (cardId: string) => void
 }
 
-export function ClueGrid({ cards, selectedIds, onToggle }: ClueGridProps) {
-  const selected = cards.filter((card) => selectedIds.includes(card.id))
-  const heroCards = selected.length > 0 ? selected.slice(0, 2) : cards.slice(0, 2)
+export function ClueGrid({ cards, selectedIds, maxSelection = 5, onToggle }: ClueGridProps) {
+  const selected = selectedIds
+    .map((id) => cards.find((card) => card.id === id))
+    .filter((card): card is DiscoveryCardModel => Boolean(card))
+  const slots = Array.from({ length: maxSelection }, (_, index) => selected[index])
 
   return (
     <YStack gap="$4">
@@ -20,24 +23,26 @@ export function ClueGrid({ cards, selectedIds, onToggle }: ClueGridProps) {
           <Text color="$muted" fontSize={10}>{selected.length} indice{selected.length > 1 ? 's' : ''}</Text>
         </XStack>
 
-        <XStack minHeight={172} alignItems="center" justifyContent="center" gap="$3">
-          {heroCards[0] ? (
-            <DiscoveryCard {...heroCards[0]} size="regular" state={selectedIds.includes(heroCards[0].id) ? 'selected' : 'default'} onPress={() => onToggle(heroCards[0].id)} />
-          ) : null}
-
-          <XStack width={36} height={36} borderRadius={18} backgroundColor="$gold" alignItems="center" justifyContent="center" shadowColor="$goldDark" shadowOpacity={0.2} shadowRadius={8}>
-            <Text color="$white" fontSize={24} fontWeight="900">+</Text>
-          </XStack>
-
-          {heroCards[1] ? (
-            <DiscoveryCard {...heroCards[1]} size="regular" state={selectedIds.includes(heroCards[1].id) ? 'selected' : 'default'} onPress={() => onToggle(heroCards[1].id)} />
-          ) : (
-            <YStack width={104} height={150} borderRadius="$2" borderWidth={1} borderColor="$borderStrong" alignItems="center" justifyContent="center" backgroundColor="$surface">
-              <Text color="$gold" fontSize={24}>+</Text>
-              <Text color="$muted" fontSize={9}>Indice</Text>
-            </YStack>
-          )}
+        <XStack minHeight={106} alignItems="center" justifyContent="center" flexWrap="wrap" gap="$2">
+          {slots.map((card, index) => (
+            <XStack key={card?.id ?? `empty-${index}`} alignItems="center">
+              {card ? (
+                <DiscoveryCard
+                  {...card}
+                  size="mini"
+                  state="selected"
+                  onPress={() => onToggle(card.id)}
+                />
+              ) : (
+                <EmptyClueSlot index={index} />
+              )}
+            </XStack>
+          ))}
         </XStack>
+
+        <Text color="$muted" fontSize={9} lineHeight={13} textAlign="center">
+          Appuie sur une carte sélectionnée pour la retirer.
+        </Text>
       </YStack>
 
       <YStack gap="$3">
@@ -59,6 +64,27 @@ export function ClueGrid({ cards, selectedIds, onToggle }: ClueGridProps) {
           </XStack>
         </ScrollView>
       </YStack>
+    </YStack>
+  )
+}
+
+function EmptyClueSlot({ index }: { index: number }) {
+  return (
+    <YStack
+      width={58}
+      height={96}
+      borderRadius="$2"
+      borderWidth={1}
+      borderStyle="dashed"
+      borderColor="$border"
+      backgroundColor="$surface"
+      opacity={0.72}
+      alignItems="center"
+      justifyContent="center"
+      gap="$1"
+    >
+      <Text color="$gold" fontSize={19} lineHeight={22}>+</Text>
+      <Text color="$muted" fontSize={7} lineHeight={10}>INDICE {index + 1}</Text>
     </YStack>
   )
 }

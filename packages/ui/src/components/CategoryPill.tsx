@@ -16,11 +16,11 @@ export function CategoryPill({ label, active, onPress }: CategoryPillProps) {
       borderColor={active ? '$borderStrong' : '$border'}
       backgroundColor={active ? '$surface' : '$paper'}
       paddingHorizontal="$3"
-      height={32}
+      minHeight={34}
       alignItems="center"
       justifyContent="center"
     >
-      <Text color={active ? '$goldDark' : '$muted'} fontSize={9} fontWeight="800" letterSpacing={0.4}>
+      <Text color={active ? '$goldDark' : '$muted'} fontSize={9} lineHeight={12} fontWeight="800" letterSpacing={0.35} numberOfLines={1}>
         {label.toUpperCase()}
       </Text>
     </XStack>

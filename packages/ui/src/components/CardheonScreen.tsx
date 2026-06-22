@@ -11,13 +11,13 @@ export function CardheonScreen({ children, scroll = true }: CardheonScreenProps)
     <YStack
       minHeight="100%"
       width="100%"
-      maxWidth={460}
+      maxWidth={430}
       alignSelf="center"
       backgroundColor="$background"
-      paddingHorizontal="$4"
-      paddingTop="$4"
-      paddingBottom={104}
-      gap="$4"
+      paddingHorizontal="$3"
+      paddingTop="$3"
+      paddingBottom={96}
+      gap="$3"
       position="relative"
       overflow="hidden"
     >

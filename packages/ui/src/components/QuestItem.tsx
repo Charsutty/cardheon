@@ -20,6 +20,7 @@ export function QuestItem({ title, description, current, target, reward }: Quest
       padding="$3"
       gap="$3"
       alignItems="center"
+      minHeight={96}
       shadowColor="$ink"
       shadowOpacity={0.05}
       shadowRadius={6}
@@ -29,12 +30,14 @@ export function QuestItem({ title, description, current, target, reward }: Quest
         <Text color="$goldDark" fontSize={18} fontWeight="900">✦</Text>
       </XStack>
 
-      <YStack flex={1} gap="$2">
+      <YStack flex={1} gap="$2" minWidth={0}>
         <XStack alignItems="center" justifyContent="space-between">
-          <Text color="$ink" fontFamily="$heading" fontSize={12} fontWeight="700">{title.toUpperCase()}</Text>
+          <Text color="$ink" fontFamily="$heading" fontSize={11} lineHeight={15} fontWeight="700" flex={1} paddingRight="$2" numberOfLines={1}>
+            {title.toUpperCase()}
+          </Text>
           <Text color="$goldDark" fontSize={10} fontWeight="800">● {reward}</Text>
         </XStack>
-        <Text color="$muted" fontSize={10}>{description}</Text>
+        <Text color="$muted" fontSize={10} lineHeight={15} numberOfLines={2}>{description}</Text>
         <XStack alignItems="center" gap="$3">
           <YStack flex={1} height={5} borderRadius={999} backgroundColor="$surfaceMuted" overflow="hidden">
             <YStack width={`${progress * 100}%`} height="100%" backgroundColor="$gold" />

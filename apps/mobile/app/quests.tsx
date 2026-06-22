@@ -1,11 +1,20 @@
 import { CardheonHeader, CardheonScreen, CategoryPill, QuestItem } from '@cardheon/ui'
 import { XStack, YStack } from 'tamagui'
 import { ScreenHeading } from '../src/components/layout/ScreenHeading'
-import { quests } from '../src/data/mockCards'
 import { useGame } from '../src/state/GameProvider'
 
 export default function QuestsScreen() {
-  const { xp } = useGame()
+  const { catalog, discoveredCardIds, xp } = useGame()
+  const discovered = new Set(discoveredCardIds)
+  const quests = catalog.constellations.map((constellation) => ({
+    id: constellation.id,
+    title: constellation.localization.fr?.title ?? constellation.slug,
+    description: constellation.localization.fr?.subtitle
+      ?? `Découvrir les cartes de cette constellation`,
+    current: constellation.cardIds.filter((cardId) => discovered.has(cardId)).length,
+    target: constellation.cardIds.length,
+    reward: constellation.reward?.xp ?? 0,
+  }))
 
   return (
     <CardheonScreen>

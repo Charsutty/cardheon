@@ -12,11 +12,11 @@ export function CardheonHeader({
   coins = 142,
 }: CardheonHeaderProps) {
   return (
-    <XStack alignItems="center" justifyContent="space-between" paddingTop="$1">
+    <XStack alignItems="center" justifyContent="space-between" minHeight={54}>
       <XStack
-        width={42}
-        height={42}
-        borderRadius={21}
+        width={40}
+        height={40}
+        borderRadius={20}
         borderWidth={1}
         borderColor="$borderStrong"
         backgroundColor="$surfaceMuted"
@@ -26,21 +26,21 @@ export function CardheonHeader({
         <Text color="$goldDark" fontSize={17} fontWeight="800">✦</Text>
       </XStack>
 
-      <YStack alignItems="center" gap={1}>
-        <Text color="$goldDark" fontFamily="$heading" fontSize={27} fontWeight="700" letterSpacing={-0.6}>
+      <YStack alignItems="center" gap={2} flex={1} paddingHorizontal="$2">
+        <Text color="$goldDark" fontFamily="$heading" fontSize={25} lineHeight={28} fontWeight="700" letterSpacing={-0.5}>
           {title}
         </Text>
         <XStack alignItems="center" gap="$2">
           <YStack width={22} height={1} backgroundColor="$borderStrong" />
-          <Text color="$goldDark" fontSize={8} fontWeight="700" letterSpacing={1.5}>{subtitle}</Text>
+          <Text color="$goldDark" fontSize={7} lineHeight={10} fontWeight="700" letterSpacing={1.2} numberOfLines={1}>{subtitle}</Text>
           <YStack width={22} height={1} backgroundColor="$borderStrong" />
         </XStack>
       </YStack>
 
       <XStack
-        minWidth={52}
-        height={38}
-        borderRadius={19}
+        minWidth={50}
+        height={36}
+        borderRadius={18}
         borderWidth={1}
         borderColor="$border"
         backgroundColor="$surface"

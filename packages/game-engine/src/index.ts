@@ -103,6 +103,16 @@ export type GameCatalog = {
   constellations: Constellation[];
   packs: Pack[];
   sources: Source[];
+  gameplay: {
+    discovery: {
+      minInputs: number;
+      maxInputs: number;
+    };
+    progression: {
+      xpPerLevel: number;
+      initialLevel: number;
+    };
+  };
 };
 
 export type UserGameState = {

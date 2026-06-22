@@ -7,7 +7,7 @@ type CardGridProps = {
 
 export function CardGrid({ children }: CardGridProps) {
   return (
-    <XStack flexWrap="wrap" gap="$3" justifyContent="space-between">
+    <XStack flexWrap="wrap" columnGap="$2" rowGap="$3" justifyContent="space-around">
       {children}
     </XStack>
   )

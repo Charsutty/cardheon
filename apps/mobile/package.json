@@ -19,6 +19,7 @@
     "@tamagui/core": "^2.3.2",
     "expo": "latest",
     "expo-router": "^56.2.11",
+    "expo-sqlite": "^56.0.5",
     "expo-status-bar": "^56.0.4",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",

@@ -13,9 +13,9 @@ const menuItems = [
 ]
 
 export function ProfileScreen() {
-  const { attempts, discoveredCardIds, resetProgress, xp } = useGame()
-  const completion = getCompletion(discoveredCardIds)
-  const percentage = getCompletionPercentage(discoveredCardIds)
+  const { attempts, catalog, discoveredCardIds, figureCards, resetProgress, xp } = useGame()
+  const completion = getCompletion(discoveredCardIds, figureCards.length)
+  const percentage = getCompletionPercentage(discoveredCardIds, figureCards.length)
   const metrics = [
     { value: String(completion.discovered), label: 'Découvertes' },
     { value: `${percentage}%`, label: 'Collection' },
@@ -25,7 +25,11 @@ export function ProfileScreen() {
   return (
     <CardheonScreen>
       <CardheonHeader coins={xp} />
-      <ExplorerIdentity xp={xp} />
+      <ExplorerIdentity
+        xp={xp}
+        xpPerLevel={catalog.gameplay.progression.xpPerLevel}
+        initialLevel={catalog.gameplay.progression.initialLevel}
+      />
       <MetricGrid metrics={metrics} />
       <YStack borderRadius="$3" borderWidth={1} borderColor="$border" backgroundColor="$surface" overflow="hidden">
         {menuItems.map(([icon, label], index) => (

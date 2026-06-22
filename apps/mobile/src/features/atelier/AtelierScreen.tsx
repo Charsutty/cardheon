@@ -10,9 +10,9 @@ import { useAtelier } from './hooks/useAtelier'
 
 export function AtelierScreen() {
   const router = useRouter()
-  const { discoveredCardIds, xp } = useGame()
+  const { discoveredCardIds, figureCards, xp } = useGame()
   const atelier = useAtelier()
-  const completion = getCompletion(discoveredCardIds)
+  const completion = getCompletion(discoveredCardIds, figureCards.length)
 
   const handleAttempt = () => {
     const result = atelier.attempt()
@@ -24,16 +24,22 @@ export function AtelierScreen() {
       <CardheonHeader coins={xp} />
       <CollectionProgressPanel {...completion} />
 
-      <YStack gap="$1" alignItems="center">
-        <Text color="$ink" fontFamily="$heading" fontSize={17} fontWeight="700" letterSpacing={1}>ATELIER</Text>
-        <Text color="$muted" fontSize={11} textAlign="center">
-          Combine les cartes pour reveler une figure historique.
+      <YStack gap="$1" alignItems="center" paddingVertical="$1">
+        <Text color="$ink" fontFamily="$heading" fontSize={19} lineHeight={24} fontWeight="700" letterSpacing={1}>ATELIER</Text>
+        <Text color="$muted" fontSize={11} lineHeight={16} textAlign="center">
+          Combine les cartes pour révéler une figure historique.
         </Text>
       </YStack>
 
-      <ClueGrid cards={atelier.cards} selectedIds={atelier.selectedIds} onToggle={atelier.toggleCard} />
+      <ClueGrid
+        cards={atelier.cards}
+        selectedIds={atelier.selectedIds}
+        maxSelection={atelier.maxSelection}
+        onToggle={atelier.toggleCard}
+      />
       <AtelierActions
         selectionCount={atelier.selectedIds.length}
+        maxSelection={atelier.maxSelection}
         canAttempt={atelier.canAttempt}
         onAttempt={handleAttempt}
         onClear={atelier.clearSelection}

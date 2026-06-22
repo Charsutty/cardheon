@@ -13,6 +13,7 @@ function main(): void {
   const compiled = {
     builtAt: new Date().toISOString(),
     version: catalog.version,
+    gameplay: catalog.gameplay,
     cardsById: Object.fromEntries(catalog.cards.map((card) => [card.id, card])),
     playableCardIds: catalog.cards.filter((card) => card.kind !== "figure").map((card) => card.id),
     figureCardIds: catalog.cards.filter((card) => card.kind === "figure").map((card) => card.id),

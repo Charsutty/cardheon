@@ -8,7 +8,8 @@ La boucle de démonstration permet désormais de :
 - lancer une tentative avec le moteur de scoring pondéré ;
 - recevoir un indice en cas d'échec, d'ambiguïté ou de piste proche ;
 - découvrir Marie Curie, Hypatie et Cléopâtre VII ;
-- conserver localement la collection, l'XP et le nombre de tentatives ;
+- conserver dans SQLite la collection, l'XP et le nombre de tentatives ;
+- charger depuis SQLite le catalogue, les sources et le graphe de relations ;
 - consulter la collection et réinitialiser la partie depuis le profil.
 
 ## Lancement
@@ -50,7 +51,8 @@ apps/mobile/
       profile/
         components/
     game/                      catalogue, adaptations et calculs de progression
-    services/                  accès au stockage local
+    db/                        migrations, seed et repositories SQLite
+    services/                  façades des services locaux
     state/                     orchestration de l'état React
 ```
 

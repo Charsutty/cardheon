@@ -10,8 +10,9 @@ export type DiscoveryCardProps = Pick<
 }
 
 const sizeMap = {
-  compact: { width: 86, height: 126, artHeight: 78, title: 8, subtitle: 7, badge: 14 },
-  regular: { width: 104, height: 150, artHeight: 96, title: 9, subtitle: 8, badge: 16 },
+  mini: { width: 58, height: 96, artHeight: 55, title: 7, subtitle: 6, badge: 12 },
+  compact: { width: 88, height: 132, artHeight: 80, title: 8, subtitle: 7, badge: 14 },
+  regular: { width: 108, height: 158, artHeight: 100, title: 9, subtitle: 8, badge: 16 },
   large: { width: 154, height: 224, artHeight: 154, title: 14, subtitle: 11, badge: 22 },
 } as const
 
@@ -58,7 +59,7 @@ export function DiscoveryCard({
       borderColor={selected ? '$gold' : fresh ? '$borderStrong' : '$border'}
       backgroundColor="$surface"
       padding={4}
-      gap={4}
+      gap={3}
       alignItems="center"
       justifyContent="space-between"
       shadowColor="$ink"
@@ -87,13 +88,18 @@ export function DiscoveryCard({
         <YStack position="absolute" left={-18} top={-18} width={s.artHeight * 0.9} height={s.artHeight * 0.9} borderRadius={999} backgroundColor="#FFF4DA" opacity={0.25} />
         <YStack position="absolute" right={-16} bottom={-16} width={s.artHeight * 0.82} height={s.artHeight * 0.82} borderRadius={999} borderWidth={1} borderColor={locked ? '#A49D91' : palette.accent} opacity={0.25} />
         <YStack width={s.artHeight * 0.6} height={s.artHeight * 0.6} borderRadius={999} backgroundColor={locked ? '#5F5B54' : '#F8EDD5'} opacity={0.82} alignItems="center" justifyContent="center">
-          <Text color={locked ? '#D6D0C5' : palette.accent} fontSize={size === 'large' ? 48 : 32} fontFamily="$heading" fontWeight="700">
+          <Text
+            color={locked ? '#D6D0C5' : palette.accent}
+            fontSize={size === 'large' ? 48 : size === 'mini' ? 24 : 32}
+            fontFamily="$heading"
+            fontWeight="700"
+          >
             {locked ? '?' : type === 'character' ? initial : palette.glyph}
           </Text>
         </YStack>
 
         {!locked && type === 'character' ? (
-          <Text position="absolute" bottom={4} color={palette.accent} opacity={0.72} fontSize={11}>{palette.glyph}</Text>
+          <Text position="absolute" bottom={3} color={palette.accent} opacity={0.72} fontSize={size === 'mini' ? 8 : 11}>{palette.glyph}</Text>
         ) : null}
 
         {fresh ? (
@@ -110,10 +116,10 @@ export function DiscoveryCard({
       </YStack>
 
       <YStack alignItems="center" gap={1} width="100%" paddingHorizontal={2} paddingBottom={2}>
-        <Text color="$ink" fontSize={s.title} fontFamily="$heading" fontWeight="700" textAlign="center" numberOfLines={2}>
+        <Text color="$ink" fontSize={s.title} lineHeight={s.title + 3} fontFamily="$heading" fontWeight="700" textAlign="center" numberOfLines={2}>
           {locked ? '??????' : title.toUpperCase()}
         </Text>
-        <Text color="$muted" fontSize={s.subtitle} textAlign="center" numberOfLines={1}>
+        <Text color="$muted" fontSize={s.subtitle} lineHeight={s.subtitle + 3} textAlign="center" numberOfLines={1}>
           {locked ? 'À découvrir' : subtitle}
         </Text>
       </YStack>
