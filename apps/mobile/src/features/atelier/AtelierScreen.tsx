@@ -1,18 +1,19 @@
 import { CardheonHeader, CardheonScreen, CollectionProgressPanel } from '@cardheon/ui'
 import { useRouter } from 'expo-router'
-import { Text, YStack } from 'tamagui'
+import { ScrollView, Text, YStack } from 'tamagui'
 import { getCompletion } from '../../game/progress'
 import { useGame } from '../../state/GameProvider'
 import { AtelierActions } from './components/AtelierActions'
 import { ClueGrid } from './components/ClueGrid'
 import { DiscoveryResultPanel } from './components/DiscoveryResultPanel'
+import { HandPanel } from './components/HandPanel'
 import { useAtelier } from './hooks/useAtelier'
 
 export function AtelierScreen() {
   const router = useRouter()
-  const { discoveredCardIds, figureCards, xp } = useGame()
+  const { progress, figureCards } = useGame()
   const atelier = useAtelier()
-  const completion = getCompletion(discoveredCardIds, figureCards.length)
+  const completion = getCompletion(progress, figureCards.length)
 
   const handleAttempt = () => {
     const result = atelier.attempt()
@@ -21,7 +22,7 @@ export function AtelierScreen() {
 
   return (
     <CardheonScreen>
-      <CardheonHeader coins={xp} />
+      <CardheonHeader coins={progress.xp} />
       <CollectionProgressPanel {...completion} />
 
       <YStack gap="$1" alignItems="center" paddingVertical="$1">
@@ -31,12 +32,29 @@ export function AtelierScreen() {
         </Text>
       </YStack>
 
-      <ClueGrid
-        cards={atelier.cards}
-        selectedIds={atelier.selectedIds}
-        maxSelection={atelier.maxSelection}
-        onToggle={atelier.toggleCard}
-      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <YStack gap="$4" paddingBottom="$4">
+          <ClueGrid
+            cards={atelier.allCards}
+            selectedIds={atelier.selectedIds}
+            maxSelection={atelier.maxSelection}
+            onToggle={atelier.toggleCard}
+          />
+
+          <HandPanel
+            cards={atelier.cards}
+            selectedIds={atelier.selectedIds}
+            filter={atelier.filter}
+            searchQuery={atelier.searchQuery}
+            onFilter={atelier.setFilter}
+            onSearch={atelier.setSearchQuery}
+            onToggle={atelier.toggleCard}
+          />
+
+          {atelier.result ? <DiscoveryResultPanel result={atelier.result} /> : null}
+        </YStack>
+      </ScrollView>
+
       <AtelierActions
         selectionCount={atelier.selectedIds.length}
         maxSelection={atelier.maxSelection}
@@ -44,8 +62,6 @@ export function AtelierScreen() {
         onAttempt={handleAttempt}
         onClear={atelier.clearSelection}
       />
-
-      {atelier.result ? <DiscoveryResultPanel result={atelier.result} /> : null}
     </CardheonScreen>
   )
 }

@@ -1,6 +1,6 @@
 import type { SQLiteDatabase } from 'expo-sqlite'
 
-const DATABASE_VERSION = 1
+const DATABASE_VERSION = 2
 
 const V1_SCHEMA = `
   PRAGMA foreign_keys = ON;
@@ -115,6 +115,7 @@ const V1_SCHEMA = `
     xp INTEGER NOT NULL DEFAULT 0,
     attempts INTEGER NOT NULL DEFAULT 0,
     last_discovery_id TEXT,
+    last_discovery_result_json TEXT,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
 
@@ -145,6 +146,48 @@ const V1_SCHEMA = `
   INSERT OR IGNORE INTO player_profile (id) VALUES (1);
 `
 
+const V2_SCHEMA = `
+  CREATE TABLE IF NOT EXISTS player_cards (
+    card_id TEXT PRIMARY KEY NOT NULL,
+    state TEXT NOT NULL DEFAULT 'locked',
+    usable_in_atelier INTEGER NOT NULL DEFAULT 0,
+    unlocked_at TEXT,
+    discovered_at TEXT,
+    mastered_at TEXT,
+    source_reason TEXT
+  );
+
+  CREATE TABLE IF NOT EXISTS player_attempts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    input_card_ids_json TEXT NOT NULL,
+    result_type TEXT NOT NULL,
+    result_card_id TEXT,
+    score INTEGER,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS player_rewards (
+    id TEXT PRIMARY KEY NOT NULL,
+    reward_type TEXT NOT NULL,
+    reward_value TEXT NOT NULL,
+    claimed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS player_packs (
+    pack_id TEXT PRIMARY KEY NOT NULL,
+    state TEXT NOT NULL DEFAULT 'unopened',
+    opened_at TEXT
+  );
+
+  CREATE TABLE IF NOT EXISTS player_constellations (
+    constellation_id TEXT PRIMARY KEY NOT NULL,
+    state TEXT NOT NULL DEFAULT 'hidden',
+    progress INTEGER NOT NULL DEFAULT 0,
+    total INTEGER NOT NULL DEFAULT 0,
+    reward_claimed_at TEXT
+  );
+`
+
 export async function migrateDatabase(db: SQLiteDatabase): Promise<void> {
   await db.execAsync('PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;')
 
@@ -159,6 +202,42 @@ export async function migrateDatabase(db: SQLiteDatabase): Promise<void> {
     await db.withTransactionAsync(async () => {
       await db.execAsync(V1_SCHEMA)
       await db.execAsync('PRAGMA user_version = 1')
+    })
+  }
+
+  if (currentVersion < 2) {
+    await db.withTransactionAsync(async () => {
+      await db.execAsync(V2_SCHEMA)
+
+      // Ensure player_profile has the result column.
+      const profileColumns = await db.getAllAsync<{ name: string }>(
+        "PRAGMA table_info(player_profile)",
+      )
+      const hasResultColumn = profileColumns.some((column) => column.name === 'last_discovery_result_json')
+      if (!hasResultColumn) {
+        await db.execAsync(
+          'ALTER TABLE player_profile ADD COLUMN last_discovery_result_json TEXT',
+        )
+      }
+
+      // Migrate legacy player_discoveries into player_cards.
+      const discoveries = await db.getAllAsync<{ card_id: string; discovered_at: string }>(
+        'SELECT card_id, discovered_at FROM player_discoveries',
+      )
+      for (const row of discoveries) {
+        await db.runAsync(
+          `INSERT INTO player_cards (card_id, state, usable_in_atelier, discovered_at, source_reason)
+           VALUES (?, 'discovered', 1, ?, 'migration')
+           ON CONFLICT(card_id) DO UPDATE SET
+             state = 'discovered',
+             usable_in_atelier = 1,
+             discovered_at = excluded.discovered_at`,
+          row.card_id,
+          row.discovered_at,
+        )
+      }
+
+      await db.execAsync('PRAGMA user_version = 2')
     })
   }
 }

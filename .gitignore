@@ -40,3 +40,6 @@ pnpm-debug.log*
 # Supabase local
 supabase/.branches/
 supabase/.temp/
+
+# opencode skills
+.opencode/

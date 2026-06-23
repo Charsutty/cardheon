@@ -34,14 +34,17 @@ function resultLabel(result: DiscoveryResult): string {
 
 function main(): void {
   const catalog = loadCatalog(process.argv[2] ?? DEFAULT_CATALOG_PATH);
-  const playableCards = catalog.cards.filter((card) => card.kind !== "figure");
+  const toolCards = catalog.cards.filter((card) => card.kind !== "figure");
+  const toolCardIds = toolCards.map((card) => card.id);
   const discoveries = new Map<string, string[]>();
   const nearMisses: string[] = [];
 
+  const userState = { discoveredCardIds: [] as string[], unlockedCardIds: toolCardIds };
+
   for (const size of [2, 3, 4]) {
-    for (const combo of combinations(playableCards, size)) {
+    for (const combo of combinations(toolCards, size)) {
       const inputCardIds = combo.map((card) => card.id);
-      const result = attemptDiscovery(catalog, { discoveredCardIds: [] }, inputCardIds);
+      const result = attemptDiscovery(catalog, userState, inputCardIds);
 
       if (result.type === "new_figure") {
         const current = discoveries.get(result.cardId) ?? [];

@@ -4,8 +4,12 @@ import { ScreenHeading } from '../src/components/layout/ScreenHeading'
 import { useGame } from '../src/state/GameProvider'
 
 export default function QuestsScreen() {
-  const { catalog, discoveredCardIds, xp } = useGame()
-  const discovered = new Set(discoveredCardIds)
+  const { catalog, progress } = useGame()
+  const discovered = new Set(
+    Object.values(progress.cardStates)
+      .filter((s) => s.state === 'discovered' || s.state === 'mastered')
+      .map((s) => s.cardId),
+  )
   const quests = catalog.constellations.map((constellation) => ({
     id: constellation.id,
     title: constellation.localization.fr?.title ?? constellation.slug,
@@ -18,7 +22,7 @@ export default function QuestsScreen() {
 
   return (
     <CardheonScreen>
-      <CardheonHeader coins={xp} />
+      <CardheonHeader coins={progress.xp} />
       <ScreenHeading
         eyebrow="Journal de route"
         title="Quêtes"

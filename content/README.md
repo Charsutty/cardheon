@@ -15,12 +15,19 @@ Quand le format sera stable, ce dossier pourra être extrait dans un repo sépar
 
 ```txt
 content/
-  figures/           Personnages historiques
-  tools/             Cartes-outils
-  constellations/    Collections thématiques
-  packs/             Packs de récompense
+  catalog.dev.json   Catalogue actif compilé utilisé par l’app et le moteur
+  figures/           Personnages historiques (brouillons YAML non utilisés directement)
+  tools/             Cartes-outils (brouillons YAML non utilisés directement)
+  constellations/    Collections thématiques (brouillons YAML non utilisés directement)
+  packs/             Packs de récompense (brouillons YAML non utilisés directement)
   sources/           Sources historiques
   assets-manifest/   Manifests des images et licences
+```
+
+Pendant le MVP technique, `catalog.dev.json` est le catalogue unique de vérité. Les fichiers YAML dans `figures/`, `tools/`, `constellations/` et `packs/` sont des brouillons structurants qui serviront de base au pipeline YAML → JSON plus tard. Pour régénérer le catalogue actif à partir du script de test, exécutez :
+
+```bash
+pnpm generate:test-catalog
 ```
 
 ## Règle

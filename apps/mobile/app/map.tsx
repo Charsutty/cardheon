@@ -1,12 +1,17 @@
 import { CardheonButton, CardheonHeader, CardheonScreen, CategoryPill } from '@cardheon/ui'
 import type { Card, Constellation } from '@cardheon/game-engine'
+import { useMemo } from 'react'
 import { Text, XStack, YStack } from 'tamagui'
 import { ScreenHeading } from '../src/components/layout/ScreenHeading'
 import { getFrenchSubtitle, getFrenchTitle } from '../src/game/catalog'
 import { useGame } from '../src/state/GameProvider'
 
 export default function KnowledgeMapScreen() {
-  const { catalog, discoveredCardIds, xp } = useGame()
+  const { catalog, progress } = useGame()
+  const discoveredCardIds = useMemo(
+    () => Object.values(progress.cardStates).filter((s) => s.state === 'discovered' || s.state === 'mastered').map((s) => s.cardId),
+    [progress.cardStates],
+  )
   const constellation = selectActiveConstellation(catalog.constellations, discoveredCardIds)
   const cardsById = new Map(catalog.cards.map((card) => [card.id, card]))
   const nodes = constellation?.cardIds
@@ -16,7 +21,7 @@ export default function KnowledgeMapScreen() {
 
   return (
     <CardheonScreen>
-      <CardheonHeader coins={xp} />
+      <CardheonHeader coins={progress.xp} />
       <ScreenHeading
         eyebrow="Graphe historique"
         title={constellation?.localization.fr?.title ?? 'Connaissances'}

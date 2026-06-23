@@ -1,4 +1,5 @@
 import { CardheonHeader, CardheonScreen, CategoryPill } from '@cardheon/ui'
+import { useState } from 'react'
 import { Text, XStack, YStack } from 'tamagui'
 import { ScreenHeading } from '../../components/layout/ScreenHeading'
 import { getCompletion, getCompletionPercentage } from '../../game/progress'
@@ -6,14 +7,15 @@ import { useGame } from '../../state/GameProvider'
 import { FigureCollectionGrid } from './components/FigureCollectionGrid'
 
 export function CollectionScreen() {
-  const { catalog, discoveredCardIds, figureCards, xp } = useGame()
-  const completion = getCompletion(discoveredCardIds, figureCards.length)
-  const percentage = getCompletionPercentage(discoveredCardIds, figureCards.length)
+  const { catalog, progress, figureCards } = useGame()
+  const [filter, setFilter] = useState<'all' | 'discovered' | 'locked'>('all')
+  const completion = getCompletion(progress, figureCards.length)
+  const percentage = getCompletionPercentage(progress, figureCards.length)
   const categoryCount = new Set(catalog.cards.map((card) => card.kind)).size
 
   return (
     <CardheonScreen>
-      <CardheonHeader coins={xp} />
+      <CardheonHeader coins={progress.xp} />
       <ScreenHeading title="Collection" eyebrow="Cabinet d’histoire" action="⌕ RECHERCHER" />
 
       <XStack borderRadius="$3" borderWidth={1} borderColor="$border" backgroundColor="$surface" paddingVertical="$3" paddingHorizontal="$2" justifyContent="space-around">
@@ -25,12 +27,12 @@ export function CollectionScreen() {
       </XStack>
 
       <XStack gap="$2" flexWrap="wrap">
-        <CategoryPill label="Toutes" active />
-        <CategoryPill label="Personnages" />
-        <CategoryPill label="Concepts" />
+        <CategoryPill label="Toutes" active={filter === 'all'} onPress={() => setFilter('all')} />
+        <CategoryPill label="Découvertes" active={filter === 'discovered'} onPress={() => setFilter('discovered')} />
+        <CategoryPill label="À découvrir" active={filter === 'locked'} onPress={() => setFilter('locked')} />
       </XStack>
 
-      <FigureCollectionGrid discoveredCardIds={discoveredCardIds} />
+      <FigureCollectionGrid filter={filter} />
     </CardheonScreen>
   )
 }

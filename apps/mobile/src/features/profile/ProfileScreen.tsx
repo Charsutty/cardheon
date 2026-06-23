@@ -13,20 +13,20 @@ const menuItems = [
 ]
 
 export function ProfileScreen() {
-  const { attempts, catalog, discoveredCardIds, figureCards, resetProgress, xp } = useGame()
-  const completion = getCompletion(discoveredCardIds, figureCards.length)
-  const percentage = getCompletionPercentage(discoveredCardIds, figureCards.length)
+  const { catalog, figureCards, progress, resetProgress } = useGame()
+  const completion = getCompletion(progress, figureCards.length)
+  const percentage = getCompletionPercentage(progress, figureCards.length)
   const metrics = [
     { value: String(completion.discovered), label: 'Découvertes' },
     { value: `${percentage}%`, label: 'Collection' },
-    { value: String(attempts), label: 'Tentatives' },
+    { value: String(progress.attempts), label: 'Tentatives' },
   ]
 
   return (
     <CardheonScreen>
-      <CardheonHeader coins={xp} />
+      <CardheonHeader coins={progress.xp} />
       <ExplorerIdentity
-        xp={xp}
+        xp={progress.xp}
         xpPerLevel={catalog.gameplay.progression.xpPerLevel}
         initialLevel={catalog.gameplay.progression.initialLevel}
       />

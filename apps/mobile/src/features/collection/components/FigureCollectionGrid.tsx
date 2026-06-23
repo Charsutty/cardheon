@@ -5,15 +5,27 @@ import { toDiscoveryCard } from '../../../game/catalog'
 import { useGame } from '../../../state/GameProvider'
 
 type FigureCollectionGridProps = {
-  discoveredCardIds: string[]
+  filter?: 'all' | 'discovered' | 'locked'
 }
 
-export function FigureCollectionGrid({ discoveredCardIds }: FigureCollectionGridProps) {
-  const { figureCards } = useGame()
-  const visibleCards: DiscoveryCardModel[] = figureCards.map((card) => ({
-    ...toDiscoveryCard(card),
-    state: discoveredCardIds.includes(card.id) ? 'default' : 'locked',
-  }))
+export function FigureCollectionGrid({ filter = 'all' }: FigureCollectionGridProps) {
+  const { figureCards, getCardState } = useGame()
+
+  const visibleCards: DiscoveryCardModel[] = figureCards
+    .filter((card) => {
+      const state = getCardState(card.id).state
+      if (filter === 'discovered') return state === 'discovered' || state === 'mastered'
+      if (filter === 'locked') return state !== 'discovered' && state !== 'mastered'
+      return true
+    })
+    .map((card) => {
+      const state = getCardState(card.id).state
+      const isDiscovered = state === 'discovered' || state === 'mastered'
+      return {
+        ...toDiscoveryCard(card),
+        state: isDiscovered ? 'default' : 'locked',
+      }
+    })
 
   return (
     <CardGrid>

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1-dev",
+  "version": "0.2.1-test",
   "gameplay": {
     "discovery": {
       "minInputs": 2,
@@ -12,184 +12,2049 @@
   },
   "cards": [
     {
-      "id": "period.ancient-egypt",
-      "slug": "egypte-ancienne",
+      "id": "period.antiquity",
+      "slug": "period-antiquity",
       "kind": "period",
-      "rarity": "common",
       "status": "published",
-      "localization": { "fr": { "title": "Égypte ancienne", "subtitle": "Antiquité égyptienne" } },
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Antiquité",
+          "subtitle": ""
+        }
+      },
       "tags": [
-        { "tag": "period.antiquity", "weight": 100 },
-        { "tag": "civilization.ancient-egypt", "weight": 100 }
+        {
+          "tag": "period.antiquity",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "period.middle-ages",
+      "slug": "period-middle-ages",
+      "kind": "period",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Moyen Âge",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.middle-ages",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "period.renaissance",
+      "slug": "period-renaissance",
+      "kind": "period",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Renaissance",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.renaissance",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "period.15th-century",
+      "slug": "period-15th-century",
+      "kind": "period",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "XVe siècle",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.15th-century",
+          "weight": 100
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "period.16th-century",
+      "slug": "period-16th-century",
+      "kind": "period",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "XVIe siècle",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.16th-century",
+          "weight": 100
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "period.17th-century",
+      "slug": "period-17th-century",
+      "kind": "period",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "XVIIe siècle",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.17th-century",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "period.18th-century",
+      "slug": "period-18th-century",
+      "kind": "period",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "XVIIIe siècle",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.18th-century",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "period.19th-century",
+      "slug": "period-19th-century",
+      "kind": "period",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "XIXe siècle",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.19th-century",
+          "weight": 100
+        }
       ]
     },
     {
       "id": "period.20th-century",
-      "slug": "xxe-siecle",
+      "slug": "period-20th-century",
       "kind": "period",
-      "rarity": "common",
       "status": "published",
-      "localization": { "fr": { "title": "XXe siècle" } },
-      "tags": [{ "tag": "period.20th-century", "weight": 100 }]
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "XXe siècle",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.20th-century",
+          "weight": 100
+        }
+      ]
     },
     {
       "id": "place.france",
-      "slug": "france",
+      "slug": "place-france",
       "kind": "place",
-      "rarity": "common",
       "status": "published",
-      "localization": { "fr": { "title": "France" } },
-      "tags": [{ "tag": "place.france", "weight": 100 }]
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "France",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.france",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.england",
+      "slug": "place-england",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Angleterre",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.england",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.italy",
+      "slug": "place-italy",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Italie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.italy",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.greece",
+      "slug": "place-greece",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Grèce",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.greece",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.egypt",
+      "slug": "place-egypt",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Égypte",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.egypt",
+          "weight": 100
+        }
+      ]
     },
     {
       "id": "place.alexandria",
-      "slug": "alexandrie",
+      "slug": "place-alexandria",
       "kind": "place",
-      "rarity": "uncommon",
       "status": "published",
-      "localization": { "fr": { "title": "Alexandrie" } },
-      "tags": [{ "tag": "place.alexandria", "weight": 100 }]
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Alexandrie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.alexandria",
+          "weight": 100
+        },
+        {
+          "tag": "place.egypt",
+          "weight": 60
+        }
+      ]
     },
     {
-      "id": "role.queen",
-      "slug": "reine",
-      "kind": "role",
-      "rarity": "common",
+      "id": "place.athens",
+      "slug": "place-athens",
+      "kind": "place",
       "status": "published",
-      "localization": { "fr": { "title": "Reine" } },
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Athènes",
+          "subtitle": ""
+        }
+      },
       "tags": [
-        { "tag": "role.ruler", "weight": 100 },
-        { "tag": "concept.power", "weight": 80 }
+        {
+          "tag": "place.athens",
+          "weight": 100
+        },
+        {
+          "tag": "place.greece",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "place.usa",
+      "slug": "place-usa",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "États-Unis",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.usa",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.south-africa",
+      "slug": "place-south-africa",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Afrique du Sud",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.south-africa",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.india",
+      "slug": "place-india",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Inde",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.india",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.spain",
+      "slug": "place-spain",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Espagne",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.spain",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.poland",
+      "slug": "place-poland",
+      "kind": "place",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Pologne",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.poland",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "place.venice",
+      "slug": "place-venice",
+      "kind": "place",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Venise",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.venice",
+          "weight": 100
+        },
+        {
+          "tag": "place.italy",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "region.britain",
+      "slug": "region-britain",
+      "kind": "region",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Bretagne",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "region.britain",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "region.south-america",
+      "slug": "region-south-america",
+      "kind": "region",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Amérique du Sud",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "region.south-america",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "civilization.ancient-egypt",
+      "slug": "civilization-ancient-egypt",
+      "kind": "civilization",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Égypte ancienne",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "civilization.ancient-egypt",
+          "weight": 100
+        },
+        {
+          "tag": "place.egypt",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "civilization.ancient-greece",
+      "slug": "civilization-ancient-greece",
+      "kind": "civilization",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Grèce antique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "civilization.ancient-greece",
+          "weight": 100
+        },
+        {
+          "tag": "place.greece",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "civilization.ancient-rome",
+      "slug": "civilization-ancient-rome",
+      "kind": "civilization",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Rome antique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "civilization.ancient-rome",
+          "weight": 100
+        },
+        {
+          "tag": "place.italy",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "civilization.maurya",
+      "slug": "civilization-maurya",
+      "kind": "civilization",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Empire maurya",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "civilization.maurya",
+          "weight": 100
+        },
+        {
+          "tag": "place.india",
+          "weight": 80
+        }
       ]
     },
     {
       "id": "domain.physics",
-      "slug": "physique",
+      "slug": "domain-physics",
       "kind": "domain",
-      "rarity": "common",
       "status": "published",
-      "localization": { "fr": { "title": "Physique" } },
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Physique",
+          "subtitle": ""
+        }
+      },
       "tags": [
-        { "tag": "domain.physics", "weight": 100 },
-        { "tag": "domain.science", "weight": 70 }
+        {
+          "tag": "domain.physics",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
       ]
     },
     {
       "id": "domain.mathematics",
-      "slug": "mathematiques",
+      "slug": "domain-mathematics",
       "kind": "domain",
-      "rarity": "common",
       "status": "published",
-      "localization": { "fr": { "title": "Mathématiques" } },
-      "tags": [{ "tag": "domain.mathematics", "weight": 100 }]
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Mathématiques",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.mathematics",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.chemistry",
+      "slug": "domain-chemistry",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Chimie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.chemistry",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.biology",
+      "slug": "domain-biology",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Biologie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.biology",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.astronomy",
+      "slug": "domain-astronomy",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Astronomie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.astronomy",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.medicine",
+      "slug": "domain-medicine",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Médecine",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.medicine",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.computing",
+      "slug": "domain-computing",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Informatique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.computing",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.painting",
+      "slug": "domain-painting",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Peinture",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.painting",
+          "weight": 100
+        },
+        {
+          "tag": "domain.arts",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.philosophy",
+      "slug": "domain-philosophy",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Philosophie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.philosophy",
+          "weight": 100
+        },
+        {
+          "tag": "domain.thought",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.exploration",
+      "slug": "domain-exploration",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Exploration",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.exploration",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "domain.politics",
+      "slug": "domain-politics",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Politique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.politics",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "domain.nursing",
+      "slug": "domain-nursing",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Soins infirmiers",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.nursing",
+          "weight": 100
+        },
+        {
+          "tag": "domain.medicine",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "role.queen",
+      "slug": "role-queen",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Reine",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 100
+        },
+        {
+          "tag": "concept.power",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "role.pharaoh",
+      "slug": "role-pharaoh",
+      "kind": "role",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Pharaon",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 100
+        },
+        {
+          "tag": "civilization.ancient-egypt",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "role.emperor",
+      "slug": "role-emperor",
+      "kind": "role",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Empereur",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 100
+        },
+        {
+          "tag": "concept.power",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "role.scientist",
+      "slug": "role-scientist",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Scientifique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.scientist",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "role.philosopher",
+      "slug": "role-philosopher",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Philosophe",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.philosopher",
+          "weight": 100
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "role.artist",
+      "slug": "role-artist",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Artiste",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.artist",
+          "weight": 100
+        },
+        {
+          "tag": "domain.arts",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "role.explorer",
+      "slug": "role-explorer",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Explorateur",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.explorer",
+          "weight": 100
+        },
+        {
+          "tag": "domain.exploration",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "role.resistance",
+      "slug": "role-resistance",
+      "kind": "role",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Résistant",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.resistance",
+          "weight": 100
+        },
+        {
+          "tag": "concept.liberty",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "role.pastor",
+      "slug": "role-pastor",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Pasteur",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.pastor",
+          "weight": 100
+        },
+        {
+          "tag": "concept.faith",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "role.inventor",
+      "slug": "role-inventor",
+      "kind": "role",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Inventeur",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.inventor",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 60
+        }
+      ]
     },
     {
       "id": "concept.radioactivity",
-      "slug": "radioactivite",
+      "slug": "concept-radioactivity",
       "kind": "concept",
-      "rarity": "rare",
       "status": "published",
-      "localization": { "fr": { "title": "Radioactivité" } },
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Radioactivité",
+          "subtitle": ""
+        }
+      },
       "tags": [
-        { "tag": "concept.radioactivity", "weight": 100 },
-        { "tag": "domain.physics", "weight": 70 }
+        {
+          "tag": "concept.radioactivity",
+          "weight": 100
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 70
+        },
+        {
+          "tag": "domain.chemistry",
+          "weight": 50
+        }
+      ]
+    },
+    {
+      "id": "concept.evolution",
+      "slug": "concept-evolution",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Évolution",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.evolution",
+          "weight": 100
+        },
+        {
+          "tag": "domain.biology",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.gravitation",
+      "slug": "concept-gravitation",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Gravitation",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.gravitation",
+          "weight": 100
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.heliocentrism",
+      "slug": "concept-heliocentrism",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Héliocentrisme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.heliocentrism",
+          "weight": 100
+        },
+        {
+          "tag": "domain.astronomy",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.algorithm",
+      "slug": "concept-algorithm",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Algorithme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.algorithm",
+          "weight": 100
+        },
+        {
+          "tag": "domain.computing",
+          "weight": 80
+        },
+        {
+          "tag": "domain.mathematics",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "concept.calculus",
+      "slug": "concept-calculus",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Calcul infinitésimal",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.calculus",
+          "weight": 100
+        },
+        {
+          "tag": "domain.mathematics",
+          "weight": 80
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 50
+        }
+      ]
+    },
+    {
+      "id": "concept.nobel-prize",
+      "slug": "concept-nobel-prize",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Prix Nobel",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.nobel-prize",
+          "weight": 100
+        },
+        {
+          "tag": "concept.award",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.socratic-method",
+      "slug": "concept-socratic-method",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Méthode socratique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.socratic-method",
+          "weight": 100
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.platonic-ideas",
+      "slug": "concept-platonic-ideas",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Idées platoniciennes",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.platonic-ideas",
+          "weight": 100
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.logic",
+      "slug": "concept-logic",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Logique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.logic",
+          "weight": 100
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 80
+        },
+        {
+          "tag": "domain.mathematics",
+          "weight": 60
+        }
       ]
     },
     {
       "id": "concept.female-figure",
-      "slug": "femme",
+      "slug": "concept-female-figure",
       "kind": "concept",
-      "rarity": "common",
       "status": "published",
-      "localization": { "fr": { "title": "Femme" } },
-      "tags": [{ "tag": "concept.women-history", "weight": 100 }]
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Femme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.women-history",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "concept.civil-rights",
+      "slug": "concept-civil-rights",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Droits civiques",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.civil-rights",
+          "weight": 100
+        },
+        {
+          "tag": "concept.liberty",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.non-violence",
+      "slug": "concept-non-violence",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Non-violence",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.non-violence",
+          "weight": 100
+        },
+        {
+          "tag": "concept.civil-rights",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "concept.apartheid",
+      "slug": "concept-apartheid",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Apartheid",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.apartheid",
+          "weight": 100
+        },
+        {
+          "tag": "concept.civil-rights",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "concept.buddhism",
+      "slug": "concept-buddhism",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Bouddhisme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.buddhism",
+          "weight": 100
+        },
+        {
+          "tag": "concept.faith",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "concept.printing",
+      "slug": "concept-printing",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Imprimerie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.printing",
+          "weight": 100
+        },
+        {
+          "tag": "domain.invention",
+          "weight": 70
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 40
+        }
+      ]
+    },
+    {
+      "id": "concept.faith",
+      "slug": "concept-faith",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Foi",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.faith",
+          "weight": 100
+        },
+        {
+          "tag": "concept.religion",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "concept.colonialism",
+      "slug": "concept-colonialism",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Colonialisme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.colonialism",
+          "weight": 100
+        },
+        {
+          "tag": "domain.politics",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "event.american-civil-rights",
+      "slug": "event-american-civil-rights",
+      "kind": "event",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Mouvement américain des droits civiques",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "event.american-civil-rights",
+          "weight": 100
+        },
+        {
+          "tag": "concept.civil-rights",
+          "weight": 80
+        },
+        {
+          "tag": "place.usa",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "event.french-revolution",
+      "slug": "event-french-revolution",
+      "kind": "event",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Révolution française",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "event.french-revolution",
+          "weight": 100
+        },
+        {
+          "tag": "place.france",
+          "weight": 70
+        },
+        {
+          "tag": "concept.liberty",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "event.independence-south-america",
+      "slug": "event-independence-south-america",
+      "kind": "event",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Indépendances sud-américaines",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "event.independence-south-america",
+          "weight": 100
+        },
+        {
+          "tag": "region.south-america",
+          "weight": 80
+        },
+        {
+          "tag": "concept.liberty",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "event.crusades",
+      "slug": "event-crusades",
+      "kind": "event",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Croisades",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "event.crusades",
+          "weight": 100
+        },
+        {
+          "tag": "period.middle-ages",
+          "weight": 80
+        },
+        {
+          "tag": "concept.faith",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "event.scientific-revolution",
+      "slug": "event-scientific-revolution",
+      "kind": "event",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Révolution scientifique",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "event.scientific-revolution",
+          "weight": 100
+        },
+        {
+          "tag": "period.17th-century",
+          "weight": 70
+        },
+        {
+          "tag": "domain.science",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "work.mona-lisa",
+      "slug": "work-mona-lisa",
+      "kind": "work",
+      "status": "published",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "La Joconde",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "work.mona-lisa",
+          "weight": 100
+        },
+        {
+          "tag": "domain.painting",
+          "weight": 80
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "work.principia",
+      "slug": "work-principia",
+      "kind": "work",
+      "status": "published",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Principes mathématiques",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "work.principia",
+          "weight": 100
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 80
+        },
+        {
+          "tag": "domain.mathematics",
+          "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "work.origin-of-species",
+      "slug": "work-origin-of-species",
+      "kind": "work",
+      "status": "published",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "L’Origine des espèces",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "work.origin-of-species",
+          "weight": 100
+        },
+        {
+          "tag": "domain.biology",
+          "weight": 80
+        },
+        {
+          "tag": "concept.evolution",
+          "weight": 90
+        }
+      ]
+    },
+    {
+      "id": "work.republic",
+      "slug": "work-republic",
+      "kind": "work",
+      "status": "published",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "La République",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "work.republic",
+          "weight": 100
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 80
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "work.divine-comedy",
+      "slug": "work-divine-comedy",
+      "kind": "work",
+      "status": "published",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "La Divine Comédie",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "work.divine-comedy",
+          "weight": 100
+        },
+        {
+          "tag": "domain.literature",
+          "weight": 80
+        },
+        {
+          "tag": "period.middle-ages",
+          "weight": 60
+        },
+        {
+          "tag": "place.italy",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "movement.humanism",
+      "slug": "movement-humanism",
+      "kind": "movement",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Humanisme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "movement.humanism",
+          "weight": 100
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 70
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "movement.enlightenment",
+      "slug": "movement-enlightenment",
+      "kind": "movement",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Lumières",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "movement.enlightenment",
+          "weight": 100
+        },
+        {
+          "tag": "period.18th-century",
+          "weight": 70
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "movement.romanticism",
+      "slug": "movement-romanticism",
+      "kind": "movement",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Romantisme",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "movement.romanticism",
+          "weight": 100
+        },
+        {
+          "tag": "period.19th-century",
+          "weight": 70
+        },
+        {
+          "tag": "domain.arts",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "symbol.owl",
+      "slug": "symbol-owl",
+      "kind": "symbol",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Chouette",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "symbol.wisdom",
+          "weight": 100
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "symbol.compass",
+      "slug": "symbol-compass",
+      "kind": "symbol",
+      "status": "published",
+      "rarity": "uncommon",
+      "localization": {
+        "fr": {
+          "title": "Boussole",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "symbol.navigation",
+          "weight": 100
+        },
+        {
+          "tag": "domain.exploration",
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "symbol.atom",
+      "slug": "symbol-atom",
+      "kind": "symbol",
+      "status": "published",
+      "rarity": "rare",
+      "localization": {
+        "fr": {
+          "title": "Atome",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "symbol.science",
+          "weight": 100
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 60
+        }
+      ]
     },
     {
       "id": "figure.marie-curie",
-      "slug": "marie-curie",
+      "slug": "figure-marie-curie",
       "kind": "figure",
-      "rarity": "legendary",
       "status": "reviewed",
+      "rarity": "legendary",
       "localization": {
         "fr": {
           "title": "Marie Curie",
           "subtitle": "Physicienne et chimiste",
-          "shortDescription": "Pionnière de la radioactivité, figure majeure de la science moderne."
+          "shortDescription": "Pionnière de la radioactivité, première femme prix Nobel et seule lauréate de deux prix Nobel en sciences distincts."
         }
       },
       "tags": [
-        { "tag": "domain.physics", "weight": 95 },
-        { "tag": "concept.radioactivity", "weight": 100 },
-        { "tag": "place.france", "weight": 75 },
-        { "tag": "period.20th-century", "weight": 80 },
-        { "tag": "concept.women-history", "weight": 80 }
+        {
+          "tag": "domain.physics",
+          "weight": 40
+        },
+        {
+          "tag": "domain.chemistry",
+          "weight": 35
+        },
+        {
+          "tag": "concept.radioactivity",
+          "weight": 55
+        },
+        {
+          "tag": "place.france",
+          "weight": 25
+        },
+        {
+          "tag": "place.poland",
+          "weight": 20
+        },
+        {
+          "tag": "period.20th-century",
+          "weight": 30
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 30
+        },
+        {
+          "tag": "concept.nobel-prize",
+          "weight": 40
+        }
       ],
-      "sourceIds": ["source.britannica.marie-curie"],
-      "constellationIds": ["constellation.women-in-science", "constellation.radioactivity"],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.women-in-science",
+        "constellation.curie-family"
+      ],
       "discovery": {
         "figureId": "figure.marie-curie",
-        "minScore": 85,
+        "minScore": 82,
         "ambiguityMargin": 12,
         "minEvidenceCount": 2,
         "evidence": [
-          { "card": "concept.radioactivity", "weight": 55, "reason": "Radioactivité" },
-          { "tag": "domain.physics", "weight": 25, "reason": "Physique" },
-          { "tag": "place.france", "weight": 18, "reason": "France" },
-          { "tag": "period.20th-century", "weight": 12, "reason": "XXe siècle" },
-          { "tag": "concept.women-history", "weight": 14, "reason": "Femme scientifique" }
+          {
+            "tag": "domain.physics",
+            "weight": 25,
+            "reason": "Physique"
+          },
+          {
+            "tag": "place.france",
+            "weight": 22,
+            "reason": "France"
+          },
+          {
+            "tag": "period.20th-century",
+            "weight": 18,
+            "reason": "XXe siècle"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 22,
+            "reason": "Femme scientifique"
+          }
         ],
         "synergies": [
-          { "id": "radioactivity-france", "whenAll": ["card:concept.radioactivity", "card:place.france"], "weight": 15, "reason": "Radioactivité + France" }
+          {
+            "id": "radioactivity-france",
+            "whenAll": [
+              "card:concept.radioactivity",
+              "card:place.france"
+            ],
+            "weight": 15,
+            "reason": "Radioactivité + France"
+          },
+          {
+            "id": "scientist-france-20th",
+            "whenAll": [
+              "tag:role.scientist",
+              "card:place.france",
+              "tag:period.20th-century"
+            ],
+            "weight": 12,
+            "reason": "Scientifique + France + XXe"
+          }
         ],
         "contradictions": [
-          { "id": "ancient-egypt-radioactivity", "whenAll": ["card:period.ancient-egypt", "card:concept.radioactivity"], "weight": -30, "reason": "La radioactivité moderne contredit l’Égypte ancienne." }
+          {
+            "id": "ancient-egypt-radioactivity",
+            "whenAll": [
+              "card:period.antiquity",
+              "card:concept.radioactivity"
+            ],
+            "weight": -30,
+            "reason": "La radioactivité moderne contredit l’Antiquité."
+          }
         ]
-      }
-    },
-    {
-      "id": "figure.hypatia",
-      "slug": "hypatie",
-      "kind": "figure",
-      "rarity": "epic",
-      "status": "reviewed",
-      "localization": {
-        "fr": {
-          "title": "Hypatie",
-          "subtitle": "Philosophe et mathématicienne d’Alexandrie",
-          "shortDescription": "Figure savante de l’Alexandrie antique."
-        }
       },
-      "tags": [
-        { "tag": "period.antiquity", "weight": 90 },
-        { "tag": "place.alexandria", "weight": 100 },
-        { "tag": "domain.mathematics", "weight": 90 },
-        { "tag": "concept.women-history", "weight": 70 }
-      ],
-      "sourceIds": ["source.britannica.hypatia"],
-      "constellationIds": ["constellation.women-in-science"],
-      "discovery": {
-        "figureId": "figure.hypatia",
-        "minScore": 82,
-        "ambiguityMargin": 10,
-        "minEvidenceCount": 2,
-        "evidence": [
-          { "card": "place.alexandria", "weight": 40, "reason": "Alexandrie" },
-          { "tag": "domain.mathematics", "weight": 30, "reason": "Mathématiques" },
-          { "tag": "period.antiquity", "weight": 25, "reason": "Antiquité" },
-          { "tag": "concept.women-history", "weight": 16, "reason": "Femme de savoir" }
-        ],
-        "synergies": [
-          { "id": "alexandria-math-antiquity", "whenAll": ["card:place.alexandria", "tag:domain.mathematics", "tag:period.antiquity"], "weight": 18, "reason": "Alexandrie antique + mathématiques" }
-        ],
-        "contradictions": []
-      }
+      "unlocksToolCardIds": [
+        "place.poland"
+      ]
     },
     {
       "id": "figure.cleopatra",
-      "slug": "cleopatre",
+      "slug": "figure-cleopatra",
       "kind": "figure",
-      "rarity": "legendary",
       "status": "reviewed",
+      "rarity": "legendary",
       "localization": {
         "fr": {
           "title": "Cléopâtre VII",
@@ -198,83 +2063,3843 @@
         }
       },
       "tags": [
-        { "tag": "period.antiquity", "weight": 95 },
-        { "tag": "civilization.ancient-egypt", "weight": 100 },
-        { "tag": "role.ruler", "weight": 90 },
-        { "tag": "concept.women-history", "weight": 70 }
+        {
+          "tag": "period.antiquity",
+          "weight": 45
+        },
+        {
+          "tag": "civilization.ancient-egypt",
+          "weight": 50
+        },
+        {
+          "tag": "role.ruler",
+          "weight": 40
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 25
+        },
+        {
+          "tag": "place.egypt",
+          "weight": 35
+        }
       ],
-      "sourceIds": ["source.britannica.cleopatra"],
-      "constellationIds": ["constellation.rulers"],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.sovereigns"
+      ],
       "discovery": {
         "figureId": "figure.cleopatra",
-        "minScore": 84,
-        "ambiguityMargin": 10,
+        "minScore": 82,
+        "ambiguityMargin": 12,
         "minEvidenceCount": 2,
         "evidence": [
-          { "card": "period.ancient-egypt", "weight": 35, "reason": "Égypte ancienne" },
-          { "tag": "role.ruler", "weight": 30, "reason": "Pouvoir royal" },
-          { "tag": "civilization.ancient-egypt", "weight": 30, "reason": "Civilisation égyptienne" },
-          { "tag": "concept.women-history", "weight": 15, "reason": "Femme historique" }
+          {
+            "card": "civilization.ancient-egypt",
+            "weight": 35,
+            "reason": "Égypte ancienne"
+          },
+          {
+            "tag": "role.ruler",
+            "weight": 25,
+            "reason": "Pouvoir royal"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 20,
+            "reason": "Antiquité"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 18,
+            "reason": "Femme historique"
+          }
         ],
         "synergies": [
-          { "id": "egypt-queen-woman", "whenAll": ["card:period.ancient-egypt", "card:role.queen", "card:concept.female-figure"], "weight": 18, "reason": "Égypte ancienne + reine + femme" }
+          {
+            "id": "egypt-queen",
+            "whenAll": [
+              "card:civilization.ancient-egypt",
+              "card:role.queen"
+            ],
+            "weight": 24,
+            "reason": "Égypte ancienne + reine"
+          },
+          {
+            "id": "egypt-queen-woman",
+            "whenAll": [
+              "card:civilization.ancient-egypt",
+              "card:role.queen",
+              "card:concept.female-figure"
+            ],
+            "weight": 18,
+            "reason": "Égypte ancienne + reine + femme"
+          }
         ],
         "contradictions": [
-          { "id": "modern-science", "whenAll": ["card:period.20th-century", "card:domain.physics"], "weight": -25, "reason": "La science moderne éloigne de Cléopâtre." }
+          {
+            "id": "modern-science",
+            "whenAll": [
+              "card:period.20th-century",
+              "card:domain.physics"
+            ],
+            "weight": -25,
+            "reason": "La science moderne éloigne de Cléopâtre."
+          }
+        ]
+      },
+      "unlocksToolCardIds": [
+        "role.pharaoh"
+      ]
+    },
+    {
+      "id": "figure.socrate",
+      "slug": "figure-socrate",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Socrate",
+          "subtitle": "Philosophe",
+          "shortDescription": "Philosophe athénien, maître de la méthode dialectique."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.philosophy",
+          "weight": 50
+        },
+        {
+          "tag": "place.athens",
+          "weight": 40
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 45
+        },
+        {
+          "tag": "civilization.ancient-greece",
+          "weight": 40
+        },
+        {
+          "tag": "concept.socratic-method",
+          "weight": 45
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.greek-thinkers"
+      ],
+      "discovery": {
+        "figureId": "figure.socrate",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.philosophy",
+            "weight": 30,
+            "reason": "Philosophie"
+          },
+          {
+            "card": "place.athens",
+            "weight": 30,
+            "reason": "Athènes"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 22,
+            "reason": "Antiquité"
+          },
+          {
+            "tag": "concept.socratic-method",
+            "weight": 20,
+            "reason": "Méthode socratique"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "athens-philosophy-antiquity",
+            "whenAll": [
+              "card:place.athens",
+              "tag:domain.philosophy",
+              "tag:period.antiquity"
+            ],
+            "weight": 15,
+            "reason": "Athènes antique + philosophie"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.socratic-method"
+      ]
+    },
+    {
+      "id": "figure.joan-of-arc",
+      "slug": "figure-joan-of-arc",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Jeanne d’Arc",
+          "subtitle": "Héroïne française",
+          "shortDescription": "Chef de guerre et sainte, figure de la résistance française pendant la guerre de Cent Ans."
+        }
+      },
+      "tags": [
+        {
+          "tag": "place.france",
+          "weight": 40
+        },
+        {
+          "tag": "period.middle-ages",
+          "weight": 45
+        },
+        {
+          "tag": "role.resistance",
+          "weight": 35
+        },
+        {
+          "tag": "concept.faith",
+          "weight": 30
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 25
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.sovereigns"
+      ],
+      "discovery": {
+        "figureId": "figure.joan-of-arc",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "place.france",
+            "weight": 30,
+            "reason": "France"
+          },
+          {
+            "tag": "period.middle-ages",
+            "weight": 28,
+            "reason": "Moyen Âge"
+          },
+          {
+            "tag": "role.resistance",
+            "weight": 20,
+            "reason": "Résistance"
+          },
+          {
+            "tag": "concept.faith",
+            "weight": 15,
+            "reason": "Foi"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "france-middle-ages-faith",
+            "whenAll": [
+              "card:place.france",
+              "tag:period.middle-ages",
+              "tag:concept.faith"
+            ],
+            "weight": 12,
+            "reason": "France médiévale + foi"
+          }
+        ],
+        "contradictions": [
+          {
+            "id": "modern-france",
+            "whenAll": [
+              "card:period.20th-century",
+              "card:concept.radioactivity"
+            ],
+            "weight": -25,
+            "reason": "Jeanne d’Arc est médiévale."
+          }
+        ]
+      },
+      "unlocksToolCardIds": [
+        "event.crusades"
+      ]
+    },
+    {
+      "id": "figure.leonardo-da-vinci",
+      "slug": "figure-leonardo-da-vinci",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Léonard de Vinci",
+          "subtitle": "Peintre, inventeur et savant",
+          "shortDescription": "Génie de la Renaissance, auteur de la Joconde et de nombreux projets techniques."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.painting",
+          "weight": 45
+        },
+        {
+          "tag": "role.artist",
+          "weight": 40
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 45
+        },
+        {
+          "tag": "place.italy",
+          "weight": 35
+        },
+        {
+          "tag": "role.inventor",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.italian-renaissance"
+      ],
+      "discovery": {
+        "figureId": "figure.leonardo-da-vinci",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.painting",
+            "weight": 30,
+            "reason": "Peinture"
+          },
+          {
+            "tag": "period.renaissance",
+            "weight": 25,
+            "reason": "Renaissance"
+          },
+          {
+            "tag": "place.italy",
+            "weight": 20,
+            "reason": "Italie"
+          },
+          {
+            "tag": "role.artist",
+            "weight": 18,
+            "reason": "Artiste"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "renaissance-artist-italy",
+            "whenAll": [
+              "tag:period.renaissance",
+              "tag:role.artist",
+              "card:place.italy"
+            ],
+            "weight": 18,
+            "reason": "Renaissance italienne + artiste"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "work.mona-lisa"
+      ]
+    },
+    {
+      "id": "figure.martin-luther-king",
+      "slug": "figure-martin-luther-king",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Martin Luther King Jr.",
+          "subtitle": "Pasteur et militant",
+          "shortDescription": "Leader du mouvement américain des droits civiques, célèbre pour son discours « I Have a Dream »."
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.civil-rights",
+          "weight": 50
+        },
+        {
+          "tag": "concept.non-violence",
+          "weight": 45
+        },
+        {
+          "tag": "place.usa",
+          "weight": 40
+        },
+        {
+          "tag": "period.20th-century",
+          "weight": 35
+        },
+        {
+          "tag": "role.pastor",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.civil-rights"
+      ],
+      "discovery": {
+        "figureId": "figure.martin-luther-king",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "concept.civil-rights",
+            "weight": 30,
+            "reason": "Droits civiques"
+          },
+          {
+            "tag": "place.usa",
+            "weight": 22,
+            "reason": "États-Unis"
+          },
+          {
+            "tag": "role.pastor",
+            "weight": 18,
+            "reason": "Pasteur"
+          },
+          {
+            "tag": "period.20th-century",
+            "weight": 15,
+            "reason": "XXe siècle"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "civil-rights-usa",
+            "whenAll": [
+              "card:concept.civil-rights",
+              "card:place.usa"
+            ],
+            "weight": 15,
+            "reason": "Droits civiques + USA"
+          },
+          {
+            "id": "non-violence-pastor",
+            "whenAll": [
+              "card:concept.non-violence",
+              "tag:role.pastor"
+            ],
+            "weight": 12,
+            "reason": "Non-violence + pasteur"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "event.american-civil-rights"
+      ]
+    },
+    {
+      "id": "figure.rosa-parks",
+      "slug": "figure-rosa-parks",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Rosa Parks",
+          "subtitle": "Activiste des droits civiques",
+          "shortDescription": "Figure emblématique du mouvement américain des droits civiques."
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.civil-rights",
+          "weight": 50
+        },
+        {
+          "tag": "place.usa",
+          "weight": 40
+        },
+        {
+          "tag": "period.20th-century",
+          "weight": 35
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 30
+        },
+        {
+          "tag": "role.resistance",
+          "weight": 35
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.civil-rights"
+      ],
+      "discovery": {
+        "figureId": "figure.rosa-parks",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "concept.civil-rights",
+            "weight": 30,
+            "reason": "Droits civiques"
+          },
+          {
+            "tag": "place.usa",
+            "weight": 22,
+            "reason": "États-Unis"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 18,
+            "reason": "Femme engagée"
+          },
+          {
+            "tag": "role.resistance",
+            "weight": 15,
+            "reason": "Résistance"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "civil-rights-woman-usa",
+            "whenAll": [
+              "card:concept.civil-rights",
+              "card:concept.female-figure",
+              "card:place.usa"
+            ],
+            "weight": 15,
+            "reason": "Droits civiques + femme + USA"
+          }
+        ],
+        "contradictions": [
+          {
+            "id": "ancient-civil-rights",
+            "whenAll": [
+              "card:period.antiquity"
+            ],
+            "weight": -25,
+            "reason": "Les droits civiques américains sont modernes."
+          }
         ]
       }
+    },
+    {
+      "id": "figure.christopher-columbus",
+      "slug": "figure-christopher-columbus",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Christophe Colomb",
+          "subtitle": "Navigateur",
+          "shortDescription": "Explorateur dont les voyages ont ouvert la voie à la colonisation européenne des Amériques."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.explorer",
+          "weight": 45
+        },
+        {
+          "tag": "place.spain",
+          "weight": 35
+        },
+        {
+          "tag": "period.15th-century",
+          "weight": 40
+        },
+        {
+          "tag": "domain.exploration",
+          "weight": 40
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.explorers"
+      ],
+      "discovery": {
+        "figureId": "figure.christopher-columbus",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "role.explorer",
+            "weight": 30,
+            "reason": "Explorateur"
+          },
+          {
+            "tag": "period.renaissance",
+            "weight": 22,
+            "reason": "Renaissance"
+          },
+          {
+            "tag": "domain.exploration",
+            "weight": 18,
+            "reason": "Exploration"
+          },
+          {
+            "tag": "place.spain",
+            "weight": 15,
+            "reason": "Espagne"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "explorer-renaissance-spain",
+            "whenAll": [
+              "tag:role.explorer",
+              "card:place.spain",
+              "tag:period.renaissance"
+            ],
+            "weight": 15,
+            "reason": "Explorateur + Espagne + Renaissance"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "symbol.compass"
+      ]
+    },
+    {
+      "id": "figure.galileo-galilei",
+      "slug": "figure-galileo-galilei",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Galilée",
+          "subtitle": "Astronome et physicien",
+          "shortDescription": "Père de l’astronomie moderne, défenseur de l’héliocentrisme."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.astronomy",
+          "weight": 50
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 35
+        },
+        {
+          "tag": "concept.heliocentrism",
+          "weight": 50
+        },
+        {
+          "tag": "place.italy",
+          "weight": 30
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 35
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.modern-sciences",
+        "constellation.italian-renaissance"
+      ],
+      "discovery": {
+        "figureId": "figure.galileo-galilei",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.astronomy",
+            "weight": 30,
+            "reason": "Astronomie"
+          },
+          {
+            "tag": "place.italy",
+            "weight": 20,
+            "reason": "Italie"
+          },
+          {
+            "tag": "period.renaissance",
+            "weight": 18,
+            "reason": "Renaissance"
+          },
+          {
+            "tag": "concept.heliocentrism",
+            "weight": 15,
+            "reason": "Héliocentrisme"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "italy-astronomy-renaissance",
+            "whenAll": [
+              "card:place.italy",
+              "tag:domain.astronomy",
+              "tag:period.renaissance"
+            ],
+            "weight": 15,
+            "reason": "Italie + astronomie + Renaissance"
+          }
+        ],
+        "contradictions": [
+          {
+            "id": "ancient-astronomy",
+            "whenAll": [
+              "card:period.antiquity",
+              "card:concept.heliocentrism"
+            ],
+            "weight": -20,
+            "reason": "L’héliocentrisme moderne dépasse l’astronomie antique."
+          }
+        ]
+      },
+      "unlocksToolCardIds": [
+        "concept.heliocentrism",
+        "period.17th-century"
+      ]
+    },
+    {
+      "id": "figure.boudica",
+      "slug": "figure-boudica",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Boudica",
+          "subtitle": "Reine celte",
+          "shortDescription": "Reine des Icènes qui a mené une révolte contre l’Empire romain en Bretagne."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 35
+        },
+        {
+          "tag": "region.britain",
+          "weight": 40
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 40
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 25
+        },
+        {
+          "tag": "role.resistance",
+          "weight": 35
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.civil-rights",
+        "constellation.sovereigns"
+      ],
+      "discovery": {
+        "figureId": "figure.boudica",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "role.ruler",
+            "weight": 25,
+            "reason": "Reine"
+          },
+          {
+            "tag": "region.britain",
+            "weight": 25,
+            "reason": "Bretagne"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 22,
+            "reason": "Antiquité"
+          },
+          {
+            "tag": "role.resistance",
+            "weight": 18,
+            "reason": "Résistance"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "britain-queen-antiquity",
+            "whenAll": [
+              "card:region.britain",
+              "tag:role.ruler",
+              "tag:period.antiquity"
+            ],
+            "weight": 15,
+            "reason": "Bretagne + reine + Antiquité"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "civilization.ancient-rome"
+      ]
+    },
+    {
+      "id": "figure.pierre-curie",
+      "slug": "figure-pierre-curie",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Pierre Curie",
+          "subtitle": "Physicien",
+          "shortDescription": "Physicien français, pionnier de l’étude de la radioactivité aux côtés de Marie Curie."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.physics",
+          "weight": 45
+        },
+        {
+          "tag": "concept.radioactivity",
+          "weight": 50
+        },
+        {
+          "tag": "place.france",
+          "weight": 30
+        },
+        {
+          "tag": "period.19th-century",
+          "weight": 20
+        },
+        {
+          "tag": "period.20th-century",
+          "weight": 20
+        },
+        {
+          "tag": "concept.nobel-prize",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.curie-family"
+      ],
+      "discovery": {
+        "figureId": "figure.pierre-curie",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "card": "concept.radioactivity",
+            "weight": 40,
+            "reason": "Radioactivité"
+          },
+          {
+            "tag": "domain.physics",
+            "weight": 25,
+            "reason": "Physique"
+          },
+          {
+            "tag": "place.france",
+            "weight": 18,
+            "reason": "France"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "radioactivity-france",
+            "whenAll": [
+              "card:concept.radioactivity",
+              "card:place.france"
+            ],
+            "weight": 12,
+            "reason": "Radioactivité + France"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.nobel-prize"
+      ]
+    },
+    {
+      "id": "figure.irene-joliot-curie",
+      "slug": "figure-irene-joliot-curie",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Irène Joliot-Curie",
+          "subtitle": "Chimiste",
+          "shortDescription": "Chimiste française, prix Nobel de chimie pour ses travaux sur la radioactivité artificielle."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.chemistry",
+          "weight": 45
+        },
+        {
+          "tag": "concept.radioactivity",
+          "weight": 50
+        },
+        {
+          "tag": "place.france",
+          "weight": 30
+        },
+        {
+          "tag": "period.20th-century",
+          "weight": 30
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 25
+        },
+        {
+          "tag": "concept.nobel-prize",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.women-in-science",
+        "constellation.curie-family"
+      ],
+      "discovery": {
+        "figureId": "figure.irene-joliot-curie",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "card": "concept.radioactivity",
+            "weight": 35,
+            "reason": "Radioactivité"
+          },
+          {
+            "tag": "domain.chemistry",
+            "weight": 25,
+            "reason": "Chimie"
+          },
+          {
+            "tag": "place.france",
+            "weight": 18,
+            "reason": "France"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 15,
+            "reason": "Femme scientifique"
+          },
+          {
+            "card": "concept.nobel-prize",
+            "weight": 15,
+            "reason": "Prix Nobel"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "curie-family",
+            "whenAll": [
+              "card:figure.marie-curie",
+              "card:concept.radioactivity"
+            ],
+            "weight": 18,
+            "reason": "Suite de la famille Curie"
+          },
+          {
+            "id": "radioactivity-chemistry-france",
+            "whenAll": [
+              "card:concept.radioactivity",
+              "tag:domain.chemistry",
+              "card:place.france"
+            ],
+            "weight": 12,
+            "reason": "Radioactivité + chimie + France"
+          }
+        ],
+        "contradictions": []
+      }
+    },
+    {
+      "id": "figure.hypatia",
+      "slug": "figure-hypatia",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Hypatie",
+          "subtitle": "Philosophe et mathématicienne",
+          "shortDescription": "Figure savante de l’Alexandrie antique, connue pour son enseignement néoplatonicien."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.mathematics",
+          "weight": 40
+        },
+        {
+          "tag": "domain.philosophy",
+          "weight": 35
+        },
+        {
+          "tag": "place.alexandria",
+          "weight": 50
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 45
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 25
+        },
+        {
+          "tag": "civilization.ancient-greece",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.women-in-science"
+      ],
+      "discovery": {
+        "figureId": "figure.hypatia",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "card": "place.alexandria",
+            "weight": 35,
+            "reason": "Alexandrie"
+          },
+          {
+            "tag": "domain.mathematics",
+            "weight": 25,
+            "reason": "Mathématiques"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 22,
+            "reason": "Antiquité"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 15,
+            "reason": "Femme de savoir"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "alexandria-math-antiquity",
+            "whenAll": [
+              "card:place.alexandria",
+              "tag:domain.mathematics",
+              "tag:period.antiquity"
+            ],
+            "weight": 15,
+            "reason": "Alexandrie antique + mathématiques"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "symbol.owl"
+      ]
+    },
+    {
+      "id": "figure.hatshepsout",
+      "slug": "figure-hatshepsout",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Hatshepsout",
+          "subtitle": "Pharaon d’Égypte",
+          "shortDescription": "Reine-pharaon de la XVIIIe dynastie, l’une des grandes souveraines de l’Égypte ancienne."
+        }
+      },
+      "tags": [
+        {
+          "tag": "period.antiquity",
+          "weight": 45
+        },
+        {
+          "tag": "civilization.ancient-egypt",
+          "weight": 50
+        },
+        {
+          "tag": "role.ruler",
+          "weight": 40
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 25
+        },
+        {
+          "tag": "place.egypt",
+          "weight": 35
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.sovereigns"
+      ],
+      "discovery": {
+        "figureId": "figure.hatshepsout",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "card": "civilization.ancient-egypt",
+            "weight": 30,
+            "reason": "Égypte ancienne"
+          },
+          {
+            "card": "role.pharaoh",
+            "weight": 30,
+            "reason": "Pharaon"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 18,
+            "reason": "Femme souveraine"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 12,
+            "reason": "Antiquité"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "ancient-egypt-queen",
+            "whenAll": [
+              "card:civilization.ancient-egypt",
+              "tag:role.ruler",
+              "card:concept.female-figure"
+            ],
+            "weight": 15,
+            "reason": "Égypte ancienne + souveraine + femme"
+          }
+        ],
+        "contradictions": [
+          {
+            "id": "modern-egypt",
+            "whenAll": [
+              "card:period.20th-century"
+            ],
+            "weight": -30,
+            "reason": "Hatshepsout appartient à l’Antiquité."
+          }
+        ]
+      },
+      "unlocksToolCardIds": [
+        "symbol.owl"
+      ]
+    },
+    {
+      "id": "figure.isaac-newton",
+      "slug": "figure-isaac-newton",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Isaac Newton",
+          "subtitle": "Physicien et mathématicien",
+          "shortDescription": "Auteur des lois du mouvement et de la gravitation universelle."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.physics",
+          "weight": 50
+        },
+        {
+          "tag": "domain.mathematics",
+          "weight": 40
+        },
+        {
+          "tag": "concept.gravitation",
+          "weight": 50
+        },
+        {
+          "tag": "place.england",
+          "weight": 30
+        },
+        {
+          "tag": "period.17th-century",
+          "weight": 35
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.modern-sciences"
+      ],
+      "discovery": {
+        "figureId": "figure.isaac-newton",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.physics",
+            "weight": 28,
+            "reason": "Physique"
+          },
+          {
+            "tag": "domain.mathematics",
+            "weight": 22,
+            "reason": "Mathématiques"
+          },
+          {
+            "tag": "place.england",
+            "weight": 18,
+            "reason": "Angleterre"
+          },
+          {
+            "tag": "period.17th-century",
+            "weight": 18,
+            "reason": "XVIIe siècle"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "physics-math-england",
+            "whenAll": [
+              "tag:domain.physics",
+              "tag:domain.mathematics",
+              "card:place.england"
+            ],
+            "weight": 18,
+            "reason": "Physique + mathématiques + Angleterre"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.gravitation",
+        "work.principia"
+      ]
+    },
+    {
+      "id": "figure.charles-darwin",
+      "slug": "figure-charles-darwin",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Charles Darwin",
+          "subtitle": "Naturaliste",
+          "shortDescription": "Auteur de la théorie de l’évolution par sélection naturelle."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.biology",
+          "weight": 50
+        },
+        {
+          "tag": "concept.evolution",
+          "weight": 55
+        },
+        {
+          "tag": "place.england",
+          "weight": 30
+        },
+        {
+          "tag": "period.19th-century",
+          "weight": 35
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.modern-sciences"
+      ],
+      "discovery": {
+        "figureId": "figure.charles-darwin",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.biology",
+            "weight": 30,
+            "reason": "Biologie"
+          },
+          {
+            "tag": "place.england",
+            "weight": 20,
+            "reason": "Angleterre"
+          },
+          {
+            "tag": "period.19th-century",
+            "weight": 20,
+            "reason": "XIXe siècle"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "biology-england-19th",
+            "whenAll": [
+              "tag:domain.biology",
+              "card:place.england",
+              "tag:period.19th-century"
+            ],
+            "weight": 18,
+            "reason": "Biologie + Angleterre + XIXe"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.evolution",
+        "work.origin-of-species"
+      ]
+    },
+    {
+      "id": "figure.ada-lovelace",
+      "slug": "figure-ada-lovelace",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Ada Lovelace",
+          "subtitle": "Mathématicienne",
+          "shortDescription": "Pionnière de l’informatique, auteure du premier algorithme destiné à une machine."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.mathematics",
+          "weight": 40
+        },
+        {
+          "tag": "domain.computing",
+          "weight": 45
+        },
+        {
+          "tag": "concept.algorithm",
+          "weight": 45
+        },
+        {
+          "tag": "place.england",
+          "weight": 30
+        },
+        {
+          "tag": "period.19th-century",
+          "weight": 35
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.women-in-science"
+      ],
+      "discovery": {
+        "figureId": "figure.ada-lovelace",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.computing",
+            "weight": 28,
+            "reason": "Informatique"
+          },
+          {
+            "tag": "domain.mathematics",
+            "weight": 20,
+            "reason": "Mathématiques"
+          },
+          {
+            "tag": "place.england",
+            "weight": 18,
+            "reason": "Angleterre"
+          },
+          {
+            "tag": "period.19th-century",
+            "weight": 15,
+            "reason": "XIXe siècle"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 15,
+            "reason": "Femme scientifique"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "computing-mathematics-england",
+            "whenAll": [
+              "tag:domain.computing",
+              "tag:domain.mathematics",
+              "card:place.england"
+            ],
+            "weight": 15,
+            "reason": "Informatique + mathématiques + Angleterre"
+          }
+        ],
+        "contradictions": [
+          {
+            "id": "no-computing-ancient",
+            "whenAll": [
+              "card:period.antiquity",
+              "card:domain.computing"
+            ],
+            "weight": -30,
+            "reason": "L’informatique n’existait pas dans l’Antiquité."
+          }
+        ]
+      },
+      "unlocksToolCardIds": [
+        "concept.algorithm"
+      ]
+    },
+    {
+      "id": "figure.florence-nightingale",
+      "slug": "figure-florence-nightingale",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Florence Nightingale",
+          "subtitle": "Infirmière et statisticienne",
+          "shortDescription": "Pionnière des soins infirmiers modernes et de l’utilisation des statistiques en santé."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.nursing",
+          "weight": 50
+        },
+        {
+          "tag": "domain.medicine",
+          "weight": 35
+        },
+        {
+          "tag": "place.england",
+          "weight": 30
+        },
+        {
+          "tag": "period.19th-century",
+          "weight": 35
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.women-in-science"
+      ],
+      "discovery": {
+        "figureId": "figure.florence-nightingale",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.nursing",
+            "weight": 35,
+            "reason": "Soins infirmiers"
+          },
+          {
+            "tag": "place.england",
+            "weight": 22,
+            "reason": "Angleterre"
+          },
+          {
+            "tag": "period.19th-century",
+            "weight": 18,
+            "reason": "XIXe siècle"
+          },
+          {
+            "tag": "concept.women-history",
+            "weight": 15,
+            "reason": "Femme pionnière"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "nursing-england-19th",
+            "whenAll": [
+              "tag:domain.nursing",
+              "card:place.england",
+              "tag:period.19th-century"
+            ],
+            "weight": 12,
+            "reason": "Soins infirmiers + Angleterre + XIXe"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "domain.medicine"
+      ]
+    },
+    {
+      "id": "figure.nelson-mandela",
+      "slug": "figure-nelson-mandela",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Nelson Mandela",
+          "subtitle": "Président et militant",
+          "shortDescription": "Leader anti-apartheid et premier président noir d’Afrique du Sud."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.resistance",
+          "weight": 40
+        },
+        {
+          "tag": "place.south-africa",
+          "weight": 45
+        },
+        {
+          "tag": "period.20th-century",
+          "weight": 40
+        },
+        {
+          "tag": "concept.civil-rights",
+          "weight": 40
+        },
+        {
+          "tag": "concept.apartheid",
+          "weight": 45
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.civil-rights"
+      ],
+      "discovery": {
+        "figureId": "figure.nelson-mandela",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "concept.apartheid",
+            "weight": 35,
+            "reason": "Apartheid"
+          },
+          {
+            "tag": "place.south-africa",
+            "weight": 25,
+            "reason": "Afrique du Sud"
+          },
+          {
+            "tag": "role.resistance",
+            "weight": 18,
+            "reason": "Résistant"
+          },
+          {
+            "tag": "period.20th-century",
+            "weight": 15,
+            "reason": "XXe siècle"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "south-africa-resistance-20th",
+            "whenAll": [
+              "card:place.south-africa",
+              "tag:role.resistance",
+              "tag:period.20th-century"
+            ],
+            "weight": 15,
+            "reason": "Afrique du Sud + résistance + XXe"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.apartheid"
+      ]
+    },
+    {
+      "id": "figure.marco-polo",
+      "slug": "figure-marco-polo",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Marco Polo",
+          "subtitle": "Voyageur vénitien",
+          "shortDescription": "Marchand et explorateur dont le livre a fait connaître l’Asie à l’Europe médiévale."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.explorer",
+          "weight": 45
+        },
+        {
+          "tag": "place.venice",
+          "weight": 40
+        },
+        {
+          "tag": "period.middle-ages",
+          "weight": 40
+        },
+        {
+          "tag": "domain.exploration",
+          "weight": 40
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.explorers"
+      ],
+      "discovery": {
+        "figureId": "figure.marco-polo",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "role.explorer",
+            "weight": 30,
+            "reason": "Explorateur"
+          },
+          {
+            "tag": "period.middle-ages",
+            "weight": 22,
+            "reason": "Moyen Âge"
+          },
+          {
+            "tag": "domain.exploration",
+            "weight": 18,
+            "reason": "Exploration"
+          },
+          {
+            "card": "place.venice",
+            "weight": 15,
+            "reason": "Venise"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "explorer-middle-ages-venice",
+            "whenAll": [
+              "tag:role.explorer",
+              "tag:period.middle-ages",
+              "card:place.venice"
+            ],
+            "weight": 15,
+            "reason": "Explorateur + Moyen Âge + Venise"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.colonialism"
+      ]
+    },
+    {
+      "id": "figure.ashoka",
+      "slug": "figure-ashoka",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Ashoka",
+          "subtitle": "Empereur maurya",
+          "shortDescription": "Empereur qui a fait diffuser le bouddhisme dans l’Asie ancienne."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 40
+        },
+        {
+          "tag": "place.india",
+          "weight": 40
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 40
+        },
+        {
+          "tag": "concept.buddhism",
+          "weight": 45
+        },
+        {
+          "tag": "civilization.maurya",
+          "weight": 40
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [],
+      "discovery": {
+        "figureId": "figure.ashoka",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "concept.buddhism",
+            "weight": 30,
+            "reason": "Bouddhisme"
+          },
+          {
+            "tag": "role.ruler",
+            "weight": 25,
+            "reason": "Empereur"
+          },
+          {
+            "tag": "place.india",
+            "weight": 20,
+            "reason": "Inde"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 15,
+            "reason": "Antiquité"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "india-buddhism-ruler",
+            "whenAll": [
+              "card:place.india",
+              "tag:concept.buddhism",
+              "tag:role.ruler"
+            ],
+            "weight": 15,
+            "reason": "Inde + bouddhisme + souverain"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.buddhism"
+      ]
+    },
+    {
+      "id": "figure.catherine-de-medici",
+      "slug": "figure-catherine-de-medici",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Catherine de Médicis",
+          "subtitle": "Reine de France",
+          "shortDescription": "Figure politique de la Renaissance française, originaire de Florence."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 40
+        },
+        {
+          "tag": "place.france",
+          "weight": 30
+        },
+        {
+          "tag": "place.italy",
+          "weight": 25
+        },
+        {
+          "tag": "period.renaissance",
+          "weight": 40
+        },
+        {
+          "tag": "concept.women-history",
+          "weight": 20
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.sovereigns",
+        "constellation.italian-renaissance"
+      ],
+      "discovery": {
+        "figureId": "figure.catherine-de-medici",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "role.ruler",
+            "weight": 25,
+            "reason": "Pouvoir royal"
+          },
+          {
+            "tag": "period.renaissance",
+            "weight": 22,
+            "reason": "Renaissance"
+          },
+          {
+            "card": "place.france",
+            "weight": 18,
+            "reason": "France"
+          },
+          {
+            "card": "place.italy",
+            "weight": 15,
+            "reason": "Italie"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "renaissance-france-italy",
+            "whenAll": [
+              "tag:period.renaissance",
+              "card:place.france",
+              "card:place.italy"
+            ],
+            "weight": 15,
+            "reason": "Renaissance + France + Italie"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "period.renaissance"
+      ]
+    },
+    {
+      "id": "figure.simon-bolivar",
+      "slug": "figure-simon-bolivar",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Simón Bolívar",
+          "subtitle": "Libérateur sud-américain",
+          "shortDescription": "Chef militaire et politique à l’origine de l’indépendance de plusieurs pays d’Amérique du Sud."
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.resistance",
+          "weight": 40
+        },
+        {
+          "tag": "region.south-america",
+          "weight": 45
+        },
+        {
+          "tag": "period.19th-century",
+          "weight": 40
+        },
+        {
+          "tag": "domain.politics",
+          "weight": 30
+        },
+        {
+          "tag": "concept.colonialism",
+          "weight": 30
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [],
+      "discovery": {
+        "figureId": "figure.simon-bolivar",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "region.south-america",
+            "weight": 30,
+            "reason": "Amérique du Sud"
+          },
+          {
+            "tag": "role.resistance",
+            "weight": 25,
+            "reason": "Libérateur"
+          },
+          {
+            "tag": "period.19th-century",
+            "weight": 20,
+            "reason": "XIXe siècle"
+          },
+          {
+            "tag": "domain.politics",
+            "weight": 15,
+            "reason": "Politique"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "south-america-resistance-19th",
+            "whenAll": [
+              "card:region.south-america",
+              "tag:role.resistance",
+              "tag:period.19th-century"
+            ],
+            "weight": 15,
+            "reason": "Amérique du Sud + libérateur + XIXe"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "event.independence-south-america"
+      ]
+    },
+    {
+      "id": "figure.plato",
+      "slug": "figure-plato",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "epic",
+      "localization": {
+        "fr": {
+          "title": "Platon",
+          "subtitle": "Philosophe",
+          "shortDescription": "Philosophe grec, disciple de Socrate et maître d’Aristote."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.philosophy",
+          "weight": 50
+        },
+        {
+          "tag": "place.athens",
+          "weight": 40
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 45
+        },
+        {
+          "tag": "civilization.ancient-greece",
+          "weight": 40
+        },
+        {
+          "tag": "concept.platonic-ideas",
+          "weight": 45
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.greek-thinkers"
+      ],
+      "discovery": {
+        "figureId": "figure.plato",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.philosophy",
+            "weight": 25,
+            "reason": "Philosophie"
+          },
+          {
+            "card": "place.athens",
+            "weight": 20,
+            "reason": "Athènes"
+          },
+          {
+            "card": "figure.socrate",
+            "weight": 22,
+            "reason": "Disciple de Socrate"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 18,
+            "reason": "Antiquité"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "socrate-plato",
+            "whenAll": [
+              "card:figure.socrate",
+              "tag:domain.philosophy"
+            ],
+            "weight": 18,
+            "reason": "Socrate + philosophie"
+          },
+          {
+            "id": "athens-philosophy-antiquity",
+            "whenAll": [
+              "card:place.athens",
+              "tag:domain.philosophy",
+              "tag:period.antiquity"
+            ],
+            "weight": 12,
+            "reason": "Athènes antique + philosophie"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.platonic-ideas"
+      ]
+    },
+    {
+      "id": "figure.aristote",
+      "slug": "figure-aristote",
+      "kind": "figure",
+      "status": "reviewed",
+      "rarity": "legendary",
+      "localization": {
+        "fr": {
+          "title": "Aristote",
+          "subtitle": "Philosophe et scientifique",
+          "shortDescription": "Penseur grec aux vastes domaines : philosophie, biologie, physique, politique."
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.philosophy",
+          "weight": 45
+        },
+        {
+          "tag": "domain.biology",
+          "weight": 30
+        },
+        {
+          "tag": "domain.physics",
+          "weight": 25
+        },
+        {
+          "tag": "place.athens",
+          "weight": 35
+        },
+        {
+          "tag": "period.antiquity",
+          "weight": 45
+        },
+        {
+          "tag": "concept.logic",
+          "weight": 45
+        }
+      ],
+      "sourceIds": [
+        "source.cardheon.test"
+      ],
+      "constellationIds": [
+        "constellation.greek-thinkers"
+      ],
+      "discovery": {
+        "figureId": "figure.aristote",
+        "minScore": 82,
+        "ambiguityMargin": 12,
+        "minEvidenceCount": 2,
+        "evidence": [
+          {
+            "tag": "domain.philosophy",
+            "weight": 22,
+            "reason": "Philosophie"
+          },
+          {
+            "card": "figure.plato",
+            "weight": 22,
+            "reason": "Élève de Platon"
+          },
+          {
+            "tag": "period.antiquity",
+            "weight": 18,
+            "reason": "Antiquité"
+          },
+          {
+            "card": "place.athens",
+            "weight": 15,
+            "reason": "Athènes"
+          }
+        ],
+        "synergies": [
+          {
+            "id": "plato-aristote",
+            "whenAll": [
+              "card:figure.plato",
+              "tag:domain.philosophy"
+            ],
+            "weight": 18,
+            "reason": "Platon + philosophie"
+          },
+          {
+            "id": "athens-philosophy-antiquity",
+            "whenAll": [
+              "card:place.athens",
+              "tag:domain.philosophy",
+              "tag:period.antiquity"
+            ],
+            "weight": 12,
+            "reason": "Athènes antique + philosophie"
+          }
+        ],
+        "contradictions": []
+      },
+      "unlocksToolCardIds": [
+        "concept.logic"
+      ]
     }
   ],
   "relationships": [
-    { "source": "figure.marie-curie", "predicate": "associated_with", "target": "concept.radioactivity", "weight": 55, "sourceIds": ["source.britannica.marie-curie"] },
-    { "source": "figure.hypatia", "predicate": "active_in", "target": "place.alexandria", "weight": 40, "sourceIds": ["source.britannica.hypatia"] },
-    { "source": "figure.cleopatra", "predicate": "ruled", "target": "period.ancient-egypt", "weight": 45, "sourceIds": ["source.britannica.cleopatra"] }
+    {
+      "source": "figure.marie-curie",
+      "predicate": "collaborated_with",
+      "target": "figure.pierre-curie",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marie-curie",
+      "predicate": "parent_of",
+      "target": "figure.irene-joliot-curie",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marie-curie",
+      "predicate": "unlocks",
+      "target": "place.poland",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marie-curie",
+      "predicate": "related_to",
+      "target": "domain.physics",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marie-curie",
+      "predicate": "related_to",
+      "target": "place.france",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marie-curie",
+      "predicate": "related_to",
+      "target": "period.20th-century",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marie-curie",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.cleopatra",
+      "predicate": "unlocks",
+      "target": "role.pharaoh",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.cleopatra",
+      "predicate": "associated_with",
+      "target": "civilization.ancient-egypt",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.cleopatra",
+      "predicate": "related_to",
+      "target": "role.queen",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.cleopatra",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.cleopatra",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.socrate",
+      "predicate": "teacher_of",
+      "target": "figure.plato",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.socrate",
+      "predicate": "unlocks",
+      "target": "concept.socratic-method",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.socrate",
+      "predicate": "related_to",
+      "target": "domain.philosophy",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.socrate",
+      "predicate": "associated_with",
+      "target": "place.athens",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.socrate",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.socrate",
+      "predicate": "related_to",
+      "target": "concept.socratic-method",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.joan-of-arc",
+      "predicate": "unlocks",
+      "target": "event.crusades",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.joan-of-arc",
+      "predicate": "related_to",
+      "target": "place.france",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.joan-of-arc",
+      "predicate": "related_to",
+      "target": "period.middle-ages",
+      "weight": 28,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.joan-of-arc",
+      "predicate": "related_to",
+      "target": "role.resistance",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.joan-of-arc",
+      "predicate": "related_to",
+      "target": "role.pastor",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.leonardo-da-vinci",
+      "predicate": "unlocks",
+      "target": "work.mona-lisa",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.leonardo-da-vinci",
+      "predicate": "related_to",
+      "target": "domain.painting",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.leonardo-da-vinci",
+      "predicate": "related_to",
+      "target": "period.renaissance",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.leonardo-da-vinci",
+      "predicate": "related_to",
+      "target": "place.italy",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.leonardo-da-vinci",
+      "predicate": "related_to",
+      "target": "role.artist",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.martin-luther-king",
+      "predicate": "unlocks",
+      "target": "event.american-civil-rights",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.martin-luther-king",
+      "predicate": "related_to",
+      "target": "concept.civil-rights",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.martin-luther-king",
+      "predicate": "related_to",
+      "target": "place.usa",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.martin-luther-king",
+      "predicate": "related_to",
+      "target": "role.pastor",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.martin-luther-king",
+      "predicate": "related_to",
+      "target": "period.20th-century",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.rosa-parks",
+      "predicate": "inspired",
+      "target": "figure.martin-luther-king",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.rosa-parks",
+      "predicate": "related_to",
+      "target": "concept.civil-rights",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.rosa-parks",
+      "predicate": "related_to",
+      "target": "place.usa",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.rosa-parks",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.rosa-parks",
+      "predicate": "related_to",
+      "target": "role.resistance",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.christopher-columbus",
+      "predicate": "unlocks",
+      "target": "symbol.compass",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.christopher-columbus",
+      "predicate": "related_to",
+      "target": "role.explorer",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.christopher-columbus",
+      "predicate": "related_to",
+      "target": "period.renaissance",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.christopher-columbus",
+      "predicate": "related_to",
+      "target": "domain.exploration",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.christopher-columbus",
+      "predicate": "related_to",
+      "target": "place.spain",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.galileo-galilei",
+      "predicate": "unlocks",
+      "target": "concept.heliocentrism",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.galileo-galilei",
+      "predicate": "unlocks",
+      "target": "period.17th-century",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.galileo-galilei",
+      "predicate": "related_to",
+      "target": "domain.astronomy",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.galileo-galilei",
+      "predicate": "related_to",
+      "target": "place.italy",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.galileo-galilei",
+      "predicate": "related_to",
+      "target": "period.renaissance",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.galileo-galilei",
+      "predicate": "related_to",
+      "target": "concept.heliocentrism",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.boudica",
+      "predicate": "unlocks",
+      "target": "civilization.ancient-rome",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.boudica",
+      "predicate": "related_to",
+      "target": "role.queen",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.boudica",
+      "predicate": "related_to",
+      "target": "region.britain",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.boudica",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.boudica",
+      "predicate": "related_to",
+      "target": "role.resistance",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.pierre-curie",
+      "predicate": "collaborated_with",
+      "target": "figure.marie-curie",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.pierre-curie",
+      "predicate": "unlocks",
+      "target": "concept.nobel-prize",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.pierre-curie",
+      "predicate": "associated_with",
+      "target": "concept.radioactivity",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.pierre-curie",
+      "predicate": "related_to",
+      "target": "domain.physics",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.pierre-curie",
+      "predicate": "related_to",
+      "target": "place.france",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.irene-joliot-curie",
+      "predicate": "child_of",
+      "target": "figure.marie-curie",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.irene-joliot-curie",
+      "predicate": "associated_with",
+      "target": "concept.radioactivity",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.irene-joliot-curie",
+      "predicate": "related_to",
+      "target": "domain.chemistry",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.irene-joliot-curie",
+      "predicate": "related_to",
+      "target": "place.france",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.irene-joliot-curie",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.irene-joliot-curie",
+      "predicate": "associated_with",
+      "target": "concept.nobel-prize",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hypatia",
+      "predicate": "unlocks",
+      "target": "symbol.owl",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hypatia",
+      "predicate": "associated_with",
+      "target": "place.alexandria",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hypatia",
+      "predicate": "related_to",
+      "target": "domain.mathematics",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hypatia",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hypatia",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hatshepsout",
+      "predicate": "unlocks",
+      "target": "symbol.owl",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hatshepsout",
+      "predicate": "associated_with",
+      "target": "civilization.ancient-egypt",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hatshepsout",
+      "predicate": "associated_with",
+      "target": "role.pharaoh",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hatshepsout",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.hatshepsout",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 12,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.isaac-newton",
+      "predicate": "unlocks",
+      "target": "concept.gravitation",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.isaac-newton",
+      "predicate": "unlocks",
+      "target": "work.principia",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.isaac-newton",
+      "predicate": "related_to",
+      "target": "domain.physics",
+      "weight": 28,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.isaac-newton",
+      "predicate": "related_to",
+      "target": "domain.mathematics",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.isaac-newton",
+      "predicate": "related_to",
+      "target": "place.england",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.isaac-newton",
+      "predicate": "related_to",
+      "target": "period.17th-century",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.charles-darwin",
+      "predicate": "unlocks",
+      "target": "concept.evolution",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.charles-darwin",
+      "predicate": "unlocks",
+      "target": "work.origin-of-species",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.charles-darwin",
+      "predicate": "related_to",
+      "target": "domain.biology",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.charles-darwin",
+      "predicate": "related_to",
+      "target": "place.england",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.charles-darwin",
+      "predicate": "related_to",
+      "target": "period.19th-century",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ada-lovelace",
+      "predicate": "unlocks",
+      "target": "concept.algorithm",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ada-lovelace",
+      "predicate": "related_to",
+      "target": "domain.computing",
+      "weight": 28,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ada-lovelace",
+      "predicate": "related_to",
+      "target": "domain.mathematics",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ada-lovelace",
+      "predicate": "related_to",
+      "target": "place.england",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ada-lovelace",
+      "predicate": "related_to",
+      "target": "period.19th-century",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ada-lovelace",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.florence-nightingale",
+      "predicate": "unlocks",
+      "target": "domain.medicine",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.florence-nightingale",
+      "predicate": "related_to",
+      "target": "domain.nursing",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.florence-nightingale",
+      "predicate": "related_to",
+      "target": "place.england",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.florence-nightingale",
+      "predicate": "related_to",
+      "target": "period.19th-century",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.florence-nightingale",
+      "predicate": "related_to",
+      "target": "concept.female-figure",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.nelson-mandela",
+      "predicate": "unlocks",
+      "target": "concept.apartheid",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.nelson-mandela",
+      "predicate": "related_to",
+      "target": "concept.apartheid",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.nelson-mandela",
+      "predicate": "related_to",
+      "target": "place.south-africa",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.nelson-mandela",
+      "predicate": "related_to",
+      "target": "role.resistance",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.nelson-mandela",
+      "predicate": "related_to",
+      "target": "period.20th-century",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marco-polo",
+      "predicate": "unlocks",
+      "target": "concept.colonialism",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marco-polo",
+      "predicate": "related_to",
+      "target": "role.explorer",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marco-polo",
+      "predicate": "related_to",
+      "target": "period.middle-ages",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marco-polo",
+      "predicate": "related_to",
+      "target": "domain.exploration",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.marco-polo",
+      "predicate": "associated_with",
+      "target": "place.venice",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ashoka",
+      "predicate": "unlocks",
+      "target": "concept.buddhism",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ashoka",
+      "predicate": "related_to",
+      "target": "concept.buddhism",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ashoka",
+      "predicate": "related_to",
+      "target": "role.queen",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ashoka",
+      "predicate": "related_to",
+      "target": "place.india",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.ashoka",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.catherine-de-medici",
+      "predicate": "unlocks",
+      "target": "period.renaissance",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.catherine-de-medici",
+      "predicate": "related_to",
+      "target": "role.queen",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.catherine-de-medici",
+      "predicate": "related_to",
+      "target": "period.renaissance",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.catherine-de-medici",
+      "predicate": "associated_with",
+      "target": "place.france",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.catherine-de-medici",
+      "predicate": "associated_with",
+      "target": "place.italy",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.simon-bolivar",
+      "predicate": "unlocks",
+      "target": "event.independence-south-america",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.simon-bolivar",
+      "predicate": "related_to",
+      "target": "region.south-america",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.simon-bolivar",
+      "predicate": "related_to",
+      "target": "role.resistance",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.simon-bolivar",
+      "predicate": "related_to",
+      "target": "period.19th-century",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.simon-bolivar",
+      "predicate": "related_to",
+      "target": "domain.politics",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "student_of",
+      "target": "figure.socrate",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "teacher_of",
+      "target": "figure.aristote",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "unlocks",
+      "target": "concept.platonic-ideas",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "related_to",
+      "target": "domain.philosophy",
+      "weight": 25,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "associated_with",
+      "target": "place.athens",
+      "weight": 20,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "associated_with",
+      "target": "figure.socrate",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.plato",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.aristote",
+      "predicate": "unlocks",
+      "target": "concept.logic",
+      "weight": 30,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.aristote",
+      "predicate": "related_to",
+      "target": "domain.philosophy",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.aristote",
+      "predicate": "associated_with",
+      "target": "figure.plato",
+      "weight": 22,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.aristote",
+      "predicate": "related_to",
+      "target": "period.antiquity",
+      "weight": 18,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "figure.aristote",
+      "predicate": "associated_with",
+      "target": "place.athens",
+      "weight": 15,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.radioactivity",
+      "predicate": "branch_of",
+      "target": "domain.physics",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.evolution",
+      "predicate": "branch_of",
+      "target": "domain.biology",
+      "weight": 45,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.gravitation",
+      "predicate": "branch_of",
+      "target": "domain.physics",
+      "weight": 45,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.heliocentrism",
+      "predicate": "branch_of",
+      "target": "domain.astronomy",
+      "weight": 45,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.algorithm",
+      "predicate": "branch_of",
+      "target": "domain.computing",
+      "weight": 45,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.calculus",
+      "predicate": "branch_of",
+      "target": "domain.mathematics",
+      "weight": 45,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.socratic-method",
+      "predicate": "branch_of",
+      "target": "domain.philosophy",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.logic",
+      "predicate": "branch_of",
+      "target": "domain.philosophy",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.non-violence",
+      "predicate": "branch_of",
+      "target": "concept.civil-rights",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "concept.apartheid",
+      "predicate": "opposes",
+      "target": "concept.civil-rights",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "domain.computing",
+      "predicate": "evolved_from",
+      "target": "domain.mathematics",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "domain.astronomy",
+      "predicate": "evolved_from",
+      "target": "domain.physics",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "domain.nursing",
+      "predicate": "branch_of",
+      "target": "domain.medicine",
+      "weight": 35,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "place.alexandria",
+      "predicate": "located_in",
+      "target": "place.egypt",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "place.athens",
+      "predicate": "located_in",
+      "target": "place.greece",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "place.venice",
+      "predicate": "located_in",
+      "target": "place.italy",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "period.renaissance",
+      "predicate": "follows",
+      "target": "period.middle-ages",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "period.15th-century",
+      "predicate": "part_of",
+      "target": "period.renaissance",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "period.16th-century",
+      "predicate": "part_of",
+      "target": "period.renaissance",
+      "weight": 40,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "work.mona-lisa",
+      "predicate": "created_by",
+      "target": "figure.leonardo-da-vinci",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "work.principia",
+      "predicate": "written_by",
+      "target": "figure.isaac-newton",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "work.origin-of-species",
+      "predicate": "written_by",
+      "target": "figure.charles-darwin",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    },
+    {
+      "source": "work.republic",
+      "predicate": "written_by",
+      "target": "figure.plato",
+      "weight": 60,
+      "sourceIds": [
+        "source.cardheon.test"
+      ]
+    }
   ],
   "constellations": [
     {
       "id": "constellation.women-in-science",
       "slug": "femmes-de-science",
-      "localization": { "fr": { "title": "Femmes de science" } },
-      "cardIds": ["figure.marie-curie", "figure.hypatia"],
-      "reward": { "xp": 120 }
+      "localization": {
+        "fr": {
+          "title": "Femmes de science"
+        }
+      },
+      "cardIds": [
+        "figure.marie-curie",
+        "figure.hypatia",
+        "figure.ada-lovelace",
+        "figure.irene-joliot-curie",
+        "figure.florence-nightingale"
+      ],
+      "reward": {
+        "xp": 250,
+        "unlockCardIds": [
+          "concept.nobel-prize"
+        ]
+      }
     },
     {
-      "id": "constellation.radioactivity",
-      "slug": "radioactivite",
-      "localization": { "fr": { "title": "Radioactivité" } },
-      "cardIds": ["figure.marie-curie"],
-      "reward": { "xp": 80 }
+      "id": "constellation.curie-family",
+      "slug": "famille-curie",
+      "localization": {
+        "fr": {
+          "title": "Famille Curie"
+        }
+      },
+      "cardIds": [
+        "figure.marie-curie",
+        "figure.pierre-curie",
+        "figure.irene-joliot-curie"
+      ],
+      "reward": {
+        "xp": 180,
+        "unlockCardIds": [
+          "symbol.atom"
+        ]
+      }
     },
     {
-      "id": "constellation.rulers",
-      "slug": "souveraines-et-souverains",
-      "localization": { "fr": { "title": "Souveraines et souverains" } },
-      "cardIds": ["figure.cleopatra"],
-      "reward": { "xp": 80 }
+      "id": "constellation.greek-thinkers",
+      "slug": "penseurs-grecs",
+      "localization": {
+        "fr": {
+          "title": "Penseurs grecs"
+        }
+      },
+      "cardIds": [
+        "figure.socrate",
+        "figure.plato",
+        "figure.aristote"
+      ],
+      "reward": {
+        "xp": 200,
+        "unlockCardIds": [
+          "symbol.owl",
+          "work.republic"
+        ]
+      }
+    },
+    {
+      "id": "constellation.civil-rights",
+      "slug": "droits-civiques",
+      "localization": {
+        "fr": {
+          "title": "Droits civiques et résistances"
+        }
+      },
+      "cardIds": [
+        "figure.rosa-parks",
+        "figure.martin-luther-king",
+        "figure.nelson-mandela",
+        "figure.boudica"
+      ],
+      "reward": {
+        "xp": 220,
+        "unlockCardIds": [
+          "event.french-revolution"
+        ]
+      }
+    },
+    {
+      "id": "constellation.explorers",
+      "slug": "explorateurs",
+      "localization": {
+        "fr": {
+          "title": "Explorateurs et routes"
+        }
+      },
+      "cardIds": [
+        "figure.christopher-columbus",
+        "figure.marco-polo"
+      ],
+      "reward": {
+        "xp": 120,
+        "unlockCardIds": [
+          "concept.colonialism"
+        ]
+      }
+    },
+    {
+      "id": "constellation.modern-sciences",
+      "slug": "sciences-modernes",
+      "localization": {
+        "fr": {
+          "title": "Sciences modernes"
+        }
+      },
+      "cardIds": [
+        "figure.isaac-newton",
+        "figure.charles-darwin",
+        "figure.galileo-galilei"
+      ],
+      "reward": {
+        "xp": 200,
+        "unlockCardIds": [
+          "concept.calculus",
+          "event.scientific-revolution"
+        ]
+      }
+    },
+    {
+      "id": "constellation.sovereigns",
+      "slug": "souveraines",
+      "localization": {
+        "fr": {
+          "title": "Souveraines de l’Histoire"
+        }
+      },
+      "cardIds": [
+        "figure.cleopatra",
+        "figure.hatshepsout",
+        "figure.catherine-de-medici",
+        "figure.boudica",
+        "figure.joan-of-arc"
+      ],
+      "reward": {
+        "xp": 250,
+        "unlockCardIds": [
+          "role.emperor"
+        ]
+      }
+    },
+    {
+      "id": "constellation.italian-renaissance",
+      "slug": "renaissance-italienne",
+      "localization": {
+        "fr": {
+          "title": "Renaissance italienne"
+        }
+      },
+      "cardIds": [
+        "figure.leonardo-da-vinci",
+        "figure.galileo-galilei",
+        "figure.catherine-de-medici"
+      ],
+      "reward": {
+        "xp": 150,
+        "unlockCardIds": [
+          "movement.humanism"
+        ]
+      }
     }
   ],
   "packs": [
     {
       "id": "pack.starter",
       "slug": "depart",
-      "localization": { "fr": { "title": "Pack de départ" } },
+      "localization": {
+        "fr": {
+          "title": "Pack de départ"
+        }
+      },
       "starterCardIds": [
-        "period.ancient-egypt",
+        "period.antiquity",
+        "period.middle-ages",
+        "period.renaissance",
+        "period.15th-century",
+        "period.16th-century",
+        "period.17th-century",
+        "period.18th-century",
+        "period.19th-century",
         "period.20th-century",
         "place.france",
+        "place.england",
+        "place.italy",
+        "place.greece",
+        "place.egypt",
+        "place.usa",
+        "place.athens",
         "place.alexandria",
-        "role.queen",
+        "place.spain",
+        "place.venice",
+        "region.britain",
+        "place.south-africa",
+        "place.india",
+        "region.south-america",
+        "civilization.ancient-egypt",
+        "civilization.ancient-greece",
+        "civilization.ancient-rome",
+        "civilization.maurya",
         "domain.physics",
+        "domain.biology",
         "domain.mathematics",
-        "concept.radioactivity",
-        "concept.female-figure"
+        "domain.chemistry",
+        "domain.philosophy",
+        "domain.astronomy",
+        "domain.painting",
+        "domain.exploration",
+        "domain.politics",
+        "domain.nursing",
+        "domain.computing",
+        "role.queen",
+        "role.scientist",
+        "role.artist",
+        "role.explorer",
+        "role.philosopher",
+        "role.resistance",
+        "role.pastor",
+        "role.emperor",
+        "concept.female-figure",
+        "concept.civil-rights",
+        "concept.faith",
+        "concept.buddhism",
+        "concept.apartheid",
+        "concept.radioactivity"
       ],
-      "cardPoolIds": ["figure.marie-curie", "figure.hypatia", "figure.cleopatra"]
+      "cardPoolIds": [
+        "figure.marie-curie",
+        "figure.cleopatra",
+        "figure.socrate",
+        "figure.joan-of-arc",
+        "figure.leonardo-da-vinci",
+        "figure.martin-luther-king",
+        "figure.rosa-parks",
+        "figure.christopher-columbus",
+        "figure.galileo-galilei",
+        "figure.boudica",
+        "figure.pierre-curie",
+        "figure.irene-joliot-curie",
+        "figure.hypatia",
+        "figure.hatshepsout",
+        "figure.isaac-newton",
+        "figure.charles-darwin",
+        "figure.ada-lovelace",
+        "figure.florence-nightingale",
+        "figure.nelson-mandela",
+        "figure.marco-polo",
+        "figure.ashoka",
+        "figure.catherine-de-medici",
+        "figure.simon-bolivar",
+        "figure.plato",
+        "figure.aristote"
+      ]
     }
   ],
   "sources": [
-    { "id": "source.britannica.marie-curie", "title": "Encyclopaedia Britannica — Marie Curie", "type": "encyclopedia", "url": "https://www.britannica.com/biography/Marie-Curie" },
-    { "id": "source.britannica.hypatia", "title": "Encyclopaedia Britannica — Hypatia", "type": "encyclopedia", "url": "https://www.britannica.com/biography/Hypatia" },
-    { "id": "source.britannica.cleopatra", "title": "Encyclopaedia Britannica — Cleopatra", "type": "encyclopedia", "url": "https://www.britannica.com/biography/Cleopatra-queen-of-Egypt" }
+    {
+      "id": "source.cardheon.test",
+      "title": "Cardhéon test corpus",
+      "type": "institution"
+    }
   ]
 }

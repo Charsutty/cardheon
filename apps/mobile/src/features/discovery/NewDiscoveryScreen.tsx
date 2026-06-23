@@ -7,8 +7,8 @@ import { DiscoveryCelebration } from './components/DiscoveryCelebration'
 
 export function NewDiscoveryScreen() {
   const router = useRouter()
-  const { getCard, lastDiscoveryId } = useGame()
-  const card = lastDiscoveryId ? getCard(lastDiscoveryId) : undefined
+  const { getCard, progress } = useGame()
+  const card = progress.lastDiscoveryId ? getCard(progress.lastDiscoveryId) : undefined
 
   if (!card) {
     return (
@@ -21,9 +21,10 @@ export function NewDiscoveryScreen() {
 
   return (
     <CardheonScreen>
-      <DiscoveryCelebration card={card} />
+      <DiscoveryCelebration card={card} result={progress.lastDiscoveryResult} />
       <DiscoveryActions
         onViewCollection={() => router.replace('/collection')}
+        onExploreLinks={() => router.replace('/map')}
         onContinue={() => router.replace('/')}
       />
     </CardheonScreen>

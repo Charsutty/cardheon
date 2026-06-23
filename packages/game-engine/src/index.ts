@@ -60,6 +60,8 @@ export type Card = {
   sourceIds?: string[];
   constellationIds?: string[];
   discovery?: DiscoveryRule;
+  /** Tool card ids unlocked when this figure is discovered. */
+  unlocksToolCardIds?: string[];
 };
 
 export type Relationship = {
@@ -116,18 +118,35 @@ export type GameCatalog = {
 };
 
 export type UserGameState = {
+  /** Figures already discovered by the player. */
   discoveredCardIds: string[];
+  /** Cards currently playable in the Atelier: unlocked tool cards + discovered figures. */
+  unlockedCardIds: string[];
+};
+
+export type RewardType =
+  | "unlock_card"
+  | "new_tool_card"
+  | "new_figure_card"
+  | "xp"
+  | "constellation_progress"
+  | "pack"
+  | "hint"
+  | "constellation_unlock"
+  | "cosmetic"
+  | "title"
+  | "shard";
+
+export type Reward = {
+  type: RewardType;
+  value: string | number;
+  meta?: Record<string, unknown>;
 };
 
 export type ScoreReason = {
   kind: "evidence" | "synergy" | "contradiction";
   label: string;
   weight: number;
-};
-
-export type Reward = {
-  type: "unlock_card" | "xp" | "constellation_progress";
-  value: string | number;
 };
 
 export type Hint = {
@@ -195,6 +214,7 @@ export type DiscoveryOptions = {
 
 type CatalogIndex = {
   cardsById: Map<string, Card>;
+  /** Cards that are currently playable according to the user's state. */
   playableCardsById: Map<string, Card>;
 };
 
@@ -214,7 +234,7 @@ export function attemptDiscovery(
 ): DiscoveryResult {
   const resolvedOptions = { ...DEFAULT_OPTIONS, ...options };
   const normalizedInputs = [...new Set(inputCardIds)];
-  const index = buildCatalogIndex(catalog);
+  const index = buildCatalogIndex(catalog, userState);
 
   if (normalizedInputs.length < resolvedOptions.minInputs) {
     return { type: "invalid", reason: `At least ${resolvedOptions.minInputs} cards are required.` };
@@ -229,15 +249,72 @@ export function attemptDiscovery(
     return { type: "invalid", reason: `Unknown or non-playable input card: ${unknownInput}` };
   }
 
-  const candidateScores = catalog.cards
+  const discoveredIds = new Set(userState.discoveredCardIds);
+  const allCandidateScores = catalog.cards
     .filter((card) => card.kind === "figure" && card.discovery)
     .filter((figure) => isFigureEligible(figure, resolvedOptions))
     .map((figure) => scoreFigure(figure, normalizedInputs, index))
     .filter((candidate) => candidate.evidenceCount > 0)
     .sort((left, right) => right.score - left.score);
 
-  const [best, secondBest] = candidateScores;
+  const undiscoveredScores = allCandidateScores.filter((candidate) => !discoveredIds.has(candidate.cardId));
+  const discoveredScores = allCandidateScores.filter((candidate) => discoveredIds.has(candidate.cardId));
 
+  const [bestUndiscovered, secondUndiscovered] = undiscoveredScores;
+
+  // Try to discover a new figure first.
+  if (bestUndiscovered) {
+    const bestFigure = index.cardsById.get(bestUndiscovered.cardId);
+    if (bestFigure?.discovery) {
+      const minScore = bestFigure.discovery.minScore ?? resolvedOptions.defaultMinScore;
+      const ambiguityMargin = bestFigure.discovery.ambiguityMargin ?? resolvedOptions.defaultAmbiguityMargin;
+      const scoreDelta = bestUndiscovered.score - (secondUndiscovered?.score ?? 0);
+      const minEvidenceCount = bestFigure.discovery.minEvidenceCount ?? 1;
+
+      if (bestUndiscovered.score >= minScore && scoreDelta < ambiguityMargin) {
+        return {
+          type: "ambiguous",
+          hints: [buildAmbiguityHint(undiscoveredScores.slice(0, 3), index)],
+          candidateCount: undiscoveredScores.filter((candidate) => bestUndiscovered.score - candidate.score < ambiguityMargin).length,
+          candidates: undiscoveredScores.slice(0, 5),
+        };
+      }
+
+      if (bestUndiscovered.score >= minScore && bestUndiscovered.evidenceCount >= minEvidenceCount) {
+        const rewards = buildRewards(bestFigure, catalog, userState);
+        return {
+          type: "new_figure",
+          cardId: bestUndiscovered.cardId,
+          score: bestUndiscovered.score,
+          reasons: bestUndiscovered.reasons,
+          rewards,
+        };
+      }
+    }
+  }
+
+  // If no new figure can be discovered, check if the combination rediscovers a known figure.
+  const [bestRediscovered] = discoveredScores;
+  if (bestRediscovered) {
+    const bestFigure = index.cardsById.get(bestRediscovered.cardId);
+    if (bestFigure?.discovery) {
+      const minScore = bestFigure.discovery.minScore ?? resolvedOptions.defaultMinScore;
+      const minEvidenceCount = bestFigure.discovery.minEvidenceCount ?? 1;
+      if (bestRediscovered.score >= minScore && bestRediscovered.evidenceCount >= minEvidenceCount) {
+        const rewards = buildRewards(bestFigure, catalog, userState);
+        return {
+          type: "already_discovered",
+          cardId: bestRediscovered.cardId,
+          score: bestRediscovered.score,
+          reasons: bestRediscovered.reasons,
+          rewards,
+        };
+      }
+    }
+  }
+
+  // No successful discovery: report near miss using the strongest candidate.
+  const best = bestUndiscovered ?? bestRediscovered;
   if (!best) {
     return {
       type: "near_miss",
@@ -252,45 +329,10 @@ export function attemptDiscovery(
     return { type: "invalid", reason: `Best candidate has no discovery rule: ${best.cardId}` };
   }
 
-  const minScore = bestFigure.discovery.minScore ?? resolvedOptions.defaultMinScore;
-  const ambiguityMargin = bestFigure.discovery.ambiguityMargin ?? resolvedOptions.defaultAmbiguityMargin;
-  const scoreDelta = best.score - (secondBest?.score ?? 0);
-  const minEvidenceCount = bestFigure.discovery.minEvidenceCount ?? 1;
-
-  if (best.score >= minScore && scoreDelta < ambiguityMargin) {
-    return {
-      type: "ambiguous",
-      hints: [buildAmbiguityHint(candidateScores.slice(0, 3), index)],
-      candidateCount: candidateScores.filter((candidate) => best.score - candidate.score < ambiguityMargin).length,
-      candidates: candidateScores.slice(0, 5),
-    };
-  }
-
-  if (best.score >= minScore && best.evidenceCount >= minEvidenceCount) {
-    const rewards = buildRewards(bestFigure, catalog, userState);
-    if (userState.discoveredCardIds.includes(best.cardId)) {
-      return {
-        type: "already_discovered",
-        cardId: best.cardId,
-        score: best.score,
-        reasons: best.reasons,
-        rewards,
-      };
-    }
-
-    return {
-      type: "new_figure",
-      cardId: best.cardId,
-      score: best.score,
-      reasons: best.reasons,
-      rewards,
-    };
-  }
-
   return {
     type: "near_miss",
     hints: buildNearMissHints(best, bestFigure, normalizedInputs, index),
-    candidates: candidateScores.slice(0, 5),
+    candidates: allCandidateScores.slice(0, 5),
     nearestConstellations: bestFigure.constellationIds ?? [],
   };
 }
@@ -338,9 +380,21 @@ export function scoreFigure(figure: Card, inputCardIds: string[], index: Catalog
   };
 }
 
-export function buildCatalogIndex(catalog: GameCatalog): CatalogIndex {
+export function buildCatalogIndex(catalog: GameCatalog, userState?: UserGameState): CatalogIndex {
   const cardsById = new Map(catalog.cards.map((card) => [card.id, card]));
-  const playableCardsById = new Map(catalog.cards.filter((card) => card.kind !== "figure").map((card) => [card.id, card]));
+  const unlockedIds = new Set(userState?.unlockedCardIds ?? []);
+  const discoveredIds = new Set(userState?.discoveredCardIds ?? []);
+
+  const playableCardsById = new Map(
+    catalog.cards
+      .filter((card) => {
+        // Tool cards are playable once unlocked.
+        if (card.kind !== "figure") return unlockedIds.has(card.id);
+        // Figure cards become playable once discovered.
+        return discoveredIds.has(card.id);
+      })
+      .map((card) => [card.id, card]),
+  );
 
   return { cardsById, playableCardsById };
 }
@@ -387,10 +441,18 @@ function buildInputTokens(inputCards: Card[]): Set<string> {
 }
 
 function buildRewards(figure: Card, catalog: GameCatalog, userState: UserGameState): Reward[] {
+  const xp = rarityXp(figure.rarity);
   const rewards: Reward[] = [
-    { type: "unlock_card", value: figure.id },
-    { type: "xp", value: rarityXp(figure.rarity) },
+    { type: "new_figure_card", value: figure.id, meta: { title: figure.localization.fr?.title ?? figure.slug } },
+    { type: "xp", value: xp },
   ];
+
+  for (const toolCardId of figure.unlocksToolCardIds ?? []) {
+    const toolCard = catalog.cards.find((card) => card.id === toolCardId);
+    if (toolCard) {
+      rewards.push({ type: "new_tool_card", value: toolCardId, meta: { title: toolCard.localization.fr?.title ?? toolCardId } });
+    }
+  }
 
   for (const constellationId of figure.constellationIds ?? []) {
     const constellation = catalog.constellations.find((candidate) => candidate.id === constellationId);
@@ -400,10 +462,28 @@ function buildRewards(figure: Card, catalog: GameCatalog, userState: UserGameSta
       cardId === figure.id || userState.discoveredCardIds.includes(cardId),
     ).length;
 
+    const isComplete = discoveredCount === constellation.cardIds.length;
     rewards.push({
-      type: "constellation_progress",
+      type: isComplete ? "constellation_unlock" : "constellation_progress",
       value: `${constellationId}:${discoveredCount}/${constellation.cardIds.length}`,
+      meta: {
+        constellationId,
+        discoveredCount,
+        totalCount: constellation.cardIds.length,
+        isComplete,
+        reward: constellation.reward,
+      },
     });
+
+    if (isComplete && constellation.reward?.unlockCardIds) {
+      for (const unlockCardId of constellation.reward.unlockCardIds) {
+        rewards.push({ type: "new_tool_card", value: unlockCardId });
+      }
+    }
+
+    if (isComplete && constellation.reward?.xp) {
+      rewards.push({ type: "xp", value: constellation.reward.xp, meta: { reason: "constellation_complete" } });
+    }
   }
 
   return rewards;
