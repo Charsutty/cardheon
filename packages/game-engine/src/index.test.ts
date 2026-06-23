@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import test from 'node:test'
-import { attemptDiscovery, type GameCatalog } from './index'
+import { attemptCraft, attemptDiscovery, type GameCatalog } from './index'
 
 const catalog = JSON.parse(
   readFileSync(resolve(process.cwd(), 'content/catalog.dev.json'), 'utf8'),
@@ -62,4 +62,11 @@ test('a discovered figure becomes playable as an input card', () => {
   )
   assert.equal(result.type, 'already_discovered')
   if (result.type === 'already_discovered') assert.equal(result.cardId, 'figure.hypatia')
+})
+
+test('crafts ancient Egypt from Egypt and antiquity', () => {
+  const result = attemptCraft(catalog, ['place.egypt', 'period.antiquity'])
+  assert.ok(result)
+  assert.equal(result?.type, 'craft')
+  if (result?.type === 'craft') assert.equal(result.outputCardId, 'civilization.ancient-egypt')
 })

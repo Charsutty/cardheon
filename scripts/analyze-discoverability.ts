@@ -67,6 +67,7 @@ type Witness = {
 type Step = Witness & {
   unlockedToolCardIds: Id[];
   unlockedByConstellationIds: Id[];
+  craftedToolCardIds: Id[];
 };
 
 type AnalysisReport = {
@@ -542,6 +543,32 @@ function constellationRewards(c: AnyRecord): Id[] {
     .map(String);
 }
 
+function getCraftingRecipes(catalog: any): AnyRecord[] {
+  return arr(catalog.gameplay?.crafting).concat(arr(catalog.craftingRecipes)).concat(arr(catalog.recipes));
+}
+
+function applyCraftingRecipes(
+  catalog: any,
+  toolCardIds: Set<Id>,
+  discoveredFigureIds: Set<Id>
+): Id[] {
+  const unlocked: Id[] = [];
+  const availableIds = new Set<Id>([...toolCardIds, ...discoveredFigureIds]);
+
+  for (const recipe of getCraftingRecipes(catalog)) {
+    const inputs = arr(recipe.inputs).concat(arr(recipe.inputCardIds)).map(String);
+    const output = String(recipe.outputCardId ?? recipe.output ?? recipe.id ?? "");
+    if (!output) continue;
+    if (toolCardIds.has(output)) continue;
+    if (inputs.length > 0 && inputs.every((id) => availableIds.has(id))) {
+      toolCardIds.add(output);
+      unlocked.push(output);
+    }
+  }
+
+  return unlocked;
+}
+
 function applyConstellationRewards(
   catalog: any,
   discoveredFigureIds: Set<Id>,
@@ -593,6 +620,23 @@ function analyze(catalog: any, options: AnalyzerOptions): AnalysisReport {
   while (changed) {
     changed = false;
 
+    // Crafting recipes can create new tools from already available cards.
+    const craftedIds = applyCraftingRecipes(catalog, toolCardIds, discoveredFigureIds);
+    if (craftedIds.length > 0) {
+      steps.push({
+        figureId: "",
+        figureName: "",
+        comboIds: [],
+        comboNames: [],
+        attempts: 0,
+        candidateCount: 0,
+        unlockedToolCardIds: [],
+        unlockedByConstellationIds: [],
+        craftedToolCardIds: craftedIds,
+      });
+      changed = true;
+    }
+
     for (const figure of figures) {
       const fid = idOf(figure);
       if (discoveredFigureIds.has(fid)) continue;
@@ -628,7 +672,7 @@ function analyze(catalog: any, options: AnalyzerOptions): AnalysisReport {
         claimedConstellationIds
       );
 
-      steps.push({ ...witness, unlockedToolCardIds, unlockedByConstellationIds });
+      steps.push({ ...witness, unlockedToolCardIds, unlockedByConstellationIds, craftedToolCardIds: [] });
       changed = true;
       break; // Restart: unlocks may make earlier blocked figures reachable.
     }
@@ -738,6 +782,15 @@ function detectGraphCycles(catalog: any, allCardsById: Map<Id, AnyRecord>, figur
   for (const figure of figures) {
     const fid = `figure:${idOf(figure)}`;
     for (const unlockId of getFigureUnlocks(figure)) addEdge(fid, `card:${unlockId}`);
+  }
+
+  // Crafting recipe inputs -> output tool card.
+  for (const recipe of getCraftingRecipes(catalog)) {
+    const output = String(recipe.outputCardId ?? recipe.output ?? "");
+    if (!output) continue;
+    for (const input of arr(recipe.inputs).concat(arr(recipe.inputCardIds)).map(String)) {
+      addEdge(`card:${input}`, `card:${output}`);
+    }
   }
 
   // Approximate constellation hyperedges as member figure -> reward tool.
@@ -866,6 +919,10 @@ function printHuman(report: AnalysisReport) {
   console.log("---------------------");
   if (report.steps.length === 0) console.log("No figure discovered.");
   for (const [i, step] of report.steps.entries()) {
+    if (!step.figureId && step.craftedToolCardIds.length > 0) {
+      console.log(`${String(i + 1).padStart(2, "0")}. [craft] ${step.craftedToolCardIds.join(", ")}`);
+      continue;
+    }
     const unlocks = step.unlockedToolCardIds.length > 0 ? ` | unlocks: ${step.unlockedToolCardIds.join(", ")}` : "";
     const constellation =
       step.unlockedByConstellationIds.length > 0

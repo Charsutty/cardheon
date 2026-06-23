@@ -5,15 +5,17 @@ import { Text, XStack, YStack } from 'tamagui'
 type ClueGridProps = {
   cards: DiscoveryCardModel[]
   selectedIds: string[]
+  minSelection?: number
   maxSelection?: number
   onToggle: (cardId: string) => void
 }
 
-export function ClueGrid({ cards, selectedIds, maxSelection = 5, onToggle }: ClueGridProps) {
+export function ClueGrid({ cards, selectedIds, minSelection = 2, maxSelection = 5, onToggle }: ClueGridProps) {
   const selected = selectedIds
     .map((id) => cards.find((card) => card.id === id))
     .filter((card): card is DiscoveryCardModel => Boolean(card))
-  const slots = Array.from({ length: maxSelection }, (_, index) => selected[index])
+  const remainingSlots = Math.max(0, maxSelection - selected.length)
+  const canAddMore = selected.length < maxSelection
 
   return (
     <YStack
@@ -29,34 +31,38 @@ export function ClueGrid({ cards, selectedIds, maxSelection = 5, onToggle }: Clu
     >
       <XStack alignItems="center" justifyContent="space-between">
         <Text color="$brown" fontSize={10} fontWeight="800" letterSpacing={1}>ZONE HYPOTHÈSE</Text>
-        <Text color="$muted" fontSize={10}>{selected.length} / {maxSelection} indices</Text>
+        <Text color="$muted" fontSize={10}>{selected.length} carte{selected.length > 1 ? 's' : ''} · max {maxSelection}</Text>
       </XStack>
 
       <XStack minHeight={106} alignItems="center" justifyContent="center" flexWrap="wrap" gap="$2">
-        {slots.map((card, index) => (
-          <XStack key={card?.id ?? `empty-${index}`} alignItems="center">
-            {card ? (
-              <DiscoveryCard
-                {...card}
-                size="mini"
-                state="selected"
-                onPress={() => onToggle(card.id)}
-              />
-            ) : (
-              <EmptyClueSlot index={index} />
-            )}
-          </XStack>
+        {selected.map((card) => (
+          <DiscoveryCard
+            key={card.id}
+            {...card}
+            size="mini"
+            state="selected"
+            onPress={() => onToggle(card.id)}
+          />
         ))}
+        {canAddMore ? (
+          <>
+            {Array.from({ length: Math.min(remainingSlots, 2) }, (_, index) => (
+              <EmptyClueSlot key={`empty-${index}`} />
+            ))}
+          </>
+        ) : null}
       </XStack>
 
       <Text color="$muted" fontSize={9} lineHeight={13} textAlign="center">
-        Appuie sur une carte de ta main pour l’ajouter, ou sur une carte sélectionnée pour la retirer.
+        {selected.length < minSelection
+          ? `Ajoute au moins ${minSelection} cartes pour tenter une découverte.`
+          : 'Appuie sur une carte de ta main pour l’ajouter, ou sur une carte sélectionnée pour la retirer.'}
       </Text>
     </YStack>
   )
 }
 
-function EmptyClueSlot({ index }: { index: number }) {
+function EmptyClueSlot() {
   return (
     <YStack
       width={58}
@@ -72,7 +78,7 @@ function EmptyClueSlot({ index }: { index: number }) {
       gap="$1"
     >
       <Text color="$gold" fontSize={19} lineHeight={22}>+</Text>
-      <Text color="$muted" fontSize={7} lineHeight={10}>INDICE {index + 1}</Text>
+      <Text color="$muted" fontSize={7} lineHeight={10}>INDICE</Text>
     </YStack>
   )
 }

@@ -1,10 +1,363 @@
 {
-  "version": "0.2.1-test",
+  "version": "0.2.2-test",
   "gameplay": {
     "discovery": {
       "minInputs": 2,
       "maxInputs": 5
     },
+    "crafting": [
+      {
+        "id": "recipe.ancient-egypt",
+        "inputs": [
+          "place.egypt",
+          "period.antiquity"
+        ],
+        "outputCardId": "civilization.ancient-egypt",
+        "localization": {
+          "fr": {
+            "reason": "L’Égypte antique émerge de l’Égypte et de l’Antiquité."
+          }
+        }
+      },
+      {
+        "id": "recipe.ancient-greece",
+        "inputs": [
+          "place.greece",
+          "period.antiquity"
+        ],
+        "outputCardId": "civilization.ancient-greece",
+        "localization": {
+          "fr": {
+            "reason": "La Grèce antique émerge de la Grèce et de l’Antiquité."
+          }
+        }
+      },
+      {
+        "id": "recipe.ancient-rome",
+        "inputs": [
+          "place.italy",
+          "period.antiquity"
+        ],
+        "outputCardId": "civilization.ancient-rome",
+        "localization": {
+          "fr": {
+            "reason": "La Rome antique émerge de l’Italie et de l’Antiquité."
+          }
+        }
+      },
+      {
+        "id": "recipe.radioactivity",
+        "inputs": [
+          "domain.physics",
+          "domain.mathematics"
+        ],
+        "outputCardId": "concept.radioactivity",
+        "localization": {
+          "fr": {
+            "reason": "La radioactivité est une découverte de la physique mathématique."
+          }
+        }
+      },
+      {
+        "id": "recipe.astronomy",
+        "inputs": [
+          "domain.physics",
+          "period.renaissance"
+        ],
+        "outputCardId": "domain.astronomy",
+        "localization": {
+          "fr": {
+            "reason": "L’astronomie moderne naît de la physique et de la Renaissance."
+          }
+        }
+      },
+      {
+        "id": "recipe.evolution",
+        "inputs": [
+          "domain.biology",
+          "domain.mathematics"
+        ],
+        "outputCardId": "concept.evolution",
+        "localization": {
+          "fr": {
+            "reason": "La théorie de l’évolution s’appuie sur la biologie et les statistiques."
+          }
+        }
+      },
+      {
+        "id": "recipe.socratic-method",
+        "inputs": [
+          "domain.philosophy",
+          "period.antiquity"
+        ],
+        "outputCardId": "concept.socratic-method",
+        "localization": {
+          "fr": {
+            "reason": "La méthode socratique naît de la philosophie antique."
+          }
+        }
+      },
+      {
+        "id": "recipe.humanism",
+        "inputs": [
+          "domain.arts",
+          "period.renaissance"
+        ],
+        "outputCardId": "movement.humanism",
+        "localization": {
+          "fr": {
+            "reason": "L’humanisme renaît de l’art et de la Renaissance."
+          }
+        }
+      },
+      {
+        "id": "recipe.athens",
+        "inputs": [
+          "place.greece",
+          "domain.philosophy"
+        ],
+        "outputCardId": "place.athens",
+        "localization": {
+          "fr": {
+            "reason": "Athènes devient le foyer de la philosophie grecque."
+          }
+        }
+      },
+      {
+        "id": "recipe.alexandria",
+        "inputs": [
+          "place.egypt",
+          "domain.mathematics"
+        ],
+        "outputCardId": "place.alexandria",
+        "localization": {
+          "fr": {
+            "reason": "Alexandrie devient le centre des savoirs mathématiques."
+          }
+        }
+      },
+      {
+        "id": "recipe.queen",
+        "inputs": [
+          "role.ruler",
+          "concept.female-figure"
+        ],
+        "outputCardId": "role.queen",
+        "localization": {
+          "fr": {
+            "reason": "Une femme souveraine devient reine."
+          }
+        }
+      },
+      {
+        "id": "recipe.artist",
+        "inputs": [
+          "domain.arts",
+          "period.renaissance"
+        ],
+        "outputCardId": "role.artist",
+        "localization": {
+          "fr": {
+            "reason": "L’artiste se distingue dans la Renaissance."
+          }
+        }
+      },
+      {
+        "id": "recipe.explorer",
+        "inputs": [
+          "role.resistance",
+          "period.renaissance"
+        ],
+        "outputCardId": "role.explorer",
+        "localization": {
+          "fr": {
+            "reason": "L’esprit d’aventure renaît de la Renaissance."
+          }
+        }
+      },
+      {
+        "id": "recipe.civil-rights",
+        "inputs": [
+          "concept.female-figure",
+          "role.resistance"
+        ],
+        "outputCardId": "concept.civil-rights",
+        "localization": {
+          "fr": {
+            "reason": "La résistance des femmes préfigure les droits civiques."
+          }
+        }
+      },
+      {
+        "id": "recipe.pastor",
+        "inputs": [
+          "concept.faith",
+          "role.ruler"
+        ],
+        "outputCardId": "role.pastor",
+        "localization": {
+          "fr": {
+            "reason": "Un dirigeant de foi devient pasteur."
+          }
+        }
+      },
+      {
+        "id": "recipe.apartheid",
+        "inputs": [
+          "concept.civil-rights",
+          "place.south-africa"
+        ],
+        "outputCardId": "concept.apartheid",
+        "localization": {
+          "fr": {
+            "reason": "L’apartheid naît des droits civiques en Afrique du Sud."
+          }
+        }
+      },
+      {
+        "id": "recipe.buddhism",
+        "inputs": [
+          "period.antiquity",
+          "place.india"
+        ],
+        "outputCardId": "concept.buddhism",
+        "localization": {
+          "fr": {
+            "reason": "Le bouddhisme naît dans l’Inde antique."
+          }
+        }
+      },
+      {
+        "id": "recipe.usa",
+        "inputs": [
+          "place.england",
+          "period.20th-century"
+        ],
+        "outputCardId": "place.usa",
+        "localization": {
+          "fr": {
+            "reason": "Les États-Unis émergent comme puissance du XXe siècle."
+          }
+        }
+      },
+      {
+        "id": "recipe.spain",
+        "inputs": [
+          "place.italy",
+          "period.renaissance"
+        ],
+        "outputCardId": "place.spain",
+        "localization": {
+          "fr": {
+            "reason": "L’Espagne renaît comme puissance de la Renaissance."
+          }
+        }
+      },
+      {
+        "id": "recipe.britain",
+        "inputs": [
+          "place.england",
+          "period.middle-ages"
+        ],
+        "outputCardId": "region.britain",
+        "localization": {
+          "fr": {
+            "reason": "La Bretagne se forme dans l’Angleterre médiévale."
+          }
+        }
+      },
+      {
+        "id": "recipe.south-africa",
+        "inputs": [
+          "place.egypt",
+          "period.20th-century"
+        ],
+        "outputCardId": "place.south-africa",
+        "localization": {
+          "fr": {
+            "reason": "L’Afrique du Sud entre dans l’histoire du XXe siècle."
+          }
+        }
+      },
+      {
+        "id": "recipe.india",
+        "inputs": [
+          "place.egypt",
+          "period.middle-ages"
+        ],
+        "outputCardId": "place.india",
+        "localization": {
+          "fr": {
+            "reason": "L’Inde médiévale s’illumine comme l’Égypte."
+          }
+        }
+      },
+      {
+        "id": "recipe.south-america",
+        "inputs": [
+          "place.england",
+          "period.renaissance"
+        ],
+        "outputCardId": "region.south-america",
+        "localization": {
+          "fr": {
+            "reason": "L’Amérique du Sud se dessine à la Renaissance."
+          }
+        }
+      },
+      {
+        "id": "recipe.venice",
+        "inputs": [
+          "place.italy",
+          "period.middle-ages"
+        ],
+        "outputCardId": "place.venice",
+        "localization": {
+          "fr": {
+            "reason": "Venise fleurit au Moyen Âge italien."
+          }
+        }
+      },
+      {
+        "id": "recipe.nursing",
+        "inputs": [
+          "domain.biology",
+          "concept.faith"
+        ],
+        "outputCardId": "domain.nursing",
+        "localization": {
+          "fr": {
+            "reason": "Les soins infirmiers naissent de la biologie et du dévouement."
+          }
+        }
+      },
+      {
+        "id": "recipe.computing",
+        "inputs": [
+          "domain.mathematics",
+          "period.19th-century"
+        ],
+        "outputCardId": "domain.computing",
+        "localization": {
+          "fr": {
+            "reason": "L’informatique théorique émerge des mathématiques du XIXe siècle."
+          }
+        }
+      },
+      {
+        "id": "recipe.19th-century",
+        "inputs": [
+          "period.renaissance",
+          "concept.evolution"
+        ],
+        "outputCardId": "period.19th-century",
+        "localization": {
+          "fr": {
+            "reason": "La théorie de l’évolution marque le XIXe siècle."
+          }
+        }
+      }
+    ],
     "progression": {
       "xpPerLevel": 2000,
       "initialLevel": 1
@@ -622,6 +975,25 @@
         {
           "tag": "domain.science",
           "weight": 70
+        }
+      ]
+    },
+    {
+      "id": "domain.arts",
+      "slug": "domain-arts",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Arts",
+          "subtitle": ""
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.arts",
+          "weight": 100
         }
       ]
     },
@@ -2351,7 +2723,7 @@
       },
       "tags": [
         {
-          "tag": "domain.painting",
+          "tag": "domain.arts",
           "weight": 45
         },
         {
@@ -2384,9 +2756,9 @@
         "minEvidenceCount": 2,
         "evidence": [
           {
-            "tag": "domain.painting",
+            "tag": "domain.arts",
             "weight": 30,
-            "reason": "Peinture"
+            "reason": "Arts"
           },
           {
             "tag": "period.renaissance",
@@ -4440,7 +4812,7 @@
     {
       "source": "figure.leonardo-da-vinci",
       "predicate": "related_to",
-      "target": "domain.painting",
+      "target": "domain.arts",
       "weight": 30,
       "sourceIds": [
         "source.cardheon.test"
@@ -5813,58 +6185,24 @@
         }
       },
       "starterCardIds": [
+        "domain.mathematics",
+        "domain.physics",
+        "domain.biology",
+        "domain.philosophy",
+        "domain.arts",
         "period.antiquity",
         "period.middle-ages",
         "period.renaissance",
-        "period.15th-century",
-        "period.16th-century",
-        "period.17th-century",
-        "period.18th-century",
-        "period.19th-century",
         "period.20th-century",
         "place.france",
         "place.england",
         "place.italy",
         "place.greece",
         "place.egypt",
-        "place.usa",
-        "place.athens",
-        "place.alexandria",
-        "place.spain",
-        "place.venice",
-        "region.britain",
-        "place.south-africa",
-        "place.india",
-        "region.south-america",
-        "civilization.ancient-egypt",
-        "civilization.ancient-greece",
-        "civilization.ancient-rome",
-        "civilization.maurya",
-        "domain.physics",
-        "domain.biology",
-        "domain.mathematics",
-        "domain.chemistry",
-        "domain.philosophy",
-        "domain.astronomy",
-        "domain.painting",
-        "domain.exploration",
-        "domain.politics",
-        "domain.nursing",
-        "domain.computing",
-        "role.queen",
-        "role.scientist",
-        "role.artist",
-        "role.explorer",
-        "role.philosopher",
-        "role.resistance",
-        "role.pastor",
-        "role.emperor",
+        "role.ruler",
         "concept.female-figure",
-        "concept.civil-rights",
         "concept.faith",
-        "concept.buddhism",
-        "concept.apartheid",
-        "concept.radioactivity"
+        "role.resistance"
       ],
       "cardPoolIds": [
         "figure.marie-curie",

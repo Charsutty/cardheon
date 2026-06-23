@@ -71,6 +71,7 @@ const CIVILIZATIONS: ToolInput[] = [
 const DOMAINS: ToolInput[] = [
   { id: "domain.physics", kind: "domain", title: "Physique", tags: { "domain.physics": 100, "domain.science": 70 } },
   { id: "domain.mathematics", kind: "domain", title: "Mathématiques", tags: { "domain.mathematics": 100, "domain.science": 70 } },
+  { id: "domain.arts", kind: "domain", title: "Arts", tags: { "domain.arts": 100 } },
   { id: "domain.chemistry", kind: "domain", title: "Chimie", tags: { "domain.chemistry": 100, "domain.science": 70 } },
   { id: "domain.biology", kind: "domain", title: "Biologie", tags: { "domain.biology": 100, "domain.science": 70 } },
   { id: "domain.astronomy", kind: "domain", title: "Astronomie", tags: { "domain.astronomy": 100, "domain.science": 70 } },
@@ -261,9 +262,9 @@ const figures: FigureInput[] = [
     subtitle: "Peintre, inventeur et savant",
     shortDescription: "Génie de la Renaissance, auteur de la Joconde et de nombreux projets techniques.",
     rarity: "legendary",
-    tags: { "domain.painting": 45, "role.artist": 40, "period.renaissance": 45, "place.italy": 35, "role.inventor": 30 },
+    tags: { "domain.arts": 45, "role.artist": 40, "period.renaissance": 45, "place.italy": 35, "role.inventor": 30 },
     evidence: [
-      { tag: "domain.painting", weight: 30, reason: "Peinture" },
+      { tag: "domain.arts", weight: 30, reason: "Arts" },
       { tag: "period.renaissance", weight: 25, reason: "Renaissance" },
       { tag: "place.italy", weight: 20, reason: "Italie" },
       { tag: "role.artist", weight: 18, reason: "Artiste" },
@@ -876,65 +877,77 @@ function main(): void {
   const cards: Card[] = [...tools.map(toCard), ...figures.map(toCard)];
   const relationships = buildRelationships();
 
-  // Starter pack: foundational tool cards that combine into clear level-1 figures.
+  // Starter pack: a very small set of atomic concepts, places, periods and roles.
+  // Most specific tools are crafted from these basics or unlocked by figures.
   const starterCardIds = [
-    // Periods (timeline vocabulary)
+    // Fundamental knowledge domains
+    "domain.mathematics",
+    "domain.physics",
+    "domain.biology",
+    "domain.philosophy",
+    "domain.arts",
+    // Broad timeline periods
     "period.antiquity",
     "period.middle-ages",
     "period.renaissance",
-    "period.15th-century",
-    "period.16th-century",
-    "period.17th-century",
-    "period.18th-century",
-    "period.19th-century",
     "period.20th-century",
-    // Places (geography vocabulary)
+    // Broad geography
     "place.france",
     "place.england",
     "place.italy",
     "place.greece",
     "place.egypt",
-    "place.usa",
-    "place.athens",
-    "place.alexandria",
-    "place.spain",
-    "place.venice",
-    "region.britain",
-    "place.south-africa",
-    "place.india",
-    "region.south-america",
-    // Civilizations
-    "civilization.ancient-egypt",
-    "civilization.ancient-greece",
-    "civilization.ancient-rome",
-    "civilization.maurya",
-    // Domains (disciplinary vocabulary)
-    "domain.physics",
-    "domain.biology",
-    "domain.mathematics",
-    "domain.chemistry",
-    "domain.philosophy",
-    "domain.astronomy",
-    "domain.painting",
-    "domain.exploration",
-    "domain.politics",
-    "domain.nursing",
-    "domain.computing",
-    // Roles & social concepts
-    "role.queen",
-    "role.scientist",
-    "role.artist",
-    "role.explorer",
-    "role.philosopher",
-    "role.resistance",
-    "role.pastor",
-    "role.emperor",
+    // Archetypal roles and social concepts
+    "role.ruler",
     "concept.female-figure",
-    "concept.civil-rights",
     "concept.faith",
-    "concept.buddhism",
-    "concept.apartheid",
-    "concept.radioactivity",
+    "role.resistance",
+  ];
+
+  // Crafting recipes: combine two basic tool cards to obtain a more specific tool.
+  // Recipes are checked before discovery: when the selected cards exactly match a
+  // recipe, the player creates the output card instead of attempting a discovery.
+  const craftingRecipes: CraftingRecipe[] = [
+    // Geography + period -> civilization
+    { id: "recipe.ancient-egypt", inputs: ["place.egypt", "period.antiquity"], outputCardId: "civilization.ancient-egypt", localization: { fr: { reason: "L’Égypte antique émerge de l’Égypte et de l’Antiquité." } } },
+    { id: "recipe.ancient-greece", inputs: ["place.greece", "period.antiquity"], outputCardId: "civilization.ancient-greece", localization: { fr: { reason: "La Grèce antique émerge de la Grèce et de l’Antiquité." } } },
+    { id: "recipe.ancient-rome", inputs: ["place.italy", "period.antiquity"], outputCardId: "civilization.ancient-rome", localization: { fr: { reason: "La Rome antique émerge de l’Italie et de l’Antiquité." } } },
+
+    // Domain + period -> concept / movement
+    { id: "recipe.radioactivity", inputs: ["domain.physics", "domain.mathematics"], outputCardId: "concept.radioactivity", localization: { fr: { reason: "La radioactivité est une découverte de la physique mathématique." } } },
+    { id: "recipe.astronomy", inputs: ["domain.physics", "period.renaissance"], outputCardId: "domain.astronomy", localization: { fr: { reason: "L’astronomie moderne naît de la physique et de la Renaissance." } } },
+    { id: "recipe.evolution", inputs: ["domain.biology", "domain.mathematics"], outputCardId: "concept.evolution", localization: { fr: { reason: "La théorie de l’évolution s’appuie sur la biologie et les statistiques." } } },
+    { id: "recipe.socratic-method", inputs: ["domain.philosophy", "period.antiquity"], outputCardId: "concept.socratic-method", localization: { fr: { reason: "La méthode socratique naît de la philosophie antique." } } },
+    { id: "recipe.humanism", inputs: ["domain.arts", "period.renaissance"], outputCardId: "movement.humanism", localization: { fr: { reason: "L’humanisme renaît de l’art et de la Renaissance." } } },
+
+    // Geography + domain -> specific place
+    { id: "recipe.athens", inputs: ["place.greece", "domain.philosophy"], outputCardId: "place.athens", localization: { fr: { reason: "Athènes devient le foyer de la philosophie grecque." } } },
+    { id: "recipe.alexandria", inputs: ["place.egypt", "domain.mathematics"], outputCardId: "place.alexandria", localization: { fr: { reason: "Alexandrie devient le centre des savoirs mathématiques." } } },
+
+    // Role + concept -> specific role
+    { id: "recipe.queen", inputs: ["role.ruler", "concept.female-figure"], outputCardId: "role.queen", localization: { fr: { reason: "Une femme souveraine devient reine." } } },
+    { id: "recipe.artist", inputs: ["domain.arts", "period.renaissance"], outputCardId: "role.artist", localization: { fr: { reason: "L’artiste se distingue dans la Renaissance." } } },
+    { id: "recipe.explorer", inputs: ["role.resistance", "period.renaissance"], outputCardId: "role.explorer", localization: { fr: { reason: "L’esprit d’aventure renaît de la Renaissance." } } },
+
+    // Society recipes
+    { id: "recipe.civil-rights", inputs: ["concept.female-figure", "role.resistance"], outputCardId: "concept.civil-rights", localization: { fr: { reason: "La résistance des femmes préfigure les droits civiques." } } },
+    { id: "recipe.pastor", inputs: ["concept.faith", "role.ruler"], outputCardId: "role.pastor", localization: { fr: { reason: "Un dirigeant de foi devient pasteur." } } },
+    { id: "recipe.apartheid", inputs: ["concept.civil-rights", "place.south-africa"], outputCardId: "concept.apartheid", localization: { fr: { reason: "L’apartheid naît des droits civiques en Afrique du Sud." } } },
+    { id: "recipe.buddhism", inputs: ["period.antiquity", "place.india"], outputCardId: "concept.buddhism", localization: { fr: { reason: "Le bouddhisme naît dans l’Inde antique." } } },
+
+    // Geography recipes
+    { id: "recipe.usa", inputs: ["place.england", "period.20th-century"], outputCardId: "place.usa", localization: { fr: { reason: "Les États-Unis émergent comme puissance du XXe siècle." } } },
+    { id: "recipe.spain", inputs: ["place.italy", "period.renaissance"], outputCardId: "place.spain", localization: { fr: { reason: "L’Espagne renaît comme puissance de la Renaissance." } } },
+    { id: "recipe.britain", inputs: ["place.england", "period.middle-ages"], outputCardId: "region.britain", localization: { fr: { reason: "La Bretagne se forme dans l’Angleterre médiévale." } } },
+    { id: "recipe.south-africa", inputs: ["place.egypt", "period.20th-century"], outputCardId: "place.south-africa", localization: { fr: { reason: "L’Afrique du Sud entre dans l’histoire du XXe siècle." } } },
+    { id: "recipe.india", inputs: ["place.egypt", "period.middle-ages"], outputCardId: "place.india", localization: { fr: { reason: "L’Inde médiévale s’illumine comme l’Égypte." } } },
+    { id: "recipe.south-america", inputs: ["place.england", "period.renaissance"], outputCardId: "region.south-america", localization: { fr: { reason: "L’Amérique du Sud se dessine à la Renaissance." } } },
+    { id: "recipe.venice", inputs: ["place.italy", "period.middle-ages"], outputCardId: "place.venice", localization: { fr: { reason: "Venise fleurit au Moyen Âge italien." } } },
+
+    // Late domain recipes
+    { id: "recipe.nursing", inputs: ["domain.biology", "concept.faith"], outputCardId: "domain.nursing", localization: { fr: { reason: "Les soins infirmiers naissent de la biologie et du dévouement." } } },
+    { id: "recipe.computing", inputs: ["domain.mathematics", "period.19th-century"], outputCardId: "domain.computing", localization: { fr: { reason: "L’informatique théorique émerge des mathématiques du XIXe siècle." } } },
+    { id: "recipe.19th-century", inputs: ["period.renaissance", "concept.evolution"], outputCardId: "period.19th-century", localization: { fr: { reason: "La théorie de l’évolution marque le XIXe siècle." } } },
   ];
 
   const packs: Pack[] = [
@@ -952,9 +965,10 @@ function main(): void {
   ];
 
   const catalog: GameCatalog = {
-    version: "0.2.1-test",
+    version: "0.2.2-test",
     gameplay: {
       discovery: { minInputs: 2, maxInputs: 5 },
+      crafting: craftingRecipes,
       progression: { xpPerLevel: 2000, initialLevel: 1 },
     },
     cards,

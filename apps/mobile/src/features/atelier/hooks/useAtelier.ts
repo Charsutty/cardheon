@@ -1,4 +1,4 @@
-import type { Card, DiscoveryResult } from '@cardheon/game-engine'
+import { attemptCraft, type Card, type DiscoveryResult } from '@cardheon/game-engine'
 import { useMemo, useState } from 'react'
 import { toDiscoveryCard } from '../../../game/catalog'
 import { useGame } from '../../../state/GameProvider'
@@ -71,6 +71,11 @@ export function useAtelier() {
   const minSelection = game.catalog.gameplay.discovery.minInputs
   const maxSelection = game.catalog.gameplay.discovery.maxInputs
 
+  const craftPreview = useMemo(() => {
+    if (selectedIds.length < 2) return null
+    return attemptCraft(game.catalog, selectedIds)
+  }, [game.catalog, selectedIds])
+
   const toggleCard = (cardId: string) => {
     setResult(null)
     setSelectedIds((current) => {
@@ -102,7 +107,8 @@ export function useAtelier() {
     searchQuery,
     minSelection,
     maxSelection,
-    canAttempt: selectedIds.length >= minSelection,
+    craftPreview,
+    canAttempt: selectedIds.length >= minSelection || Boolean(craftPreview),
     setFilter,
     setSearchQuery,
     toggleCard,

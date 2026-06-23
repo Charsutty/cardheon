@@ -1,4 +1,5 @@
 import {
+  attemptCraft,
   attemptDiscovery,
   type Card,
   type DiscoveryResult,
@@ -65,7 +66,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const discover = useCallback(
     (inputCardIds: string[]) => {
-      const result = attemptDiscovery(
+      const craftResult = attemptCraft(catalog, inputCardIds)
+      const result: DiscoveryResult = craftResult ?? attemptDiscovery(
         catalog,
         { discoveredCardIds, unlockedCardIds },
         inputCardIds,
@@ -88,6 +90,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
           next = discoverCard(next, result.cardId, 'discovery')
           next = applyRewards(next, result.rewards)
           next = { ...next, lastDiscoveryId: result.cardId, lastDiscoveryResult: result }
+        } else if (result.type === 'craft') {
+          next = applyRewards(next, result.rewards)
+          next = { ...next, lastDiscoveryResult: result }
         }
 
         return next

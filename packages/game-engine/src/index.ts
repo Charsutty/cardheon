@@ -98,6 +98,17 @@ export type Source = {
   url?: string;
 };
 
+export type CraftingRecipe = {
+  id: string;
+  inputs: string[];
+  outputCardId: string;
+  localization?: {
+    fr?: {
+      reason?: string;
+    };
+  };
+};
+
 export type GameCatalog = {
   version: string;
   cards: Card[];
@@ -110,6 +121,7 @@ export type GameCatalog = {
       minInputs: number;
       maxInputs: number;
     };
+    crafting?: CraftingRecipe[];
     progression: {
       xpPerLevel: number;
       initialLevel: number;
@@ -188,6 +200,12 @@ export type DiscoveryResult =
       rewards: Reward[];
     }
   | {
+      type: "craft";
+      recipeId: string;
+      outputCardId: string;
+      rewards: Reward[];
+    }
+  | {
       type: "near_miss";
       hints: Hint[];
       candidates: CandidateScore[];
@@ -225,6 +243,27 @@ const DEFAULT_OPTIONS: Required<DiscoveryOptions> = {
   defaultAmbiguityMargin: 12,
   includeDraftFigures: false,
 };
+
+export function attemptCraft(catalog: GameCatalog, inputCardIds: string[]): DiscoveryResult | null {
+  const recipes = catalog.gameplay.crafting ?? [];
+  const normalizedInputs = [...new Set(inputCardIds)].sort();
+  if (normalizedInputs.length < 2) return null;
+
+  const recipe = recipes.find((candidate) => {
+    const normalizedRecipe = [...new Set(candidate.inputs)].sort();
+    if (normalizedRecipe.length !== normalizedInputs.length) return false;
+    return normalizedRecipe.every((id, index) => id === normalizedInputs[index]);
+  });
+
+  if (!recipe) return null;
+
+  return {
+    type: "craft",
+    recipeId: recipe.id,
+    outputCardId: recipe.outputCardId,
+    rewards: [{ type: "new_tool_card", value: recipe.outputCardId }],
+  };
+}
 
 export function attemptDiscovery(
   catalog: GameCatalog,

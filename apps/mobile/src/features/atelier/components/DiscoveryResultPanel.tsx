@@ -71,6 +71,14 @@ function getResultContent(
         rewards: formatRewards(result.rewards, getCard),
       }
     }
+    case 'craft': {
+      const title = getCard(result.outputCardId)?.localization.fr?.title ?? result.outputCardId
+      return {
+        title: 'Nouvelle carte créée !',
+        messages: [`Tu as assemblé les cartes pour créer ${title}. Elle est maintenant disponible dans ta main.`],
+        rewards: formatRewards(result.rewards, getCard),
+      }
+    }
   }
 }
 

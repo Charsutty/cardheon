@@ -37,6 +37,7 @@ export function AtelierScreen() {
           <ClueGrid
             cards={atelier.allCards}
             selectedIds={atelier.selectedIds}
+            minSelection={atelier.minSelection}
             maxSelection={atelier.maxSelection}
             onToggle={atelier.toggleCard}
           />
@@ -59,6 +60,7 @@ export function AtelierScreen() {
         selectionCount={atelier.selectedIds.length}
         maxSelection={atelier.maxSelection}
         canAttempt={atelier.canAttempt}
+        craftPreview={atelier.craftPreview}
         onAttempt={handleAttempt}
         onClear={atelier.clearSelection}
       />
