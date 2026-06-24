@@ -4,11 +4,6 @@ localization:
   fr:
     title: Pack de départ
 starterCardIds:
-  - domain.mathematics
-  - domain.physics
-  - domain.biology
-  - domain.philosophy
-  - domain.arts
   - period.antiquity
   - period.middle-ages
   - period.renaissance
@@ -18,38 +13,52 @@ starterCardIds:
   - place.italy
   - place.greece
   - place.egypt
+  - place.usa
+  - domain.science
+  - domain.arts
+  - domain.philosophy
+  - domain.politics
+  - domain.exploration
+  - domain.invention
   - role.ruler
-  - concept.female-figure
+  - role.scientist
+  - role.artist
+  - role.philosopher
+  - role.explorer
   - concept.faith
-  - role.resistance
+  - concept.power
+  - concept.travel
 cardPoolIds:
-  - figure.marie-curie
+  # Niveau 1 — figures iconiques, volontairement simples à découvrir.
   - figure.cleopatra
   - figure.socrate
   - figure.joan-of-arc
   - figure.leonardo-da-vinci
-  - figure.martin-luther-king
-  - figure.rosa-parks
+  - figure.marie-curie
   - figure.christopher-columbus
+  - figure.martin-luther-king
+  # Niveau 2 — spécialisation par outils débloqués.
+  - figure.isaac-newton
   - figure.galileo-galilei
-  - figure.boudica
+  - figure.charles-darwin
+  - figure.johannes-gutenberg
+  - figure.rosa-parks
+  - figure.nelson-mandela
+  - figure.hypatia
+  - figure.florence-nightingale
+  # Niveau 3 — chaînes et figures expertes.
+  - figure.plato
+  - figure.aristote
+  - figure.ada-lovelace
+  - figure.katherine-johnson
   - figure.pierre-curie
   - figure.irene-joliot-curie
-  - figure.hypatia
+  - figure.rosalind-franklin
+  - figure.mary-wollstonecraft
+  - figure.ibn-sina
+  - figure.boudica
   - figure.hatshepsout
-  - figure.isaac-newton
-  - figure.charles-darwin
-  - figure.ada-lovelace
-  - figure.florence-nightingale
-  - figure.nelson-mandela
   - figure.marco-polo
   - figure.ashoka
   - figure.catherine-de-medici
   - figure.simon-bolivar
-  - figure.plato
-  - figure.aristote
-  - figure.rosalind-franklin
-  - figure.katherine-johnson
-  - figure.ibn-sina
-  - figure.mary-wollstonecraft
-  - figure.johannes-gutenberg
