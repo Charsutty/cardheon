@@ -12,6 +12,6 @@ export async function fetchCatalogManifest(): Promise<CatalogManifest | undefine
   if (!SUPABASE_URL) return undefined
 
   const response = await fetch(`${SUPABASE_URL}/functions/v1/catalog-manifest`)
-  if (!response.ok) return undefined
+  if (!response.ok) throw new Error(`catalog_manifest_${response.status}`)
   return await response.json() as CatalogManifest
 }
