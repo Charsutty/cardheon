@@ -1,0 +1,11 @@
+id: concept.power
+slug: concept-power
+kind: concept
+status: published
+rarity: common
+localization:
+  fr:
+    title: Autorité
+tags:
+  - tag: concept.power
+    weight: 100
