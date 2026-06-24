@@ -1,9 +1,3 @@
-import {
-  countPendingSyncMutations,
-  listPendingSyncMutations,
-  markSyncMutationFailed,
-  markSyncMutationsSynced,
-} from '../db/syncRepository'
 import type {
   GameProgress,
   PlayerCardState,
@@ -20,11 +14,15 @@ type SyncProgressResponse = {
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY
 
-export async function syncPendingProgress(accessToken: string): Promise<SyncProgressResponse | undefined> {
+export async function saveRemoteProgress(
+  accessToken: string,
+  catalogVersion: string,
+  progress: GameProgress,
+): Promise<SyncProgressResponse | undefined> {
   if (!SUPABASE_URL) return undefined
 
-  const mutations = await listPendingSyncMutations()
-  if (mutations.length === 0) return undefined
+  const createdAt = new Date().toISOString()
+  const clientMutationId = `${createdAt}-snapshot`
 
   const response = await fetch(`${SUPABASE_URL}/functions/v1/sync-progress`, {
     method: 'POST',
@@ -34,32 +32,25 @@ export async function syncPendingProgress(accessToken: string): Promise<SyncProg
     },
     body: JSON.stringify({
       deviceId: 'local-device',
-      mutations: mutations.map((mutation) => ({
-        clientMutationId: mutation.clientMutationId,
-        type: mutation.type,
-        createdAt: mutation.createdAt,
-        payload: mutation.payload,
-      })),
+      mutations: [{
+        clientMutationId,
+        type: 'progress_snapshot',
+        createdAt,
+        payload: { catalogVersion, progress },
+      }],
     }),
   })
 
   if (!response.ok) {
-    const message = `sync_failed_${response.status}`
-    await Promise.all(mutations.map((mutation) => markSyncMutationFailed(mutation.clientMutationId, message)))
-    throw new Error(message)
+    throw new Error(`sync_failed_${response.status}`)
   }
 
   const body = await response.json() as SyncProgressResponse
-  await markSyncMutationsSynced(body.acceptedMutationIds)
-  for (const rejected of body.rejectedMutations) {
-    await markSyncMutationFailed(rejected.clientMutationId, rejected.reason)
+  if (body.rejectedMutations.length > 0) {
+    throw new Error(body.rejectedMutations[0]?.reason ?? 'sync_rejected')
   }
 
   return body
-}
-
-export async function getPendingSyncMutationCount(): Promise<number> {
-  return countPendingSyncMutations()
 }
 
 export async function fetchRemoteProgress(accessToken: string): Promise<GameProgress | undefined> {

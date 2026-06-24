@@ -2,6 +2,8 @@ import type { SQLiteDatabase } from 'expo-sqlite'
 import type { GameProgress } from '../game/progress'
 import { getDatabase } from './database'
 
+// Reserved for future offline-first sync. Not used by the connected-first MVP flow.
+
 export type PendingSyncMutation = {
   clientMutationId: string
   type: 'progress_snapshot'
