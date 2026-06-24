@@ -2006,6 +2006,29 @@
       ]
     },
     {
+      "id": "role.ruler",
+      "slug": "role-ruler",
+      "kind": "role",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Souverain",
+          "subtitle": "Roi, reine, empereur, pharaon ou dirigeant politique"
+        }
+      },
+      "tags": [
+        {
+          "tag": "role.ruler",
+          "weight": 100
+        },
+        {
+          "tag": "concept.power",
+          "weight": 80
+        }
+      ]
+    },
+    {
       "id": "role.scientist",
       "slug": "role-scientist",
       "kind": "role",

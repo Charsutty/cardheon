@@ -126,7 +126,27 @@ function validateCatalog(catalog: GameCatalog): Issue[] {
     }
   }
 
+  for (const [index, pack] of catalog.packs.entries()) {
+    validatePackCardReferences(pack.starterCardIds, `packs[${index}].starterCardIds`, cardIds, issues);
+    validatePackCardReferences(pack.cardPoolIds, `packs[${index}].cardPoolIds`, cardIds, issues);
+  }
+
   return issues;
+}
+
+function validatePackCardReferences(cardIds: string[], path: string, knownCardIds: Set<string>, issues: Issue[]): void {
+  const seen = new Set<string>();
+
+  for (const cardId of cardIds) {
+    if (!knownCardIds.has(cardId)) {
+      issues.push({ severity: "error", path, message: `Unknown pack card id: ${cardId}` });
+    }
+
+    if (seen.has(cardId)) {
+      issues.push({ severity: "warning", path, message: `Duplicate pack card id: ${cardId}` });
+    }
+    seen.add(cardId);
+  }
 }
 
 function validateCardShape(card: Card, path: string, issues: Issue[]): void {
