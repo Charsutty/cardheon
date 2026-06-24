@@ -261,7 +261,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
             inputCardIds,
           )
 
-          setProgress((current) => applyServerProgress(current, serverResponse, inputCardIds))
+          setProgress((current) => ({
+            ...serverResponse.progressSnapshot,
+            packs: current.packs,
+          }))
 
           setDiscoveryLoading({ status: 'success' })
           return serverResponse.result
@@ -513,35 +516,6 @@ function applyRewards(progress: GameProgress, rewards: Reward[]): GameProgress {
 
   return next
 }
-
-function applyServerProgress(
-  current: GameProgress,
-  response: { result: DiscoveryResult; progress: { xp: number; attempts: number; discoveredFigureIds: string[] } },
-  inputCardIds: string[],
-): GameProgress {
-  const { result, progress: serverProgress } = response
-  let next = recordAttempt(
-    current,
-    inputCardIds,
-    result.type,
-    result.type === 'new_figure' || result.type === 'already_discovered' ? result.cardId : undefined,
-    result.type === 'new_figure' || result.type === 'already_discovered' ? result.score : undefined,
-  )
-
-  if (result.type === 'new_figure') {
-    next = applyRewards(next, result.rewards)
-    next = { ...next, lastDiscoveryId: result.cardId, lastDiscoveryResult: result }
-  } else if (result.type === 'craft') {
-    next = applyRewards(next, result.rewards)
-    next = { ...next, lastDiscoveryResult: result }
-  }
-
-  // Override with authoritative server values (XP already counted in rewards above, fine to override)
-  next = { ...next, xp: serverProgress.xp, attempts: serverProgress.attempts }
-
-  return next
-}
-
 function getCatalogConnections(catalog: GameCatalog, cardId: string): CardConnection[] {
   const cardsById = new Map(catalog.cards.map((card) => [card.id, card]))
 

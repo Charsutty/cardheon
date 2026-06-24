@@ -179,11 +179,12 @@ function buildPublishSql(
     packs: RestRow[];
     sources: RestRow[];
   },
+  gameplay: GameCatalog["gameplay"],
 ): string {
   const statements: string[] = [
     "begin;",
     `delete from public.catalog_versions where id = ${sqlLiteral(catalogVersion)};`,
-    `insert into public.catalog_versions (id, status, minimum_app_version, catalog_checksum, asset_base_url, published_at) values (${sqlLiteral(catalogVersion)}, 'draft', ${sqlLiteral(options.minimumAppVersion)}, ${sqlLiteral(checksum)}, ${sqlLiteral(options.assetBaseUrl)}, null);`,
+    `insert into public.catalog_versions (id, status, minimum_app_version, catalog_checksum, asset_base_url, gameplay, published_at) values (${sqlLiteral(catalogVersion)}, 'draft', ${sqlLiteral(options.minimumAppVersion)}, ${sqlLiteral(checksum)}, ${sqlLiteral(options.assetBaseUrl)}, ${sqlJson(catalog.gameplay)}, null);`,
   ];
 
   if (rows.cards.length > 0) {
@@ -330,7 +331,7 @@ async function publishCatalog(options: PublishOptions): Promise<void> {
   );
 
   if (options.sql) {
-    console.log(buildPublishSql(catalogVersion, checksum, publishedAt, options, rows));
+    console.log(buildPublishSql(catalogVersion, checksum, publishedAt, options, rows, catalog.gameplay));
     return;
   }
 
@@ -355,6 +356,7 @@ async function publishCatalog(options: PublishOptions): Promise<void> {
         minimum_app_version: options.minimumAppVersion,
         catalog_checksum: checksum,
         asset_base_url: options.assetBaseUrl ?? null,
+        gameplay: catalog.gameplay,
         published_at: null,
       },
     ],

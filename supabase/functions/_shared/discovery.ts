@@ -159,13 +159,12 @@ export function attemptDiscovery(
       const minScore = bestFigure.discovery.minScore ?? resolvedOptions.defaultMinScore
       const minEvidenceCount = bestFigure.discovery.minEvidenceCount ?? 1
       if (bestRediscovered.score >= minScore && bestRediscovered.evidenceCount >= minEvidenceCount) {
-        const rewards = buildRewards(bestFigure, catalog, userState)
         return {
           type: 'already_discovered',
           cardId: bestRediscovered.cardId,
           score: bestRediscovered.score,
           reasons: bestRediscovered.reasons,
-          rewards,
+          rewards: [],
         }
       }
     }

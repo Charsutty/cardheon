@@ -11,11 +11,7 @@ type AttemptDiscoveryRequest = {
 
 type AttemptDiscoveryResponse = {
   result: DiscoveryResult
-  progress: {
-    xp: number
-    attempts: number
-    discoveredFigureIds: string[]
-  }
+  progressSnapshot: ProgressSnapshot & { lastDiscoveryResult?: DiscoveryResult; lastDiscoveryId?: string }
 }
 
 Deno.serve(async (request) => {
@@ -31,7 +27,6 @@ Deno.serve(async (request) => {
 
     const body = await request.json() as AttemptDiscoveryRequest
     const inputCardIds = body.inputCardIds
-    const clientAttemptId = body.clientAttemptId ?? `${Date.now()}-${crypto.randomUUID().slice(0, 8)}`
 
     if (!Array.isArray(inputCardIds) || inputCardIds.length === 0) {
       return json({ error: 'inputCardIds is required' }, 400)
@@ -70,7 +65,7 @@ Deno.serve(async (request) => {
     )
 
     // 4. Apply result to progress snapshot
-    const updatedProgress = applyResultToSnapshot(playerProgress, inputCardIds, clientAttemptId, result, catalog)
+    const updatedProgress = applyResultToSnapshot(playerProgress, inputCardIds, result)
 
     // 5. Save the snapshot on the server
     const saveResult = await saveProgressSnapshot(supabase, userId, catalog.version, updatedProgress)
@@ -78,15 +73,13 @@ Deno.serve(async (request) => {
       return json({ error: `Save failed: ${saveResult.error}` }, 500)
     }
 
-    // 6. Return result + progress summary
+    // 6. Return full snapshot + result
     const response: AttemptDiscoveryResponse = {
       result,
-      progress: {
-        xp: updatedProgress.xp,
-        attempts: updatedProgress.attempts,
-        discoveredFigureIds: Object.values(updatedProgress.cardStates)
-          .filter((s) => s.state === 'discovered' || s.state === 'mastered')
-          .map((s) => s.cardId),
+      progressSnapshot: {
+        ...updatedProgress,
+        lastDiscoveryResult: result,
+        lastDiscoveryId: result.type === 'new_figure' ? result.cardId : undefined,
       },
     }
 
@@ -191,16 +184,16 @@ function initializeStarterProgress(catalog: GameCatalog): ProgressSnapshot {
 function applyResultToSnapshot(
   progress: ProgressSnapshot,
   inputCardIds: string[],
-  clientAttemptId: string,
   result: DiscoveryResult,
-  catalog: GameCatalog,
 ): ProgressSnapshot {
+  const attemptId = `${Date.now()}-${crypto.randomUUID().slice(0, 8)}`
+
   let next: ProgressSnapshot = {
     ...progress,
     cardStates: { ...progress.cardStates },
     attemptHistory: [
       {
-        id: clientAttemptId,
+        id: attemptId,
         inputCardIds,
         resultType: result.type,
         resultCardId: result.type === 'new_figure' || result.type === 'already_discovered'
@@ -236,32 +229,6 @@ function applyResultToSnapshot(
           }
         }
       } else if (reward.type === 'xp' && typeof reward.value === 'number') {
-        next.xp += reward.value
-      } else if (reward.type === 'constellation_progress' || reward.type === 'constellation_unlock') {
-        const meta = reward.meta as {
-          constellationId: string
-          discoveredCount: number
-          totalCount: number
-          isComplete: boolean
-        } | undefined
-        if (meta?.constellationId) {
-          next.constellations = {
-            ...next.constellations,
-            [meta.constellationId]: {
-              constellationId: meta.constellationId,
-              state: meta.isComplete ? 'completed' : 'in_progress',
-              progress: meta.discoveredCount,
-              total: meta.totalCount,
-            },
-          }
-        }
-      }
-    }
-  }
-
-  if (result.type === 'already_discovered') {
-    for (const reward of result.rewards) {
-      if (reward.type === 'xp' && typeof reward.value === 'number') {
         next.xp += reward.value
       } else if (reward.type === 'constellation_progress' || reward.type === 'constellation_unlock') {
         const meta = reward.meta as {

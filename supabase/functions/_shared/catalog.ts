@@ -122,7 +122,10 @@ export async function loadPublishedCatalog(supabase: ReturnType<typeof createCli
   if (versionError || !versionData) return null
 
   const version = versionData.id
-  const gameplay = versionData.gameplay as GameCatalog['gameplay']
+  const gameplay = (versionData.gameplay as GameCatalog['gameplay'] | null) ?? {
+    discovery: { minInputs: 2, maxInputs: 5 },
+    progression: { xpPerLevel: 100, initialLevel: 1 },
+  }
 
   interface CardRow {
     id: string; slug: string; kind: CardKind; status: string
