@@ -1,10 +1,24 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
-Deno.serve(async () => {
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+}
+
+Deno.serve(async (request) => {
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: corsHeaders })
+  }
+
+  if (request.method !== 'GET') {
+    return json({ error: 'Method not allowed' }, 405)
+  }
+
   const supabaseUrl = Deno.env.get('SUPABASE_URL')
   const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')
   if (!supabaseUrl || !supabaseAnonKey) {
-    return Response.json({ error: 'Supabase environment is not configured' }, { status: 500 })
+    return json({ error: 'Supabase environment is not configured' }, 500)
   }
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey)
@@ -17,14 +31,14 @@ Deno.serve(async () => {
     .maybeSingle()
 
   if (error) {
-    return Response.json({ error: error.message }, { status: 500 })
+    return json({ error: error.message }, 500)
   }
 
   if (!data) {
-    return Response.json({ error: 'No published catalog version' }, { status: 404 })
+    return json({ error: 'No published catalog version' }, 404)
   }
 
-  return Response.json({
+  return json({
     catalogVersion: data.id,
     minimumAppVersion: data.minimum_app_version,
     catalogChecksum: data.catalog_checksum,
@@ -32,3 +46,7 @@ Deno.serve(async () => {
     publishedAt: data.published_at,
   })
 })
+
+function json(body: unknown, status = 200): Response {
+  return Response.json(body, { status, headers: corsHeaders })
+}

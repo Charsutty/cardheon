@@ -1,5 +1,11 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+}
+
 type SyncMutation = {
   clientMutationId: string
   type: 'progress_snapshot'
@@ -56,19 +62,23 @@ type SyncProgressResponse = {
 }
 
 Deno.serve(async (request) => {
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: corsHeaders })
+  }
+
   if (request.method !== 'POST') {
-    return Response.json({ error: 'Method not allowed' }, { status: 405 })
+    return json({ error: 'Method not allowed' }, 405)
   }
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')
   const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')
   if (!supabaseUrl || !supabaseAnonKey) {
-    return Response.json({ error: 'Supabase environment is not configured' }, { status: 500 })
+    return json({ error: 'Supabase environment is not configured' }, 500)
   }
 
   const authorization = request.headers.get('Authorization')
   if (!authorization) {
-    return Response.json({ error: 'Missing Authorization header' }, { status: 401 })
+    return json({ error: 'Missing Authorization header' }, 401)
   }
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey, {
@@ -76,7 +86,7 @@ Deno.serve(async (request) => {
   })
   const { data: userData, error: userError } = await supabase.auth.getUser()
   if (userError || !userData.user) {
-    return Response.json({ error: 'Invalid user token' }, { status: 401 })
+    return json({ error: 'Invalid user token' }, 401)
   }
 
   const userId = userData.user.id
@@ -206,5 +216,9 @@ Deno.serve(async (request) => {
     patch: { cardStates: {} },
   }
 
-  return Response.json(response)
+  return json(response)
 })
+
+function json(body: unknown, status = 200): Response {
+  return Response.json(body, { status, headers: corsHeaders })
+}
