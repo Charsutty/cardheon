@@ -1,0 +1,12 @@
+id: domain.science
+slug: domain-science
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Science
+    subtitle: Savoir, observation et expérimentation
+tags:
+  - tag: domain.science
+    weight: 100
