@@ -24,6 +24,7 @@ type SyncMutation = {
       }>
       xp: number
       attempts: number
+      claimedRewardIds?: string[]
       attemptHistory: Array<{
         id: string
         inputCardIds: string[]
@@ -161,6 +162,20 @@ Deno.serve(async (request) => {
         continue
       }
     }
+    const { error: staleCardError } = await deleteRowsMissingFromSnapshot(
+      supabase,
+      'player_cards',
+      'card_id',
+      userId,
+      cardRows.map((row) => row.card_id),
+    )
+    if (staleCardError) {
+      rejectedMutations.push({
+        clientMutationId: mutation.clientMutationId,
+        reason: staleCardError.message,
+      })
+      continue
+    }
 
     const constellationRows = Object.values(progress.constellations).map((constellation) => ({
       user_id: userId,
@@ -182,6 +197,20 @@ Deno.serve(async (request) => {
         })
         continue
       }
+    }
+    const { error: staleConstellationError } = await deleteRowsMissingFromSnapshot(
+      supabase,
+      'player_constellations',
+      'constellation_id',
+      userId,
+      constellationRows.map((row) => row.constellation_id),
+    )
+    if (staleConstellationError) {
+      rejectedMutations.push({
+        clientMutationId: mutation.clientMutationId,
+        reason: staleConstellationError.message,
+      })
+      continue
     }
 
     const attemptRows = progress.attemptHistory.map((attempt) => ({
@@ -205,6 +234,53 @@ Deno.serve(async (request) => {
         continue
       }
     }
+    const { error: staleAttemptError } = await deleteRowsMissingFromSnapshot(
+      supabase,
+      'player_attempts',
+      'client_attempt_id',
+      userId,
+      attemptRows.map((row) => row.client_attempt_id),
+    )
+    if (staleAttemptError) {
+      rejectedMutations.push({
+        clientMutationId: mutation.clientMutationId,
+        reason: staleAttemptError.message,
+      })
+      continue
+    }
+
+    const rewardRows = (progress.claimedRewardIds ?? []).map((rewardId) => ({
+      user_id: userId,
+      reward_id: rewardId,
+      reward_type: 'unknown',
+      reward_value: rewardId,
+    }))
+    if (rewardRows.length > 0) {
+      const { error: rewardError } = await supabase
+        .from('player_rewards')
+        .upsert(rewardRows, { onConflict: 'user_id,reward_id' })
+      if (rewardError) {
+        rejectedMutations.push({
+          clientMutationId: mutation.clientMutationId,
+          reason: rewardError.message,
+        })
+        continue
+      }
+    }
+    const { error: staleRewardError } = await deleteRowsMissingFromSnapshot(
+      supabase,
+      'player_rewards',
+      'reward_id',
+      userId,
+      rewardRows.map((row) => row.reward_id),
+    )
+    if (staleRewardError) {
+      rejectedMutations.push({
+        clientMutationId: mutation.clientMutationId,
+        reason: staleRewardError.message,
+      })
+      continue
+    }
 
     acceptedMutationIds.push(mutation.clientMutationId)
   }
@@ -221,4 +297,27 @@ Deno.serve(async (request) => {
 
 function json(body: unknown, status = 200): Response {
   return Response.json(body, { status, headers: corsHeaders })
+}
+
+async function deleteRowsMissingFromSnapshot(
+  supabase: ReturnType<typeof createClient>,
+  table: string,
+  idColumn: string,
+  userId: string,
+  ids: string[],
+) {
+  let query = supabase
+    .from(table)
+    .delete()
+    .eq('user_id', userId)
+
+  if (ids.length > 0) {
+    query = query.not(idColumn, 'in', toPostgrestTuple(ids))
+  }
+
+  return await query
+}
+
+function toPostgrestTuple(values: string[]): string {
+  return `(${values.map((value) => `"${value.replace(/"/g, '\\"')}"`).join(',')})`
 }
