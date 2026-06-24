@@ -26,7 +26,7 @@ Une simulation brute-force :
 - s’arrête quand plus aucune figure n’est découvrable ;
 - répète jusqu’au point fixe.
 
-Avec le catalogue de test actuel (109 cartes, 25 figures), cette approche dépasse rapidement plusieurs minutes. Elle devient inutilisable dès qu’on ajoute un deuxième pack ou qu’on enrichit les règles.
+Avec le catalogue de test actuel (110 cartes, 25 figures), cette approche dépasse rapidement plusieurs minutes. Elle devient inutilisable dès qu’on ajoute un deuxième pack ou qu’on enrichit les règles.
 
 ---
 
@@ -63,13 +63,13 @@ L’analyseur recommence alors depuis le début, jusqu’à ce qu’aucune nouve
 
 ```bash
 # Analyse par défaut du catalogue de test
-pnpm analyze:discoverability
+corepack pnpm analyze:discoverability
 
 # Mode exhaustif (plus lent, plus précis)
-pnpm tsx scripts/analyze-discoverability.ts content/catalog.dev.json --exact-positive
+corepack pnpm tsx scripts/analyze-discoverability.ts content/catalog.dev.json --exact-positive
 
 # Sortie JSON pour un traitement automatique
-pnpm tsx scripts/analyze-discoverability.ts content/catalog.dev.json --json
+corepack pnpm tsx scripts/analyze-discoverability.ts content/catalog.dev.json --json
 ```
 
 ---
@@ -144,7 +144,7 @@ Ces cycles ne bloquent pas la découverte s’ils sont “rompus” par le pack 
 Le catalogue de test (`content/catalog.dev.json`) est généré par `scripts/generate-test-catalog.ts`. Il contient :
 
 - 25 figures historiques réparties sur 3 niveaux de difficulté ;
-- 84 cartes-outils (périodes, lieux, domaines, concepts, œuvres, événements…) ;
+- 85 cartes-outils (périodes, lieux, domaines, concepts, œuvres, événements…) ;
 - 157 relations ;
 - 8 constellations.
 
@@ -178,10 +178,10 @@ Ces outils servent ensuite à découvrir les figures de niveau 2 et 3, tout en e
 
 | Tâche | Commande |
 |---|---|
-| Régénérer le catalogue de test | `pnpm generate:test-catalog` |
-| Valider la forme du catalogue | `pnpm validate:content` |
-| Vérifier la découvrabilité | `pnpm analyze:discoverability` |
-| Lancer les tests du moteur | `pnpm test` |
+| Régénérer le catalogue de test | `corepack pnpm generate:test-catalog` |
+| Valider la forme du catalogue | `corepack pnpm validate:content` |
+| Vérifier la découvrabilité | `corepack pnpm analyze:discoverability` |
+| Lancer les tests du moteur | `corepack pnpm test` |
 
 ---
 

@@ -1,19 +1,35 @@
 # 05 — Roadmap
 
-## Phase 0 — Préproduction
+## État actuel
+
+Le dépôt n’est plus en préproduction pure. Une première boucle locale existe déjà :
+
+```txt
+Expo + React Native + TypeScript
+moteur TypeScript pur de découverte pondérée
+catalogue local versionné
+SQLite local
+Atelier jouable
+Collection
+progression locale
+scripts de validation, simulation et découvrabilité
+admin Vite pour le graphe de contenu
+```
+
+La priorité actuelle est donc de stabiliser ce MVP local, pas de réinitialiser le projet.
+
+## Phase 0 — Préproduction socle
 
 Objectif : valider le modèle de données et le gameplay avant de construire trop d’interface.
 
 Livrables :
 
 ```txt
-10 personnages test
-40 cartes-outils test
-5 constellations test
-schémas Zod
+types de cartes
 moteur TypeScript pur
 simulateur CLI
 premiers tests de découvrabilité
+catalogue de test
 ```
 
 Critère de réussite :
@@ -22,23 +38,27 @@ Critère de réussite :
 On peut lancer une simulation et vérifier que les personnages test sont découvrables par plusieurs chemins.
 ```
 
+Statut : réalisé pour le socle local. À renforcer avec des schémas de contenu plus stricts et davantage de tests moteur.
+
 ## Phase 1 — MVP local
 
-Objectif : rendre le jeu jouable sans backend.
+Objectif : rendre le jeu local fiable, testable et agréable avant d’ajouter le backend.
 
 Livrables :
 
 ```txt
-30 personnages
-100 cartes-outils
+30 personnages équilibrés
+100 cartes-outils utiles
 10 constellations
-catalogue local
-SQLite local
-Atelier
-Collection
-Fiches cartes
+catalogue local construit depuis des sources éditoriales
+SQLite local robuste
+Atelier avec feedback pédagogique
+Collection avec fiches cartes
 Packs basiques
 progression locale
+tests moteur obligatoires
+validation de contenu bloquante
+analyse de découvrabilité bloquante
 ```
 
 Critère de réussite :
@@ -113,13 +133,16 @@ classements optionnels
 
 ## Priorité actuelle
 
+La stabilisation de base du MVP local a été faite côté code : persistance SQLite des déblocages, application unique des rewards, tests moteur renforcés, validation de contenu enrichie et commandes qualité exécutables.
+
 La prochaine étape concrète est :
 
 ```txt
-1. initialiser l’app Expo ;
-2. définir les premiers types de cartes ;
-3. écrire les schémas de contenu ;
-4. créer 10 personnages test ;
-5. implémenter le premier moteur de scoring ;
-6. créer un simulateur CLI.
+1. transformer progressivement le contenu en fichiers source éditoriaux ;
+2. durcir `packages/content-schema` avec de vrais schémas Zod ;
+3. créer les fiches détaillées de collection ;
+4. améliorer le feedback pédagogique de l’Atelier ;
+5. ajouter un tutoriel local ;
+6. élargir le catalogue vers 30 figures équilibrées ;
+7. garder `validate:content` et `analyze:discoverability` bloquants avant chaque palier.
 ```

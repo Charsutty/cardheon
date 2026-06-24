@@ -10,9 +10,10 @@ Ce dossier permet à un développeur, designer, rédacteur historique ou agent d
 4. [`02-technical-architecture.md`](02-technical-architecture.md) — monorepo, mobile, backend et offline-first.
 5. [`03-content-system.md`](03-content-system.md) — cartes, relations, sources et workflow éditorial.
 6. [`04-discovery-engine.md`](04-discovery-engine.md) — scoring pondéré, ambiguïtés et indices.
-7. [`05-roadmap.md`](05-roadmap.md) — étapes du prototype à la V1.
-8. [`06-decisions.md`](06-decisions.md) — décisions structurantes et leurs raisons.
-9. [`07-local-v1.md`](07-local-v1.md) — état réellement implémenté de la version locale.
+7. [`05-content-progression.md`](05-content-progression.md) — découvrabilité, combinatoire et lecture des rapports.
+8. [`05-roadmap.md`](05-roadmap.md) — étapes du MVP local à la V1.
+9. [`06-decisions.md`](06-decisions.md) — décisions structurantes et leurs raisons.
+10. [`07-local-v1.md`](07-local-v1.md) — état réellement implémenté de la version locale.
 
 ## Principe général
 
@@ -30,5 +31,6 @@ Cardhéon est un **graphe historique jouable** :
 - Une décision qui change une direction existante est aussi inscrite dans `06-decisions.md`.
 - Un changement technique met à jour le document spécialisé correspondant.
 - `07-local-v1.md` décrit l’état réel, pas l’ambition finale.
+- `05-content-progression.md` doit rester aligné avec `scripts/analyze-discoverability.ts`.
 - Les documents doivent distinguer clairement ce qui est **implémenté**, **décidé** et **envisagé**.
 - Le contenu historique source reste dans `content/` et ne doit pas être dupliqué dans l’interface.

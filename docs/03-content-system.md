@@ -126,19 +126,20 @@ Rosa Parks --associated_with--> Droits civiques
 
 Le contenu doit être écrit dans `content/`.
 
-Structure :
+Structure actuelle et cible :
 
 ```txt
 content/
-  figures/
-  tools/
-  constellations/
-  packs/
-  sources/
+  figures/            sources éditoriales YAML
+  tools/              sources éditoriales YAML
+  constellations/     sources éditoriales YAML
+  packs/              sources éditoriales YAML
+  sources/            sources bibliographiques
+  catalog.dev.json    catalogue local compilé ou généré
   assets-manifest/
 ```
 
-Format possible : YAML au début, JSON si cela facilite les scripts.
+Le repo contient déjà des sources YAML, mais le catalogue de développement reste encore largement issu de `scripts/generate-test-catalog.ts`. La direction est de compiler progressivement les sources éditoriales vers `content/catalog.dev.json`, puis de traiter ce catalogue comme un artefact validé.
 
 ## Exemple de personnage
 
@@ -197,15 +198,25 @@ constellations:
 Chaque ajout de contenu doit passer par :
 
 ```txt
-1. Validation du schéma
+1. Validation de forme
 2. Slugs uniques
 3. Références existantes
-4. Sources présentes
-5. Relations non cassées
-6. Découvrabilité simulée
-7. Ambiguïtés analysées
-8. Review humaine si contenu sensible
+4. Cartes débloquées existantes et non-figures
+5. Sources présentes
+6. Relations non cassées
+7. Découvrabilité simulée
+8. Ambiguïtés analysées
+9. Review humaine si contenu sensible
 ```
+
+État actuel :
+
+```bash
+corepack pnpm validate:content
+corepack pnpm analyze:discoverability
+```
+
+`validate:content` vérifie notamment les types de cartes, statuts, ids et slugs uniques, sources, constellations, relations, règles de découverte et `unlocksToolCardIds`. `analyze:discoverability` vérifie que les figures sont atteignables via le vrai moteur.
 
 ## Statuts éditoriaux
 

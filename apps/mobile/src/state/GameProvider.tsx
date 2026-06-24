@@ -87,7 +87,6 @@ export function GameProvider({ children }: { children: ReactNode }) {
         )
 
         if (result.type === 'new_figure') {
-          next = discoverCard(next, result.cardId, 'discovery')
           next = applyRewards(next, result.rewards)
           next = { ...next, lastDiscoveryId: result.cardId, lastDiscoveryResult: result }
         } else if (result.type === 'craft') {

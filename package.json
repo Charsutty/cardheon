@@ -17,7 +17,7 @@
     "build:catalog": "tsx scripts/build-local-catalog.ts",
     "generate:test-catalog": "tsx scripts/generate-test-catalog.ts",
     "typecheck": "corepack pnpm --filter @cardheon/ui typecheck && corepack pnpm --filter @cardheon/mobile typecheck && corepack pnpm --filter @cardheon/admin typecheck",
-    "lint": "echo \"TODO: run lint\"",
+    "lint": "corepack pnpm typecheck",
     "test": "tsx --test packages/game-engine/src/*.test.ts"
   },
   "devDependencies": {

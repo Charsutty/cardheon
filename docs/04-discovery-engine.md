@@ -57,17 +57,28 @@ Feedback possible :
 Tu es proche de plusieurs femmes scientifiques du XXe siècle. Ajoute un indice lié au domaine précis : radioactivité, ADN, espace ou environnement.
 ```
 
-## API cible
+## API implémentée
 
 Le moteur vit dans `packages/game-engine`.
 
 ```ts
 export type GameCatalog = {
   cards: Card[];
-  tags: Tag[];
   relationships: Relationship[];
-  discoveryRules: DiscoveryRule[];
   constellations: Constellation[];
+  packs: Pack[];
+  sources: Source[];
+  gameplay: {
+    discovery: {
+      minInputs: number;
+      maxInputs: number;
+    };
+    crafting?: CraftingRecipe[];
+    progression: {
+      xpPerLevel: number;
+      initialLevel: number;
+    };
+  };
 };
 
 export function attemptDiscovery(
@@ -76,7 +87,14 @@ export function attemptDiscovery(
   inputCardIds: string[],
   options?: DiscoveryOptions
 ): DiscoveryResult;
+
+export function attemptCraft(
+  catalog: GameCatalog,
+  inputCardIds: string[]
+): DiscoveryResult | null;
 ```
+
+Les recettes exactes existent uniquement pour fabriquer certaines cartes-outils intermédiaires. Les figures doivent rester découvertes par scoring pondéré.
 
 ## Résultats possibles
 
@@ -92,17 +110,27 @@ type DiscoveryResult =
   | {
       type: "already_discovered";
       cardId: string;
+      score: number;
+      reasons: ScoreReason[];
+      rewards: Reward[];
+    }
+  | {
+      type: "craft";
+      recipeId: string;
+      outputCardId: string;
       rewards: Reward[];
     }
   | {
       type: "near_miss";
       hints: Hint[];
+      candidates: CandidateScore[];
       nearestConstellations: string[];
     }
   | {
       type: "ambiguous";
       hints: Hint[];
       candidateCount: number;
+      candidates: CandidateScore[];
     }
   | {
       type: "invalid";
@@ -205,4 +233,8 @@ Une contradiction pénalise le score
 Un personnage déjà découvert donne un résultat approprié
 Un personnage peut être découvert par plusieurs chemins
 Une carte-outil inutile est détectée par simulation
+Les récompenses de constellation sont calculées
+Une carte connue mais verrouillée est refusée
 ```
+
+État actuel : les tests moteur couvrent ces cas dans `packages/game-engine/src/index.test.ts`. Les garde-fous de catalogue sont complétés par `scripts/analyze-discoverability.ts`.

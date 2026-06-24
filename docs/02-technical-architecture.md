@@ -9,12 +9,12 @@ Objectif : partager les types, les schémas et le moteur de découverte entre :
 - l’application mobile ;
 - le backend ;
 - les scripts de validation ;
-- le futur outil admin ;
+- l’outil admin ;
 - les simulations de contenu.
 
 ## Stack mobile
 
-Stack cible :
+Stack implémentée pour le MVP local :
 
 ```txt
 Expo
@@ -22,11 +22,13 @@ React Native
 TypeScript
 Expo Router
 SQLite local
-Zod
 pnpm
+Tamagui
 ```
 
 Expo est choisi pour accélérer le développement mobile cross-platform. TypeScript est obligatoire pour sécuriser les modèles de cartes, de règles et de progression.
+
+Zod reste la cible pour les schémas éditoriaux stricts. Aujourd’hui, `packages/content-schema` centralise déjà les constantes et types de contenu, mais la validation runtime est encore portée par les scripts.
 
 ## Backend
 
@@ -86,15 +88,18 @@ calculer les récompenses
 
 ### `packages/content-schema`
 
-Schémas Zod et types de contenu.
+Contrat de contenu partagé.
 
 Responsabilités :
 
 ```txt
+centraliser les constantes de types, statuts et raretés
 valider les fichiers YAML/JSON
 partager les types entre scripts, app et backend
 éviter les slugs cassés ou les données incohérentes
 ```
+
+État actuel : constantes et types partagés. Prochaine étape : schémas Zod complets pour les cartes, figures, sources, constellations, packs et catalogue compilé.
 
 ### `packages/db`
 
@@ -102,7 +107,7 @@ Types, migrations et helpers liés à Supabase/Postgres.
 
 ### `packages/ui`
 
-Composants UI partagés éventuels entre l’app mobile et l’admin.
+Composants UI partagés et thème Cardhéon.
 
 ### `packages/assets-pipeline`
 
@@ -126,7 +131,7 @@ Profil
 
 ### `apps/admin`
 
-Futur outil web interne pour gérer le contenu :
+Outil web interne Vite/React pour visualiser et auditer le graphe de contenu :
 
 ```txt
 cartes
@@ -136,9 +141,11 @@ constellations
 packs
 validation
 publication de catalogue
+métriques de graphe
+exploration de chemins
 ```
 
-L’admin peut rester vide au début.
+État actuel : une première interface de graphe existe. La publication de catalogue reste à implémenter.
 
 ## Backend Supabase
 
@@ -158,6 +165,8 @@ sync-progress
 open-pack
 publish-content-version
 ```
+
+État actuel : les dossiers et contrats README existent, mais le MVP doit rester local-first avant d’implémenter la synchronisation serveur.
 
 ## Versioning du contenu
 

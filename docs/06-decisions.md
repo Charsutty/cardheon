@@ -77,6 +77,18 @@ Raison :
 - meilleure collaboration avec rédacteurs, historiens ou IA de contenu ;
 - publication versionnée du corpus.
 
+## Catalogue local en SQLite
+
+Décision : le catalogue embarqué est seedé dans SQLite et relu depuis la base locale quand elle est disponible.
+
+Raison :
+
+- tester dès le MVP les chemins de persistance offline ;
+- préparer la future synchronisation de versions de catalogue ;
+- garder le jeu utilisable avec un catalogue embarqué de secours.
+
+Conséquence : les champs qui influencent les récompenses, comme `unlocksToolCardIds`, doivent être persistés et relus depuis SQLite, pas seulement présents dans le JSON.
+
 ## Moteur non basé sur des recettes fixes
 
 Décision : utiliser un moteur de scoring pondéré.
@@ -88,6 +100,16 @@ Raison :
 - personnages découverts réutilisables ;
 - feedback plus intelligent ;
 - meilleure profondeur pédagogique.
+
+## Recettes limitées aux cartes-outils
+
+Décision : conserver `attemptCraft` pour fabriquer quelques cartes-outils, sans l’utiliser comme mécanique principale de découverte des figures.
+
+Raison :
+
+- utile pour synthétiser des civilisations, concepts ou outils intermédiaires ;
+- évite de transformer Cardhéon en table de recettes rigides ;
+- laisse les personnages au moteur pondéré, qui gère mieux ambiguïtés, contradictions et chemins multiples.
 
 ## Constellations
 
@@ -111,3 +133,22 @@ Raison : Cardhéon doit rester éducatif et éviter une logique de pay-to-win ou
 Décision : chaque personnage doit avoir des sources et une note de sensibilité si nécessaire.
 
 Raison : le jeu peut être ludique, mais il doit rester responsable et éviter les biographies simplistes ou hagiographiques.
+
+## Garde-fous avant élargissement du contenu
+
+Décision : avant chaque palier de contenu, exécuter les commandes de qualité locales.
+
+```bash
+corepack pnpm lint
+corepack pnpm typecheck
+corepack pnpm test
+corepack pnpm validate:content
+corepack pnpm analyze:discoverability
+```
+
+Raison :
+
+- empêcher les figures bloquées ;
+- détecter les ambiguïtés involontaires ;
+- protéger les régressions du moteur ;
+- éviter que le contenu publié diverge du contrat technique.

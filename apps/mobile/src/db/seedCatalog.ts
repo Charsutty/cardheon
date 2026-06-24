@@ -10,7 +10,10 @@ export async function seedCatalogIfNeeded(db: SQLiteDatabase): Promise<void> {
     'active_catalog_version',
   )
 
-  if (metadata?.value === bundledCatalog.version) return
+  if (metadata?.value === bundledCatalog.version) {
+    const needsBackfill = await hasMissingUnlocks(db, bundledCatalog)
+    if (!needsBackfill) return
+  }
 
   await db.withTransactionAsync(async () => {
     await seedCards(db, bundledCatalog)
@@ -29,12 +32,33 @@ export async function seedCatalogIfNeeded(db: SQLiteDatabase): Promise<void> {
   })
 }
 
+async function hasMissingUnlocks(db: SQLiteDatabase, catalog: GameCatalog): Promise<boolean> {
+  for (const card of catalog.cards) {
+    if (!card.unlocksToolCardIds || card.unlocksToolCardIds.length === 0) continue
+
+    const row = await db.getFirstAsync<{ unlocks_tool_card_ids_json: string | null }>(
+      `SELECT unlocks_tool_card_ids_json
+       FROM cards
+       WHERE catalog_version = ? AND id = ?`,
+      catalog.version,
+      card.id,
+    )
+
+    if (row?.unlocks_tool_card_ids_json !== JSON.stringify(card.unlocksToolCardIds)) {
+      return true
+    }
+  }
+
+  return false
+}
+
 async function seedCards(db: SQLiteDatabase, catalog: GameCatalog) {
   for (const card of catalog.cards) {
     await db.runAsync(
       `INSERT OR REPLACE INTO cards (
-        catalog_version, id, slug, kind, status, rarity, localization_json, discovery_json
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        catalog_version, id, slug, kind, status, rarity, localization_json, discovery_json,
+        unlocks_tool_card_ids_json
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       catalog.version,
       card.id,
       card.slug,
@@ -43,6 +67,7 @@ async function seedCards(db: SQLiteDatabase, catalog: GameCatalog) {
       card.rarity ?? null,
       JSON.stringify(card.localization),
       card.discovery ? JSON.stringify(card.discovery) : null,
+      card.unlocksToolCardIds ? JSON.stringify(card.unlocksToolCardIds) : null,
     )
 
     await db.runAsync(

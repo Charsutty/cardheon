@@ -1,26 +1,12 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { CARD_KINDS, CONTENT_STATUSES } from "../packages/content-schema/src/index";
 import type { Card, GameCatalog } from "../packages/game-engine/src/index";
 
 const DEFAULT_CATALOG_PATH = "content/catalog.dev.json";
 
-const VALID_KINDS = new Set([
-  "figure",
-  "period",
-  "region",
-  "place",
-  "civilization",
-  "role",
-  "domain",
-  "concept",
-  "event",
-  "work",
-  "movement",
-  "relation",
-  "symbol",
-]);
-
-const VALID_STATUSES = new Set(["draft", "needs_sources", "reviewed", "approved", "published", "deprecated"]);
+const VALID_KINDS = new Set(CARD_KINDS);
+const VALID_STATUSES = new Set(CONTENT_STATUSES);
 
 type Issue = {
   severity: "error" | "warning";
@@ -36,6 +22,8 @@ function loadCatalog(path = DEFAULT_CATALOG_PATH): GameCatalog {
 function validateCatalog(catalog: GameCatalog): Issue[] {
   const issues: Issue[] = [];
   const cardIds = new Set<string>();
+  const cardSlugs = new Set<string>();
+  const cardsById = new Map((catalog.cards ?? []).map((card) => [card.id, card]));
   const sourceIds = new Set((catalog.sources ?? []).map((source) => source.id));
   const constellationIds = new Set((catalog.constellations ?? []).map((constellation) => constellation.id));
 
@@ -52,6 +40,11 @@ function validateCatalog(catalog: GameCatalog): Issue[] {
     }
     cardIds.add(card.id);
 
+    if (cardSlugs.has(card.slug)) {
+      issues.push({ severity: "error", path: `${path}.slug`, message: `Duplicate card slug: ${card.slug}` });
+    }
+    cardSlugs.add(card.slug);
+
     for (const sourceId of card.sourceIds ?? []) {
       if (!sourceIds.has(sourceId)) {
         issues.push({ severity: "error", path: `${path}.sourceIds`, message: `Unknown source id: ${sourceId}` });
@@ -61,6 +54,15 @@ function validateCatalog(catalog: GameCatalog): Issue[] {
     for (const constellationId of card.constellationIds ?? []) {
       if (!constellationIds.has(constellationId)) {
         issues.push({ severity: "error", path: `${path}.constellationIds`, message: `Unknown constellation id: ${constellationId}` });
+      }
+    }
+
+    for (const unlockCardId of card.unlocksToolCardIds ?? []) {
+      const unlockedCard = cardsById.get(unlockCardId);
+      if (!unlockedCard) {
+        issues.push({ severity: "error", path: `${path}.unlocksToolCardIds`, message: `Unknown unlocked card id: ${unlockCardId}` });
+      } else if (unlockedCard.kind === "figure") {
+        issues.push({ severity: "error", path: `${path}.unlocksToolCardIds`, message: `unlocksToolCardIds must not unlock a figure: ${unlockCardId}` });
       }
     }
   }

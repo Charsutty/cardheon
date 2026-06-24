@@ -7,17 +7,22 @@ La boucle de démonstration permet désormais de :
 - sélectionner de deux à cinq cartes-indices dans l'Atelier ;
 - lancer une tentative avec le moteur de scoring pondéré ;
 - recevoir un indice en cas d'échec, d'ambiguïté ou de piste proche ;
-- découvrir Marie Curie, Hypatie et Cléopâtre VII ;
-- conserver dans SQLite la collection, l'XP et le nombre de tentatives ;
+- découvrir le catalogue local de démonstration, avec 25 figures atteignables d’après l’analyseur ;
+- fabriquer certaines cartes-outils via des recettes exactes limitées au crafting ;
+- conserver dans SQLite la collection, l'XP, les tentatives, les récompenses, les packs et les constellations ;
 - charger depuis SQLite le catalogue, les sources et le graphe de relations ;
+- persister les déblocages `unlocksToolCardIds` du catalogue local ;
 - consulter la collection et réinitialiser la partie depuis le profil.
 
 ## Lancement
 
 ```bash
 corepack pnpm install
+corepack pnpm lint
 corepack pnpm typecheck
 corepack pnpm test
+corepack pnpm validate:content
+corepack pnpm analyze:discoverability
 corepack pnpm mobile:web
 ```
 
@@ -27,9 +32,31 @@ corepack pnpm mobile:web
 Radioactivité + France                         -> Marie Curie
 Alexandrie + Mathématiques + Égypte ancienne -> Hypatie
 Égypte ancienne + Reine                       -> Cléopâtre VII
+Méthode socratique + Athènes + Antiquité      -> Socrate
+Droits civiques + États-Unis + Pasteur        -> Martin Luther King Jr.
 ```
 
-Cette version valide la boucle de jeu locale. L'étape suivante consiste à élargir le catalogue, ajouter un tutoriel et créer les fiches détaillées.
+Cette version valide la boucle de jeu locale. L'étape suivante consiste à solidifier l’expérience utilisateur, créer les fiches détaillées et élargir le catalogue par paliers contrôlés.
+
+## Garde-fous actuels
+
+```txt
+pnpm test                    tests du moteur pur
+pnpm validate:content        validation du catalogue local
+pnpm analyze:discoverability preuve que les figures sont atteignables
+pnpm typecheck               compilation TypeScript app mobile, admin et UI
+pnpm lint                    alias de qualité vers le typecheck workspace
+```
+
+Dernier état vérifié :
+
+```txt
+catalogue valide : 110 cartes, 157 relations
+découvrabilité : 25 figures découvertes, 0 bloquée
+warnings : 2 cycles potentiels, 40 warnings thématiques à relire côté contenu
+```
+
+Les warnings de découvrabilité ne bloquent pas le MVP local actuel. Ils doivent être traités pendant les paliers d’équilibrage de contenu, avant une publication.
 
 ## Organisation du code mobile
 

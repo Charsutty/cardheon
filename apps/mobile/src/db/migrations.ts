@@ -1,6 +1,6 @@
 import type { SQLiteDatabase } from 'expo-sqlite'
 
-const DATABASE_VERSION = 2
+const DATABASE_VERSION = 3
 
 const V1_SCHEMA = `
   PRAGMA foreign_keys = ON;
@@ -20,6 +20,7 @@ const V1_SCHEMA = `
     rarity TEXT,
     localization_json TEXT NOT NULL,
     discovery_json TEXT,
+    unlocks_tool_card_ids_json TEXT,
     PRIMARY KEY (catalog_version, id),
     UNIQUE (catalog_version, slug)
   );
@@ -188,6 +189,10 @@ const V2_SCHEMA = `
   );
 `
 
+const V3_SCHEMA = `
+  ALTER TABLE cards ADD COLUMN unlocks_tool_card_ids_json TEXT;
+`
+
 export async function migrateDatabase(db: SQLiteDatabase): Promise<void> {
   await db.execAsync('PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;')
 
@@ -238,6 +243,20 @@ export async function migrateDatabase(db: SQLiteDatabase): Promise<void> {
       }
 
       await db.execAsync('PRAGMA user_version = 2')
+    })
+  }
+
+  if (currentVersion < 3) {
+    await db.withTransactionAsync(async () => {
+      const cardColumns = await db.getAllAsync<{ name: string }>(
+        "PRAGMA table_info(cards)",
+      )
+      const hasUnlocksColumn = cardColumns.some((column) => column.name === 'unlocks_tool_card_ids_json')
+      if (!hasUnlocksColumn) {
+        await db.execAsync(V3_SCHEMA)
+      }
+
+      await db.execAsync('PRAGMA user_version = 3')
     })
   }
 }

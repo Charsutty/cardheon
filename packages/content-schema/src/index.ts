@@ -25,3 +25,20 @@ export type ContentStatus =
   | "deprecated";
 
 export type Rarity = "common" | "uncommon" | "rare" | "epic" | "legendary";
+
+export const CONTENT_STATUSES = [
+  "draft",
+  "needs_sources",
+  "reviewed",
+  "approved",
+  "published",
+  "deprecated",
+] as const;
+
+export const RARITIES = [
+  "common",
+  "uncommon",
+  "rare",
+  "epic",
+  "legendary",
+] as const;

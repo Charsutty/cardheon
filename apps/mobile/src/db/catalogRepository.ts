@@ -18,6 +18,7 @@ type CardRow = {
   rarity: Card['rarity'] | null
   localization_json: string
   discovery_json: string | null
+  unlocks_tool_card_ids_json: string | null
 }
 
 type RelationshipRow = {
@@ -42,15 +43,17 @@ export async function saveCard(card: Card, database?: SQLiteDatabase): Promise<v
   await db.withTransactionAsync(async () => {
     await db.runAsync(
       `INSERT INTO cards (
-        catalog_version, id, slug, kind, status, rarity, localization_json, discovery_json
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        catalog_version, id, slug, kind, status, rarity, localization_json, discovery_json,
+        unlocks_tool_card_ids_json
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
       ON CONFLICT(catalog_version, id) DO UPDATE SET
         slug = excluded.slug,
         kind = excluded.kind,
         status = excluded.status,
         rarity = excluded.rarity,
         localization_json = excluded.localization_json,
-        discovery_json = excluded.discovery_json`,
+        discovery_json = excluded.discovery_json,
+        unlocks_tool_card_ids_json = excluded.unlocks_tool_card_ids_json`,
       version,
       card.id,
       card.slug,
@@ -59,6 +62,7 @@ export async function saveCard(card: Card, database?: SQLiteDatabase): Promise<v
       card.rarity ?? null,
       JSON.stringify(card.localization),
       card.discovery ? JSON.stringify(card.discovery) : null,
+      card.unlocksToolCardIds ? JSON.stringify(card.unlocksToolCardIds) : null,
     )
 
     await db.runAsync(
@@ -221,6 +225,9 @@ export async function loadCatalog(database?: SQLiteDatabase): Promise<GameCatalo
     localization: JSON.parse(row.localization_json) as Card['localization'],
     discovery: row.discovery_json
       ? (JSON.parse(row.discovery_json) as Card['discovery'])
+      : undefined,
+    unlocksToolCardIds: row.unlocks_tool_card_ids_json
+      ? (JSON.parse(row.unlocks_tool_card_ids_json) as string[])
       : undefined,
     tags: tagRows
       .filter((tag) => tag.card_id === row.id)
