@@ -1,0 +1,16 @@
+id: work.republic
+slug: work-republic
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: La République
+    subtitle: ""
+tags:
+  - tag: work.republic
+    weight: 100
+  - tag: domain.philosophy
+    weight: 80
+  - tag: period.antiquity
+    weight: 60

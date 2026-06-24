@@ -1,0 +1,1135 @@
+relationships:
+  - source: figure.marie-curie
+    predicate: collaborated_with
+    target: figure.pierre-curie
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marie-curie
+    predicate: parent_of
+    target: figure.irene-joliot-curie
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marie-curie
+    predicate: unlocks
+    target: place.poland
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marie-curie
+    predicate: related_to
+    target: domain.physics
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marie-curie
+    predicate: related_to
+    target: place.france
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marie-curie
+    predicate: related_to
+    target: period.20th-century
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marie-curie
+    predicate: related_to
+    target: concept.female-figure
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.cleopatra
+    predicate: unlocks
+    target: role.pharaoh
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.cleopatra
+    predicate: associated_with
+    target: civilization.ancient-egypt
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.cleopatra
+    predicate: related_to
+    target: role.queen
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.cleopatra
+    predicate: related_to
+    target: period.antiquity
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.cleopatra
+    predicate: related_to
+    target: concept.female-figure
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.socrate
+    predicate: teacher_of
+    target: figure.plato
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.socrate
+    predicate: unlocks
+    target: concept.socratic-method
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.socrate
+    predicate: related_to
+    target: domain.philosophy
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.socrate
+    predicate: associated_with
+    target: place.athens
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.socrate
+    predicate: related_to
+    target: period.antiquity
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.socrate
+    predicate: related_to
+    target: concept.socratic-method
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.joan-of-arc
+    predicate: related_to
+    target: place.france
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.joan-of-arc
+    predicate: related_to
+    target: period.middle-ages
+    weight: 28
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.joan-of-arc
+    predicate: related_to
+    target: role.resistance
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.joan-of-arc
+    predicate: related_to
+    target: role.pastor
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.leonardo-da-vinci
+    predicate: unlocks
+    target: work.mona-lisa
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.leonardo-da-vinci
+    predicate: related_to
+    target: domain.arts
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.leonardo-da-vinci
+    predicate: related_to
+    target: period.renaissance
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.leonardo-da-vinci
+    predicate: related_to
+    target: place.italy
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.leonardo-da-vinci
+    predicate: related_to
+    target: role.artist
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.martin-luther-king
+    predicate: unlocks
+    target: event.american-civil-rights
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.martin-luther-king
+    predicate: related_to
+    target: concept.civil-rights
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.martin-luther-king
+    predicate: related_to
+    target: place.usa
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.martin-luther-king
+    predicate: related_to
+    target: role.pastor
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.martin-luther-king
+    predicate: related_to
+    target: period.20th-century
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosa-parks
+    predicate: inspired
+    target: figure.martin-luther-king
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosa-parks
+    predicate: related_to
+    target: concept.civil-rights
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosa-parks
+    predicate: related_to
+    target: place.usa
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosa-parks
+    predicate: related_to
+    target: concept.female-figure
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosa-parks
+    predicate: related_to
+    target: role.resistance
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.christopher-columbus
+    predicate: unlocks
+    target: symbol.compass
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.christopher-columbus
+    predicate: related_to
+    target: role.explorer
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.christopher-columbus
+    predicate: related_to
+    target: period.renaissance
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.christopher-columbus
+    predicate: related_to
+    target: domain.exploration
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.christopher-columbus
+    predicate: related_to
+    target: place.spain
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.galileo-galilei
+    predicate: unlocks
+    target: concept.heliocentrism
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.galileo-galilei
+    predicate: unlocks
+    target: period.17th-century
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.galileo-galilei
+    predicate: related_to
+    target: domain.astronomy
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.galileo-galilei
+    predicate: related_to
+    target: place.italy
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.galileo-galilei
+    predicate: related_to
+    target: period.renaissance
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.galileo-galilei
+    predicate: related_to
+    target: concept.heliocentrism
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.boudica
+    predicate: unlocks
+    target: civilization.ancient-rome
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.boudica
+    predicate: related_to
+    target: role.queen
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.boudica
+    predicate: related_to
+    target: region.britain
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.boudica
+    predicate: related_to
+    target: period.antiquity
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.boudica
+    predicate: related_to
+    target: role.resistance
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.pierre-curie
+    predicate: collaborated_with
+    target: figure.marie-curie
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.pierre-curie
+    predicate: unlocks
+    target: concept.nobel-prize
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.pierre-curie
+    predicate: associated_with
+    target: concept.radioactivity
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.pierre-curie
+    predicate: related_to
+    target: domain.physics
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.pierre-curie
+    predicate: related_to
+    target: place.france
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.irene-joliot-curie
+    predicate: child_of
+    target: figure.marie-curie
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.irene-joliot-curie
+    predicate: associated_with
+    target: concept.radioactivity
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.irene-joliot-curie
+    predicate: related_to
+    target: domain.chemistry
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.irene-joliot-curie
+    predicate: related_to
+    target: place.france
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.irene-joliot-curie
+    predicate: related_to
+    target: concept.female-figure
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.irene-joliot-curie
+    predicate: associated_with
+    target: concept.nobel-prize
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hypatia
+    predicate: unlocks
+    target: symbol.owl
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hypatia
+    predicate: associated_with
+    target: place.alexandria
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hypatia
+    predicate: related_to
+    target: domain.mathematics
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hypatia
+    predicate: related_to
+    target: period.antiquity
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hypatia
+    predicate: related_to
+    target: concept.female-figure
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hatshepsout
+    predicate: unlocks
+    target: symbol.owl
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hatshepsout
+    predicate: associated_with
+    target: civilization.ancient-egypt
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hatshepsout
+    predicate: associated_with
+    target: role.pharaoh
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hatshepsout
+    predicate: related_to
+    target: concept.female-figure
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.hatshepsout
+    predicate: related_to
+    target: period.antiquity
+    weight: 12
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.isaac-newton
+    predicate: unlocks
+    target: work.principia
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.isaac-newton
+    predicate: related_to
+    target: domain.physics
+    weight: 28
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.isaac-newton
+    predicate: related_to
+    target: domain.mathematics
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.isaac-newton
+    predicate: related_to
+    target: place.england
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.isaac-newton
+    predicate: related_to
+    target: period.17th-century
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.charles-darwin
+    predicate: unlocks
+    target: work.origin-of-species
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.charles-darwin
+    predicate: related_to
+    target: domain.biology
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.charles-darwin
+    predicate: related_to
+    target: place.england
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.charles-darwin
+    predicate: related_to
+    target: period.19th-century
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ada-lovelace
+    predicate: related_to
+    target: domain.computing
+    weight: 28
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ada-lovelace
+    predicate: related_to
+    target: domain.mathematics
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ada-lovelace
+    predicate: related_to
+    target: place.england
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ada-lovelace
+    predicate: related_to
+    target: period.19th-century
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ada-lovelace
+    predicate: related_to
+    target: concept.female-figure
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.florence-nightingale
+    predicate: unlocks
+    target: domain.medicine
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.florence-nightingale
+    predicate: related_to
+    target: domain.nursing
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.florence-nightingale
+    predicate: related_to
+    target: place.england
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.florence-nightingale
+    predicate: related_to
+    target: period.19th-century
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.florence-nightingale
+    predicate: related_to
+    target: concept.female-figure
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.nelson-mandela
+    predicate: unlocks
+    target: concept.apartheid
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.nelson-mandela
+    predicate: related_to
+    target: concept.apartheid
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.nelson-mandela
+    predicate: related_to
+    target: place.south-africa
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.nelson-mandela
+    predicate: related_to
+    target: role.resistance
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.nelson-mandela
+    predicate: related_to
+    target: period.20th-century
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marco-polo
+    predicate: unlocks
+    target: concept.colonialism
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marco-polo
+    predicate: related_to
+    target: role.explorer
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marco-polo
+    predicate: related_to
+    target: period.middle-ages
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marco-polo
+    predicate: related_to
+    target: domain.exploration
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.marco-polo
+    predicate: associated_with
+    target: place.venice
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ashoka
+    predicate: unlocks
+    target: concept.buddhism
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ashoka
+    predicate: related_to
+    target: concept.buddhism
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ashoka
+    predicate: related_to
+    target: role.queen
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ashoka
+    predicate: related_to
+    target: place.india
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ashoka
+    predicate: related_to
+    target: period.antiquity
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.catherine-de-medici
+    predicate: unlocks
+    target: period.renaissance
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.catherine-de-medici
+    predicate: related_to
+    target: role.queen
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.catherine-de-medici
+    predicate: related_to
+    target: period.renaissance
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.catherine-de-medici
+    predicate: associated_with
+    target: place.france
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.catherine-de-medici
+    predicate: associated_with
+    target: place.italy
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.simon-bolivar
+    predicate: unlocks
+    target: event.independence-south-america
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.simon-bolivar
+    predicate: related_to
+    target: region.south-america
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.simon-bolivar
+    predicate: related_to
+    target: role.resistance
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.simon-bolivar
+    predicate: related_to
+    target: period.19th-century
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.simon-bolivar
+    predicate: related_to
+    target: domain.politics
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: student_of
+    target: figure.socrate
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: teacher_of
+    target: figure.aristote
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: unlocks
+    target: concept.platonic-ideas
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: related_to
+    target: domain.philosophy
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: associated_with
+    target: place.athens
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: associated_with
+    target: figure.socrate
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.plato
+    predicate: related_to
+    target: period.antiquity
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.aristote
+    predicate: unlocks
+    target: concept.logic
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.aristote
+    predicate: related_to
+    target: domain.philosophy
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.aristote
+    predicate: associated_with
+    target: figure.plato
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.aristote
+    predicate: related_to
+    target: period.antiquity
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.aristote
+    predicate: associated_with
+    target: place.athens
+    weight: 15
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosalind-franklin
+    predicate: unlocks
+    target: concept.public-health
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosalind-franklin
+    predicate: related_to
+    target: domain.biology
+    weight: 28
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosalind-franklin
+    predicate: related_to
+    target: domain.chemistry
+    weight: 24
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosalind-franklin
+    predicate: related_to
+    target: period.20th-century
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosalind-franklin
+    predicate: related_to
+    target: concept.female-figure
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.rosalind-franklin
+    predicate: associated_with
+    target: concept.dna
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: unlocks
+    target: event.space-race
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: unlocks
+    target: symbol.rocket
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: related_to
+    target: domain.mathematics
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: related_to
+    target: period.20th-century
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: related_to
+    target: concept.female-figure
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: associated_with
+    target: place.usa
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.katherine-johnson
+    predicate: associated_with
+    target: concept.spaceflight
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ibn-sina
+    predicate: related_to
+    target: domain.medicine
+    weight: 32
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ibn-sina
+    predicate: related_to
+    target: domain.philosophy
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ibn-sina
+    predicate: related_to
+    target: period.middle-ages
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.ibn-sina
+    predicate: associated_with
+    target: place.persia
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.mary-wollstonecraft
+    predicate: unlocks
+    target: work.vindication-rights-woman
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.mary-wollstonecraft
+    predicate: related_to
+    target: domain.philosophy
+    weight: 24
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.mary-wollstonecraft
+    predicate: associated_with
+    target: place.england
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.mary-wollstonecraft
+    predicate: related_to
+    target: concept.female-figure
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.mary-wollstonecraft
+    predicate: associated_with
+    target: concept.feminism
+    weight: 32
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.mary-wollstonecraft
+    predicate: related_to
+    target: period.18th-century
+    weight: 16
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.johannes-gutenberg
+    predicate: unlocks
+    target: concept.typography
+    weight: 30
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.johannes-gutenberg
+    predicate: associated_with
+    target: concept.printing
+    weight: 34
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.johannes-gutenberg
+    predicate: related_to
+    target: period.renaissance
+    weight: 22
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.johannes-gutenberg
+    predicate: associated_with
+    target: place.germany
+    weight: 20
+    sourceIds:
+      - source.cardheon.test
+  - source: figure.johannes-gutenberg
+    predicate: related_to
+    target: role.inventor
+    weight: 18
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.radioactivity
+    predicate: branch_of
+    target: domain.physics
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.evolution
+    predicate: branch_of
+    target: domain.biology
+    weight: 45
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.gravitation
+    predicate: branch_of
+    target: domain.physics
+    weight: 45
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.heliocentrism
+    predicate: branch_of
+    target: domain.astronomy
+    weight: 45
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.algorithm
+    predicate: branch_of
+    target: domain.computing
+    weight: 45
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.calculus
+    predicate: branch_of
+    target: domain.mathematics
+    weight: 45
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.dna
+    predicate: branch_of
+    target: domain.biology
+    weight: 45
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.spaceflight
+    predicate: uses
+    target: domain.mathematics
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.feminism
+    predicate: related_to
+    target: concept.female-figure
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.typography
+    predicate: branch_of
+    target: concept.printing
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.socratic-method
+    predicate: branch_of
+    target: domain.philosophy
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.logic
+    predicate: branch_of
+    target: domain.philosophy
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.non-violence
+    predicate: branch_of
+    target: concept.civil-rights
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: concept.apartheid
+    predicate: opposes
+    target: concept.civil-rights
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: domain.computing
+    predicate: evolved_from
+    target: domain.mathematics
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: domain.astronomy
+    predicate: evolved_from
+    target: domain.physics
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: domain.nursing
+    predicate: branch_of
+    target: domain.medicine
+    weight: 35
+    sourceIds:
+      - source.cardheon.test
+  - source: place.alexandria
+    predicate: located_in
+    target: place.egypt
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: place.athens
+    predicate: located_in
+    target: place.greece
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: place.venice
+    predicate: located_in
+    target: place.italy
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: place.florence
+    predicate: located_in
+    target: place.italy
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: place.persia
+    predicate: related_to
+    target: place.india
+    weight: 25
+    sourceIds:
+      - source.cardheon.test
+  - source: period.renaissance
+    predicate: follows
+    target: period.middle-ages
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: period.15th-century
+    predicate: part_of
+    target: period.renaissance
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: period.16th-century
+    predicate: part_of
+    target: period.renaissance
+    weight: 40
+    sourceIds:
+      - source.cardheon.test
+  - source: work.mona-lisa
+    predicate: created_by
+    target: figure.leonardo-da-vinci
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: work.principia
+    predicate: written_by
+    target: figure.isaac-newton
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: work.origin-of-species
+    predicate: written_by
+    target: figure.charles-darwin
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: work.republic
+    predicate: written_by
+    target: figure.plato
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: work.vindication-rights-woman
+    predicate: written_by
+    target: figure.mary-wollstonecraft
+    weight: 60
+    sourceIds:
+      - source.cardheon.test
+  - source: work.canon-medicine
+    predicate: written_by
+    target: figure.ibn-sina
+    weight: 60
+    sourceIds:
+      - source.cardheon.test

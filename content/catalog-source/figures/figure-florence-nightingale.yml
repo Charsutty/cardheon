@@ -1,0 +1,54 @@
+id: figure.florence-nightingale
+slug: figure-florence-nightingale
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Florence Nightingale
+    subtitle: Infirmière et statisticienne
+    shortDescription: Pionnière des soins infirmiers modernes et de l’utilisation des statistiques en santé.
+tags:
+  - tag: domain.nursing
+    weight: 50
+  - tag: domain.medicine
+    weight: 35
+  - tag: place.england
+    weight: 30
+  - tag: period.19th-century
+    weight: 35
+  - tag: concept.women-history
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.women-in-science
+discovery:
+  figureId: figure.florence-nightingale
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.nursing
+      weight: 35
+      reason: Soins infirmiers
+    - tag: place.england
+      weight: 22
+      reason: Angleterre
+    - tag: period.19th-century
+      weight: 18
+      reason: XIXe siècle
+    - tag: concept.women-history
+      weight: 15
+      reason: Femme pionnière
+  synergies:
+    - id: nursing-england-19th
+      whenAll:
+        - tag:domain.nursing
+        - card:place.england
+        - tag:period.19th-century
+      weight: 12
+      reason: Soins infirmiers + Angleterre + XIXe
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - domain.medicine

@@ -1,0 +1,52 @@
+id: figure.christopher-columbus
+slug: figure-christopher-columbus
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Christophe Colomb
+    subtitle: Navigateur
+    shortDescription: Explorateur dont les voyages ont ouvert la voie à la colonisation européenne des Amériques.
+tags:
+  - tag: role.explorer
+    weight: 45
+  - tag: place.spain
+    weight: 35
+  - tag: period.15th-century
+    weight: 40
+  - tag: domain.exploration
+    weight: 40
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.explorers
+discovery:
+  figureId: figure.christopher-columbus
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: role.explorer
+      weight: 30
+      reason: Explorateur
+    - tag: period.renaissance
+      weight: 22
+      reason: Renaissance
+    - tag: domain.exploration
+      weight: 18
+      reason: Exploration
+    - tag: place.spain
+      weight: 15
+      reason: Espagne
+  synergies:
+    - id: explorer-renaissance-spain
+      whenAll:
+        - tag:role.explorer
+        - card:place.spain
+        - tag:period.renaissance
+      weight: 15
+      reason: Explorateur + Espagne + Renaissance
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - symbol.compass

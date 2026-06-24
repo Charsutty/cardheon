@@ -1,0 +1,14 @@
+id: role.emperor
+slug: role-emperor
+kind: role
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Empereur
+    subtitle: ""
+tags:
+  - tag: role.ruler
+    weight: 100
+  - tag: concept.power
+    weight: 80

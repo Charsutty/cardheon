@@ -1,0 +1,13 @@
+id: constellation.italian-renaissance
+slug: renaissance-italienne
+localization:
+  fr:
+    title: Renaissance italienne
+cardIds:
+  - figure.leonardo-da-vinci
+  - figure.galileo-galilei
+  - figure.catherine-de-medici
+reward:
+  xp: 150
+  unlockCardIds:
+    - movement.humanism

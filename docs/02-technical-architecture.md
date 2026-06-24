@@ -157,16 +157,35 @@ supabase/
   functions/
 ```
 
-Edge Functions prévues :
+Etat actuel du projet distant `fjbinzflrmlrtgyszgcu` :
 
 ```txt
-attempt-discovery
-sync-progress
-open-pack
-publish-content-version
+Postgres initialise
+12 tables public creees
+RLS activee sur les tables public Cardheon
+catalog-manifest deployee sans JWT
+sync-progress deployee avec JWT
 ```
 
-État actuel : les dossiers et contrats README existent, mais le MVP doit rester local-first avant d’implémenter la synchronisation serveur.
+La migration appliquee est :
+
+```txt
+20260624122110_catalog_and_progress
+```
+
+Elle a ete appliquee via le MCP Supabase, car `supabase db push` depuis la machine locale expirait sur le pooler Postgres `aws-1-eu-central-1.pooler.supabase.com:5432`.
+
+Edge Functions :
+
+```txt
+catalog-manifest        deployee, lecture publique de la version catalogue publiee
+sync-progress           deployee, synchronisation des snapshots de progression avec JWT
+attempt-discovery       prevu pour la validation serveur gameplay
+open-pack               prevu pour l'ouverture serveur de packs
+publish-content-version prevu pour la publication de contenu
+```
+
+Le MVP reste local-first : la progression locale et le catalogue SQLite restent la source d'usage principale quand Supabase est indisponible.
 
 ## Versioning du contenu
 

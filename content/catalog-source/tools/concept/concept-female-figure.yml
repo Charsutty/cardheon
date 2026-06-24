@@ -1,0 +1,12 @@
+id: concept.female-figure
+slug: concept-female-figure
+kind: concept
+status: published
+rarity: common
+localization:
+  fr:
+    title: Femme
+    subtitle: ""
+tags:
+  - tag: concept.women-history
+    weight: 100

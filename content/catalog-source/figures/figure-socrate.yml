@@ -1,0 +1,54 @@
+id: figure.socrate
+slug: figure-socrate
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Socrate
+    subtitle: Philosophe
+    shortDescription: Philosophe athénien, maître de la méthode dialectique.
+tags:
+  - tag: domain.philosophy
+    weight: 50
+  - tag: place.athens
+    weight: 40
+  - tag: period.antiquity
+    weight: 45
+  - tag: civilization.ancient-greece
+    weight: 40
+  - tag: concept.socratic-method
+    weight: 45
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.greek-thinkers
+discovery:
+  figureId: figure.socrate
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.philosophy
+      weight: 30
+      reason: Philosophie
+    - card: place.athens
+      weight: 30
+      reason: Athènes
+    - tag: period.antiquity
+      weight: 22
+      reason: Antiquité
+    - tag: concept.socratic-method
+      weight: 20
+      reason: Méthode socratique
+  synergies:
+    - id: athens-philosophy-antiquity
+      whenAll:
+        - card:place.athens
+        - tag:domain.philosophy
+        - tag:period.antiquity
+      weight: 15
+      reason: Athènes antique + philosophie
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.socratic-method

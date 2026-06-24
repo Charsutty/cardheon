@@ -1,0 +1,18 @@
+id: work.canon-medicine
+slug: work-canon-medicine
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: Canon de la médecine
+    subtitle: ""
+tags:
+  - tag: work.canon-medicine
+    weight: 100
+  - tag: domain.medicine
+    weight: 90
+  - tag: period.middle-ages
+    weight: 60
+  - tag: place.persia
+    weight: 60

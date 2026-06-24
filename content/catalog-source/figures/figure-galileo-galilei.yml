@@ -1,0 +1,62 @@
+id: figure.galileo-galilei
+slug: figure-galileo-galilei
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Galilée
+    subtitle: Astronome et physicien
+    shortDescription: Père de l’astronomie moderne, défenseur de l’héliocentrisme.
+tags:
+  - tag: domain.astronomy
+    weight: 50
+  - tag: domain.physics
+    weight: 35
+  - tag: concept.heliocentrism
+    weight: 50
+  - tag: place.italy
+    weight: 30
+  - tag: period.renaissance
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.modern-sciences
+  - constellation.italian-renaissance
+discovery:
+  figureId: figure.galileo-galilei
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.astronomy
+      weight: 30
+      reason: Astronomie
+    - tag: place.italy
+      weight: 20
+      reason: Italie
+    - tag: period.renaissance
+      weight: 18
+      reason: Renaissance
+    - tag: concept.heliocentrism
+      weight: 15
+      reason: Héliocentrisme
+  synergies:
+    - id: italy-astronomy-renaissance
+      whenAll:
+        - card:place.italy
+        - tag:domain.astronomy
+        - tag:period.renaissance
+      weight: 15
+      reason: Italie + astronomie + Renaissance
+  contradictions:
+    - id: ancient-astronomy
+      whenAll:
+        - card:period.antiquity
+        - card:concept.heliocentrism
+      weight: -20
+      reason: L’héliocentrisme moderne dépasse l’astronomie antique.
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.heliocentrism
+  - period.17th-century

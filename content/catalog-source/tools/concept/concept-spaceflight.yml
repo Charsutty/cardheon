@@ -1,0 +1,18 @@
+id: concept.spaceflight
+slug: concept-spaceflight
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Vol spatial
+    subtitle: ""
+tags:
+  - tag: concept.spaceflight
+    weight: 100
+  - tag: domain.mathematics
+    weight: 50
+  - tag: domain.computing
+    weight: 50
+  - tag: period.20th-century
+    weight: 60

@@ -1,0 +1,14 @@
+id: concept.faith
+slug: concept-faith
+kind: concept
+status: published
+rarity: common
+localization:
+  fr:
+    title: Foi
+    subtitle: ""
+tags:
+  - tag: concept.faith
+    weight: 100
+  - tag: concept.religion
+    weight: 70

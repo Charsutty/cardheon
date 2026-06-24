@@ -1,0 +1,16 @@
+id: event.independence-south-america
+slug: event-independence-south-america
+kind: event
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Indépendances sud-américaines
+    subtitle: ""
+tags:
+  - tag: event.independence-south-america
+    weight: 100
+  - tag: region.south-america
+    weight: 80
+  - tag: concept.liberty
+    weight: 60

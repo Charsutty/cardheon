@@ -1,0 +1,12 @@
+id: place.italy
+slug: place-italy
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Italie
+    subtitle: ""
+tags:
+  - tag: place.italy
+    weight: 100

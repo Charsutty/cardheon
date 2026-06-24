@@ -1,0 +1,53 @@
+id: figure.ashoka
+slug: figure-ashoka
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Ashoka
+    subtitle: Empereur maurya
+    shortDescription: Empereur qui a fait diffuser le bouddhisme dans l’Asie ancienne.
+tags:
+  - tag: role.ruler
+    weight: 40
+  - tag: place.india
+    weight: 40
+  - tag: period.antiquity
+    weight: 40
+  - tag: concept.buddhism
+    weight: 45
+  - tag: civilization.maurya
+    weight: 40
+sourceIds:
+  - source.cardheon.test
+constellationIds: []
+discovery:
+  figureId: figure.ashoka
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: concept.buddhism
+      weight: 30
+      reason: Bouddhisme
+    - tag: role.ruler
+      weight: 25
+      reason: Empereur
+    - tag: place.india
+      weight: 20
+      reason: Inde
+    - tag: period.antiquity
+      weight: 15
+      reason: Antiquité
+  synergies:
+    - id: india-buddhism-ruler
+      whenAll:
+        - card:place.india
+        - tag:concept.buddhism
+        - tag:role.ruler
+      weight: 15
+      reason: Inde + bouddhisme + souverain
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.buddhism

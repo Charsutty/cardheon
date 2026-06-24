@@ -1,0 +1,64 @@
+id: figure.irene-joliot-curie
+slug: figure-irene-joliot-curie
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Irène Joliot-Curie
+    subtitle: Chimiste
+    shortDescription: Chimiste française, prix Nobel de chimie pour ses travaux sur la radioactivité artificielle.
+tags:
+  - tag: domain.chemistry
+    weight: 45
+  - tag: concept.radioactivity
+    weight: 50
+  - tag: place.france
+    weight: 30
+  - tag: period.20th-century
+    weight: 30
+  - tag: concept.women-history
+    weight: 25
+  - tag: concept.nobel-prize
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.women-in-science
+  - constellation.curie-family
+discovery:
+  figureId: figure.irene-joliot-curie
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - card: concept.radioactivity
+      weight: 35
+      reason: Radioactivité
+    - tag: domain.chemistry
+      weight: 25
+      reason: Chimie
+    - tag: place.france
+      weight: 18
+      reason: France
+    - tag: concept.women-history
+      weight: 15
+      reason: Femme scientifique
+    - card: concept.nobel-prize
+      weight: 15
+      reason: Prix Nobel
+  synergies:
+    - id: curie-family
+      whenAll:
+        - card:figure.marie-curie
+        - card:concept.radioactivity
+      weight: 18
+      reason: Suite de la famille Curie
+    - id: radioactivity-chemistry-france
+      whenAll:
+        - card:concept.radioactivity
+        - tag:domain.chemistry
+        - card:place.france
+      weight: 12
+      reason: Radioactivité + chimie + France
+  contradictions: []
+  minEvidenceCount: 2

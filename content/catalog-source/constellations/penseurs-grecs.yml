@@ -1,0 +1,14 @@
+id: constellation.greek-thinkers
+slug: penseurs-grecs
+localization:
+  fr:
+    title: Penseurs grecs
+cardIds:
+  - figure.socrate
+  - figure.plato
+  - figure.aristote
+reward:
+  xp: 200
+  unlockCardIds:
+    - symbol.owl
+    - work.republic

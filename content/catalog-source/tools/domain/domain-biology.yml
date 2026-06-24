@@ -1,0 +1,14 @@
+id: domain.biology
+slug: domain-biology
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Biologie
+    subtitle: ""
+tags:
+  - tag: domain.biology
+    weight: 100
+  - tag: domain.science
+    weight: 70

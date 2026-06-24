@@ -1,0 +1,16 @@
+id: event.scientific-revolution
+slug: event-scientific-revolution
+kind: event
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Révolution scientifique
+    subtitle: ""
+tags:
+  - tag: event.scientific-revolution
+    weight: 100
+  - tag: period.17th-century
+    weight: 70
+  - tag: domain.science
+    weight: 70

@@ -1,0 +1,14 @@
+id: symbol.rocket
+slug: symbol-rocket
+kind: symbol
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Fusée
+    subtitle: ""
+tags:
+  - tag: symbol.rocket
+    weight: 100
+  - tag: concept.spaceflight
+    weight: 80

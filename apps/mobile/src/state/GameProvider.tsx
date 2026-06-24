@@ -8,6 +8,7 @@ import {
 } from '@cardheon/game-engine'
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { getCardConnections, loadCatalog, type CardConnection } from '../db/catalogRepository'
+import { enqueueProgressSnapshot } from '../db/syncRepository'
 import { bundledCatalog } from '../game/catalog'
 import {
   addXp,
@@ -21,6 +22,9 @@ import {
   type PlayerCardState,
 } from '../game/progress'
 import { loadProgress, saveProgress } from '../services/progressStorage'
+import { fetchCatalogManifest } from '../services/catalogManifest'
+import { getStoredSupabaseAccessToken } from '../services/supabaseAuth'
+import { syncPendingProgress } from '../services/supabaseSync'
 
 type GameContextValue = {
   isReady: boolean
@@ -58,8 +62,17 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!isReady) return
-    saveProgress(progress).catch(() => undefined)
-  }, [isReady, progress])
+    fetchCatalogManifest().catch(() => undefined)
+  }, [isReady])
+
+  useEffect(() => {
+    if (!isReady) return
+    saveProgress(progress)
+      .then(() => enqueueProgressSnapshot(catalog.version, progress))
+      .then(() => getStoredSupabaseAccessToken())
+      .then((accessToken) => accessToken ? syncPendingProgress(accessToken) : undefined)
+      .catch(() => undefined)
+  }, [catalog.version, isReady, progress])
 
   const discoveredCardIds = useMemo(() => getDiscoveredFigureIds(progress), [progress])
   const unlockedCardIds = useMemo(() => getUnlockedCardIds(progress), [progress])

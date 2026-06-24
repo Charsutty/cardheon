@@ -1,0 +1,14 @@
+id: domain.computing
+slug: domain-computing
+kind: domain
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Informatique
+    subtitle: ""
+tags:
+  - tag: domain.computing
+    weight: 100
+  - tag: domain.science
+    weight: 70

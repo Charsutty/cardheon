@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { CARD_KINDS, CONTENT_STATUSES } from "../packages/content-schema/src/index";
+import { CARD_KINDS, CONTENT_STATUSES, GameCatalogSchema } from "../packages/content-schema/src/index";
 import type { Card, GameCatalog } from "../packages/game-engine/src/index";
 
 const DEFAULT_CATALOG_PATH = "content/catalog.dev.json";
@@ -21,6 +21,17 @@ function loadCatalog(path = DEFAULT_CATALOG_PATH): GameCatalog {
 
 function validateCatalog(catalog: GameCatalog): Issue[] {
   const issues: Issue[] = [];
+  const schemaResult = GameCatalogSchema.safeParse(catalog);
+  if (!schemaResult.success) {
+    for (const issue of schemaResult.error.issues) {
+      issues.push({
+        severity: "error",
+        path: issue.path.join(".") || "catalog",
+        message: issue.message,
+      });
+    }
+  }
+
   const cardIds = new Set<string>();
   const cardSlugs = new Set<string>();
   const cardsById = new Map((catalog.cards ?? []).map((card) => [card.id, card]));

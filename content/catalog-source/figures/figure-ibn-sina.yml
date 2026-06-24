@@ -1,0 +1,53 @@
+id: figure.ibn-sina
+slug: figure-ibn-sina
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Ibn Sina
+    subtitle: Médecin et philosophe
+    shortDescription: Savant persan médiéval, connu en Europe sous le nom d’Avicenne, auteur du Canon de la médecine.
+tags:
+  - tag: domain.medicine
+    weight: 50
+  - tag: domain.philosophy
+    weight: 35
+  - tag: period.middle-ages
+    weight: 40
+  - tag: place.persia
+    weight: 40
+  - tag: domain.science
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.texts-and-transmission
+discovery:
+  figureId: figure.ibn-sina
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.medicine
+      weight: 32
+      reason: Médecine
+    - tag: domain.philosophy
+      weight: 22
+      reason: Philosophie
+    - tag: period.middle-ages
+      weight: 22
+      reason: Moyen Âge
+    - card: place.persia
+      weight: 18
+      reason: Perse
+  synergies:
+    - id: medicine-philosophy-middle-ages
+      whenAll:
+        - tag:domain.medicine
+        - tag:domain.philosophy
+        - tag:period.middle-ages
+      weight: 18
+      reason: Médecine + philosophie médiévale
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds: []

@@ -1,0 +1,16 @@
+id: concept.algorithm
+slug: concept-algorithm
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Algorithme
+    subtitle: ""
+tags:
+  - tag: concept.algorithm
+    weight: 100
+  - tag: domain.computing
+    weight: 80
+  - tag: domain.mathematics
+    weight: 60

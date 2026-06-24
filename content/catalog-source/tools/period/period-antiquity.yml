@@ -1,0 +1,12 @@
+id: period.antiquity
+slug: period-antiquity
+kind: period
+status: published
+rarity: common
+localization:
+  fr:
+    title: Antiquité
+    subtitle: ""
+tags:
+  - tag: period.antiquity
+    weight: 100

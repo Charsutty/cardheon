@@ -1,0 +1,59 @@
+id: figure.martin-luther-king
+slug: figure-martin-luther-king
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Martin Luther King Jr.
+    subtitle: Pasteur et militant
+    shortDescription: Leader du mouvement américain des droits civiques, célèbre pour son discours « I Have a Dream ».
+tags:
+  - tag: concept.civil-rights
+    weight: 50
+  - tag: concept.non-violence
+    weight: 45
+  - tag: place.usa
+    weight: 40
+  - tag: period.20th-century
+    weight: 35
+  - tag: role.pastor
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.civil-rights
+discovery:
+  figureId: figure.martin-luther-king
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: concept.civil-rights
+      weight: 30
+      reason: Droits civiques
+    - tag: place.usa
+      weight: 22
+      reason: États-Unis
+    - tag: role.pastor
+      weight: 18
+      reason: Pasteur
+    - tag: period.20th-century
+      weight: 15
+      reason: XXe siècle
+  synergies:
+    - id: civil-rights-usa
+      whenAll:
+        - card:concept.civil-rights
+        - card:place.usa
+      weight: 15
+      reason: Droits civiques + USA
+    - id: non-violence-pastor
+      whenAll:
+        - card:concept.non-violence
+        - tag:role.pastor
+      weight: 12
+      reason: Non-violence + pasteur
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - event.american-civil-rights

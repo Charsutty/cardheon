@@ -1,0 +1,16 @@
+id: place.florence
+slug: place-florence
+kind: place
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Florence
+    subtitle: ""
+tags:
+  - tag: place.florence
+    weight: 100
+  - tag: place.italy
+    weight: 70
+  - tag: period.renaissance
+    weight: 40

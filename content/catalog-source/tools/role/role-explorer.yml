@@ -1,0 +1,14 @@
+id: role.explorer
+slug: role-explorer
+kind: role
+status: published
+rarity: common
+localization:
+  fr:
+    title: Explorateur
+    subtitle: ""
+tags:
+  - tag: role.explorer
+    weight: 100
+  - tag: domain.exploration
+    weight: 80

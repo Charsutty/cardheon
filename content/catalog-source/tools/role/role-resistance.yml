@@ -1,0 +1,14 @@
+id: role.resistance
+slug: role-resistance
+kind: role
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Résistant
+    subtitle: ""
+tags:
+  - tag: role.resistance
+    weight: 100
+  - tag: concept.liberty
+    weight: 70

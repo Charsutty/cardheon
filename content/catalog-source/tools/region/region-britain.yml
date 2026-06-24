@@ -1,0 +1,12 @@
+id: region.britain
+slug: region-britain
+kind: region
+status: published
+rarity: common
+localization:
+  fr:
+    title: Bretagne
+    subtitle: ""
+tags:
+  - tag: region.britain
+    weight: 100

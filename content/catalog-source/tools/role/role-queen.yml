@@ -1,0 +1,14 @@
+id: role.queen
+slug: role-queen
+kind: role
+status: published
+rarity: common
+localization:
+  fr:
+    title: Reine
+    subtitle: ""
+tags:
+  - tag: role.ruler
+    weight: 100
+  - tag: concept.power
+    weight: 80

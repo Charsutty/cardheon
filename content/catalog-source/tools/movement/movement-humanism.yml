@@ -1,0 +1,16 @@
+id: movement.humanism
+slug: movement-humanism
+kind: movement
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Humanisme
+    subtitle: ""
+tags:
+  - tag: movement.humanism
+    weight: 100
+  - tag: period.renaissance
+    weight: 70
+  - tag: domain.philosophy
+    weight: 60

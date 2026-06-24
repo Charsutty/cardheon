@@ -1,0 +1,14 @@
+id: civilization.maurya
+slug: civilization-maurya
+kind: civilization
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Empire maurya
+    subtitle: ""
+tags:
+  - tag: civilization.maurya
+    weight: 100
+  - tag: place.india
+    weight: 80

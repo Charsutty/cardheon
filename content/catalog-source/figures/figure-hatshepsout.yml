@@ -1,0 +1,59 @@
+id: figure.hatshepsout
+slug: figure-hatshepsout
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Hatshepsout
+    subtitle: Pharaon d’Égypte
+    shortDescription: Reine-pharaon de la XVIIIe dynastie, l’une des grandes souveraines de l’Égypte ancienne.
+tags:
+  - tag: period.antiquity
+    weight: 45
+  - tag: civilization.ancient-egypt
+    weight: 50
+  - tag: role.ruler
+    weight: 40
+  - tag: concept.women-history
+    weight: 25
+  - tag: place.egypt
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.sovereigns
+discovery:
+  figureId: figure.hatshepsout
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - card: civilization.ancient-egypt
+      weight: 30
+      reason: Égypte ancienne
+    - card: role.pharaoh
+      weight: 30
+      reason: Pharaon
+    - tag: concept.women-history
+      weight: 18
+      reason: Femme souveraine
+    - tag: period.antiquity
+      weight: 12
+      reason: Antiquité
+  synergies:
+    - id: ancient-egypt-queen
+      whenAll:
+        - card:civilization.ancient-egypt
+        - tag:role.ruler
+        - card:concept.female-figure
+      weight: 15
+      reason: Égypte ancienne + souveraine + femme
+  contradictions:
+    - id: modern-egypt
+      whenAll:
+        - card:period.20th-century
+      weight: -30
+      reason: Hatshepsout appartient à l’Antiquité.
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - symbol.owl

@@ -1,0 +1,14 @@
+id: role.pastor
+slug: role-pastor
+kind: role
+status: published
+rarity: common
+localization:
+  fr:
+    title: Pasteur
+    subtitle: ""
+tags:
+  - tag: role.pastor
+    weight: 100
+  - tag: concept.faith
+    weight: 80

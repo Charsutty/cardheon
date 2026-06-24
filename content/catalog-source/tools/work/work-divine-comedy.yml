@@ -1,0 +1,18 @@
+id: work.divine-comedy
+slug: work-divine-comedy
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: La Divine Comédie
+    subtitle: ""
+tags:
+  - tag: work.divine-comedy
+    weight: 100
+  - tag: domain.literature
+    weight: 80
+  - tag: period.middle-ages
+    weight: 60
+  - tag: place.italy
+    weight: 60

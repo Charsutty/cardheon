@@ -1,0 +1,12 @@
+id: region.south-america
+slug: region-south-america
+kind: region
+status: published
+rarity: common
+localization:
+  fr:
+    title: Amérique du Sud
+    subtitle: ""
+tags:
+  - tag: region.south-america
+    weight: 100

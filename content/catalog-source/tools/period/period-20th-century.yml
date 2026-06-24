@@ -1,0 +1,12 @@
+id: period.20th-century
+slug: period-20th-century
+kind: period
+status: published
+rarity: common
+localization:
+  fr:
+    title: XXe siècle
+    subtitle: ""
+tags:
+  - tag: period.20th-century
+    weight: 100

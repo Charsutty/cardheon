@@ -1,0 +1,12 @@
+id: place.greece
+slug: place-greece
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Grèce
+    subtitle: ""
+tags:
+  - tag: place.greece
+    weight: 100

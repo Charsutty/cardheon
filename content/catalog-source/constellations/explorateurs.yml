@@ -1,0 +1,12 @@
+id: constellation.explorers
+slug: explorateurs
+localization:
+  fr:
+    title: Explorateurs et routes
+cardIds:
+  - figure.christopher-columbus
+  - figure.marco-polo
+reward:
+  xp: 120
+  unlockCardIds:
+    - concept.colonialism

@@ -1,0 +1,14 @@
+id: concept.evolution
+slug: concept-evolution
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Évolution
+    subtitle: ""
+tags:
+  - tag: concept.evolution
+    weight: 100
+  - tag: domain.biology
+    weight: 80

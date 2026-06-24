@@ -1,0 +1,14 @@
+id: period.16th-century
+slug: period-16th-century
+kind: period
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: XVIe siècle
+    subtitle: ""
+tags:
+  - tag: period.16th-century
+    weight: 100
+  - tag: period.renaissance
+    weight: 70

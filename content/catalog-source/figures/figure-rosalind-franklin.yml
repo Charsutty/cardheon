@@ -1,0 +1,59 @@
+id: figure.rosalind-franklin
+slug: figure-rosalind-franklin
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Rosalind Franklin
+    subtitle: Chimiste et cristallographe
+    shortDescription: Scientifique britannique dont les images de diffraction des rayons X ont été décisives pour comprendre
+      la structure de l’ADN.
+tags:
+  - tag: domain.chemistry
+    weight: 40
+  - tag: domain.biology
+    weight: 35
+  - tag: concept.dna
+    weight: 55
+  - tag: place.england
+    weight: 30
+  - tag: period.20th-century
+    weight: 35
+  - tag: concept.women-history
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds: []
+discovery:
+  figureId: figure.rosalind-franklin
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.biology
+      weight: 28
+      reason: Biologie moléculaire
+    - tag: domain.chemistry
+      weight: 24
+      reason: Cristallographie chimique
+    - tag: period.20th-century
+      weight: 18
+      reason: XXe siècle
+    - tag: concept.women-history
+      weight: 18
+      reason: Femme de science
+    - card: concept.dna
+      weight: 25
+      reason: ADN
+  synergies:
+    - id: biology-chemistry-20th
+      whenAll:
+        - tag:domain.biology
+        - tag:domain.chemistry
+        - tag:period.20th-century
+      weight: 18
+      reason: Biologie + chimie + XXe siècle
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.public-health

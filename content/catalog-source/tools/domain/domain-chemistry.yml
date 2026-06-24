@@ -1,0 +1,14 @@
+id: domain.chemistry
+slug: domain-chemistry
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Chimie
+    subtitle: ""
+tags:
+  - tag: domain.chemistry
+    weight: 100
+  - tag: domain.science
+    weight: 70

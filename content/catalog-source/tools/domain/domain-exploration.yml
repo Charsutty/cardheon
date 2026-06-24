@@ -1,0 +1,12 @@
+id: domain.exploration
+slug: domain-exploration
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Exploration
+    subtitle: ""
+tags:
+  - tag: domain.exploration
+    weight: 100

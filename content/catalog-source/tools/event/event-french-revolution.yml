@@ -1,0 +1,16 @@
+id: event.french-revolution
+slug: event-french-revolution
+kind: event
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Révolution française
+    subtitle: ""
+tags:
+  - tag: event.french-revolution
+    weight: 100
+  - tag: place.france
+    weight: 70
+  - tag: concept.liberty
+    weight: 60

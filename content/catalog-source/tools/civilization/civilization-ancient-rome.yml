@@ -1,0 +1,14 @@
+id: civilization.ancient-rome
+slug: civilization-ancient-rome
+kind: civilization
+status: published
+rarity: common
+localization:
+  fr:
+    title: Rome antique
+    subtitle: ""
+tags:
+  - tag: civilization.ancient-rome
+    weight: 100
+  - tag: place.italy
+    weight: 60

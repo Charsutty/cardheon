@@ -1,0 +1,14 @@
+id: symbol.owl
+slug: symbol-owl
+kind: symbol
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Chouette
+    subtitle: ""
+tags:
+  - tag: symbol.wisdom
+    weight: 100
+  - tag: domain.philosophy
+    weight: 60

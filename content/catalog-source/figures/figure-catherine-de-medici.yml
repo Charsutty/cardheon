@@ -1,0 +1,55 @@
+id: figure.catherine-de-medici
+slug: figure-catherine-de-medici
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Catherine de Médicis
+    subtitle: Reine de France
+    shortDescription: Figure politique de la Renaissance française, originaire de Florence.
+tags:
+  - tag: role.ruler
+    weight: 40
+  - tag: place.france
+    weight: 30
+  - tag: place.italy
+    weight: 25
+  - tag: period.renaissance
+    weight: 40
+  - tag: concept.women-history
+    weight: 20
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.sovereigns
+  - constellation.italian-renaissance
+discovery:
+  figureId: figure.catherine-de-medici
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: role.ruler
+      weight: 25
+      reason: Pouvoir royal
+    - tag: period.renaissance
+      weight: 22
+      reason: Renaissance
+    - card: place.france
+      weight: 18
+      reason: France
+    - card: place.italy
+      weight: 15
+      reason: Italie
+  synergies:
+    - id: renaissance-france-italy
+      whenAll:
+        - tag:period.renaissance
+        - card:place.france
+        - card:place.italy
+      weight: 15
+      reason: Renaissance + France + Italie
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - period.renaissance

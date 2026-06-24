@@ -1,0 +1,14 @@
+id: domain.medicine
+slug: domain-medicine
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Médecine
+    subtitle: ""
+tags:
+  - tag: domain.medicine
+    weight: 100
+  - tag: domain.science
+    weight: 70

@@ -1,0 +1,14 @@
+id: concept.socratic-method
+slug: concept-socratic-method
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Méthode socratique
+    subtitle: ""
+tags:
+  - tag: concept.socratic-method
+    weight: 100
+  - tag: domain.philosophy
+    weight: 80

@@ -1,0 +1,14 @@
+id: domain.astronomy
+slug: domain-astronomy
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Astronomie
+    subtitle: ""
+tags:
+  - tag: domain.astronomy
+    weight: 100
+  - tag: domain.science
+    weight: 70

@@ -1,0 +1,14 @@
+id: place.persia
+slug: place-persia
+kind: place
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Perse
+    subtitle: ""
+tags:
+  - tag: place.persia
+    weight: 100
+  - tag: place.middle-east
+    weight: 70

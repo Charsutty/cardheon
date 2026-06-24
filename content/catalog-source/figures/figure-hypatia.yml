@@ -1,0 +1,56 @@
+id: figure.hypatia
+slug: figure-hypatia
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Hypatie
+    subtitle: Philosophe et mathématicienne
+    shortDescription: Figure savante de l’Alexandrie antique, connue pour son enseignement néoplatonicien.
+tags:
+  - tag: domain.mathematics
+    weight: 40
+  - tag: domain.philosophy
+    weight: 35
+  - tag: place.alexandria
+    weight: 50
+  - tag: period.antiquity
+    weight: 45
+  - tag: concept.women-history
+    weight: 25
+  - tag: civilization.ancient-greece
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.women-in-science
+discovery:
+  figureId: figure.hypatia
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - card: place.alexandria
+      weight: 35
+      reason: Alexandrie
+    - tag: domain.mathematics
+      weight: 25
+      reason: Mathématiques
+    - tag: period.antiquity
+      weight: 22
+      reason: Antiquité
+    - tag: concept.women-history
+      weight: 15
+      reason: Femme de savoir
+  synergies:
+    - id: alexandria-math-antiquity
+      whenAll:
+        - card:place.alexandria
+        - tag:domain.mathematics
+        - tag:period.antiquity
+      weight: 15
+      reason: Alexandrie antique + mathématiques
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - symbol.owl

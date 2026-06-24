@@ -1,0 +1,55 @@
+id: pack.starter
+slug: depart
+localization:
+  fr:
+    title: Pack de départ
+starterCardIds:
+  - domain.mathematics
+  - domain.physics
+  - domain.biology
+  - domain.philosophy
+  - domain.arts
+  - period.antiquity
+  - period.middle-ages
+  - period.renaissance
+  - period.20th-century
+  - place.france
+  - place.england
+  - place.italy
+  - place.greece
+  - place.egypt
+  - role.ruler
+  - concept.female-figure
+  - concept.faith
+  - role.resistance
+cardPoolIds:
+  - figure.marie-curie
+  - figure.cleopatra
+  - figure.socrate
+  - figure.joan-of-arc
+  - figure.leonardo-da-vinci
+  - figure.martin-luther-king
+  - figure.rosa-parks
+  - figure.christopher-columbus
+  - figure.galileo-galilei
+  - figure.boudica
+  - figure.pierre-curie
+  - figure.irene-joliot-curie
+  - figure.hypatia
+  - figure.hatshepsout
+  - figure.isaac-newton
+  - figure.charles-darwin
+  - figure.ada-lovelace
+  - figure.florence-nightingale
+  - figure.nelson-mandela
+  - figure.marco-polo
+  - figure.ashoka
+  - figure.catherine-de-medici
+  - figure.simon-bolivar
+  - figure.plato
+  - figure.aristote
+  - figure.rosalind-franklin
+  - figure.katherine-johnson
+  - figure.ibn-sina
+  - figure.mary-wollstonecraft
+  - figure.johannes-gutenberg

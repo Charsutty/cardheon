@@ -1,0 +1,12 @@
+id: place.south-africa
+slug: place-south-africa
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Afrique du Sud
+    subtitle: ""
+tags:
+  - tag: place.south-africa
+    weight: 100

@@ -1,0 +1,12 @@
+id: place.poland
+slug: place-poland
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Pologne
+    subtitle: ""
+tags:
+  - tag: place.poland
+    weight: 100

@@ -1,0 +1,14 @@
+id: domain.physics
+slug: domain-physics
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Physique
+    subtitle: ""
+tags:
+  - tag: domain.physics
+    weight: 100
+  - tag: domain.science
+    weight: 70

@@ -1,0 +1,16 @@
+id: work.origin-of-species
+slug: work-origin-of-species
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: L’Origine des espèces
+    subtitle: ""
+tags:
+  - tag: work.origin-of-species
+    weight: 100
+  - tag: domain.biology
+    weight: 80
+  - tag: concept.evolution
+    weight: 90

@@ -1,0 +1,16 @@
+id: event.american-civil-rights
+slug: event-american-civil-rights
+kind: event
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Mouvement américain des droits civiques
+    subtitle: ""
+tags:
+  - tag: event.american-civil-rights
+    weight: 100
+  - tag: concept.civil-rights
+    weight: 80
+  - tag: place.usa
+    weight: 70

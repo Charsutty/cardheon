@@ -1,0 +1,14 @@
+id: civilization.ancient-egypt
+slug: civilization-ancient-egypt
+kind: civilization
+status: published
+rarity: common
+localization:
+  fr:
+    title: Égypte ancienne
+    subtitle: ""
+tags:
+  - tag: civilization.ancient-egypt
+    weight: 100
+  - tag: place.egypt
+    weight: 80

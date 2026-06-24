@@ -1,0 +1,15 @@
+id: constellation.women-in-science
+slug: femmes-de-science
+localization:
+  fr:
+    title: Femmes de science
+cardIds:
+  - figure.marie-curie
+  - figure.hypatia
+  - figure.ada-lovelace
+  - figure.irene-joliot-curie
+  - figure.florence-nightingale
+reward:
+  xp: 250
+  unlockCardIds:
+    - concept.nobel-prize

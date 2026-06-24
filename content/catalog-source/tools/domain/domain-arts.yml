@@ -1,0 +1,12 @@
+id: domain.arts
+slug: domain-arts
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Arts
+    subtitle: ""
+tags:
+  - tag: domain.arts
+    weight: 100

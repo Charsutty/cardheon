@@ -1,0 +1,15 @@
+id: constellation.sovereigns
+slug: souveraines
+localization:
+  fr:
+    title: Souveraines de l’Histoire
+cardIds:
+  - figure.cleopatra
+  - figure.hatshepsout
+  - figure.catherine-de-medici
+  - figure.boudica
+  - figure.joan-of-arc
+reward:
+  xp: 250
+  unlockCardIds:
+    - role.emperor

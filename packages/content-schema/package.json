@@ -5,6 +5,8 @@
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "dependencies": {},
+  "dependencies": {
+    "zod": "^3.25.76"
+  },
   "devDependencies": {}
 }

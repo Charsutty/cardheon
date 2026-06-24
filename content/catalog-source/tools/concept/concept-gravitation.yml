@@ -1,0 +1,14 @@
+id: concept.gravitation
+slug: concept-gravitation
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Gravitation
+    subtitle: ""
+tags:
+  - tag: concept.gravitation
+    weight: 100
+  - tag: domain.physics
+    weight: 80

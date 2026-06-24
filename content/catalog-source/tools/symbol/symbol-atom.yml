@@ -1,0 +1,14 @@
+id: symbol.atom
+slug: symbol-atom
+kind: symbol
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Atome
+    subtitle: ""
+tags:
+  - tag: symbol.science
+    weight: 100
+  - tag: domain.physics
+    weight: 60

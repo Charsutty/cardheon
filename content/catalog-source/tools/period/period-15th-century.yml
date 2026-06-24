@@ -1,0 +1,14 @@
+id: period.15th-century
+slug: period-15th-century
+kind: period
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: XVe siècle
+    subtitle: ""
+tags:
+  - tag: period.15th-century
+    weight: 100
+  - tag: period.renaissance
+    weight: 70

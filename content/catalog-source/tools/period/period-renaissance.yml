@@ -1,0 +1,12 @@
+id: period.renaissance
+slug: period-renaissance
+kind: period
+status: published
+rarity: common
+localization:
+  fr:
+    title: Renaissance
+    subtitle: ""
+tags:
+  - tag: period.renaissance
+    weight: 100

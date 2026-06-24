@@ -1,0 +1,14 @@
+id: constellation.modern-sciences
+slug: sciences-modernes
+localization:
+  fr:
+    title: Sciences modernes
+cardIds:
+  - figure.isaac-newton
+  - figure.charles-darwin
+  - figure.galileo-galilei
+reward:
+  xp: 200
+  unlockCardIds:
+    - concept.calculus
+    - event.scientific-revolution

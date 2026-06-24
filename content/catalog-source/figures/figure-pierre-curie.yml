@@ -1,0 +1,52 @@
+id: figure.pierre-curie
+slug: figure-pierre-curie
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Pierre Curie
+    subtitle: Physicien
+    shortDescription: Physicien français, pionnier de l’étude de la radioactivité aux côtés de Marie Curie.
+tags:
+  - tag: domain.physics
+    weight: 45
+  - tag: concept.radioactivity
+    weight: 50
+  - tag: place.france
+    weight: 30
+  - tag: period.19th-century
+    weight: 20
+  - tag: period.20th-century
+    weight: 20
+  - tag: concept.nobel-prize
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.curie-family
+discovery:
+  figureId: figure.pierre-curie
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - card: concept.radioactivity
+      weight: 40
+      reason: Radioactivité
+    - tag: domain.physics
+      weight: 25
+      reason: Physique
+    - tag: place.france
+      weight: 18
+      reason: France
+  synergies:
+    - id: radioactivity-france
+      whenAll:
+        - card:concept.radioactivity
+        - card:place.france
+      weight: 12
+      reason: Radioactivité + France
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.nobel-prize

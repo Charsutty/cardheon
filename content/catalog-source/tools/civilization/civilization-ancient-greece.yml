@@ -1,0 +1,14 @@
+id: civilization.ancient-greece
+slug: civilization-ancient-greece
+kind: civilization
+status: published
+rarity: common
+localization:
+  fr:
+    title: Grèce antique
+    subtitle: ""
+tags:
+  - tag: civilization.ancient-greece
+    weight: 100
+  - tag: place.greece
+    weight: 80

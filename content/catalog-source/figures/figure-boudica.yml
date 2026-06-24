@@ -1,0 +1,55 @@
+id: figure.boudica
+slug: figure-boudica
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Boudica
+    subtitle: Reine celte
+    shortDescription: Reine des Icènes qui a mené une révolte contre l’Empire romain en Bretagne.
+tags:
+  - tag: role.ruler
+    weight: 35
+  - tag: region.britain
+    weight: 40
+  - tag: period.antiquity
+    weight: 40
+  - tag: concept.women-history
+    weight: 25
+  - tag: role.resistance
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.civil-rights
+  - constellation.sovereigns
+discovery:
+  figureId: figure.boudica
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: role.ruler
+      weight: 25
+      reason: Reine
+    - tag: region.britain
+      weight: 25
+      reason: Bretagne
+    - tag: period.antiquity
+      weight: 22
+      reason: Antiquité
+    - tag: role.resistance
+      weight: 18
+      reason: Résistance
+  synergies:
+    - id: britain-queen-antiquity
+      whenAll:
+        - card:region.britain
+        - tag:role.ruler
+        - tag:period.antiquity
+      weight: 15
+      reason: Bretagne + reine + Antiquité
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - civilization.ancient-rome

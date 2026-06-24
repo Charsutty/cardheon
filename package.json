@@ -15,14 +15,19 @@
     "analyze:discoverability": "tsx scripts/analyze-discoverability.ts content/catalog.dev.json",
     "simulate:discoveries": "tsx scripts/simulate-discoveries.ts",
     "build:catalog": "tsx scripts/build-local-catalog.ts",
+    "compile:catalog": "tsx scripts/build-local-catalog.ts --catalog content/catalog.dev.json",
+    "export:content-sources": "tsx scripts/export-content-sources.ts",
     "generate:test-catalog": "tsx scripts/generate-test-catalog.ts",
     "typecheck": "corepack pnpm --filter @cardheon/ui typecheck && corepack pnpm --filter @cardheon/mobile typecheck && corepack pnpm --filter @cardheon/admin typecheck",
     "lint": "corepack pnpm typecheck",
     "test": "tsx --test packages/game-engine/src/*.test.ts"
   },
   "devDependencies": {
+    "supabase": "^2.107.0",
     "tsx": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "yaml": "^2.9.0",
+    "zod": "^3.25.76"
   },
   "keywords": [
     "expo",

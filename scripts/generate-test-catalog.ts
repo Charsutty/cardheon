@@ -56,6 +56,9 @@ const PLACES: ToolInput[] = [
   { id: "place.india", kind: "place", title: "Inde", tags: { "place.india": 100 } },
   { id: "place.spain", kind: "place", title: "Espagne", tags: { "place.spain": 100 } },
   { id: "place.poland", kind: "place", title: "Pologne", tags: { "place.poland": 100 } },
+  { id: "place.germany", kind: "place", title: "Allemagne", tags: { "place.germany": 100 } },
+  { id: "place.persia", kind: "place", title: "Perse", rarity: "uncommon", tags: { "place.persia": 100, "place.middle-east": 70 } },
+  { id: "place.florence", kind: "place", title: "Florence", rarity: "uncommon", tags: { "place.florence": 100, "place.italy": 70, "period.renaissance": 40 } },
   { id: "place.venice", kind: "place", title: "Venise", rarity: "uncommon", tags: { "place.venice": 100, "place.italy": 70 } },
   { id: "region.britain", kind: "region", title: "Bretagne", tags: { "region.britain": 100 } },
   { id: "region.south-america", kind: "region", title: "Amérique du Sud", tags: { "region.south-america": 100 } },
@@ -82,6 +85,8 @@ const DOMAINS: ToolInput[] = [
   { id: "domain.exploration", kind: "domain", title: "Exploration", tags: { "domain.exploration": 100 } },
   { id: "domain.politics", kind: "domain", title: "Politique", tags: { "domain.politics": 100 } },
   { id: "domain.nursing", kind: "domain", title: "Soins infirmiers", rarity: "uncommon", tags: { "domain.nursing": 100, "domain.medicine": 60 } },
+  { id: "domain.literature", kind: "domain", title: "Littérature", tags: { "domain.literature": 100, "domain.arts": 50 } },
+  { id: "domain.statistics", kind: "domain", title: "Statistiques", rarity: "uncommon", tags: { "domain.statistics": 100, "domain.mathematics": 70 } },
 ];
 
 const ROLES: ToolInput[] = [
@@ -117,6 +122,11 @@ const CONCEPTS: ToolInput[] = [
   { id: "concept.apartheid", kind: "concept", title: "Apartheid", rarity: "uncommon", tags: { "concept.apartheid": 100, "concept.civil-rights": 70 } },
   { id: "concept.buddhism", kind: "concept", title: "Bouddhisme", rarity: "uncommon", tags: { "concept.buddhism": 100, "concept.faith": 80 } },
   { id: "concept.printing", kind: "concept", title: "Imprimerie", rarity: "uncommon", tags: { "concept.printing": 100, "domain.invention": 70, "period.renaissance": 40 } },
+  { id: "concept.dna", kind: "concept", title: "ADN", rarity: "rare", tags: { "concept.dna": 100, "domain.biology": 80 } },
+  { id: "concept.spaceflight", kind: "concept", title: "Vol spatial", rarity: "rare", tags: { "concept.spaceflight": 100, "domain.mathematics": 50, "domain.computing": 50, "period.20th-century": 60 } },
+  { id: "concept.feminism", kind: "concept", title: "Féminisme", rarity: "uncommon", tags: { "concept.feminism": 100, "concept.women-history": 80, "concept.civil-rights": 40 } },
+  { id: "concept.public-health", kind: "concept", title: "Santé publique", rarity: "uncommon", tags: { "concept.public-health": 100, "domain.medicine": 70 } },
+  { id: "concept.typography", kind: "concept", title: "Typographie", rarity: "uncommon", tags: { "concept.typography": 100, "concept.printing": 70 } },
   { id: "concept.faith", kind: "concept", title: "Foi", tags: { "concept.faith": 100, "concept.religion": 70 } },
   { id: "concept.colonialism", kind: "concept", title: "Colonialisme", rarity: "uncommon", tags: { "concept.colonialism": 100, "domain.politics": 70 } },
 ];
@@ -127,6 +137,7 @@ const EVENTS: ToolInput[] = [
   { id: "event.independence-south-america", kind: "event", title: "Indépendances sud-américaines", rarity: "uncommon", tags: { "event.independence-south-america": 100, "region.south-america": 80, "concept.liberty": 60 } },
   { id: "event.crusades", kind: "event", title: "Croisades", rarity: "uncommon", tags: { "event.crusades": 100, "period.middle-ages": 80, "concept.faith": 60 } },
   { id: "event.scientific-revolution", kind: "event", title: "Révolution scientifique", rarity: "rare", tags: { "event.scientific-revolution": 100, "period.17th-century": 70, "domain.science": 70 } },
+  { id: "event.space-race", kind: "event", title: "Course à l’espace", rarity: "rare", tags: { "event.space-race": 100, "concept.spaceflight": 80, "period.20th-century": 80 } },
 ];
 
 const WORKS: ToolInput[] = [
@@ -135,18 +146,22 @@ const WORKS: ToolInput[] = [
   { id: "work.origin-of-species", kind: "work", title: "L’Origine des espèces", rarity: "epic", tags: { "work.origin-of-species": 100, "domain.biology": 80, "concept.evolution": 90 } },
   { id: "work.republic", kind: "work", title: "La République", rarity: "epic", tags: { "work.republic": 100, "domain.philosophy": 80, "period.antiquity": 60 } },
   { id: "work.divine-comedy", kind: "work", title: "La Divine Comédie", rarity: "epic", tags: { "work.divine-comedy": 100, "domain.literature": 80, "period.middle-ages": 60, "place.italy": 60 } },
+  { id: "work.vindication-rights-woman", kind: "work", title: "Défense des droits de la femme", rarity: "epic", tags: { "work.vindication-rights-woman": 100, "concept.feminism": 90, "domain.literature": 60, "period.18th-century": 50 } },
+  { id: "work.canon-medicine", kind: "work", title: "Canon de la médecine", rarity: "epic", tags: { "work.canon-medicine": 100, "domain.medicine": 90, "period.middle-ages": 60, "place.persia": 60 } },
 ];
 
 const MOVEMENTS: ToolInput[] = [
   { id: "movement.humanism", kind: "movement", title: "Humanisme", rarity: "uncommon", tags: { "movement.humanism": 100, "period.renaissance": 70, "domain.philosophy": 60 } },
   { id: "movement.enlightenment", kind: "movement", title: "Lumières", rarity: "uncommon", tags: { "movement.enlightenment": 100, "period.18th-century": 70, "domain.philosophy": 60 } },
   { id: "movement.romanticism", kind: "movement", title: "Romantisme", rarity: "uncommon", tags: { "movement.romanticism": 100, "period.19th-century": 70, "domain.arts": 60 } },
+  { id: "movement.early-modern-medicine", kind: "movement", title: "Médecine savante médiévale", rarity: "uncommon", tags: { "movement.early-modern-medicine": 100, "domain.medicine": 70, "period.middle-ages": 60 } },
 ];
 
 const SYMBOLS: ToolInput[] = [
   { id: "symbol.owl", kind: "symbol", title: "Chouette", rarity: "uncommon", tags: { "symbol.wisdom": 100, "domain.philosophy": 60 } },
   { id: "symbol.compass", kind: "symbol", title: "Boussole", rarity: "uncommon", tags: { "symbol.navigation": 100, "domain.exploration": 60 } },
   { id: "symbol.atom", kind: "symbol", title: "Atome", rarity: "rare", tags: { "symbol.science": 100, "domain.physics": 60 } },
+  { id: "symbol.rocket", kind: "symbol", title: "Fusée", rarity: "rare", tags: { "symbol.rocket": 100, "concept.spaceflight": 80 } },
 ];
 
 const tools: ToolInput[] = [
@@ -254,7 +269,7 @@ const figures: FigureInput[] = [
     contradictions: [
       { id: "modern-france", whenAll: ["card:period.20th-century", "card:concept.radioactivity"], weight: -25, reason: "Jeanne d’Arc est médiévale." },
     ],
-    unlocksToolCardIds: ["event.crusades"],
+    unlocksToolCardIds: [],
   },
   {
     id: "figure.leonardo-da-vinci",
@@ -466,7 +481,7 @@ const figures: FigureInput[] = [
     synergies: [
       { id: "physics-math-england", whenAll: ["tag:domain.physics", "tag:domain.mathematics", "card:place.england"], weight: 18, reason: "Physique + mathématiques + Angleterre" },
     ],
-    unlocksToolCardIds: ["concept.gravitation", "work.principia"],
+    unlocksToolCardIds: ["work.principia"],
   },
   {
     id: "figure.charles-darwin",
@@ -483,7 +498,7 @@ const figures: FigureInput[] = [
     synergies: [
       { id: "biology-england-19th", whenAll: ["tag:domain.biology", "card:place.england", "tag:period.19th-century"], weight: 18, reason: "Biologie + Angleterre + XIXe" },
     ],
-    unlocksToolCardIds: ["concept.evolution", "work.origin-of-species"],
+    unlocksToolCardIds: ["work.origin-of-species"],
   },
   {
     id: "figure.ada-lovelace",
@@ -505,7 +520,7 @@ const figures: FigureInput[] = [
     contradictions: [
       { id: "no-computing-ancient", whenAll: ["card:period.antiquity", "card:domain.computing"], weight: -30, reason: "L’informatique n’existait pas dans l’Antiquité." },
     ],
-    unlocksToolCardIds: ["concept.algorithm"],
+    unlocksToolCardIds: [],
   },
   {
     id: "figure.florence-nightingale",
@@ -659,6 +674,99 @@ const figures: FigureInput[] = [
     ],
     unlocksToolCardIds: ["concept.logic"],
   },
+  {
+    id: "figure.rosalind-franklin",
+    title: "Rosalind Franklin",
+    subtitle: "Chimiste et cristallographe",
+    shortDescription: "Scientifique britannique dont les images de diffraction des rayons X ont été décisives pour comprendre la structure de l’ADN.",
+    rarity: "epic",
+    tags: { "domain.chemistry": 40, "domain.biology": 35, "concept.dna": 55, "place.england": 30, "period.20th-century": 35, "concept.women-history": 30 },
+    evidence: [
+      { tag: "domain.biology", weight: 28, reason: "Biologie moléculaire" },
+      { tag: "domain.chemistry", weight: 24, reason: "Cristallographie chimique" },
+      { tag: "period.20th-century", weight: 18, reason: "XXe siècle" },
+      { tag: "concept.women-history", weight: 18, reason: "Femme de science" },
+      { card: "concept.dna", weight: 25, reason: "ADN" },
+    ],
+    synergies: [
+      { id: "biology-chemistry-20th", whenAll: ["tag:domain.biology", "tag:domain.chemistry", "tag:period.20th-century"], weight: 18, reason: "Biologie + chimie + XXe siècle" },
+    ],
+    unlocksToolCardIds: ["concept.public-health"],
+  },
+  {
+    id: "figure.katherine-johnson",
+    title: "Katherine Johnson",
+    subtitle: "Mathématicienne de la NASA",
+    shortDescription: "Mathématicienne américaine dont les calculs de trajectoire ont contribué aux premiers vols spatiaux habités.",
+    rarity: "epic",
+    tags: { "domain.mathematics": 50, "domain.statistics": 30, "domain.computing": 35, "concept.spaceflight": 45, "place.usa": 35, "period.20th-century": 35, "concept.women-history": 30 },
+    evidence: [
+      { tag: "domain.mathematics", weight: 30, reason: "Mathématiques" },
+      { tag: "period.20th-century", weight: 20, reason: "XXe siècle" },
+      { tag: "concept.women-history", weight: 18, reason: "Femme de science" },
+      { card: "place.usa", weight: 18, reason: "États-Unis" },
+      { card: "concept.spaceflight", weight: 25, reason: "Vol spatial" },
+    ],
+    synergies: [
+      { id: "math-usa-space", whenAll: ["tag:domain.mathematics", "card:place.usa", "tag:period.20th-century"], weight: 18, reason: "Mathématiques + USA + XXe siècle" },
+    ],
+    unlocksToolCardIds: ["event.space-race", "symbol.rocket"],
+  },
+  {
+    id: "figure.ibn-sina",
+    title: "Ibn Sina",
+    subtitle: "Médecin et philosophe",
+    shortDescription: "Savant persan médiéval, connu en Europe sous le nom d’Avicenne, auteur du Canon de la médecine.",
+    rarity: "legendary",
+    tags: { "domain.medicine": 50, "domain.philosophy": 35, "period.middle-ages": 40, "place.persia": 40, "domain.science": 30 },
+    evidence: [
+      { tag: "domain.medicine", weight: 32, reason: "Médecine" },
+      { tag: "domain.philosophy", weight: 22, reason: "Philosophie" },
+      { tag: "period.middle-ages", weight: 22, reason: "Moyen Âge" },
+      { card: "place.persia", weight: 18, reason: "Perse" },
+    ],
+    synergies: [
+      { id: "medicine-philosophy-middle-ages", whenAll: ["tag:domain.medicine", "tag:domain.philosophy", "tag:period.middle-ages"], weight: 18, reason: "Médecine + philosophie médiévale" },
+    ],
+    unlocksToolCardIds: [],
+  },
+  {
+    id: "figure.mary-wollstonecraft",
+    title: "Mary Wollstonecraft",
+    subtitle: "Écrivaine et philosophe",
+    shortDescription: "Autrice anglaise, pionnière de la pensée féministe moderne et de l’éducation des femmes.",
+    rarity: "epic",
+    tags: { "domain.philosophy": 35, "domain.literature": 40, "concept.feminism": 55, "place.england": 30, "period.18th-century": 35, "concept.women-history": 35 },
+    evidence: [
+      { tag: "domain.philosophy", weight: 24, reason: "Philosophie politique" },
+      { card: "place.england", weight: 18, reason: "Angleterre" },
+      { tag: "concept.women-history", weight: 20, reason: "Droits des femmes" },
+      { card: "concept.feminism", weight: 32, reason: "Féminisme" },
+      { tag: "period.18th-century", weight: 16, reason: "XVIIIe siècle" },
+    ],
+    synergies: [
+      { id: "women-philosophy-england", whenAll: ["tag:domain.philosophy", "card:concept.female-figure", "card:place.england"], weight: 16, reason: "Philosophie + droits des femmes + Angleterre" },
+    ],
+    unlocksToolCardIds: ["work.vindication-rights-woman"],
+  },
+  {
+    id: "figure.johannes-gutenberg",
+    title: "Johannes Gutenberg",
+    subtitle: "Inventeur et imprimeur",
+    shortDescription: "Inventeur européen associé à l’imprimerie à caractères mobiles, qui transforma la diffusion des textes.",
+    rarity: "legendary",
+    tags: { "concept.printing": 55, "concept.typography": 40, "place.germany": 40, "period.renaissance": 35, "role.inventor": 35 },
+    evidence: [
+      { card: "concept.printing", weight: 34, reason: "Imprimerie" },
+      { tag: "period.renaissance", weight: 22, reason: "Renaissance" },
+      { card: "place.germany", weight: 20, reason: "Allemagne" },
+      { tag: "role.inventor", weight: 18, reason: "Inventeur" },
+    ],
+    synergies: [
+      { id: "printing-germany-renaissance", whenAll: ["card:concept.printing", "card:place.germany", "tag:period.renaissance"], weight: 18, reason: "Imprimerie + Allemagne + Renaissance" },
+    ],
+    unlocksToolCardIds: ["concept.typography"],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -721,6 +829,20 @@ const constellations: Constellation[] = [
     localization: { fr: { title: "Renaissance italienne" } },
     cardIds: ["figure.leonardo-da-vinci", "figure.galileo-galilei", "figure.catherine-de-medici"],
     reward: { xp: 150, unlockCardIds: ["movement.humanism"] },
+  },
+  {
+    id: "constellation.code-and-space",
+    slug: "calcul-code-espace",
+    localization: { fr: { title: "Calcul, code et espace" } },
+    cardIds: ["figure.ada-lovelace", "figure.katherine-johnson", "figure.isaac-newton"],
+    reward: { xp: 220, unlockCardIds: ["concept.spaceflight", "domain.statistics"] },
+  },
+  {
+    id: "constellation.texts-and-transmission",
+    slug: "textes-et-transmission",
+    localization: { fr: { title: "Textes et transmission" } },
+    cardIds: ["figure.johannes-gutenberg", "figure.mary-wollstonecraft", "figure.plato", "figure.ibn-sina"],
+    reward: { xp: 240, unlockCardIds: ["domain.literature", "concept.typography"] },
   },
 ];
 
@@ -851,6 +973,10 @@ function buildRelationships(): Relationship[] {
     { source: "concept.heliocentrism", predicate: "branch_of", target: "domain.astronomy", weight: 45, sourceIds: ["source.cardheon.test"] },
     { source: "concept.algorithm", predicate: "branch_of", target: "domain.computing", weight: 45, sourceIds: ["source.cardheon.test"] },
     { source: "concept.calculus", predicate: "branch_of", target: "domain.mathematics", weight: 45, sourceIds: ["source.cardheon.test"] },
+    { source: "concept.dna", predicate: "branch_of", target: "domain.biology", weight: 45, sourceIds: ["source.cardheon.test"] },
+    { source: "concept.spaceflight", predicate: "uses", target: "domain.mathematics", weight: 40, sourceIds: ["source.cardheon.test"] },
+    { source: "concept.feminism", predicate: "related_to", target: "concept.female-figure", weight: 40, sourceIds: ["source.cardheon.test"] },
+    { source: "concept.typography", predicate: "branch_of", target: "concept.printing", weight: 35, sourceIds: ["source.cardheon.test"] },
     { source: "concept.socratic-method", predicate: "branch_of", target: "domain.philosophy", weight: 40, sourceIds: ["source.cardheon.test"] },
     { source: "concept.logic", predicate: "branch_of", target: "domain.philosophy", weight: 40, sourceIds: ["source.cardheon.test"] },
     { source: "concept.non-violence", predicate: "branch_of", target: "concept.civil-rights", weight: 40, sourceIds: ["source.cardheon.test"] },
@@ -861,6 +987,8 @@ function buildRelationships(): Relationship[] {
     { source: "place.alexandria", predicate: "located_in", target: "place.egypt", weight: 60, sourceIds: ["source.cardheon.test"] },
     { source: "place.athens", predicate: "located_in", target: "place.greece", weight: 60, sourceIds: ["source.cardheon.test"] },
     { source: "place.venice", predicate: "located_in", target: "place.italy", weight: 60, sourceIds: ["source.cardheon.test"] },
+    { source: "place.florence", predicate: "located_in", target: "place.italy", weight: 60, sourceIds: ["source.cardheon.test"] },
+    { source: "place.persia", predicate: "related_to", target: "place.india", weight: 25, sourceIds: ["source.cardheon.test"] },
     { source: "period.renaissance", predicate: "follows", target: "period.middle-ages", weight: 40, sourceIds: ["source.cardheon.test"] },
     { source: "period.15th-century", predicate: "part_of", target: "period.renaissance", weight: 40, sourceIds: ["source.cardheon.test"] },
     { source: "period.16th-century", predicate: "part_of", target: "period.renaissance", weight: 40, sourceIds: ["source.cardheon.test"] },
@@ -868,6 +996,8 @@ function buildRelationships(): Relationship[] {
     { source: "work.principia", predicate: "written_by", target: "figure.isaac-newton", weight: 60, sourceIds: ["source.cardheon.test"] },
     { source: "work.origin-of-species", predicate: "written_by", target: "figure.charles-darwin", weight: 60, sourceIds: ["source.cardheon.test"] },
     { source: "work.republic", predicate: "written_by", target: "figure.plato", weight: 60, sourceIds: ["source.cardheon.test"] },
+    { source: "work.vindication-rights-woman", predicate: "written_by", target: "figure.mary-wollstonecraft", weight: 60, sourceIds: ["source.cardheon.test"] },
+    { source: "work.canon-medicine", predicate: "written_by", target: "figure.ibn-sina", weight: 60, sourceIds: ["source.cardheon.test"] },
   );
 
   return relationships;
@@ -948,6 +1078,17 @@ function main(): void {
     { id: "recipe.nursing", inputs: ["domain.biology", "concept.faith"], outputCardId: "domain.nursing", localization: { fr: { reason: "Les soins infirmiers naissent de la biologie et du dévouement." } } },
     { id: "recipe.computing", inputs: ["domain.mathematics", "period.19th-century"], outputCardId: "domain.computing", localization: { fr: { reason: "L’informatique théorique émerge des mathématiques du XIXe siècle." } } },
     { id: "recipe.19th-century", inputs: ["period.renaissance", "concept.evolution"], outputCardId: "period.19th-century", localization: { fr: { reason: "La théorie de l’évolution marque le XIXe siècle." } } },
+    { id: "recipe.18th-century", inputs: ["domain.philosophy", "movement.enlightenment"], outputCardId: "period.18th-century", localization: { fr: { reason: "Les Lumières structurent le XVIIIe siècle." } } },
+    { id: "recipe.enlightenment", inputs: ["domain.philosophy", "period.renaissance"], outputCardId: "movement.enlightenment", localization: { fr: { reason: "Les Lumières prolongent l’humanisme philosophique." } } },
+    { id: "recipe.literature", inputs: ["domain.arts", "domain.philosophy"], outputCardId: "domain.literature", localization: { fr: { reason: "La littérature naît entre art et pensée." } } },
+    { id: "recipe.feminism", inputs: ["concept.female-figure", "domain.philosophy"], outputCardId: "concept.feminism", localization: { fr: { reason: "La réflexion sur les droits des femmes fait émerger le féminisme." } } },
+    { id: "recipe.statistics", inputs: ["domain.mathematics", "period.20th-century"], outputCardId: "domain.statistics", localization: { fr: { reason: "Les statistiques modernes organisent les calculs du XXe siècle." } } },
+    { id: "recipe.dna", inputs: ["domain.biology", "period.20th-century"], outputCardId: "concept.dna", localization: { fr: { reason: "La biologie du XXe siècle révèle l’ADN." } } },
+    { id: "recipe.spaceflight", inputs: ["domain.mathematics", "period.20th-century"], outputCardId: "concept.spaceflight", localization: { fr: { reason: "Le vol spatial dépend de calculs modernes." } } },
+    { id: "recipe.germany", inputs: ["place.england", "domain.arts"], outputCardId: "place.germany", localization: { fr: { reason: "Les arts d’Europe du Nord ouvrent vers l’Allemagne." } } },
+    { id: "recipe.persia", inputs: ["place.india", "period.middle-ages"], outputCardId: "place.persia", localization: { fr: { reason: "Les routes savantes médiévales relient l’Inde et la Perse." } } },
+    { id: "recipe.florence", inputs: ["place.italy", "domain.arts"], outputCardId: "place.florence", localization: { fr: { reason: "Florence devient un foyer artistique italien." } } },
+    { id: "recipe.printing", inputs: ["domain.literature", "period.renaissance"], outputCardId: "concept.printing", localization: { fr: { reason: "La diffusion des textes fait émerger l’imprimerie." } } },
   ];
 
   const packs: Pack[] = [

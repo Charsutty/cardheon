@@ -1,0 +1,62 @@
+id: figure.katherine-johnson
+slug: figure-katherine-johnson
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Katherine Johnson
+    subtitle: Mathématicienne de la NASA
+    shortDescription: Mathématicienne américaine dont les calculs de trajectoire ont contribué aux premiers vols spatiaux habités.
+tags:
+  - tag: domain.mathematics
+    weight: 50
+  - tag: domain.statistics
+    weight: 30
+  - tag: domain.computing
+    weight: 35
+  - tag: concept.spaceflight
+    weight: 45
+  - tag: place.usa
+    weight: 35
+  - tag: period.20th-century
+    weight: 35
+  - tag: concept.women-history
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.code-and-space
+discovery:
+  figureId: figure.katherine-johnson
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.mathematics
+      weight: 30
+      reason: Mathématiques
+    - tag: period.20th-century
+      weight: 20
+      reason: XXe siècle
+    - tag: concept.women-history
+      weight: 18
+      reason: Femme de science
+    - card: place.usa
+      weight: 18
+      reason: États-Unis
+    - card: concept.spaceflight
+      weight: 25
+      reason: Vol spatial
+  synergies:
+    - id: math-usa-space
+      whenAll:
+        - tag:domain.mathematics
+        - card:place.usa
+        - tag:period.20th-century
+      weight: 18
+      reason: Mathématiques + USA + XXe siècle
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - event.space-race
+  - symbol.rocket

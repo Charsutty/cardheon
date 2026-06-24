@@ -1,0 +1,14 @@
+id: concept.buddhism
+slug: concept-buddhism
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Bouddhisme
+    subtitle: ""
+tags:
+  - tag: concept.buddhism
+    weight: 100
+  - tag: concept.faith
+    weight: 80

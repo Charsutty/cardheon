@@ -1,0 +1,16 @@
+id: movement.enlightenment
+slug: movement-enlightenment
+kind: movement
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Lumières
+    subtitle: ""
+tags:
+  - tag: movement.enlightenment
+    weight: 100
+  - tag: period.18th-century
+    weight: 70
+  - tag: domain.philosophy
+    weight: 60

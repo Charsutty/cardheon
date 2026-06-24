@@ -1,0 +1,14 @@
+id: concept.public-health
+slug: concept-public-health
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Santé publique
+    subtitle: ""
+tags:
+  - tag: concept.public-health
+    weight: 100
+  - tag: domain.medicine
+    weight: 70

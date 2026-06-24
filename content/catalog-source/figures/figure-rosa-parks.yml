@@ -1,0 +1,57 @@
+id: figure.rosa-parks
+slug: figure-rosa-parks
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Rosa Parks
+    subtitle: Activiste des droits civiques
+    shortDescription: Figure emblématique du mouvement américain des droits civiques.
+tags:
+  - tag: concept.civil-rights
+    weight: 50
+  - tag: place.usa
+    weight: 40
+  - tag: period.20th-century
+    weight: 35
+  - tag: concept.women-history
+    weight: 30
+  - tag: role.resistance
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.civil-rights
+discovery:
+  figureId: figure.rosa-parks
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: concept.civil-rights
+      weight: 30
+      reason: Droits civiques
+    - tag: place.usa
+      weight: 22
+      reason: États-Unis
+    - tag: concept.women-history
+      weight: 18
+      reason: Femme engagée
+    - tag: role.resistance
+      weight: 15
+      reason: Résistance
+  synergies:
+    - id: civil-rights-woman-usa
+      whenAll:
+        - card:concept.civil-rights
+        - card:concept.female-figure
+        - card:place.usa
+      weight: 15
+      reason: Droits civiques + femme + USA
+  contradictions:
+    - id: ancient-civil-rights
+      whenAll:
+        - card:period.antiquity
+      weight: -25
+      reason: Les droits civiques américains sont modernes.
+  minEvidenceCount: 2

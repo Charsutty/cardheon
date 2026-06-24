@@ -1,0 +1,16 @@
+id: concept.feminism
+slug: concept-feminism
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Féminisme
+    subtitle: ""
+tags:
+  - tag: concept.feminism
+    weight: 100
+  - tag: concept.women-history
+    weight: 80
+  - tag: concept.civil-rights
+    weight: 40

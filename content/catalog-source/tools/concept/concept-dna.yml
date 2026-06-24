@@ -1,0 +1,14 @@
+id: concept.dna
+slug: concept-dna
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: ADN
+    subtitle: ""
+tags:
+  - tag: concept.dna
+    weight: 100
+  - tag: domain.biology
+    weight: 80

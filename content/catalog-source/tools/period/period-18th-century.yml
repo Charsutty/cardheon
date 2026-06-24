@@ -1,0 +1,12 @@
+id: period.18th-century
+slug: period-18th-century
+kind: period
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: XVIIIe siècle
+    subtitle: ""
+tags:
+  - tag: period.18th-century
+    weight: 100

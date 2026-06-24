@@ -15,7 +15,8 @@ Quand le format sera stable, ce dossier pourra être extrait dans un repo sépar
 
 ```txt
 content/
-  catalog.dev.json   Catalogue actif compilé utilisé par l’app et le moteur
+  catalog-source/    Corpus éditorial YAML complet utilisé par le build local
+  catalog.dev.json   Artefact compilé utilisé par l’app, les tests et l’admin
   figures/           Personnages historiques (brouillons YAML non utilisés directement)
   tools/             Cartes-outils (brouillons YAML non utilisés directement)
   constellations/    Collections thématiques (brouillons YAML non utilisés directement)
@@ -24,10 +25,20 @@ content/
   assets-manifest/   Manifests des images et licences
 ```
 
-Pendant le MVP technique, `catalog.dev.json` est le catalogue unique de vérité. Les fichiers YAML dans `figures/`, `tools/`, `constellations/` et `packs/` sont des brouillons structurants qui serviront de base au pipeline YAML → JSON plus tard. Pour régénérer le catalogue actif à partir du script de test, exécutez :
+Pendant le MVP technique, le corpus complet vit dans `catalog-source/` et `catalog.dev.json` doit être traité comme un artefact compilé. Les anciens fichiers YAML à la racine (`figures/`, `tools/`, `constellations/`, `packs/`) restent des brouillons historiques et ne sont utilisés que si `catalog-source/` est absent.
+
+Pour régénérer les sources depuis le catalogue courant :
 
 ```bash
-pnpm generate:test-catalog
+pnpm export:content-sources
+```
+
+Pour recompiler l’artefact jouable depuis les sources :
+
+```bash
+pnpm compile:catalog
+pnpm validate:content
+pnpm analyze:discoverability
 ```
 
 ## Règle

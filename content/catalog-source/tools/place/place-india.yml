@@ -1,0 +1,12 @@
+id: place.india
+slug: place-india
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Inde
+    subtitle: ""
+tags:
+  - tag: place.india
+    weight: 100

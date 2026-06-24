@@ -1,0 +1,59 @@
+id: figure.mary-wollstonecraft
+slug: figure-mary-wollstonecraft
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Mary Wollstonecraft
+    subtitle: Écrivaine et philosophe
+    shortDescription: Autrice anglaise, pionnière de la pensée féministe moderne et de l’éducation des femmes.
+tags:
+  - tag: domain.philosophy
+    weight: 35
+  - tag: domain.literature
+    weight: 40
+  - tag: concept.feminism
+    weight: 55
+  - tag: place.england
+    weight: 30
+  - tag: period.18th-century
+    weight: 35
+  - tag: concept.women-history
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.texts-and-transmission
+discovery:
+  figureId: figure.mary-wollstonecraft
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.philosophy
+      weight: 24
+      reason: Philosophie politique
+    - card: place.england
+      weight: 18
+      reason: Angleterre
+    - tag: concept.women-history
+      weight: 20
+      reason: Droits des femmes
+    - card: concept.feminism
+      weight: 32
+      reason: Féminisme
+    - tag: period.18th-century
+      weight: 16
+      reason: XVIIIe siècle
+  synergies:
+    - id: women-philosophy-england
+      whenAll:
+        - tag:domain.philosophy
+        - card:concept.female-figure
+        - card:place.england
+      weight: 16
+      reason: Philosophie + droits des femmes + Angleterre
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - work.vindication-rights-woman

@@ -1,0 +1,14 @@
+id: constellation.code-and-space
+slug: calcul-code-espace
+localization:
+  fr:
+    title: Calcul, code et espace
+cardIds:
+  - figure.ada-lovelace
+  - figure.katherine-johnson
+  - figure.isaac-newton
+reward:
+  xp: 220
+  unlockCardIds:
+    - concept.spaceflight
+    - domain.statistics

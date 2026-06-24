@@ -1,0 +1,14 @@
+id: domain.painting
+slug: domain-painting
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Peinture
+    subtitle: ""
+tags:
+  - tag: domain.painting
+    weight: 100
+  - tag: domain.arts
+    weight: 70

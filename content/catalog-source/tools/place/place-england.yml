@@ -1,0 +1,12 @@
+id: place.england
+slug: place-england
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Angleterre
+    subtitle: ""
+tags:
+  - tag: place.england
+    weight: 100

@@ -1,0 +1,12 @@
+id: place.egypt
+slug: place-egypt
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Égypte
+    subtitle: ""
+tags:
+  - tag: place.egypt
+    weight: 100

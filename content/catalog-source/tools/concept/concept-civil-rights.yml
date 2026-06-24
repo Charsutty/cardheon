@@ -1,0 +1,14 @@
+id: concept.civil-rights
+slug: concept-civil-rights
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Droits civiques
+    subtitle: ""
+tags:
+  - tag: concept.civil-rights
+    weight: 100
+  - tag: concept.liberty
+    weight: 80

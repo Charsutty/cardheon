@@ -1,0 +1,18 @@
+id: work.vindication-rights-woman
+slug: work-vindication-rights-woman
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: Défense des droits de la femme
+    subtitle: ""
+tags:
+  - tag: work.vindication-rights-woman
+    weight: 100
+  - tag: concept.feminism
+    weight: 90
+  - tag: domain.literature
+    weight: 60
+  - tag: period.18th-century
+    weight: 50

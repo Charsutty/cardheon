@@ -1,0 +1,14 @@
+id: concept.platonic-ideas
+slug: concept-platonic-ideas
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Idées platoniciennes
+    subtitle: ""
+tags:
+  - tag: concept.platonic-ideas
+    weight: 100
+  - tag: domain.philosophy
+    weight: 80

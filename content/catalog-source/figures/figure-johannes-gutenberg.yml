@@ -1,0 +1,54 @@
+id: figure.johannes-gutenberg
+slug: figure-johannes-gutenberg
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Johannes Gutenberg
+    subtitle: Inventeur et imprimeur
+    shortDescription: Inventeur européen associé à l’imprimerie à caractères mobiles, qui transforma la diffusion des textes.
+tags:
+  - tag: concept.printing
+    weight: 55
+  - tag: concept.typography
+    weight: 40
+  - tag: place.germany
+    weight: 40
+  - tag: period.renaissance
+    weight: 35
+  - tag: role.inventor
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.texts-and-transmission
+discovery:
+  figureId: figure.johannes-gutenberg
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - card: concept.printing
+      weight: 34
+      reason: Imprimerie
+    - tag: period.renaissance
+      weight: 22
+      reason: Renaissance
+    - card: place.germany
+      weight: 20
+      reason: Allemagne
+    - tag: role.inventor
+      weight: 18
+      reason: Inventeur
+  synergies:
+    - id: printing-germany-renaissance
+      whenAll:
+        - card:concept.printing
+        - card:place.germany
+        - tag:period.renaissance
+      weight: 18
+      reason: Imprimerie + Allemagne + Renaissance
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.typography

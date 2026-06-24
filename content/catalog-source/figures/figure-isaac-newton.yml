@@ -1,0 +1,55 @@
+id: figure.isaac-newton
+slug: figure-isaac-newton
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Isaac Newton
+    subtitle: Physicien et mathématicien
+    shortDescription: Auteur des lois du mouvement et de la gravitation universelle.
+tags:
+  - tag: domain.physics
+    weight: 50
+  - tag: domain.mathematics
+    weight: 40
+  - tag: concept.gravitation
+    weight: 50
+  - tag: place.england
+    weight: 30
+  - tag: period.17th-century
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.modern-sciences
+  - constellation.code-and-space
+discovery:
+  figureId: figure.isaac-newton
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.physics
+      weight: 28
+      reason: Physique
+    - tag: domain.mathematics
+      weight: 22
+      reason: Mathématiques
+    - tag: place.england
+      weight: 18
+      reason: Angleterre
+    - tag: period.17th-century
+      weight: 18
+      reason: XVIIe siècle
+  synergies:
+    - id: physics-math-england
+      whenAll:
+        - tag:domain.physics
+        - tag:domain.mathematics
+        - card:place.england
+      weight: 18
+      reason: Physique + mathématiques + Angleterre
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - work.principia

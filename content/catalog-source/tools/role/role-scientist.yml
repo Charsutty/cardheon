@@ -1,0 +1,14 @@
+id: role.scientist
+slug: role-scientist
+kind: role
+status: published
+rarity: common
+localization:
+  fr:
+    title: Scientifique
+    subtitle: ""
+tags:
+  - tag: role.scientist
+    weight: 100
+  - tag: domain.science
+    weight: 80

@@ -1,0 +1,14 @@
+id: constellation.civil-rights
+slug: droits-civiques
+localization:
+  fr:
+    title: Droits civiques et résistances
+cardIds:
+  - figure.rosa-parks
+  - figure.martin-luther-king
+  - figure.nelson-mandela
+  - figure.boudica
+reward:
+  xp: 220
+  unlockCardIds:
+    - event.french-revolution

@@ -1,0 +1,12 @@
+id: period.19th-century
+slug: period-19th-century
+kind: period
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: XIXe siècle
+    subtitle: ""
+tags:
+  - tag: period.19th-century
+    weight: 100

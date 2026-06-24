@@ -1,0 +1,74 @@
+id: figure.marie-curie
+slug: figure-marie-curie
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Marie Curie
+    subtitle: Physicienne et chimiste
+    shortDescription: Pionnière de la radioactivité, première femme prix Nobel et seule lauréate de deux prix Nobel en
+      sciences distincts.
+tags:
+  - tag: domain.physics
+    weight: 40
+  - tag: domain.chemistry
+    weight: 35
+  - tag: concept.radioactivity
+    weight: 55
+  - tag: place.france
+    weight: 25
+  - tag: place.poland
+    weight: 20
+  - tag: period.20th-century
+    weight: 30
+  - tag: concept.women-history
+    weight: 30
+  - tag: concept.nobel-prize
+    weight: 40
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.women-in-science
+  - constellation.curie-family
+discovery:
+  figureId: figure.marie-curie
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.physics
+      weight: 25
+      reason: Physique
+    - tag: place.france
+      weight: 22
+      reason: France
+    - tag: period.20th-century
+      weight: 18
+      reason: XXe siècle
+    - tag: concept.women-history
+      weight: 22
+      reason: Femme scientifique
+  synergies:
+    - id: radioactivity-france
+      whenAll:
+        - card:concept.radioactivity
+        - card:place.france
+      weight: 15
+      reason: Radioactivité + France
+    - id: scientist-france-20th
+      whenAll:
+        - tag:role.scientist
+        - card:place.france
+        - tag:period.20th-century
+      weight: 12
+      reason: Scientifique + France + XXe
+  contradictions:
+    - id: ancient-egypt-radioactivity
+      whenAll:
+        - card:period.antiquity
+        - card:concept.radioactivity
+      weight: -30
+      reason: La radioactivité moderne contredit l’Antiquité.
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - place.poland

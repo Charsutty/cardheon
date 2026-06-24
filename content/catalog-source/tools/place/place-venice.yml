@@ -1,0 +1,14 @@
+id: place.venice
+slug: place-venice
+kind: place
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Venise
+    subtitle: ""
+tags:
+  - tag: place.venice
+    weight: 100
+  - tag: place.italy
+    weight: 70

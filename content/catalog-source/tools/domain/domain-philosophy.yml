@@ -1,0 +1,14 @@
+id: domain.philosophy
+slug: domain-philosophy
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Philosophie
+    subtitle: ""
+tags:
+  - tag: domain.philosophy
+    weight: 100
+  - tag: domain.thought
+    weight: 70

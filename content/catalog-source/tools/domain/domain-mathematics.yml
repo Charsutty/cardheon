@@ -1,0 +1,14 @@
+id: domain.mathematics
+slug: domain-mathematics
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Mathématiques
+    subtitle: ""
+tags:
+  - tag: domain.mathematics
+    weight: 100
+  - tag: domain.science
+    weight: 70

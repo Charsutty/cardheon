@@ -1,0 +1,12 @@
+id: period.middle-ages
+slug: period-middle-ages
+kind: period
+status: published
+rarity: common
+localization:
+  fr:
+    title: Moyen Âge
+    subtitle: ""
+tags:
+  - tag: period.middle-ages
+    weight: 100

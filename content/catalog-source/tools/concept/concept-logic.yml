@@ -1,0 +1,16 @@
+id: concept.logic
+slug: concept-logic
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Logique
+    subtitle: ""
+tags:
+  - tag: concept.logic
+    weight: 100
+  - tag: domain.philosophy
+    weight: 80
+  - tag: domain.mathematics
+    weight: 60

@@ -1,0 +1,16 @@
+id: movement.romanticism
+slug: movement-romanticism
+kind: movement
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Romantisme
+    subtitle: ""
+tags:
+  - tag: movement.romanticism
+    weight: 100
+  - tag: period.19th-century
+    weight: 70
+  - tag: domain.arts
+    weight: 60

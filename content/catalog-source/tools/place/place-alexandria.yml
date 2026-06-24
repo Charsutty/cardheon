@@ -1,0 +1,14 @@
+id: place.alexandria
+slug: place-alexandria
+kind: place
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Alexandrie
+    subtitle: ""
+tags:
+  - tag: place.alexandria
+    weight: 100
+  - tag: place.egypt
+    weight: 60

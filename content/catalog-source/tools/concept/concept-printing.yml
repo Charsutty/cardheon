@@ -1,0 +1,16 @@
+id: concept.printing
+slug: concept-printing
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Imprimerie
+    subtitle: ""
+tags:
+  - tag: concept.printing
+    weight: 100
+  - tag: domain.invention
+    weight: 70
+  - tag: period.renaissance
+    weight: 40

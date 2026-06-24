@@ -1,0 +1,12 @@
+id: place.france
+slug: place-france
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: France
+    subtitle: ""
+tags:
+  - tag: place.france
+    weight: 100

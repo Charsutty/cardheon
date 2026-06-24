@@ -1,0 +1,12 @@
+id: domain.politics
+slug: domain-politics
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Politique
+    subtitle: ""
+tags:
+  - tag: domain.politics
+    weight: 100

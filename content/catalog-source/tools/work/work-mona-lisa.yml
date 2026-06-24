@@ -1,0 +1,16 @@
+id: work.mona-lisa
+slug: work-mona-lisa
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: La Joconde
+    subtitle: ""
+tags:
+  - tag: work.mona-lisa
+    weight: 100
+  - tag: domain.painting
+    weight: 80
+  - tag: period.renaissance
+    weight: 60

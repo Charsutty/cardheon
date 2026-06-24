@@ -1,0 +1,14 @@
+id: symbol.compass
+slug: symbol-compass
+kind: symbol
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Boussole
+    subtitle: ""
+tags:
+  - tag: symbol.navigation
+    weight: 100
+  - tag: domain.exploration
+    weight: 60

@@ -1,0 +1,54 @@
+id: figure.nelson-mandela
+slug: figure-nelson-mandela
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Nelson Mandela
+    subtitle: Président et militant
+    shortDescription: Leader anti-apartheid et premier président noir d’Afrique du Sud.
+tags:
+  - tag: role.resistance
+    weight: 40
+  - tag: place.south-africa
+    weight: 45
+  - tag: period.20th-century
+    weight: 40
+  - tag: concept.civil-rights
+    weight: 40
+  - tag: concept.apartheid
+    weight: 45
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.civil-rights
+discovery:
+  figureId: figure.nelson-mandela
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: concept.apartheid
+      weight: 35
+      reason: Apartheid
+    - tag: place.south-africa
+      weight: 25
+      reason: Afrique du Sud
+    - tag: role.resistance
+      weight: 18
+      reason: Résistant
+    - tag: period.20th-century
+      weight: 15
+      reason: XXe siècle
+  synergies:
+    - id: south-africa-resistance-20th
+      whenAll:
+        - card:place.south-africa
+        - tag:role.resistance
+        - tag:period.20th-century
+      weight: 15
+      reason: Afrique du Sud + résistance + XXe
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.apartheid

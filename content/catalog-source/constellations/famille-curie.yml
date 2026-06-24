@@ -1,0 +1,13 @@
+id: constellation.curie-family
+slug: famille-curie
+localization:
+  fr:
+    title: Famille Curie
+cardIds:
+  - figure.marie-curie
+  - figure.pierre-curie
+  - figure.irene-joliot-curie
+reward:
+  xp: 180
+  unlockCardIds:
+    - symbol.atom

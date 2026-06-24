@@ -1,0 +1,66 @@
+id: figure.cleopatra
+slug: figure-cleopatra
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Cléopâtre VII
+    subtitle: Reine d’Égypte
+    shortDescription: Dernière souveraine active du royaume ptolémaïque d’Égypte.
+tags:
+  - tag: period.antiquity
+    weight: 45
+  - tag: civilization.ancient-egypt
+    weight: 50
+  - tag: role.ruler
+    weight: 40
+  - tag: concept.women-history
+    weight: 25
+  - tag: place.egypt
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.sovereigns
+discovery:
+  figureId: figure.cleopatra
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - card: civilization.ancient-egypt
+      weight: 35
+      reason: Égypte ancienne
+    - tag: role.ruler
+      weight: 25
+      reason: Pouvoir royal
+    - tag: period.antiquity
+      weight: 20
+      reason: Antiquité
+    - tag: concept.women-history
+      weight: 18
+      reason: Femme historique
+  synergies:
+    - id: egypt-queen
+      whenAll:
+        - card:civilization.ancient-egypt
+        - card:role.queen
+      weight: 24
+      reason: Égypte ancienne + reine
+    - id: egypt-queen-woman
+      whenAll:
+        - card:civilization.ancient-egypt
+        - card:role.queen
+        - card:concept.female-figure
+      weight: 18
+      reason: Égypte ancienne + reine + femme
+  contradictions:
+    - id: modern-science
+      whenAll:
+        - card:period.20th-century
+        - card:domain.physics
+      weight: -25
+      reason: La science moderne éloigne de Cléopâtre.
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - role.pharaoh

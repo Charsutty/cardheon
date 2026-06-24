@@ -1,0 +1,14 @@
+id: concept.colonialism
+slug: concept-colonialism
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Colonialisme
+    subtitle: ""
+tags:
+  - tag: concept.colonialism
+    weight: 100
+  - tag: domain.politics
+    weight: 70

@@ -1,0 +1,54 @@
+id: figure.leonardo-da-vinci
+slug: figure-leonardo-da-vinci
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Léonard de Vinci
+    subtitle: Peintre, inventeur et savant
+    shortDescription: Génie de la Renaissance, auteur de la Joconde et de nombreux projets techniques.
+tags:
+  - tag: domain.arts
+    weight: 45
+  - tag: role.artist
+    weight: 40
+  - tag: period.renaissance
+    weight: 45
+  - tag: place.italy
+    weight: 35
+  - tag: role.inventor
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.italian-renaissance
+discovery:
+  figureId: figure.leonardo-da-vinci
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.arts
+      weight: 30
+      reason: Arts
+    - tag: period.renaissance
+      weight: 25
+      reason: Renaissance
+    - tag: place.italy
+      weight: 20
+      reason: Italie
+    - tag: role.artist
+      weight: 18
+      reason: Artiste
+  synergies:
+    - id: renaissance-artist-italy
+      whenAll:
+        - tag:period.renaissance
+        - tag:role.artist
+        - card:place.italy
+      weight: 18
+      reason: Renaissance italienne + artiste
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - work.mona-lisa

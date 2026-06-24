@@ -1,0 +1,49 @@
+id: figure.charles-darwin
+slug: figure-charles-darwin
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Charles Darwin
+    subtitle: Naturaliste
+    shortDescription: Auteur de la théorie de l’évolution par sélection naturelle.
+tags:
+  - tag: domain.biology
+    weight: 50
+  - tag: concept.evolution
+    weight: 55
+  - tag: place.england
+    weight: 30
+  - tag: period.19th-century
+    weight: 35
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.modern-sciences
+discovery:
+  figureId: figure.charles-darwin
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.biology
+      weight: 30
+      reason: Biologie
+    - tag: place.england
+      weight: 20
+      reason: Angleterre
+    - tag: period.19th-century
+      weight: 20
+      reason: XIXe siècle
+  synergies:
+    - id: biology-england-19th
+      whenAll:
+        - tag:domain.biology
+        - card:place.england
+        - tag:period.19th-century
+      weight: 18
+      reason: Biologie + Angleterre + XIXe
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - work.origin-of-species

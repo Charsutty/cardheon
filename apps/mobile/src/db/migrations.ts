@@ -1,6 +1,6 @@
 import type { SQLiteDatabase } from 'expo-sqlite'
 
-const DATABASE_VERSION = 3
+const DATABASE_VERSION = 4
 
 const V1_SCHEMA = `
   PRAGMA foreign_keys = ON;
@@ -193,6 +193,22 @@ const V3_SCHEMA = `
   ALTER TABLE cards ADD COLUMN unlocks_tool_card_ids_json TEXT;
 `
 
+const V4_SCHEMA = `
+  CREATE TABLE IF NOT EXISTS sync_events (
+    client_mutation_id TEXT PRIMARY KEY NOT NULL,
+    mutation_type TEXT NOT NULL,
+    payload_json TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    synced_at TEXT,
+    retry_count INTEGER NOT NULL DEFAULT 0,
+    last_error TEXT
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_sync_events_pending
+    ON sync_events(created_at)
+    WHERE synced_at IS NULL;
+`
+
 export async function migrateDatabase(db: SQLiteDatabase): Promise<void> {
   await db.execAsync('PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;')
 
@@ -257,6 +273,13 @@ export async function migrateDatabase(db: SQLiteDatabase): Promise<void> {
       }
 
       await db.execAsync('PRAGMA user_version = 3')
+    })
+  }
+
+  if (currentVersion < 4) {
+    await db.withTransactionAsync(async () => {
+      await db.execAsync(V4_SCHEMA)
+      await db.execAsync('PRAGMA user_version = 4')
     })
   }
 }

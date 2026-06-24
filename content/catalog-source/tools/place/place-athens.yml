@@ -1,0 +1,14 @@
+id: place.athens
+slug: place-athens
+kind: place
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Athènes
+    subtitle: ""
+tags:
+  - tag: place.athens
+    weight: 100
+  - tag: place.greece
+    weight: 70

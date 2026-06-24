@@ -1,0 +1,14 @@
+id: role.pharaoh
+slug: role-pharaoh
+kind: role
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Pharaon
+    subtitle: ""
+tags:
+  - tag: role.ruler
+    weight: 100
+  - tag: civilization.ancient-egypt
+    weight: 70

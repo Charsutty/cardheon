@@ -1,0 +1,16 @@
+id: movement.early-modern-medicine
+slug: movement-early-modern-medicine
+kind: movement
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Médecine savante médiévale
+    subtitle: ""
+tags:
+  - tag: movement.early-modern-medicine
+    weight: 100
+  - tag: domain.medicine
+    weight: 70
+  - tag: period.middle-ages
+    weight: 60

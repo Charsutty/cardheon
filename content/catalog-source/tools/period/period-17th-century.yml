@@ -1,0 +1,12 @@
+id: period.17th-century
+slug: period-17th-century
+kind: period
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: XVIIe siècle
+    subtitle: ""
+tags:
+  - tag: period.17th-century
+    weight: 100

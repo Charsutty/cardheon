@@ -1,0 +1,14 @@
+id: domain.nursing
+slug: domain-nursing
+kind: domain
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Soins infirmiers
+    subtitle: ""
+tags:
+  - tag: domain.nursing
+    weight: 100
+  - tag: domain.medicine
+    weight: 60

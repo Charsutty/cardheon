@@ -1,0 +1,14 @@
+id: concept.typography
+slug: concept-typography
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Typographie
+    subtitle: ""
+tags:
+  - tag: concept.typography
+    weight: 100
+  - tag: concept.printing
+    weight: 70

@@ -1,0 +1,12 @@
+id: place.germany
+slug: place-germany
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Allemagne
+    subtitle: ""
+tags:
+  - tag: place.germany
+    weight: 100

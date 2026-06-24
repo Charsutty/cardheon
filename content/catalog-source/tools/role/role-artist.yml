@@ -1,0 +1,14 @@
+id: role.artist
+slug: role-artist
+kind: role
+status: published
+rarity: common
+localization:
+  fr:
+    title: Artiste
+    subtitle: ""
+tags:
+  - tag: role.artist
+    weight: 100
+  - tag: domain.arts
+    weight: 70

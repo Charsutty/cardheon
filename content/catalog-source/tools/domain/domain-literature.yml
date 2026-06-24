@@ -1,0 +1,14 @@
+id: domain.literature
+slug: domain-literature
+kind: domain
+status: published
+rarity: common
+localization:
+  fr:
+    title: Littérature
+    subtitle: ""
+tags:
+  - tag: domain.literature
+    weight: 100
+  - tag: domain.arts
+    weight: 50

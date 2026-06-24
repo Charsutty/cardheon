@@ -1,0 +1,14 @@
+id: concept.heliocentrism
+slug: concept-heliocentrism
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Héliocentrisme
+    subtitle: ""
+tags:
+  - tag: concept.heliocentrism
+    weight: 100
+  - tag: domain.astronomy
+    weight: 80

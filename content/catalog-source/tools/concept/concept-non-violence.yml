@@ -1,0 +1,14 @@
+id: concept.non-violence
+slug: concept-non-violence
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Non-violence
+    subtitle: ""
+tags:
+  - tag: concept.non-violence
+    weight: 100
+  - tag: concept.civil-rights
+    weight: 70

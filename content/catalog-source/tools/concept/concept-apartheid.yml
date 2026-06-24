@@ -1,0 +1,14 @@
+id: concept.apartheid
+slug: concept-apartheid
+kind: concept
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Apartheid
+    subtitle: ""
+tags:
+  - tag: concept.apartheid
+    weight: 100
+  - tag: concept.civil-rights
+    weight: 70

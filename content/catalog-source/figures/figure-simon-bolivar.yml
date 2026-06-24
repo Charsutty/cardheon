@@ -1,0 +1,53 @@
+id: figure.simon-bolivar
+slug: figure-simon-bolivar
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Simón Bolívar
+    subtitle: Libérateur sud-américain
+    shortDescription: Chef militaire et politique à l’origine de l’indépendance de plusieurs pays d’Amérique du Sud.
+tags:
+  - tag: role.resistance
+    weight: 40
+  - tag: region.south-america
+    weight: 45
+  - tag: period.19th-century
+    weight: 40
+  - tag: domain.politics
+    weight: 30
+  - tag: concept.colonialism
+    weight: 30
+sourceIds:
+  - source.cardheon.test
+constellationIds: []
+discovery:
+  figureId: figure.simon-bolivar
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: region.south-america
+      weight: 30
+      reason: Amérique du Sud
+    - tag: role.resistance
+      weight: 25
+      reason: Libérateur
+    - tag: period.19th-century
+      weight: 20
+      reason: XIXe siècle
+    - tag: domain.politics
+      weight: 15
+      reason: Politique
+  synergies:
+    - id: south-america-resistance-19th
+      whenAll:
+        - card:region.south-america
+        - tag:role.resistance
+        - tag:period.19th-century
+      weight: 15
+      reason: Amérique du Sud + libérateur + XIXe
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - event.independence-south-america

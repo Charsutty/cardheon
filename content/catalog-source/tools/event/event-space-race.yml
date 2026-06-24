@@ -1,0 +1,16 @@
+id: event.space-race
+slug: event-space-race
+kind: event
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Course à l’espace
+    subtitle: ""
+tags:
+  - tag: event.space-race
+    weight: 100
+  - tag: concept.spaceflight
+    weight: 80
+  - tag: period.20th-century
+    weight: 80

@@ -1,0 +1,15 @@
+id: constellation.texts-and-transmission
+slug: textes-et-transmission
+localization:
+  fr:
+    title: Textes et transmission
+cardIds:
+  - figure.johannes-gutenberg
+  - figure.mary-wollstonecraft
+  - figure.plato
+  - figure.ibn-sina
+reward:
+  xp: 240
+  unlockCardIds:
+    - domain.literature
+    - concept.typography

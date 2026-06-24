@@ -1,0 +1,62 @@
+id: figure.aristote
+slug: figure-aristote
+kind: figure
+status: reviewed
+rarity: legendary
+localization:
+  fr:
+    title: Aristote
+    subtitle: Philosophe et scientifique
+    shortDescription: "Penseur grec aux vastes domaines : philosophie, biologie, physique, politique."
+tags:
+  - tag: domain.philosophy
+    weight: 45
+  - tag: domain.biology
+    weight: 30
+  - tag: domain.physics
+    weight: 25
+  - tag: place.athens
+    weight: 35
+  - tag: period.antiquity
+    weight: 45
+  - tag: concept.logic
+    weight: 45
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.greek-thinkers
+discovery:
+  figureId: figure.aristote
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: domain.philosophy
+      weight: 22
+      reason: Philosophie
+    - card: figure.plato
+      weight: 22
+      reason: Élève de Platon
+    - tag: period.antiquity
+      weight: 18
+      reason: Antiquité
+    - card: place.athens
+      weight: 15
+      reason: Athènes
+  synergies:
+    - id: plato-aristote
+      whenAll:
+        - card:figure.plato
+        - tag:domain.philosophy
+      weight: 18
+      reason: Platon + philosophie
+    - id: athens-philosophy-antiquity
+      whenAll:
+        - card:place.athens
+        - tag:domain.philosophy
+        - tag:period.antiquity
+      weight: 12
+      reason: Athènes antique + philosophie
+  contradictions: []
+  minEvidenceCount: 2
+unlocksToolCardIds:
+  - concept.logic

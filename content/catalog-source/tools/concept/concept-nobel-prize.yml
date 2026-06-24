@@ -1,0 +1,14 @@
+id: concept.nobel-prize
+slug: concept-nobel-prize
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Prix Nobel
+    subtitle: ""
+tags:
+  - tag: concept.nobel-prize
+    weight: 100
+  - tag: concept.award
+    weight: 80

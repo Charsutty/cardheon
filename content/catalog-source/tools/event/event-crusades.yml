@@ -1,0 +1,16 @@
+id: event.crusades
+slug: event-crusades
+kind: event
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Croisades
+    subtitle: ""
+tags:
+  - tag: event.crusades
+    weight: 100
+  - tag: period.middle-ages
+    weight: 80
+  - tag: concept.faith
+    weight: 60

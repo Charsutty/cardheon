@@ -1,0 +1,14 @@
+id: domain.statistics
+slug: domain-statistics
+kind: domain
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Statistiques
+    subtitle: ""
+tags:
+  - tag: domain.statistics
+    weight: 100
+  - tag: domain.mathematics
+    weight: 70

@@ -1,0 +1,59 @@
+id: figure.joan-of-arc
+slug: figure-joan-of-arc
+kind: figure
+status: reviewed
+rarity: epic
+localization:
+  fr:
+    title: Jeanne d’Arc
+    subtitle: Héroïne française
+    shortDescription: Chef de guerre et sainte, figure de la résistance française pendant la guerre de Cent Ans.
+tags:
+  - tag: place.france
+    weight: 40
+  - tag: period.middle-ages
+    weight: 45
+  - tag: role.resistance
+    weight: 35
+  - tag: concept.faith
+    weight: 30
+  - tag: concept.women-history
+    weight: 25
+sourceIds:
+  - source.cardheon.test
+constellationIds:
+  - constellation.sovereigns
+discovery:
+  figureId: figure.joan-of-arc
+  minScore: 82
+  ambiguityMargin: 12
+  evidence:
+    - tag: place.france
+      weight: 30
+      reason: France
+    - tag: period.middle-ages
+      weight: 28
+      reason: Moyen Âge
+    - tag: role.resistance
+      weight: 20
+      reason: Résistance
+    - tag: concept.faith
+      weight: 15
+      reason: Foi
+  synergies:
+    - id: france-middle-ages-faith
+      whenAll:
+        - card:place.france
+        - tag:period.middle-ages
+        - tag:concept.faith
+      weight: 12
+      reason: France médiévale + foi
+  contradictions:
+    - id: modern-france
+      whenAll:
+        - card:period.20th-century
+        - card:concept.radioactivity
+      weight: -25
+      reason: Jeanne d’Arc est médiévale.
+  minEvidenceCount: 2
+unlocksToolCardIds: []

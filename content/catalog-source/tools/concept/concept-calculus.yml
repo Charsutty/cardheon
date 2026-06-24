@@ -1,0 +1,16 @@
+id: concept.calculus
+slug: concept-calculus
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Calcul infinitésimal
+    subtitle: ""
+tags:
+  - tag: concept.calculus
+    weight: 100
+  - tag: domain.mathematics
+    weight: 80
+  - tag: domain.physics
+    weight: 50

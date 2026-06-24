@@ -1,0 +1,12 @@
+id: place.spain
+slug: place-spain
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: Espagne
+    subtitle: ""
+tags:
+  - tag: place.spain
+    weight: 100

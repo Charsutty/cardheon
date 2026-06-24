@@ -1,0 +1,16 @@
+id: concept.radioactivity
+slug: concept-radioactivity
+kind: concept
+status: published
+rarity: rare
+localization:
+  fr:
+    title: Radioactivité
+    subtitle: ""
+tags:
+  - tag: concept.radioactivity
+    weight: 100
+  - tag: domain.physics
+    weight: 70
+  - tag: domain.chemistry
+    weight: 50

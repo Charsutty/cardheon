@@ -1,0 +1,12 @@
+id: place.usa
+slug: place-usa
+kind: place
+status: published
+rarity: common
+localization:
+  fr:
+    title: États-Unis
+    subtitle: ""
+tags:
+  - tag: place.usa
+    weight: 100

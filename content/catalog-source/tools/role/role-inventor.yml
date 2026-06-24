@@ -1,0 +1,14 @@
+id: role.inventor
+slug: role-inventor
+kind: role
+status: published
+rarity: uncommon
+localization:
+  fr:
+    title: Inventeur
+    subtitle: ""
+tags:
+  - tag: role.inventor
+    weight: 100
+  - tag: domain.science
+    weight: 60

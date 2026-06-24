@@ -1,0 +1,16 @@
+id: work.principia
+slug: work-principia
+kind: work
+status: published
+rarity: epic
+localization:
+  fr:
+    title: Principes mathématiques
+    subtitle: ""
+tags:
+  - tag: work.principia
+    weight: 100
+  - tag: domain.physics
+    weight: 80
+  - tag: domain.mathematics
+    weight: 70

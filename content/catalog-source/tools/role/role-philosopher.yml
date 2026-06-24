@@ -1,0 +1,14 @@
+id: role.philosopher
+slug: role-philosopher
+kind: role
+status: published
+rarity: common
+localization:
+  fr:
+    title: Philosophe
+    subtitle: ""
+tags:
+  - tag: role.philosopher
+    weight: 100
+  - tag: domain.philosophy
+    weight: 80
