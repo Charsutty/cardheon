@@ -22,7 +22,7 @@ export async function loadProgress(
   const db = database ?? await getDatabase()
   await migrateLegacyProgress(db)
 
-  const [profile, cardRows, attemptRows, packRows, constellationRows] = await Promise.all([
+  const [profile, cardRows, attemptRows, rewardRows, packRows, constellationRows] = await Promise.all([
     db.getFirstAsync<{
       xp: number
       attempts: number
@@ -46,6 +46,9 @@ export async function loadProgress(
       score: number | null
       created_at: string
     }>('SELECT * FROM player_attempts ORDER BY created_at DESC'),
+    db.getAllAsync<{
+      id: string
+    }>('SELECT id FROM player_rewards ORDER BY claimed_at ASC'),
     db.getAllAsync<{
       pack_id: string
       state: PlayerPackState['state']
@@ -133,7 +136,7 @@ export async function loadProgress(
     lastDiscoveryResult: profile?.last_discovery_result_json
       ? (JSON.parse(profile.last_discovery_result_json) as DiscoveryResult)
       : undefined,
-    claimedRewardIds: [],
+    claimedRewardIds: rewardRows.map((row) => row.id),
     attemptHistory,
     packs,
     constellations,
@@ -188,6 +191,16 @@ export async function saveProgress(
         attempt.resultCardId ?? null,
         attempt.score ?? null,
         attempt.createdAt,
+      )
+    }
+
+    await db.runAsync('DELETE FROM player_rewards')
+    for (const rewardId of progress.claimedRewardIds) {
+      await db.runAsync(
+        `INSERT INTO player_rewards (id, reward_type, reward_value)
+         VALUES (?, 'unknown', ?)`,
+        rewardId,
+        rewardId,
       )
     }
 

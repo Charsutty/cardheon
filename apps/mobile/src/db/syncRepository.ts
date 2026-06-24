@@ -64,6 +64,17 @@ export async function listPendingSyncMutations(
   }))
 }
 
+export async function countPendingSyncMutations(database?: SQLiteDatabase): Promise<number> {
+  const db = database ?? await getDatabase()
+  const row = await db.getFirstAsync<{ count: number }>(
+    `SELECT COUNT(*) as count
+     FROM sync_events
+     WHERE synced_at IS NULL`,
+  )
+
+  return row?.count ?? 0
+}
+
 export async function markSyncMutationsSynced(
   clientMutationIds: string[],
   database?: SQLiteDatabase,
