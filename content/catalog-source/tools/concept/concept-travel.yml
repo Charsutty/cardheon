@@ -1,0 +1,13 @@
+id: concept.travel
+slug: concept-travel
+kind: concept
+status: published
+rarity: common
+localization:
+  fr:
+    title: Voyage
+tags:
+  - tag: concept.travel
+    weight: 100
+  - tag: domain.exploration
+    weight: 70
