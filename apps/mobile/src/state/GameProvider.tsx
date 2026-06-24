@@ -25,6 +25,7 @@ import { fetchCatalogManifest, type CatalogManifest } from '../services/catalogM
 import { fetchRemoteCatalog } from '../services/remoteCatalog'
 import { restoreOrSignInAnonymously, signOutSupabase, type SupabaseAuthState } from '../services/supabaseAuth'
 import { fetchRemoteProgress, saveRemoteProgress } from '../services/supabaseSync'
+import { callAttemptDiscovery } from '../services/serverDiscovery'
 
 export type CatalogSyncState = {
   status: 'local' | 'checking' | 'current' | 'updated' | 'remote_available' | 'error'
@@ -41,6 +42,11 @@ export type ProgressSyncState = {
   message?: string
 }
 
+export type DiscoveryLoadingState = {
+  status: 'idle' | 'submitting' | 'success' | 'error'
+  message?: string
+}
+
 type GameContextValue = {
   isReady: boolean
   progress: GameProgress
@@ -48,6 +54,7 @@ type GameContextValue = {
   catalogSync: CatalogSyncState
   auth: SupabaseAuthState | { status: 'loading' }
   progressSync: ProgressSyncState
+  discoveryLoading: DiscoveryLoadingState
   figureCards: Card[]
   toolCards: Card[]
   playableCards: Card[]
@@ -57,7 +64,7 @@ type GameContextValue = {
   refreshCatalog: () => Promise<void>
   saveToCloud: () => Promise<void>
   signOut: () => Promise<void>
-  discover: (inputCardIds: string[]) => DiscoveryResult
+  discover: (inputCardIds: string[]) => Promise<DiscoveryResult>
   resetProgress: () => void
 }
 
@@ -70,6 +77,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [auth, setAuth] = useState<SupabaseAuthState | { status: 'loading' }>({ status: 'loading' })
   const [progressSync, setProgressSync] = useState<ProgressSyncState>({
     status: 'local_only',
+  })
+  const [discoveryLoading, setDiscoveryLoading] = useState<DiscoveryLoadingState>({
+    status: 'idle',
   })
   const didLoadProgress = useRef(false)
   const didLoadRemoteProgress = useRef(false)
@@ -224,10 +234,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const discoveredCardIds = useMemo(() => getDiscoveredFigureIds(progress), [progress])
   const unlockedCardIds = useMemo(() => getUnlockedCardIds(progress), [progress])
 
-  const discover = useCallback(
+  const doLocalDiscovery = useCallback(
     (inputCardIds: string[]) => {
       const craftResult = attemptCraft(catalog, inputCardIds)
-      const result: DiscoveryResult = craftResult ?? attemptDiscovery(
+      return craftResult ?? attemptDiscovery(
         catalog,
         { discoveredCardIds, unlockedCardIds },
         inputCardIds,
@@ -236,7 +246,32 @@ export function GameProvider({ children }: { children: ReactNode }) {
           maxInputs: catalog.gameplay.discovery.maxInputs,
         },
       )
+    },
+    [catalog, discoveredCardIds, unlockedCardIds],
+  )
 
+  const discover = useCallback(
+    async (inputCardIds: string[]): Promise<DiscoveryResult> => {
+      setDiscoveryLoading({ status: 'submitting' })
+
+      if (auth.status === 'authenticated') {
+        try {
+          const serverResponse = await callAttemptDiscovery(
+            auth.session.accessToken,
+            inputCardIds,
+          )
+
+          setProgress((current) => applyServerProgress(current, serverResponse, inputCardIds))
+
+          setDiscoveryLoading({ status: 'success' })
+          return serverResponse.result
+        } catch (error) {
+          console.warn('Server discovery failed, falling back to local', error)
+        }
+      }
+
+      // Local fallback
+      const result = doLocalDiscovery(inputCardIds)
       setProgress((current) => {
         let next = recordAttempt(
           current,
@@ -257,9 +292,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
         return next
       })
 
+      setDiscoveryLoading({ status: 'success' })
       return result
     },
-    [catalog, discoveredCardIds, unlockedCardIds],
+    [auth, catalog, doLocalDiscovery],
   )
 
   const resetProgress = useCallback(() => {
@@ -333,6 +369,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       catalogSync,
       auth,
       progressSync,
+      discoveryLoading,
       figureCards,
       toolCards,
       playableCards,
@@ -349,6 +386,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       catalog,
       catalogSync,
       discover,
+      discoveryLoading,
       figureCards,
       getCard,
       getConnections,
@@ -472,6 +510,34 @@ function applyRewards(progress: GameProgress, rewards: Reward[]): GameProgress {
         break
     }
   }
+
+  return next
+}
+
+function applyServerProgress(
+  current: GameProgress,
+  response: { result: DiscoveryResult; progress: { xp: number; attempts: number; discoveredFigureIds: string[] } },
+  inputCardIds: string[],
+): GameProgress {
+  const { result, progress: serverProgress } = response
+  let next = recordAttempt(
+    current,
+    inputCardIds,
+    result.type,
+    result.type === 'new_figure' || result.type === 'already_discovered' ? result.cardId : undefined,
+    result.type === 'new_figure' || result.type === 'already_discovered' ? result.score : undefined,
+  )
+
+  if (result.type === 'new_figure') {
+    next = applyRewards(next, result.rewards)
+    next = { ...next, lastDiscoveryId: result.cardId, lastDiscoveryResult: result }
+  } else if (result.type === 'craft') {
+    next = applyRewards(next, result.rewards)
+    next = { ...next, lastDiscoveryResult: result }
+  }
+
+  // Override with authoritative server values (XP already counted in rewards above, fine to override)
+  next = { ...next, xp: serverProgress.xp, attempts: serverProgress.attempts }
 
   return next
 }

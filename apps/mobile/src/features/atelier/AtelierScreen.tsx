@@ -15,8 +15,8 @@ export function AtelierScreen() {
   const atelier = useAtelier()
   const completion = getCompletion(progress, figureCards.length)
 
-  const handleAttempt = () => {
-    const result = atelier.attempt()
+  const handleAttempt = async () => {
+    const result = await atelier.attempt()
     if (result.type === 'new_figure') router.push('/new-discovery')
   }
 
@@ -30,6 +30,12 @@ export function AtelierScreen() {
         <Text color="$muted" fontSize={11} lineHeight={16} textAlign="center">
           Combine les cartes pour révéler une figure historique.
         </Text>
+        {atelier.isSubmitting ? (
+          <Text color="$accent" fontSize={11}>Les indices résonnent…</Text>
+        ) : null}
+        {atelier.discoveryError ? (
+          <Text color="$error" fontSize={10}>{atelier.discoveryError}</Text>
+        ) : null}
       </YStack>
 
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -63,6 +69,7 @@ export function AtelierScreen() {
         craftPreview={atelier.craftPreview}
         onAttempt={handleAttempt}
         onClear={atelier.clearSelection}
+        disabled={atelier.isSubmitting}
       />
     </CardheonScreen>
   )

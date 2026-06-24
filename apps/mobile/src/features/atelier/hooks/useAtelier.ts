@@ -90,8 +90,8 @@ export function useAtelier() {
     setResult(null)
   }
 
-  const attempt = () => {
-    const nextResult = game.discover(selectedIds)
+  const attempt = async () => {
+    const nextResult = await game.discover(selectedIds)
     setResult(nextResult)
     if (nextResult.type === 'new_figure') setSelectedIds([])
     return nextResult
@@ -109,6 +109,8 @@ export function useAtelier() {
     maxSelection,
     craftPreview,
     canAttempt: selectedIds.length >= minSelection || Boolean(craftPreview),
+    isSubmitting: game.discoveryLoading.status === 'submitting',
+    discoveryError: game.discoveryLoading.status === 'error' ? game.discoveryLoading.message : null,
     setFilter,
     setSearchQuery,
     toggleCard,

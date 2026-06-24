@@ -10,16 +10,17 @@ type AtelierActionsProps = {
   craftPreview?: DiscoveryResult | null
   onAttempt: () => void
   onClear: () => void
+  disabled?: boolean
 }
 
-export function AtelierActions({ selectionCount, maxSelection, canAttempt, craftPreview, onAttempt, onClear }: AtelierActionsProps) {
+export function AtelierActions({ selectionCount, maxSelection, canAttempt, craftPreview, onAttempt, onClear, disabled }: AtelierActionsProps) {
   const { getCard } = useGame()
   const isCraft = craftPreview?.type === 'craft'
   const outputTitle = isCraft ? getCard(craftPreview.outputCardId)?.localization.fr?.title : undefined
 
   return (
     <YStack gap="$2">
-      <CardheonButton disabled={!canAttempt} onPress={onAttempt}>
+      <CardheonButton disabled={disabled || !canAttempt} onPress={onAttempt}>
         {isCraft ? `CRÉER ${outputTitle ?? 'UNE CARTE'}` : `COMBINER · ${selectionCount} / ${maxSelection}`}
       </CardheonButton>
       {selectionCount > 0 ? (
