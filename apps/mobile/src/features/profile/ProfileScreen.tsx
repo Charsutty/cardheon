@@ -22,9 +22,8 @@ export function ProfileScreen() {
     progress,
     progressSync,
     resetProgress,
-    restoreFromCloud,
     signOut,
-    syncNow,
+    saveToCloud,
   } = useGame()
   const completion = getCompletion(progress, figureCards.length)
   const percentage = getCompletionPercentage(progress, figureCards.length)
@@ -47,8 +46,7 @@ export function ProfileScreen() {
       <CloudStatusPanel
         auth={auth}
         progressSync={progressSync}
-        onRestore={restoreFromCloud}
-        onSync={syncNow}
+        onSync={saveToCloud}
         onSignOut={signOut}
       />
       <YStack borderRadius="$3" borderWidth={1} borderColor="$border" backgroundColor="$surface" overflow="hidden">
@@ -77,18 +75,16 @@ function CloudStatusPanel({
   auth,
   progressSync,
   onSync,
-  onRestore,
   onSignOut,
 }: {
   auth: SupabaseAuthState | { status: 'loading' }
   progressSync: ProgressSyncState
   onSync: () => Promise<void>
-  onRestore: () => Promise<void>
   onSignOut: () => Promise<void>
 }) {
   const authView = authStatusView(auth)
   const syncView = progressSyncStatusView(progressSync)
-  const canSync = auth.status === 'authenticated' && progressSync.status !== 'syncing'
+  const canSync = auth.status === 'authenticated' && progressSync.status !== 'saving' && progressSync.status !== 'loading'
 
   return (
     <YStack borderRadius="$3" borderWidth={1} borderColor="$border" backgroundColor="$surface" padding="$3" gap="$3">
@@ -105,9 +101,6 @@ function CloudStatusPanel({
       <YStack gap="$2">
         <CardheonButton variant="secondary" onPress={onSync} disabled={!canSync}>
           SYNCHRONISER
-        </CardheonButton>
-        <CardheonButton variant="secondary" onPress={onRestore} disabled={!canSync}>
-          RESTAURER
         </CardheonButton>
         {auth.status === 'authenticated' ? (
           <CardheonButton variant="secondary" onPress={onSignOut}>
@@ -158,42 +151,38 @@ function progressSyncStatusView(progressSync: ProgressSyncState): {
   detail: string
   color: '$goldDark' | '$muted' | '$ink'
 } {
-  const pending = progressSync.pendingMutations
-
   switch (progressSync.status) {
-    case 'pending':
+    case 'loading':
       return {
-        label: 'EN ATTENTE',
-        detail: `${pending} mutation${pending > 1 ? 's' : ''} à envoyer.`,
+        label: 'CHARGEMENT',
+        detail: 'Lecture de la progression cloud.',
         color: '$goldDark',
       }
-    case 'syncing':
+    case 'saving':
       return {
-        label: 'SYNCHRO',
-        detail: `${pending} mutation${pending > 1 ? 's' : ''} en cours.`,
+        label: 'SAUVEGARDE',
+        detail: 'Envoi de la progression vers Supabase.',
         color: '$goldDark',
       }
-    case 'synced':
+    case 'saved':
       return {
-        label: 'À JOUR',
+        label: 'SAUVEGARDÉE',
         detail: progressSync.lastSyncedAt
           ? `Dernière sync ${new Date(progressSync.lastSyncedAt).toLocaleString()}`
-          : 'Aucune mutation en attente.',
+          : progressSync.message ?? 'Progression cloud prête.',
         color: '$ink',
       }
     case 'error':
       return {
         label: 'ERREUR',
-        detail: progressSync.message ?? `${pending} mutation${pending > 1 ? 's' : ''} conservée${pending > 1 ? 's' : ''}.`,
+        detail: progressSync.message ?? 'Sauvegarde cloud indisponible.',
         color: '$goldDark',
       }
     case 'local_only':
     default:
       return {
         label: 'LOCAL',
-        detail: pending > 0
-          ? `${pending} mutation${pending > 1 ? 's' : ''} gardée${pending > 1 ? 's' : ''} localement.`
-          : 'Aucune mutation en attente.',
+        detail: progressSync.message ?? 'Progression gardée sur cet appareil.',
         color: '$muted',
       }
   }
