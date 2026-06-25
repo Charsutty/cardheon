@@ -1,4 +1,5 @@
 import { CardheonButton, CardheonHeader, CardheonScreen } from '@cardheon/ui'
+import { Alert } from 'react-native'
 import { Text, XStack, YStack } from 'tamagui'
 import { MetricGrid } from '../../components/stats/MetricGrid'
 import { getCompletion, getCompletionPercentage } from '../../game/progress'
@@ -32,6 +33,20 @@ export function ProfileScreen() {
     { value: `${percentage}%`, label: 'Collection' },
     { value: String(progress.attempts), label: 'Tentatives' },
   ]
+  const confirmReset = () => {
+    Alert.alert(
+      'Réinitialiser la partie ?',
+      'Cette action efface la progression locale et revient au pack de départ.',
+      [
+        { text: 'Annuler', style: 'cancel' },
+        { text: 'Réinitialiser', style: 'destructive', onPress: resetProgress },
+      ],
+    )
+  }
+
+  const showComingSoon = (label: string) => {
+    Alert.alert(label, 'Cette section sera activée dans une prochaine version du profil.')
+  }
 
   return (
     <CardheonScreen>
@@ -53,6 +68,7 @@ export function ProfileScreen() {
         {menuItems.map(([icon, label], index) => (
           <XStack
             key={label}
+            onPress={() => showComingSoon(label)}
             minHeight={48}
             alignItems="center"
             paddingHorizontal="$3"
@@ -66,7 +82,7 @@ export function ProfileScreen() {
           </XStack>
         ))}
       </YStack>
-      <CardheonButton variant="secondary" onPress={resetProgress}>RÉINITIALISER LA PARTIE</CardheonButton>
+      <CardheonButton variant="secondary" onPress={confirmReset}>RÉINITIALISER LA PARTIE</CardheonButton>
     </CardheonScreen>
   )
 }

@@ -9,6 +9,7 @@ export type CardheonScreenProps = {
 export function CardheonScreen({ children, scroll = true }: CardheonScreenProps) {
   const content = (
     <YStack
+      flex={scroll ? undefined : 1}
       minHeight="100%"
       width="100%"
       maxWidth={430}

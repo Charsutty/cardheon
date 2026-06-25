@@ -46,7 +46,7 @@ export function ClueGrid({ cards, selectedIds, minSelection = 2, maxSelection = 
         ))}
         {canAddMore ? (
           <>
-            {Array.from({ length: Math.min(remainingSlots, 2) }, (_, index) => (
+            {Array.from({ length: remainingSlots }, (_, index) => (
               <EmptyClueSlot key={`empty-${index}`} />
             ))}
           </>

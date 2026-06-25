@@ -23,8 +23,8 @@ export function NewDiscoveryScreen() {
     <CardheonScreen>
       <DiscoveryCelebration card={card} result={progress.lastDiscoveryResult} />
       <DiscoveryActions
-        onViewCollection={() => router.replace('/collection')}
-        onExploreLinks={() => router.replace('/map')}
+        onViewCollection={() => router.replace(`/card/${card.id}` as never)}
+        onExploreLinks={() => router.replace({ pathname: '/map', params: { focus: card.id } })}
         onContinue={() => router.replace('/')}
       />
     </CardheonScreen>

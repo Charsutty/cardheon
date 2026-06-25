@@ -4,9 +4,12 @@ import { ScrollView, Text, YStack } from 'tamagui'
 import { getCompletion } from '../../game/progress'
 import { useGame } from '../../state/GameProvider'
 import { AtelierActions } from './components/AtelierActions'
+import { AttemptHistoryPanel } from './components/AttemptHistoryPanel'
 import { ClueGrid } from './components/ClueGrid'
 import { DiscoveryResultPanel } from './components/DiscoveryResultPanel'
 import { HandPanel } from './components/HandPanel'
+import { HypothesisFeedbackPanel } from './components/HypothesisFeedbackPanel'
+import { RecommendedCardsPanel } from './components/RecommendedCardsPanel'
 import { useAtelier } from './hooks/useAtelier'
 
 export function AtelierScreen() {
@@ -21,7 +24,7 @@ export function AtelierScreen() {
   }
 
   return (
-    <CardheonScreen>
+    <CardheonScreen scroll={false}>
       <CardheonHeader coins={progress.xp} />
       <CollectionProgressPanel {...completion} />
 
@@ -38,13 +41,24 @@ export function AtelierScreen() {
         ) : null}
       </YStack>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <YStack gap="$4" paddingBottom="$4">
+      <ScrollView flex={1} showsVerticalScrollIndicator={false}>
+        <YStack gap="$4" paddingBottom="$3">
           <ClueGrid
             cards={atelier.allCards}
             selectedIds={atelier.selectedIds}
             minSelection={atelier.minSelection}
             maxSelection={atelier.maxSelection}
+            onToggle={atelier.toggleCard}
+          />
+          <HypothesisFeedbackPanel
+            selectionCount={atelier.selectedIds.length}
+            minSelection={atelier.minSelection}
+            maxSelection={atelier.maxSelection}
+            craftPreview={atelier.craftPreview}
+          />
+          <RecommendedCardsPanel
+            cards={atelier.recommendedCards}
+            selectedIds={atelier.selectedIds}
             onToggle={atelier.toggleCard}
           />
 
@@ -59,6 +73,7 @@ export function AtelierScreen() {
           />
 
           {atelier.result ? <DiscoveryResultPanel result={atelier.result} /> : null}
+          <AttemptHistoryPanel />
         </YStack>
       </ScrollView>
 

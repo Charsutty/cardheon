@@ -6,13 +6,16 @@ export type QuestItemProps = {
   current: number
   target: number
   reward: number
+  onPress?: () => void
 }
 
-export function QuestItem({ title, description, current, target, reward }: QuestItemProps) {
+export function QuestItem({ title, description, current, target, reward, onPress }: QuestItemProps) {
   const progress = Math.max(0, Math.min(1, current / target))
 
   return (
     <XStack
+      onPress={onPress}
+      pressStyle={onPress ? { scale: 0.99 } : undefined}
       borderRadius="$3"
       borderWidth={1}
       borderColor="$border"

@@ -1,18 +1,27 @@
 import { CardheonButton, CardheonHeader, CardheonScreen, CategoryPill } from '@cardheon/ui'
 import type { Card, Constellation } from '@cardheon/game-engine'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
+import { useLocalSearchParams, useRouter } from 'expo-router'
 import { Text, XStack, YStack } from 'tamagui'
 import { ScreenHeading } from '../src/components/layout/ScreenHeading'
+import { ConstellationPicker } from '../src/features/map/ConstellationPicker'
 import { getFrenchSubtitle, getFrenchTitle } from '../src/game/catalog'
 import { useGame } from '../src/state/GameProvider'
 
 export default function KnowledgeMapScreen() {
+  const router = useRouter()
+  const { constellation: constellationId, focus } = useLocalSearchParams<{ constellation?: string; focus?: string }>()
+  const [viewMode, setViewMode] = useState<'map' | 'list'>('map')
   const { catalog, progress } = useGame()
   const discoveredCardIds = useMemo(
     () => Object.values(progress.cardStates).filter((s) => s.state === 'discovered' || s.state === 'mastered').map((s) => s.cardId),
     [progress.cardStates],
   )
-  const constellation = selectActiveConstellation(catalog.constellations, discoveredCardIds)
+  const constellation = constellationId
+    ? catalog.constellations.find((item) => item.id === constellationId) ?? selectActiveConstellation(catalog.constellations, discoveredCardIds)
+    : focus
+    ? catalog.constellations.find((item) => item.cardIds.includes(focus)) ?? selectActiveConstellation(catalog.constellations, discoveredCardIds)
+    : selectActiveConstellation(catalog.constellations, discoveredCardIds)
   const cardsById = new Map(catalog.cards.map((card) => [card.id, card]))
   const nodes = constellation?.cardIds
     .map((cardId) => cardsById.get(cardId))
@@ -28,9 +37,16 @@ export default function KnowledgeMapScreen() {
       />
 
       <XStack gap="$2">
-        <CategoryPill label="Carte" active />
-        <CategoryPill label="Liste" />
+        <CategoryPill label="Carte" active={viewMode === 'map'} onPress={() => setViewMode('map')} />
+        <CategoryPill label="Liste" active={viewMode === 'list'} onPress={() => setViewMode('list')} />
       </XStack>
+
+      <ConstellationPicker
+        catalog={catalog}
+        discoveredCardIds={discoveredCardIds}
+        selectedId={constellation?.id}
+        onSelect={(nextConstellationId) => router.replace({ pathname: '/map', params: { constellation: nextConstellationId } })}
+      />
 
       <YStack
         minHeight={460}
@@ -42,15 +58,47 @@ export default function KnowledgeMapScreen() {
         gap="$4"
         justifyContent="center"
       >
-        <XStack flexWrap="wrap" justifyContent="center" gap="$4">
-          {nodes.map((card) => (
-            <KnowledgeNode
-              key={card.id}
-              card={card}
-              discovered={discoveredCardIds.includes(card.id)}
-            />
-          ))}
-        </XStack>
+        {viewMode === 'map' ? (
+          <XStack flexWrap="wrap" justifyContent="center" gap="$4">
+            {nodes.map((card) => (
+              <KnowledgeNode
+                key={card.id}
+                card={card}
+                discovered={discoveredCardIds.includes(card.id)}
+                focused={focus === card.id}
+                onPress={() => router.push(`/card/${card.id}` as never)}
+              />
+            ))}
+          </XStack>
+        ) : (
+          <YStack gap="$2">
+            {nodes.map((card) => {
+              const discovered = discoveredCardIds.includes(card.id)
+              return (
+                <XStack
+                  key={card.id}
+                  onPress={discovered ? () => router.push(`/card/${card.id}` as never) : undefined}
+                  minHeight={48}
+                  alignItems="center"
+                  padding="$3"
+                  borderRadius="$2"
+                  borderWidth={1}
+                  borderColor={focus === card.id ? '$gold' : '$border'}
+                  backgroundColor={discovered ? '$surface' : '$surfaceMuted'}
+                  gap="$3"
+                >
+                  <Text color={discovered ? '$goldDark' : '$muted'} fontFamily="$heading" fontSize={18} fontWeight="700">
+                    {discovered ? getFrenchTitle(card).charAt(0).toUpperCase() : '?'}
+                  </Text>
+                  <YStack flex={1}>
+                    <Text color="$ink" fontSize={11} fontWeight="800">{discovered ? getFrenchTitle(card).toUpperCase() : 'À DÉCOUVRIR'}</Text>
+                    <Text color="$muted" fontSize={9}>{getFrenchSubtitle(card)}</Text>
+                  </YStack>
+                </XStack>
+              )
+            })}
+          </YStack>
+        )}
 
         {constellation ? <ConstellationCore constellation={constellation} /> : null}
 
@@ -61,7 +109,7 @@ export default function KnowledgeMapScreen() {
         ) : null}
       </YStack>
 
-      <CardheonButton variant="secondary">
+      <CardheonButton variant="secondary" onPress={() => router.push('/collection')}>
         {constellation?.localization.fr?.title
           ? `EXPLORER ${constellation.localization.fr.title.toUpperCase()}`
           : 'EXPLORER LE CATALOGUE'}
@@ -108,17 +156,28 @@ function ConstellationCore({ constellation }: { constellation: Constellation }) 
   )
 }
 
-function KnowledgeNode({ card, discovered }: { card: Card; discovered: boolean }) {
+function KnowledgeNode({
+  card,
+  discovered,
+  focused,
+  onPress,
+}: {
+  card: Card
+  discovered: boolean
+  focused: boolean
+  onPress: () => void
+}) {
   const title = getFrenchTitle(card)
 
   return (
     <YStack width={104} alignItems="center" gap="$1">
       <XStack
+        onPress={discovered ? onPress : undefined}
         width={66}
         height={66}
         borderRadius={33}
         borderWidth={2}
-        borderColor={discovered ? '$gold' : '$border'}
+        borderColor={focused ? '$goldDark' : discovered ? '$gold' : '$border'}
         backgroundColor={discovered ? '$goldPale' : '$surfaceMuted'}
         alignItems="center"
         justifyContent="center"
