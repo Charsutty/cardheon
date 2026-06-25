@@ -1,4 +1,4 @@
-version: 0.2.2-test
+version: 0.3.0-test
 gameplay:
   discovery:
     minInputs: 2
@@ -30,20 +30,20 @@ gameplay:
           reason: La Rome antique émerge de l’Italie et de l’Antiquité.
     - id: recipe.radioactivity
       inputs:
-        - domain.physics
-        - domain.mathematics
+        - domain.science
+        - period.20th-century
       outputCardId: concept.radioactivity
       localization:
         fr:
-          reason: La radioactivité est une découverte de la physique mathématique.
+          reason: La radioactivité appartient aux sciences modernes du XXe siècle.
     - id: recipe.astronomy
       inputs:
-        - domain.physics
+        - domain.science
         - period.renaissance
       outputCardId: domain.astronomy
       localization:
         fr:
-          reason: L’astronomie moderne naît de la physique et de la Renaissance.
+          reason: L’astronomie moderne naît de la science et de la Renaissance.
     - id: recipe.evolution
       inputs:
         - domain.biology
@@ -71,19 +71,19 @@ gameplay:
     - id: recipe.athens
       inputs:
         - place.greece
-        - domain.philosophy
+        - period.antiquity
       outputCardId: place.athens
       localization:
         fr:
-          reason: Athènes devient le foyer de la philosophie grecque.
+          reason: Athènes devient un foyer majeur de la Grèce antique.
     - id: recipe.alexandria
       inputs:
         - place.egypt
-        - domain.mathematics
+        - period.antiquity
       outputCardId: place.alexandria
       localization:
         fr:
-          reason: Alexandrie devient le centre des savoirs mathématiques.
+          reason: Alexandrie devient un centre majeur de l’Égypte antique.
     - id: recipe.queen
       inputs:
         - role.ruler
@@ -102,20 +102,20 @@ gameplay:
           reason: L’artiste se distingue dans la Renaissance.
     - id: recipe.explorer
       inputs:
-        - role.resistance
-        - period.renaissance
+        - domain.exploration
+        - concept.travel
       outputCardId: role.explorer
       localization:
         fr:
-          reason: L’esprit d’aventure renaît de la Renaissance.
+          reason: L’explorateur naît de l’exploration et du voyage.
     - id: recipe.civil-rights
       inputs:
-        - concept.female-figure
+        - domain.politics
         - role.resistance
       outputCardId: concept.civil-rights
       localization:
         fr:
-          reason: La résistance des femmes préfigure les droits civiques.
+          reason: Les droits civiques émergent de la politique et de la résistance.
     - id: recipe.pastor
       inputs:
         - concept.faith
@@ -142,12 +142,12 @@ gameplay:
           reason: Le bouddhisme naît dans l’Inde antique.
     - id: recipe.usa
       inputs:
-        - place.england
+        - domain.politics
         - period.20th-century
       outputCardId: place.usa
       localization:
         fr:
-          reason: Les États-Unis émergent comme puissance du XXe siècle.
+          reason: Les États-Unis s’affirment comme puissance politique du XXe siècle.
     - id: recipe.spain
       inputs:
         - place.italy
@@ -174,12 +174,12 @@ gameplay:
           reason: L’Afrique du Sud entre dans l’histoire du XXe siècle.
     - id: recipe.india
       inputs:
-        - place.egypt
-        - period.middle-ages
+        - domain.exploration
+        - period.antiquity
       outputCardId: place.india
       localization:
         fr:
-          reason: L’Inde médiévale s’illumine comme l’Égypte.
+          reason: L’exploration des mondes anciens ouvre vers l’Inde.
     - id: recipe.south-america
       inputs:
         - place.england

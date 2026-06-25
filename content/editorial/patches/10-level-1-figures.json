@@ -1,0 +1,171 @@
+{
+  "cardPatches": [
+    {
+      "id": "figure.cleopatra",
+      "set": {
+        "rarity": "common",
+        "discovery": {
+          "figureId": "figure.cleopatra",
+          "minScore": 70,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "card": "civilization.ancient-egypt", "weight": 35, "reason": "Égypte ancienne" },
+            { "card": "role.queen", "weight": 35, "reason": "Reine d'Égypte" },
+            { "tag": "place.egypt", "weight": 25, "reason": "Égypte" },
+            { "tag": "period.antiquity", "weight": 24, "reason": "Antiquité" },
+            { "tag": "role.ruler", "weight": 24, "reason": "Souveraineté" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "role.pharaoh"
+        ]
+      }
+    },
+    {
+      "id": "figure.socrate",
+      "set": {
+        "rarity": "common",
+        "discovery": {
+          "figureId": "figure.socrate",
+          "minScore": 70,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "place.greece", "weight": 25, "reason": "Grèce" },
+            { "tag": "period.antiquity", "weight": 24, "reason": "Antiquité" },
+            { "tag": "domain.philosophy", "weight": 24, "reason": "Philosophie" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "concept.socratic-method",
+          "place.athens"
+        ]
+      }
+    },
+    {
+      "id": "figure.joan-of-arc",
+      "set": {
+        "rarity": "common",
+        "discovery": {
+          "figureId": "figure.joan-of-arc",
+          "minScore": 70,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "place.france", "weight": 25, "reason": "France" },
+            { "tag": "period.middle-ages", "weight": 24, "reason": "Moyen Âge" },
+            { "tag": "concept.faith", "weight": 24, "reason": "Foi" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "role.resistance"
+        ]
+      }
+    },
+    {
+      "id": "figure.leonardo-da-vinci",
+      "set": {
+        "rarity": "uncommon",
+        "discovery": {
+          "figureId": "figure.leonardo-da-vinci",
+          "minScore": 70,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "place.italy", "weight": 25, "reason": "Italie" },
+            { "tag": "period.renaissance", "weight": 24, "reason": "Renaissance" },
+            { "tag": "domain.arts", "weight": 24, "reason": "Arts" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "work.mona-lisa",
+          "role.inventor"
+        ]
+      }
+    },
+    {
+      "id": "figure.marie-curie",
+      "set": {
+        "rarity": "uncommon",
+        "discovery": {
+          "figureId": "figure.marie-curie",
+          "minScore": 72,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "domain.science", "weight": 25, "reason": "Science" },
+            { "tag": "period.20th-century", "weight": 24, "reason": "XXe siècle" },
+            { "tag": "place.france", "weight": 24, "reason": "France" },
+            { "tag": "role.scientist", "weight": 18, "reason": "Scientifique" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "domain.physics",
+          "domain.chemistry",
+          "concept.radioactivity",
+          "place.poland"
+        ]
+      }
+    },
+    {
+      "id": "figure.christopher-columbus",
+      "set": {
+        "rarity": "common",
+        "discovery": {
+          "figureId": "figure.christopher-columbus",
+          "minScore": 70,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "domain.exploration", "weight": 25, "reason": "Exploration" },
+            { "tag": "period.renaissance", "weight": 24, "reason": "Renaissance" },
+            { "tag": "concept.travel", "weight": 24, "reason": "Voyage" },
+            { "tag": "role.explorer", "weight": 18, "reason": "Explorateur" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "place.spain",
+          "symbol.compass"
+        ]
+      }
+    },
+    {
+      "id": "figure.martin-luther-king",
+      "set": {
+        "rarity": "uncommon",
+        "discovery": {
+          "figureId": "figure.martin-luther-king",
+          "minScore": 72,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "place.usa", "weight": 25, "reason": "États-Unis" },
+            { "tag": "period.20th-century", "weight": 24, "reason": "XXe siècle" },
+            { "tag": "domain.politics", "weight": 24, "reason": "Politique" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "concept.civil-rights",
+          "concept.non-violence",
+          "role.pastor",
+          "event.american-civil-rights"
+        ]
+      }
+    }
+  ]
+}

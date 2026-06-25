@@ -7,8 +7,18 @@ import type { Card, Constellation, GameCatalog, Pack, Relationship, Source } fro
 const DEFAULT_INPUT = "content/catalog.dev.json";
 const DEFAULT_OUTPUT = "dist/catalog.local.json";
 const SOURCE_ROOT = existsSync(resolve(process.cwd(), "content/catalog-source")) ? "content/catalog-source" : "content";
+const EDITORIAL_PATCH_ROOT = "content/editorial/patches";
 
 type RawYaml = Record<string, unknown>;
+type JsonObject = Record<string, unknown>;
+type CatalogPatch = {
+  version?: string;
+  upsertCards?: Card[];
+  cardPatches?: Array<{ id: string; set: Partial<Card> }>;
+  packPatches?: Array<{ id: string; starterCardIds?: string[]; cardPoolIds?: string[] } & Partial<Pack>>;
+  constellationPatches?: Array<{ id: string; cardIds?: string[] } & Partial<Constellation>>;
+  relationshipUpserts?: Relationship[];
+};
 
 function readYamlFiles(directory: string): RawYaml[] {
   const absoluteDirectory = resolve(process.cwd(), directory);
@@ -61,6 +71,86 @@ function normalizeTags(rawTags: unknown): Card["tags"] {
     }
     return [];
   });
+}
+
+function isObject(value: unknown): value is JsonObject {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function deepMerge<T>(target: T, patch: unknown): T {
+  if (!isObject(target) || !isObject(patch)) return patch as T;
+  const output: JsonObject = { ...target };
+  for (const [key, value] of Object.entries(patch)) {
+    output[key] = isObject(value) && isObject(output[key]) ? deepMerge(output[key], value) : value;
+  }
+  return output as T;
+}
+
+function upsertById<T extends { id: string }>(items: T[], item: T): T[] {
+  const index = items.findIndex((candidate) => candidate.id === item.id);
+  if (index === -1) return [...items, item];
+  return items.map((candidate, candidateIndex) => candidateIndex === index ? item : candidate);
+}
+
+function readEditorialPatches(): CatalogPatch[] {
+  const absoluteDirectory = resolve(process.cwd(), EDITORIAL_PATCH_ROOT);
+  if (!existsSync(absoluteDirectory)) return [];
+  return readdirSync(absoluteDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && /\.json$/i.test(entry.name))
+    .map((entry) => join(absoluteDirectory, entry.name))
+    .sort((a, b) => a.localeCompare(b))
+    .map((file) => JSON.parse(readFileSync(file, "utf8")) as CatalogPatch);
+}
+
+function relationshipKey(relationship: Relationship): string {
+  return `${relationship.source}\u0000${relationship.predicate}\u0000${relationship.target}`;
+}
+
+function applyEditorialPatches(catalog: GameCatalog): GameCatalog {
+  let patched: GameCatalog = {
+    ...catalog,
+    cards: [...catalog.cards],
+    relationships: [...catalog.relationships],
+    constellations: [...catalog.constellations],
+    packs: [...catalog.packs],
+    sources: [...catalog.sources],
+    gameplay: { ...catalog.gameplay },
+  };
+
+  for (const patch of readEditorialPatches()) {
+    if (patch.version) patched = { ...patched, version: patch.version };
+
+    for (const card of patch.upsertCards ?? []) {
+      patched.cards = upsertById(patched.cards, card);
+    }
+
+    for (const cardPatch of patch.cardPatches ?? []) {
+      patched.cards = patched.cards.map((card) =>
+        card.id === cardPatch.id ? deepMerge(card, cardPatch.set) : card,
+      );
+    }
+
+    for (const packPatch of patch.packPatches ?? []) {
+      patched.packs = patched.packs.map((pack) =>
+        pack.id === packPatch.id ? deepMerge(pack, packPatch) : pack,
+      );
+    }
+
+    for (const constellationPatch of patch.constellationPatches ?? []) {
+      patched.constellations = patched.constellations.map((constellation) =>
+        constellation.id === constellationPatch.id ? deepMerge(constellation, constellationPatch) : constellation,
+      );
+    }
+
+    for (const relationship of patch.relationshipUpserts ?? []) {
+      const index = patched.relationships.findIndex((candidate) => relationshipKey(candidate) === relationshipKey(relationship));
+      patched.relationships = index === -1
+        ? [...patched.relationships, relationship]
+        : patched.relationships.map((candidate, candidateIndex) => candidateIndex === index ? relationship : candidate);
+    }
+  }
+
+  return patched;
 }
 
 function toCard(raw: RawYaml, fallbackKind?: Card["kind"]): Card {
@@ -169,7 +259,7 @@ function compileSources(): GameCatalog | undefined {
   relationships.push(...relationshipSources.flatMap((source) => Array.isArray(source.relationships) ? source.relationships as Relationship[] : []));
 
   const gameplay = gameplaySource?.gameplay as GameCatalog["gameplay"] | undefined;
-  const catalog: GameCatalog = {
+  const catalog: GameCatalog = applyEditorialPatches({
     version: String(gameplaySource?.version ?? "0.1.0-editorial"),
     gameplay: gameplay ?? {
       discovery: { minInputs: 2, maxInputs: 5 },
@@ -180,7 +270,7 @@ function compileSources(): GameCatalog | undefined {
     constellations,
     packs,
     sources: sources.length > 0 ? sources : [{ id: "source.cardheon.editorial", title: "Cardhéon editorial source", type: "institution" }],
-  };
+  });
 
   const result = GameCatalogSchema.safeParse(catalog);
   return result.success ? (result.data as GameCatalog) : undefined;

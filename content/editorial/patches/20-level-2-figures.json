@@ -1,0 +1,53 @@
+{
+  "cardPatches": [
+    {
+      "id": "figure.florence-nightingale",
+      "set": {
+        "rarity": "uncommon",
+        "discovery": {
+          "figureId": "figure.florence-nightingale",
+          "minScore": 72,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "place.england", "weight": 25, "reason": "Angleterre" },
+            { "tag": "domain.science", "weight": 24, "reason": "Science appliquée" },
+            { "tag": "concept.faith", "weight": 23, "reason": "Vocation de soin" },
+            { "tag": "domain.nursing", "weight": 20, "reason": "Soins infirmiers" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "domain.nursing",
+          "domain.medicine"
+        ]
+      }
+    },
+    {
+      "id": "figure.mary-wollstonecraft",
+      "set": {
+        "rarity": "uncommon",
+        "discovery": {
+          "figureId": "figure.mary-wollstonecraft",
+          "minScore": 72,
+          "ambiguityMargin": 10,
+          "minEvidenceCount": 2,
+          "evidence": [
+            { "tag": "place.england", "weight": 25, "reason": "Angleterre" },
+            { "tag": "domain.philosophy", "weight": 24, "reason": "Philosophie" },
+            { "tag": "domain.literature", "weight": 23, "reason": "Littérature" },
+            { "tag": "period.18th-century", "weight": 18, "reason": "XVIIIe siècle" }
+          ],
+          "synergies": [],
+          "contradictions": []
+        },
+        "unlocksToolCardIds": [
+          "concept.feminism",
+          "concept.female-figure",
+          "work.vindication-rights-woman"
+        ]
+      }
+    }
+  ]
+}

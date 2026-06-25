@@ -1,5 +1,5 @@
 {
-  "version": "0.2.2-test",
+  "version": "0.3.0-test",
   "cards": [
     {
       "id": "civilization.ancient-egypt",
@@ -497,6 +497,24 @@
       ]
     },
     {
+      "id": "concept.power",
+      "slug": "concept-power",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Autorité"
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.power",
+          "weight": 100
+        }
+      ]
+    },
+    {
       "id": "concept.printing",
       "slug": "concept-printing",
       "kind": "concept",
@@ -624,6 +642,28 @@
         {
           "tag": "period.20th-century",
           "weight": 60
+        }
+      ]
+    },
+    {
+      "id": "concept.travel",
+      "slug": "concept-travel",
+      "kind": "concept",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Voyage"
+        }
+      },
+      "tags": [
+        {
+          "tag": "concept.travel",
+          "weight": 100
+        },
+        {
+          "tag": "domain.exploration",
+          "weight": 70
         }
       ]
     },
@@ -777,6 +817,29 @@
         {
           "tag": "domain.exploration",
           "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "domain.invention",
+      "slug": "domain-invention",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Invention",
+          "subtitle": "Création d'outils, d'idées et de techniques nouvelles"
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.invention",
+          "weight": 100
+        },
+        {
+          "tag": "domain.science",
+          "weight": 45
         }
       ]
     },
@@ -956,6 +1019,25 @@
       "tags": [
         {
           "tag": "domain.politics",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "domain.science",
+      "slug": "domain-science",
+      "kind": "domain",
+      "status": "published",
+      "rarity": "common",
+      "localization": {
+        "fr": {
+          "title": "Science",
+          "subtitle": "Savoir, observation et expérimentation"
+        }
+      },
+      "tags": [
+        {
+          "tag": "domain.science",
           "weight": 100
         }
       ]
@@ -2887,7 +2969,7 @@
       "slug": "figure-christopher-columbus",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "epic",
+      "rarity": "common",
       "localization": {
         "fr": {
           "title": "Christophe Colomb",
@@ -2921,46 +3003,36 @@
       ],
       "discovery": {
         "figureId": "figure.christopher-columbus",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 70,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "role.explorer",
-            "weight": 30,
-            "reason": "Explorateur"
-          },
-          {
-            "tag": "period.renaissance",
-            "weight": 22,
-            "reason": "Renaissance"
-          },
-          {
             "tag": "domain.exploration",
-            "weight": 18,
+            "weight": 25,
             "reason": "Exploration"
           },
           {
-            "tag": "place.spain",
-            "weight": 15,
-            "reason": "Espagne"
-          }
-        ],
-        "synergies": [
+            "tag": "period.renaissance",
+            "weight": 24,
+            "reason": "Renaissance"
+          },
           {
-            "id": "explorer-renaissance-spain",
-            "whenAll": [
-              "tag:role.explorer",
-              "card:place.spain",
-              "tag:period.renaissance"
-            ],
-            "weight": 15,
-            "reason": "Explorateur + Espagne + Renaissance"
+            "tag": "concept.travel",
+            "weight": 24,
+            "reason": "Voyage"
+          },
+          {
+            "tag": "role.explorer",
+            "weight": 18,
+            "reason": "Explorateur"
           }
         ],
+        "synergies": [],
         "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
+        "place.spain",
         "symbol.compass"
       ]
     },
@@ -2969,7 +3041,7 @@
       "slug": "figure-cleopatra",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "legendary",
+      "rarity": "common",
       "localization": {
         "fr": {
           "title": "Cléopâtre VII",
@@ -3007,8 +3079,8 @@
       ],
       "discovery": {
         "figureId": "figure.cleopatra",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 70,
+        "ambiguityMargin": 10,
         "evidence": [
           {
             "card": "civilization.ancient-egypt",
@@ -3016,53 +3088,28 @@
             "reason": "Égypte ancienne"
           },
           {
-            "tag": "role.ruler",
+            "card": "role.queen",
+            "weight": 35,
+            "reason": "Reine d'Égypte"
+          },
+          {
+            "tag": "place.egypt",
             "weight": 25,
-            "reason": "Pouvoir royal"
+            "reason": "Égypte"
           },
           {
             "tag": "period.antiquity",
-            "weight": 20,
+            "weight": 24,
             "reason": "Antiquité"
           },
           {
-            "tag": "concept.women-history",
-            "weight": 18,
-            "reason": "Femme historique"
-          }
-        ],
-        "synergies": [
-          {
-            "id": "egypt-queen",
-            "whenAll": [
-              "card:civilization.ancient-egypt",
-              "card:role.queen"
-            ],
+            "tag": "role.ruler",
             "weight": 24,
-            "reason": "Égypte ancienne + reine"
-          },
-          {
-            "id": "egypt-queen-woman",
-            "whenAll": [
-              "card:civilization.ancient-egypt",
-              "card:role.queen",
-              "card:concept.female-figure"
-            ],
-            "weight": 18,
-            "reason": "Égypte ancienne + reine + femme"
+            "reason": "Souveraineté"
           }
         ],
-        "contradictions": [
-          {
-            "id": "modern-science",
-            "whenAll": [
-              "card:period.20th-century",
-              "card:domain.physics"
-            ],
-            "weight": -25,
-            "reason": "La science moderne éloigne de Cléopâtre."
-          }
-        ],
+        "synergies": [],
+        "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
@@ -3074,7 +3121,7 @@
       "slug": "figure-florence-nightingale",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "epic",
+      "rarity": "uncommon",
       "localization": {
         "fr": {
           "title": "Florence Nightingale",
@@ -3112,46 +3159,36 @@
       ],
       "discovery": {
         "figureId": "figure.florence-nightingale",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 72,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "domain.nursing",
-            "weight": 35,
-            "reason": "Soins infirmiers"
-          },
-          {
             "tag": "place.england",
-            "weight": 22,
+            "weight": 25,
             "reason": "Angleterre"
           },
           {
-            "tag": "period.19th-century",
-            "weight": 18,
-            "reason": "XIXe siècle"
+            "tag": "domain.science",
+            "weight": 24,
+            "reason": "Science appliquée"
           },
           {
-            "tag": "concept.women-history",
-            "weight": 15,
-            "reason": "Femme pionnière"
-          }
-        ],
-        "synergies": [
+            "tag": "concept.faith",
+            "weight": 23,
+            "reason": "Vocation de soin"
+          },
           {
-            "id": "nursing-england-19th",
-            "whenAll": [
-              "tag:domain.nursing",
-              "card:place.england",
-              "tag:period.19th-century"
-            ],
-            "weight": 12,
-            "reason": "Soins infirmiers + Angleterre + XIXe"
+            "tag": "domain.nursing",
+            "weight": 20,
+            "reason": "Soins infirmiers"
           }
         ],
+        "synergies": [],
         "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
+        "domain.nursing",
         "domain.medicine"
       ]
     },
@@ -3716,7 +3753,7 @@
       "slug": "figure-joan-of-arc",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "epic",
+      "rarity": "common",
       "localization": {
         "fr": {
           "title": "Jeanne d’Arc",
@@ -3754,56 +3791,32 @@
       ],
       "discovery": {
         "figureId": "figure.joan-of-arc",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 70,
+        "ambiguityMargin": 10,
         "evidence": [
           {
             "tag": "place.france",
-            "weight": 30,
+            "weight": 25,
             "reason": "France"
           },
           {
             "tag": "period.middle-ages",
-            "weight": 28,
+            "weight": 24,
             "reason": "Moyen Âge"
           },
           {
-            "tag": "role.resistance",
-            "weight": 20,
-            "reason": "Résistance"
-          },
-          {
             "tag": "concept.faith",
-            "weight": 15,
+            "weight": 24,
             "reason": "Foi"
           }
         ],
-        "synergies": [
-          {
-            "id": "france-middle-ages-faith",
-            "whenAll": [
-              "card:place.france",
-              "tag:period.middle-ages",
-              "tag:concept.faith"
-            ],
-            "weight": 12,
-            "reason": "France médiévale + foi"
-          }
-        ],
-        "contradictions": [
-          {
-            "id": "modern-france",
-            "whenAll": [
-              "card:period.20th-century",
-              "card:concept.radioactivity"
-            ],
-            "weight": -25,
-            "reason": "Jeanne d’Arc est médiévale."
-          }
-        ],
+        "synergies": [],
+        "contradictions": [],
         "minEvidenceCount": 2
       },
-      "unlocksToolCardIds": []
+      "unlocksToolCardIds": [
+        "role.resistance"
+      ]
     },
     {
       "id": "figure.johannes-gutenberg",
@@ -3996,7 +4009,7 @@
       "slug": "figure-leonardo-da-vinci",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "legendary",
+      "rarity": "uncommon",
       "localization": {
         "fr": {
           "title": "Léonard de Vinci",
@@ -4034,47 +4047,32 @@
       ],
       "discovery": {
         "figureId": "figure.leonardo-da-vinci",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 70,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "domain.arts",
-            "weight": 30,
-            "reason": "Arts"
-          },
-          {
-            "tag": "period.renaissance",
-            "weight": 25,
-            "reason": "Renaissance"
-          },
-          {
             "tag": "place.italy",
-            "weight": 20,
+            "weight": 25,
             "reason": "Italie"
           },
           {
-            "tag": "role.artist",
-            "weight": 18,
-            "reason": "Artiste"
-          }
-        ],
-        "synergies": [
+            "tag": "period.renaissance",
+            "weight": 24,
+            "reason": "Renaissance"
+          },
           {
-            "id": "renaissance-artist-italy",
-            "whenAll": [
-              "tag:period.renaissance",
-              "tag:role.artist",
-              "card:place.italy"
-            ],
-            "weight": 18,
-            "reason": "Renaissance italienne + artiste"
+            "tag": "domain.arts",
+            "weight": 24,
+            "reason": "Arts"
           }
         ],
+        "synergies": [],
         "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
-        "work.mona-lisa"
+        "work.mona-lisa",
+        "role.inventor"
       ]
     },
     {
@@ -4164,7 +4162,7 @@
       "slug": "figure-marie-curie",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "legendary",
+      "rarity": "uncommon",
       "localization": {
         "fr": {
           "title": "Marie Curie",
@@ -4215,65 +4213,38 @@
       ],
       "discovery": {
         "figureId": "figure.marie-curie",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 72,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "domain.physics",
+            "tag": "domain.science",
             "weight": 25,
-            "reason": "Physique"
-          },
-          {
-            "tag": "place.france",
-            "weight": 22,
-            "reason": "France"
+            "reason": "Science"
           },
           {
             "tag": "period.20th-century",
-            "weight": 18,
+            "weight": 24,
             "reason": "XXe siècle"
           },
           {
-            "tag": "concept.women-history",
-            "weight": 22,
-            "reason": "Femme scientifique"
-          }
-        ],
-        "synergies": [
-          {
-            "id": "radioactivity-france",
-            "whenAll": [
-              "card:concept.radioactivity",
-              "card:place.france"
-            ],
-            "weight": 15,
-            "reason": "Radioactivité + France"
+            "tag": "place.france",
+            "weight": 24,
+            "reason": "France"
           },
           {
-            "id": "scientist-france-20th",
-            "whenAll": [
-              "tag:role.scientist",
-              "card:place.france",
-              "tag:period.20th-century"
-            ],
-            "weight": 12,
-            "reason": "Scientifique + France + XXe"
+            "tag": "role.scientist",
+            "weight": 18,
+            "reason": "Scientifique"
           }
         ],
-        "contradictions": [
-          {
-            "id": "ancient-egypt-radioactivity",
-            "whenAll": [
-              "card:period.antiquity",
-              "card:concept.radioactivity"
-            ],
-            "weight": -30,
-            "reason": "La radioactivité moderne contredit l’Antiquité."
-          }
-        ],
+        "synergies": [],
+        "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
+        "domain.physics",
+        "domain.chemistry",
+        "concept.radioactivity",
         "place.poland"
       ]
     },
@@ -4282,7 +4253,7 @@
       "slug": "figure-martin-luther-king",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "legendary",
+      "rarity": "uncommon",
       "localization": {
         "fr": {
           "title": "Martin Luther King Jr.",
@@ -4320,54 +4291,33 @@
       ],
       "discovery": {
         "figureId": "figure.martin-luther-king",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 72,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "concept.civil-rights",
-            "weight": 30,
-            "reason": "Droits civiques"
-          },
-          {
             "tag": "place.usa",
-            "weight": 22,
+            "weight": 25,
             "reason": "États-Unis"
           },
           {
-            "tag": "role.pastor",
-            "weight": 18,
-            "reason": "Pasteur"
-          },
-          {
             "tag": "period.20th-century",
-            "weight": 15,
+            "weight": 24,
             "reason": "XXe siècle"
-          }
-        ],
-        "synergies": [
-          {
-            "id": "civil-rights-usa",
-            "whenAll": [
-              "card:concept.civil-rights",
-              "card:place.usa"
-            ],
-            "weight": 15,
-            "reason": "Droits civiques + USA"
           },
           {
-            "id": "non-violence-pastor",
-            "whenAll": [
-              "card:concept.non-violence",
-              "tag:role.pastor"
-            ],
-            "weight": 12,
-            "reason": "Non-violence + pasteur"
+            "tag": "domain.politics",
+            "weight": 24,
+            "reason": "Politique"
           }
         ],
+        "synergies": [],
         "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
+        "concept.civil-rights",
+        "concept.non-violence",
+        "role.pastor",
         "event.american-civil-rights"
       ]
     },
@@ -4376,7 +4326,7 @@
       "slug": "figure-mary-wollstonecraft",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "epic",
+      "rarity": "uncommon",
       "localization": {
         "fr": {
           "title": "Mary Wollstonecraft",
@@ -4418,51 +4368,37 @@
       ],
       "discovery": {
         "figureId": "figure.mary-wollstonecraft",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 72,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "domain.philosophy",
-            "weight": 24,
-            "reason": "Philosophie politique"
-          },
-          {
-            "card": "place.england",
-            "weight": 18,
+            "tag": "place.england",
+            "weight": 25,
             "reason": "Angleterre"
           },
           {
-            "tag": "concept.women-history",
-            "weight": 20,
-            "reason": "Droits des femmes"
+            "tag": "domain.philosophy",
+            "weight": 24,
+            "reason": "Philosophie"
           },
           {
-            "card": "concept.feminism",
-            "weight": 32,
-            "reason": "Féminisme"
+            "tag": "domain.literature",
+            "weight": 23,
+            "reason": "Littérature"
           },
           {
             "tag": "period.18th-century",
-            "weight": 16,
+            "weight": 18,
             "reason": "XVIIIe siècle"
           }
         ],
-        "synergies": [
-          {
-            "id": "women-philosophy-england",
-            "whenAll": [
-              "tag:domain.philosophy",
-              "card:concept.female-figure",
-              "card:place.england"
-            ],
-            "weight": 16,
-            "reason": "Philosophie + droits des femmes + Angleterre"
-          }
-        ],
+        "synergies": [],
         "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
+        "concept.feminism",
+        "concept.female-figure",
         "work.vindication-rights-woman"
       ]
     },
@@ -5006,7 +4942,7 @@
       "slug": "figure-socrate",
       "kind": "figure",
       "status": "reviewed",
-      "rarity": "epic",
+      "rarity": "common",
       "localization": {
         "fr": {
           "title": "Socrate",
@@ -5044,47 +4980,32 @@
       ],
       "discovery": {
         "figureId": "figure.socrate",
-        "minScore": 82,
-        "ambiguityMargin": 12,
+        "minScore": 70,
+        "ambiguityMargin": 10,
         "evidence": [
           {
-            "tag": "domain.philosophy",
-            "weight": 30,
-            "reason": "Philosophie"
-          },
-          {
-            "card": "place.athens",
-            "weight": 30,
-            "reason": "Athènes"
+            "tag": "place.greece",
+            "weight": 25,
+            "reason": "Grèce"
           },
           {
             "tag": "period.antiquity",
-            "weight": 22,
+            "weight": 24,
             "reason": "Antiquité"
           },
           {
-            "tag": "concept.socratic-method",
-            "weight": 20,
-            "reason": "Méthode socratique"
+            "tag": "domain.philosophy",
+            "weight": 24,
+            "reason": "Philosophie"
           }
         ],
-        "synergies": [
-          {
-            "id": "athens-philosophy-antiquity",
-            "whenAll": [
-              "card:place.athens",
-              "tag:domain.philosophy",
-              "tag:period.antiquity"
-            ],
-            "weight": 15,
-            "reason": "Athènes antique + philosophie"
-          }
-        ],
+        "synergies": [],
         "contradictions": [],
         "minEvidenceCount": 2
       },
       "unlocksToolCardIds": [
-        "concept.socratic-method"
+        "concept.socratic-method",
+        "place.athens"
       ]
     }
   ],
@@ -7012,11 +6933,6 @@
         }
       },
       "starterCardIds": [
-        "domain.mathematics",
-        "domain.physics",
-        "domain.biology",
-        "domain.philosophy",
-        "domain.arts",
         "period.antiquity",
         "period.middle-ages",
         "period.renaissance",
@@ -7026,42 +6942,52 @@
         "place.italy",
         "place.greece",
         "place.egypt",
+        "place.usa",
+        "domain.science",
+        "domain.arts",
+        "domain.philosophy",
+        "domain.politics",
+        "domain.exploration",
         "role.ruler",
-        "concept.female-figure",
+        "role.scientist",
+        "role.artist",
+        "role.philosopher",
+        "role.explorer",
         "concept.faith",
-        "role.resistance"
+        "concept.power",
+        "concept.travel"
       ],
       "cardPoolIds": [
-        "figure.marie-curie",
         "figure.cleopatra",
         "figure.socrate",
         "figure.joan-of-arc",
         "figure.leonardo-da-vinci",
-        "figure.martin-luther-king",
-        "figure.rosa-parks",
+        "figure.marie-curie",
         "figure.christopher-columbus",
+        "figure.martin-luther-king",
+        "figure.isaac-newton",
         "figure.galileo-galilei",
-        "figure.boudica",
+        "figure.charles-darwin",
+        "figure.johannes-gutenberg",
+        "figure.rosa-parks",
+        "figure.nelson-mandela",
+        "figure.hypatia",
+        "figure.florence-nightingale",
+        "figure.plato",
+        "figure.aristote",
+        "figure.ada-lovelace",
+        "figure.katherine-johnson",
         "figure.pierre-curie",
         "figure.irene-joliot-curie",
-        "figure.hypatia",
+        "figure.rosalind-franklin",
+        "figure.mary-wollstonecraft",
+        "figure.ibn-sina",
+        "figure.boudica",
         "figure.hatshepsout",
-        "figure.isaac-newton",
-        "figure.charles-darwin",
-        "figure.ada-lovelace",
-        "figure.florence-nightingale",
-        "figure.nelson-mandela",
         "figure.marco-polo",
         "figure.ashoka",
         "figure.catherine-de-medici",
-        "figure.simon-bolivar",
-        "figure.plato",
-        "figure.aristote",
-        "figure.rosalind-franklin",
-        "figure.katherine-johnson",
-        "figure.ibn-sina",
-        "figure.mary-wollstonecraft",
-        "figure.johannes-gutenberg"
+        "figure.simon-bolivar"
       ]
     }
   ],
@@ -7120,26 +7046,26 @@
       {
         "id": "recipe.radioactivity",
         "inputs": [
-          "domain.physics",
-          "domain.mathematics"
+          "domain.science",
+          "period.20th-century"
         ],
         "outputCardId": "concept.radioactivity",
         "localization": {
           "fr": {
-            "reason": "La radioactivité est une découverte de la physique mathématique."
+            "reason": "La radioactivité appartient aux sciences modernes du XXe siècle."
           }
         }
       },
       {
         "id": "recipe.astronomy",
         "inputs": [
-          "domain.physics",
+          "domain.science",
           "period.renaissance"
         ],
         "outputCardId": "domain.astronomy",
         "localization": {
           "fr": {
-            "reason": "L’astronomie moderne naît de la physique et de la Renaissance."
+            "reason": "L’astronomie moderne naît de la science et de la Renaissance."
           }
         }
       },
@@ -7186,12 +7112,12 @@
         "id": "recipe.athens",
         "inputs": [
           "place.greece",
-          "domain.philosophy"
+          "period.antiquity"
         ],
         "outputCardId": "place.athens",
         "localization": {
           "fr": {
-            "reason": "Athènes devient le foyer de la philosophie grecque."
+            "reason": "Athènes devient un foyer majeur de la Grèce antique."
           }
         }
       },
@@ -7199,12 +7125,12 @@
         "id": "recipe.alexandria",
         "inputs": [
           "place.egypt",
-          "domain.mathematics"
+          "period.antiquity"
         ],
         "outputCardId": "place.alexandria",
         "localization": {
           "fr": {
-            "reason": "Alexandrie devient le centre des savoirs mathématiques."
+            "reason": "Alexandrie devient un centre majeur de l’Égypte antique."
           }
         }
       },
@@ -7237,26 +7163,26 @@
       {
         "id": "recipe.explorer",
         "inputs": [
-          "role.resistance",
-          "period.renaissance"
+          "domain.exploration",
+          "concept.travel"
         ],
         "outputCardId": "role.explorer",
         "localization": {
           "fr": {
-            "reason": "L’esprit d’aventure renaît de la Renaissance."
+            "reason": "L’explorateur naît de l’exploration et du voyage."
           }
         }
       },
       {
         "id": "recipe.civil-rights",
         "inputs": [
-          "concept.female-figure",
+          "domain.politics",
           "role.resistance"
         ],
         "outputCardId": "concept.civil-rights",
         "localization": {
           "fr": {
-            "reason": "La résistance des femmes préfigure les droits civiques."
+            "reason": "Les droits civiques émergent de la politique et de la résistance."
           }
         }
       },
@@ -7302,13 +7228,13 @@
       {
         "id": "recipe.usa",
         "inputs": [
-          "place.england",
+          "domain.politics",
           "period.20th-century"
         ],
         "outputCardId": "place.usa",
         "localization": {
           "fr": {
-            "reason": "Les États-Unis émergent comme puissance du XXe siècle."
+            "reason": "Les États-Unis s’affirment comme puissance politique du XXe siècle."
           }
         }
       },
@@ -7354,13 +7280,13 @@
       {
         "id": "recipe.india",
         "inputs": [
-          "place.egypt",
-          "period.middle-ages"
+          "domain.exploration",
+          "period.antiquity"
         ],
         "outputCardId": "place.india",
         "localization": {
           "fr": {
-            "reason": "L’Inde médiévale s’illumine comme l’Égypte."
+            "reason": "L’exploration des mondes anciens ouvre vers l’Inde."
           }
         }
       },
